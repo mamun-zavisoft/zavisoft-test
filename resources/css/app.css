@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap');
 @import 'tailwindcss';
 /* Import Flowbite Vue styles */
 @import "flowbite-vue/index.css";
@@ -14,8 +15,77 @@
 @source '../**/*.js';
 
 @theme {
-    --font-sans: 'Instrument Sans', ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji',
-        'Segoe UI Symbol', 'Noto Color Emoji';
+    --font-sans: 'Plus Jakarta Sans', ui-sans-serif, system-ui, sans-serif,
+        'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+}
+
+html,
+body {
+    font-family: 'Plus Jakarta Sans', ui-sans-serif, system-ui, sans-serif;
+}
+
+/* Colors */
+@theme {
+    --color-primary-50: #E7F7F7;
+    --color-primary-100: #B4E7E6;
+    --color-primary-200: #90DCDA;
+    --color-primary-300: #5ECCC9;
+    --color-primary-400: #3EC2BF;
+    --color-primary-500: #0EB3AF;
+    --color-primary-600: #0DA39F;
+    --color-primary-700: #0A7F7C;
+    --color-primary-800: #086260;
+    --color-primary-900: #064B4A;
+
+    --color-secondary-50: #e9e8f0;
+    --color-secondary-100: #c9c8dc;
+    --color-secondary-200: #9f9dc0;
+    --color-secondary-300: #736fa3;
+    --color-secondary-400: #484487;
+    --color-secondary-500: #201b6d;
+    --color-secondary-600: #1b175d;
+    --color-secondary-700: #17134d;
+    --color-secondary-800: #120f3e;
+    --color-secondary-900: #0e0c31;
+    --color-secondary-950: #060517;
+
+    /* Neutral Colors */
+    --color-neutral-50: #f8fafc;
+    --color-neutral-100: #f1f5f9;
+    --color-neutral-200: #e2e8f0;
+    --color-neutral-300: #cbd5e1;
+    --color-neutral-400: #94a3b8;
+    --color-neutral-500: #64748b;
+    --color-neutral-600: #475569;
+    --color-neutral-700: #334155;
+    --color-neutral-800: #1e293b;
+    --color-neutral-900: #0f172a;
+    --color-neutral-950: #020617;
+
+    /* Success Colors */
+    --color-success-500: #22c55e;
+    --color-success-600: #16a34a;
+    --color-success-700: #15803d;
+
+    /* Info Colors */
+    --color-info-500: #3b82f6;
+    --color-info-600: #2563eb;
+    --color-info-700: #1d4ed8;
+
+    /* Warning Colors */
+    --color-warning-500: #eab308;
+    --color-warning-600: #ca8a04;
+    --color-warning-700: #a16207;
+
+    /* Danger Colors */
+    --color-danger-500: #ef4444;
+    --color-danger-600: #dc2626;
+    --color-danger-700: #b91c1c;
+
+    /* Orange Colors */
+    --color-orange-500: #f97316;
+    --color-orange-600: #ea580c;
+    --color-orange-700: #c2410c;
 }
 
 

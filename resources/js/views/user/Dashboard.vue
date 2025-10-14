@@ -15,13 +15,7 @@
             </button>
         </div>
 
-        <!-- Recent Orders -->
-        <div class="bg-white shadow rounded-lg overflow-hidden">
-            <div class="px-6 py-4 border-b border-gray-200">
-                <h2 class="text-lg font-medium text-gray-900">Recent Orders</h2>
-            </div>
-            <OrderList :orders="recentOrders" />
-        </div>
+        
     </div>
 </template>
 
@@ -29,7 +23,6 @@
     import {
         ref
     } from 'vue';
-    import OrderList from '@/components/OrderList.vue';
     import {
         CreditCardIcon,
         DocumentTextIcon,

@@ -4,14 +4,15 @@
         <header>
             <nav class="bg-white/50 backdrop-blur sticky top-0 z-40">
                 <div class="max-w-7xl mx-auto px-4 py-4 flex items-center justify-between">
-                    <router-link to="#" class="flex items-center gap-3">
-                        <img src="@/assets/images/icons/logo.svg" alt="Zavisoft" class="h-8 w-auto" />
+                    <router-link to="/" class="flex items-center gap-3">
+                        <img src="@/assets/images/icons/logo.svg" alt="Zavisoft" class="h-9 w-auto" />
                     </router-link>
                     <div class="hidden md:flex items-center gap-6">
                         <router-link to="#" class="text-slate-700 hover:text-teal-600">Services</router-link>
                         <router-link to="#" class="text-slate-700 hover:text-teal-600">Work</router-link>
                         <router-link to="#" class="text-slate-700 hover:text-teal-600">About</router-link>
                         <router-link to="#" class="px-4 py-2 rounded-md bg-teal-600 text-white">Contact</router-link>
+                        <NavigatePrimaryButton text="Schedule a call" to="/about" />
 
                         <fwb-dropdown>
                             <template #trigger>
@@ -161,6 +162,7 @@ import { computed } from 'vue';
 import { useAuthStore } from '@/stores/auth';
 import { FwbDropdown } from 'flowbite-vue';
 import { FwbButton } from 'flowbite-vue';
+import NavigatePrimaryButton from '@/components/ui/button/NavigatePrimary.vue';
 const auth = useAuthStore();
 
 const allNavigation = [
