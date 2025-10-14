@@ -8,25 +8,25 @@ const routes = [
     {
         path: "/",
         name: "Home",
-        component: () => import("@/pages/frontend/Home.vue"),
+        component: () => import("@/views/frontend/Home.vue"),
         meta: { layout: LayoutFrontend, title: "Home" },
     },
     {
         path: "/about",
         name: "About",
-        component: () => import("@/pages/frontend/About.vue"),
+        component: () => import("@/views/frontend/About.vue"),
         meta: { layout: LayoutFrontend, title: "About" },
     },
     {
         path: "/contact",
         name: "Contact",
-        component: () => import("@/pages/frontend/Contact.vue"),
+        component: () => import("@/views/frontend/Contact.vue"),
         meta: { layout: LayoutFrontend, title: "Contact" },
     },
     {
         path: "/login",
         name: "Login",
-        component: () => import("@/pages/auth/Login.vue"),
+        component: () => import("@/views/auth/Login.vue"),
         meta: {
             layout: LayoutAuth,
             title: "Login",
@@ -36,7 +36,7 @@ const routes = [
     {
         path: "/register",
         name: "Register",
-        component: () => import("@/pages/auth/Register.vue"),
+        component: () => import("@/views/auth/Register.vue"),
         meta: {
             layout: LayoutAuth,
             title: "Register",
@@ -46,7 +46,7 @@ const routes = [
     {
         path: "/verify-email",
         name: "VerifyEmail",
-        component: () => import("@/pages/auth/VerifyEmail.vue"),
+        component: () => import("@/views/auth/VerifyEmail.vue"),
         meta: {
             layout: LayoutAuth,
             title: "Verify Email",
@@ -57,7 +57,7 @@ const routes = [
     {
         path: "/forgot-password",
         name: "ForgotPassword",
-        component: () => import("@/pages/auth/ForgotPassword.vue"),
+        component: () => import("@/views/auth/ForgotPassword.vue"),
         meta: {
             layout: LayoutAuth,
             title: "Forgot Password",
@@ -67,7 +67,7 @@ const routes = [
     {
         path: "/admin/dashboard",
         name: "AdminDashboard",
-        component: () => import("@/pages/admin/Dashboard.vue"),
+        component: () => import("@/views/admin/Dashboard.vue"),
         meta: {
             layout: LayoutAdmin,
             title: "Admin Dashboard",
@@ -78,7 +78,7 @@ const routes = [
     {
         path: "/user/dashboard",
         name: "UserDashboard",
-        component: () => import("@/pages/user/Dashboard.vue"),
+        component: () => import("@/views/user/Dashboard.vue"),
         meta: {
             layout: LayoutUser,
             title: "User Dashboard",
@@ -89,7 +89,7 @@ const routes = [
     {
         path: "/unauthorized",
         name: "Unauthorized",
-        component: () => import("@/pages/errors/Unauthorized.vue"),
+        component: () => import("@/views/errors/Unauthorized.vue"),
         meta: {
             layout: LayoutError,
             title: "Unauthorized Access",
@@ -106,7 +106,7 @@ const routes = [
             // Otherwise show 404 page
             return true;
         },
-        component: () => import("@/pages/errors/NotFound.vue"),
+        component: () => import("@/views/errors/NotFound.vue"),
         meta: {
             layout: LayoutError,
             title: "Page Not Found",
