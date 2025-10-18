@@ -1,8 +1,13 @@
 <template>
-    <header class="w-full bg-white  px-4 py-3 rounded-full">
+    <header
+        :class="['w-full bg-white px-4 py-2 sm:py-2.5 md:py-3 relative', mobileMenuOpen ? 'rounded-tr-lg rounded-tl-lg' : 'rounded-full']">
         <div class="flex justify-between items-center">
             <!-- Logo & Navigation -->
-            <div class="flex items-center gap-5">
+            <div class="flex items-center gap-5 justify-between w-full lg:w-auto">
+                <router-link to="/" class="flex items-center gap-2">
+                    <img src="@/assets/images/icons/logo.svg" alt="Logo"
+                        class="h-8 w-auto max-w-[100px] sm:max-w-[120px] lg:max-w-[140px]" />
+                </router-link>
                 <button @click="toggleMobileMenu"
                     class="lg:hidden p-2 rounded-md focus:outline-none focus:ring focus:ring-primary-200">
                     <svg v-if="!mobileMenuOpen" class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none"
@@ -16,11 +21,6 @@
                             d="M6 18L18 6M6 6l12 12" />
                     </svg>
                 </button>
-
-                <router-link to="/" class="flex items-center gap-2">
-                    <img src="@/assets/images/icons/logo.svg" alt="Logo"
-                        class="h-8 w-auto max-w-[100px] sm:max-w-[120px] lg:max-w-[140px]" />
-                </router-link>
             </div>
             <div class="menu-link">
                 <nav class="hidden lg:flex lg:gap-4 xl:gap-6 items-center">
@@ -37,28 +37,7 @@
                             </div>
                         </template>
 
-                        <nav class="py-2 text-sm" role="menu">
-                            <router-link to="/services/ui-ux-design-audit"
-                                class="block px-4 py-2 text-sm text-neutral-900 font-medium" role="menuitem">UI/UX
-                                Design &
-                                Audit</router-link>
-                            <router-link to="/services/software-development"
-                                class="block px-4 py-2 text-neutral-900 font-medium" role="menuitem">Software
-                                Development</router-link>
-                            <router-link to="/services/web-development"
-                                class="block px-4 py-2 text-neutral-900 font-medium" role="menuitem">Web
-                                Development</router-link>
-                            <router-link to="/services/mobile-app-development"
-                                class="block px-4 py-2 text-neutral-900 font-medium" role="menuitem">Mobile
-                                App
-                                Development</router-link>
-                            <router-link to="/services/qa-testing" class="block px-4 py-2 text-neutral-900 font-medium"
-                                role="menuitem">QA
-                                Testing</router-link>
-                            <router-link to="/services/database-management"
-                                class="block px-4 py-2 text-neutral-900 font-medium" role="menuitem">Database
-                                Management</router-link>
-                        </nav>
+                        <NavRoute />
                     </fwb-dropdown>
 
                     <router-link to="/casestudy"
@@ -91,34 +70,10 @@
         <!-- Mobile Menu -->
         <transition name="slide-down">
             <div v-show="mobileMenuOpen"
-                class="absolute top-full left-4 right-4 w-auto bg-white p-4 flex-col gap-4 lg:hidden z-50 shadow-lg rounded-lg">
-                <nav class="text-sm flex flex-col gap-2" role="menu">
-                    <router-link to="/services/ui-ux-design-audit" class="block px-4 py-2 text-neutral-900 font-medium"
-                        role="menuitem">
-                        UI/UX Design & Audit
-                    </router-link>
-                    <router-link to="/services/software-development"
-                        class="block px-4 py-2 text-neutral-900 font-medium" role="menuitem">
-                        Software Development
-                    </router-link>
-                    <router-link to="/services/web-development" class="block px-4 py-2 text-neutral-900 font-medium"
-                        role="menuitem">
-                        Web Development
-                    </router-link>
-                    <router-link to="/services/mobile-app-development"
-                        class="block px-4 py-2 text-neutral-900 font-medium" role="menuitem">
-                        Mobile App Development
-                    </router-link>
-                    <router-link to="/services/qa-testing" class="block px-4 py-2 text-neutral-900 font-medium"
-                        role="menuitem">
-                        QA Testing
-                    </router-link>
-                    <router-link to="/services/database-management" class="block px-4 py-2 text-neutral-900 font-medium"
-                        role="menuitem">
-                        Database Management
-                    </router-link>
-                </nav>
-                <nav class="flex flex-col gap-2" role="menu">
+                class="slide-down absolute top-full  w-auto bg-white lg:hidden z-50 shadow-lg rounded-br-lg rounded-bl-lg">
+                <NavRoute />
+
+                <nav class="flex flex-col gap-2 px-4 mt-4" role="menu">
                     <router-link to="/casestudy"
                         class="px-2 py-1 text-sm font-medium text-neutral-900  transition-colors">
                         Case Study
@@ -134,7 +89,8 @@
                     </router-link>
                 </nav>
 
-                <div class="flex gap-3 border-t pt-3 border-neutral-200 justify-between">
+                <div
+                    class="px-4 flex flex-col sm:flex-row gap-4 border-t mt-4 pt-3 border-neutral-200 sm:justify-between justify-center items-center mb-4">
                     <a href="https://wa.me/8801234567890" target="_blank" rel="noopener noreferrer"
                         class="flex items-center gap-1.5">
                         <img src="@/assets/images/icons/whatsapp_24.svg" alt="Phone" class="h-6 w-6" />
@@ -152,6 +108,7 @@
 <script setup>
 import { ref } from 'vue';
 import NavigatePrimaryButton from '@/components/ui/button/NavigatePrimary.vue';
+import NavRoute from '@/components/header/NavRoute.vue';
 import { FwbDropdown } from 'flowbite-vue';
 
 const mobileMenuOpen = ref(false);

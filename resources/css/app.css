@@ -94,11 +94,20 @@ body {
     margin: 0 auto;
 }
 
+/* .megaMenu {
+    position: unset !important;
+} */
+
 .megaMenu .absolute.z-10 {
-    bottom: -234px !important;
-    width: 220px;
+    bottom: -344px !important;
+    width: 900px;
+    border-radius: 8px !important;
 }
 
+.slide-down {
+    left: 0 !important;
+    width: 100% !important;
+}
 
 
 /* hamburger button animations */
@@ -136,5 +145,11 @@ body {
         max-width: 100%;
         width: 100%;
         padding: 0 16px;
+    }
+}
+
+@media (max-width: 1280px) {
+    .megaMenu .absolute.z-10 {
+        width: 800px !important;
     }
 }
