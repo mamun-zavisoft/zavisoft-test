@@ -153,3 +153,105 @@ body {
         width: 800px !important;
     }
 }
+
+
+:root {
+    --marquee-width: 100%;
+    --marquee-height: 64px;
+
+    /* how many are visible at once */
+    --marquee-elements-displayed: 6;
+
+    /* width of a single item */
+    --marquee-element-width: calc(var(--marquee-width) / var(--marquee-elements-displayed));
+
+    /* ⬇️ this MUST exist; it’s set in JS above */
+    --marquee-elements: 1;
+
+    /* total duration scales with number of elements */
+    --marquee-animation-duration: calc(var(--marquee-elements) * 6s);
+}
+
+.partner-row {
+    width: 100%;
+}
+
+.marquee {
+    width: var(--marquee-width);
+    height: var(--marquee-height);
+    background: #fff;
+    overflow: hidden;
+    position: relative;
+}
+
+.marquee::before,
+.marquee::after {
+    position: absolute;
+    top: 0;
+    width: 10rem;
+    height: 100%;
+    content: "";
+    z-index: 2;
+    pointer-events: none;
+}
+
+.marquee::before {
+    left: 0;
+    background: linear-gradient(to right, #fff 0%, transparent 100%);
+}
+
+.marquee::after {
+    right: 0;
+    background: linear-gradient(to left, #fff 0%, transparent 100%);
+}
+
+.marquee-content {
+    list-style: none;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    animation: scrolling var(--marquee-animation-duration) linear infinite;
+    padding: 0;
+    margin: 0;
+    gap: 8px;
+}
+
+.marquee-content--reverse {
+    animation-direction: reverse;
+}
+
+@keyframes scrolling {
+    0% {
+        transform: translateX(0);
+    }
+
+    100% {
+        transform: translateX(calc(-1 * var(--marquee-element-width) * var(--marquee-elements)));
+    }
+}
+
+.marquee-content li {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-shrink: 0;
+    width: var(--marquee-element-width);
+    /* height: 100%; */
+    /* padding: 8px; */
+}
+
+.marquee-content li img {
+    height: 32px;
+}
+
+@media (max-width: 768px) {
+    :root {
+        --marquee-elements-displayed: 3;
+
+    }
+
+    .marquee::before,
+    .marquee::after {
+        width: 5rem;
+    }
+}

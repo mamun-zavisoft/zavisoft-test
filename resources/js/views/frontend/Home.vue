@@ -42,8 +42,16 @@
                 </div>
             </div>
             <div class="hero-slider mt-4">
-                slider
+                <HeroSlider :images="slides" :interval="3200" :autoplay="true" />
             </div>
+        </div>
+    </section>
+
+    <section>
+        <div class="container">
+            <h5 class=" text-base font-semibold text-neutral-900 text-center mb-3">Our recent clients & partners</h5>
+            <PartnerMarquee />
+            <PartnerMarquee :reverse="true" />
         </div>
     </section>
 
@@ -359,4 +367,14 @@
 import bgImg from '@/assets/images/hero_bg.webp';
 import NavigateSecondaryButton from '@/components/ui/button/NavigateSecondary.vue';
 import StartBuilding from '@/components/section/StartBuilding.vue';
+import HeroSlider from '@/components/ui/button/slider/HeroSlider.vue';
+import PartnerMarquee from '@/components/ui/button/slider/PatnerMarquee.vue';
+const slides = [
+    '@/assets/images/team_image.svg',
+    '@/assets/images/team_image.svg',
+    '@/assets/images/team_image.svg',
+    '@/assets/images/team_image.svg',
+    '@/assets/images/team_image.svg',
+];
+
 </script>
