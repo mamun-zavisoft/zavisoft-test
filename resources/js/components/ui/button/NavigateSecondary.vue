@@ -1,6 +1,6 @@
 <template>
     <button @click="redirectTo"
-        class="px-4 py-3 bg-transparent border font-semibold border-neutral-900 text-neutral-900 rounded-full transition-colors duration-300 cursor-pointer">
+        class="px-3 md:px-4 py-2 lg:py-3 text-sm lg:text-base bg-transparent border font-semibold border-neutral-900 text-neutral-900 rounded-full transition-colors duration-300 cursor-pointer">
         {{ text }}
     </button>
 </template>
