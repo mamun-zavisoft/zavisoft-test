@@ -3,14 +3,17 @@
         <div class="hero relative w-full h-screen bg-no-repeat bg-center bg-cover mt-[-120px]"
             :style="{ backgroundImage: `url(${bgImg})` }">
             <div class="container">
-                <div class="hero-content text-center text-white pt-40 flex flex-col items-center gap-3">
+                <div
+                    class="hero-content text-center text-white pt-24 md:pt-30 lg:pt-36 xl:pt-40 flex flex-col items-center gap-3">
                     <div class="bg-white rounded-full px-4 py-1.5 text-primary-500">
                         <span class="w-2 h-2 rounded-full bg-primary-500 inline-block mr-2"></span>
                         <span class="text-sm font-semibold"> Top Software Development Company</span>
                     </div>
-                    <h1 class="hero-title text-4xl lg:text-7xl font-bold mb-4 text-neutral-900">Transforming Ideas, into
+                    <h1
+                        class="hero-title text-3xl md:text-4xl lg:text-5xl xl:text-7xl font-bold mb-2 lg:mb-4 text-neutral-900">
+                        Transforming Ideas, into
                         reality
-                        with
+                        with <br>
                         <span class="text-neutral-500">Software Solutions</span>
                     </h1>
                     <p class="hero-description text-base font-normal md:text-lg text-neutral-500">Our expert team
@@ -18,17 +21,17 @@
                         innovative, tailored
                         software to
                         help your business thrive in today’s digital landscape.</p>
-                    <div class="heroaction flex mt-8 justify-center gap-2 flex-col md:flex-row items-center">
+                    <div class="heroaction flex mt-6 lg:mt-8 justify-center gap-2 items-center">
                         <router-link to="#"
-                            class="bg-primary-500 px-4 py-3 rounded-full flex gap-3 text-base items-center">
+                            class="bg-primary-500 px-3 md:px-4 py-2 lg:py-3 rounded-full flex gap-3 text-sm lg:text-base items-center">
                             <span class="font-medium">Contact us</span>
                             <div class="flex items-center justify-center md:justify-end -space-x-2">
                                 <img src="@/assets/images/icons/user_20.svg" alt="Person 1"
-                                    class="w-8 h-8 rounded-full border-2 border-white object-cover" />
+                                    class="w-5 h-5 lg:w-7 lg:h-7 rounded-full border-2 border-white object-cover" />
                                 <img src="@/assets/images/icons/user_20.svg" alt="Person 2"
-                                    class="w-8 h-8 rounded-full border-2 border-white object-cover" />
+                                    class="w-5 h-5 lg:w-7 lg:h-7 rounded-full border-2 border-white object-cover" />
                                 <img src="@/assets/images/icons/user_20.svg" alt="Person 3"
-                                    class="w-8 h-8 rounded-full border-2 border-white object-cover" />
+                                    class="w-5 h-5 lg:w-7 lg:h-7 rounded-full border-2 border-white object-cover" />
                             </div>
                         </router-link>
 
@@ -38,6 +41,17 @@
 
                 </div>
             </div>
+            <div class="hero-slider mt-4">
+                <HeroSlider :images="slides" :interval="3200" :autoplay="true" />
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <div class="container">
+            <h5 class=" text-base font-semibold text-neutral-900 text-center mb-3">Our recent clients & partners</h5>
+            <PartnerMarquee />
+            <PartnerMarquee :reverse="true" />
         </div>
     </section>
 
@@ -353,4 +367,14 @@
 import bgImg from '@/assets/images/hero_bg.webp';
 import NavigateSecondaryButton from '@/components/ui/button/NavigateSecondary.vue';
 import StartBuilding from '@/components/section/StartBuilding.vue';
+import HeroSlider from '@/components/ui/button/slider/HeroSlider.vue';
+import PartnerMarquee from '@/components/ui/button/slider/PatnerMarquee.vue';
+const slides = [
+    '@/assets/images/team_image.svg',
+    '@/assets/images/team_image.svg',
+    '@/assets/images/team_image.svg',
+    '@/assets/images/team_image.svg',
+    '@/assets/images/team_image.svg',
+];
+
 </script>
