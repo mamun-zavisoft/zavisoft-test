@@ -333,3 +333,9 @@ body {
         border: 0px solid var(--color-neutral-200);
     }
 }
+
+@media (max-width: 767px) {
+    .growth .ele {
+        display: none;
+    }
+}
