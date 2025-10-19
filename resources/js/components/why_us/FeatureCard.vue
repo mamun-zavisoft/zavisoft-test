@@ -21,8 +21,8 @@
             }" @swiper="onSwiper" @slideChange="onSlideChange">
             <SwiperSlide v-for="(service, index) in services" :key="index">
                 <article class="feature-card">
-                    <img :src="service.icon" alt="" class="mb-1 h-10 w-10 object-contain" />
-                    <h3 class="mb-2 text-lg font-bold text-neutral-900">{{ service.name }}</h3>
+                    <img :src="service.icon" alt="" class="mb-1 h-9 w-9 object-contain" />
+                    <h3 class="mb-2 text-base font-bold text-neutral-900">{{ service.name }}</h3>
                     <p class="text-sm leading-relaxed text-neutral-600 line-clamp-3">
                         {{ service.content }}
                     </p>

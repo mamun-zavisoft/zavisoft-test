@@ -297,8 +297,32 @@
     </section>
 
 
-    <section class="py-20  bg-white">
+    <section class="py-8 md:py-10 lg:py-12">
         <StartBuilding />
+    </section>
+
+    <section class="py-8 md:py-10 lg:py-12">
+        <div class="container">
+            <!-- Header -->
+            <span
+                class="inline-block text-sm font-medium border border-neutral-300 text-neutral-900 bg-neutral-100 px-3 py-1 rounded-full mb-2">
+                Product show case
+            </span>
+            <div class="flex flex-col md:flex-row gap-8  justify-between mb-8 md:mb-10 lg:mb-12">
+                <div class="md:w-1/2 ">
+                    <h2 class="text-2xl lg:text-3xl font-bold text-neutral-900 leading-snug">
+                        A glimpse into some of our top-performing product we develop
+                    </h2>
+                </div>
+                <p class="md:w-1/2 text-neutral-600 md:pt-2 text-sm lg:text-base">
+                    We are the best custom software development company for custom software development outsourcing. And
+                    we provide robust, scalable, and efficient solutions to various clients around the world
+                </p>
+            </div>
+        </div>
+        <div class="mt-8 md:mt-12 lg:mt-16">
+            <ShowCaseSlider />
+        </div>
     </section>
 
 
@@ -310,7 +334,7 @@ import StartBuilding from '@/components/section/StartBuilding.vue';
 import HeroSlider from '@/components/ui/slider/HeroSlider.vue';
 import PartnerMarquee from '@/components/ui/slider/PatnerMarquee.vue';
 import FeatureCard from '@/components/why_us/FeatureCard.vue';
-import WhySlider from '@/components/ui/slider/WhySlider.vue';
+import ShowCaseSlider from '@/components/ui/slider/ShowCaseSlider.vue';
 
 const slides = [
     '@/assets/images/team_image.svg',
