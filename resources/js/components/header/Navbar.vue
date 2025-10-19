@@ -70,7 +70,7 @@
         <!-- Mobile Menu -->
         <transition name="slide-down">
             <div v-show="mobileMenuOpen"
-                class="slide-down absolute top-full  w-auto bg-white lg:hidden z-50 shadow-lg rounded-br-lg rounded-bl-lg">
+                class="slide-down absolute top-full  w-auto bg-white lg:hidden z-50 shadow-lg rounded-br-lg rounded-bl-lg max-h-[90vh] overflow-y-auto ">
                 <NavRoute />
 
                 <nav class="flex flex-col gap-2 px-4 mt-4" role="menu">
