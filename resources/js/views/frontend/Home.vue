@@ -278,7 +278,7 @@
                 class="inline-block text-sm font-medium border border-neutral-300 text-neutral-900 bg-neutral-100 px-3 py-1 rounded-full mb-2">
                 Why Choose Us
             </span>
-            <div class="flex flex-col md:flex-row gap-4  justify-between mb-12">
+            <div class="flex flex-col md:flex-row gap-4  justify-between mb-8 md:mb-10 lg:mb-12">
                 <div class="md:w-1/2">
                     <h2 class="text-2xl lg:text-3xl font-bold text-neutral-900 leading-snug">
                         Shaping Your Vision into Real-World Success
@@ -291,80 +291,8 @@
             </div>
 
             <!-- Features Grid -->
-            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3">
-                <!-- Card 1 -->
-                <div class="feature_grid_item">
-                    <div class="">
-                        <img src="@/assets/images/icons/design_system.svg" alt="">
-                    </div>
-                    <h3 class="text-xl font-bold text-neutral-900 mb-4">Design System Strategy</h3>
-                    <p class="text-neutral-600 text-sm leading-relaxed ">
-                        We create cohesive and scalable design systems that ensure consistency, usability,
-                        and a seamless user experience across all digital products.
-                    </p>
-                </div>
+            <FeatureCard />
 
-                <!-- Card 2 -->
-                <div class="feature_grid_item">
-                    <div class="">
-                        <img src="@/assets/images/icons/full_stack.svg" alt="">
-                    </div>
-                    <h3 class="text-xl font-bold text-neutral-900 mb-4">Full-Stack Expertise</h3>
-                    <p class="text-neutral-600 text-sm leading-relaxed">
-                        Our team is proficient in both front-end and back-end technologies, enabling us to build
-                        end-to-end
-                        solutions with high performance and flexibility.
-                    </p>
-                </div>
-
-                <!-- Card 3 -->
-                <div class="feature_grid_item">
-                    <div class="">
-                        <img src="@/assets/images/icons/tool_agnostic.svg" alt="">
-                    </div>
-                    <h3 class="text-xl font-bold text-neutral-900 mb-4">Tool-Agnostic Flexibility</h3>
-                    <p class="text-neutral-600 text-sm leading-relaxed">
-                        We adapt to the tools and technologies that best suit your project needs — ensuring maximum
-                        efficiency without being limited to specific stacks or platforms.
-                    </p>
-                </div>
-
-                <!-- Card 4 -->
-                <div class="feature_grid_item">
-                    <div class="">
-                        <img src="@/assets/images/icons/quality_driven.svg" alt="">
-                    </div>
-                    <h3 class="text-xl font-bold text-neutral-900 mb-4">Quality-Driven Development</h3>
-                    <p class="text-neutral-600 text-sm leading-relaxed">
-                        We follow best practices and rigorous quality standards to deliver robust, maintainable, and
-                        secure software solutions.
-                    </p>
-                </div>
-
-                <!-- Card 5 -->
-                <div class="feature_grid_item">
-                    <div class="">
-                        <img src="@/assets/images/icons/client_centric.svg" alt="">
-                    </div>
-                    <h3 class="text-xl font-bold text-neutral-900 mb-4">Client-Centric Approach</h3>
-                    <p class="text-neutral-600 text-sm leading-relaxed">
-                        Your goals guide our process. We prioritize clear communication, transparency, and collaboration
-                        throughout every project.
-                    </p>
-                </div>
-
-                <!-- Card 6 -->
-                <div class="feature_grid_item">
-                    <div class="">
-                        <img src="@/assets/images/icons/comprehensive_system.svg" alt="">
-                    </div>
-                    <h3 class="text-xl font-bold text-neutral-900 mb-4">Comprehensive System Testing</h3>
-                    <p class="text-neutral-600 text-sm leading-relaxed">
-                        From automated tests to manual QA, we ensure every product we deliver is thoroughly tested
-                        for functionality, security, and performance.
-                    </p>
-                </div>
-            </div>
         </div>
     </section>
 
@@ -379,8 +307,11 @@
 import bgImg from '@/assets/images/hero_bg.webp';
 import NavigateSecondaryButton from '@/components/ui/button/NavigateSecondary.vue';
 import StartBuilding from '@/components/section/StartBuilding.vue';
-import HeroSlider from '@/components/ui/button/slider/HeroSlider.vue';
-import PartnerMarquee from '@/components/ui/button/slider/PatnerMarquee.vue';
+import HeroSlider from '@/components/ui/slider/HeroSlider.vue';
+import PartnerMarquee from '@/components/ui/slider/PatnerMarquee.vue';
+import FeatureCard from '@/components/why_us/FeatureCard.vue';
+import WhySlider from '@/components/ui/slider/WhySlider.vue';
+
 const slides = [
     '@/assets/images/team_image.svg',
     '@/assets/images/team_image.svg',
