@@ -26,7 +26,7 @@
         </div>
 
         <Swiper :modules="[Autoplay]" :space-between="30" :slides-per-view="1" :loop="true"
-            :autoplay="autoplay ? { delay: 400000 } : false" class="testimonial-swiper" @swiper="onSwiper"
+            :autoplay="autoplay ? { delay: 4000 } : false" class="testimonial-swiper" @swiper="onSwiper"
             @slideChange="onSlideChange">
             <SwiperSlide v-for="(t, i) in testimonials" :key="i">
                 <div class="w-[100%] md:w-[80%] mr-auto">

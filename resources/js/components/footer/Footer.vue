@@ -7,11 +7,11 @@
                     <div class="flex items-center space-x-2">
                         <img src="@/assets/images/icons/logo.svg" alt="Logo" class="h-8 w-auto" />
                     </div>
-                    <p class="text-gray-600 text-sm">
+                    <p class="text-neutral-600 text-sm">
                         We growing up your business to the international scale.
                     </p>
                     <div class="flex mt-4 sm:justify-center sm:mt-0">
-                        <a href="#" class="text-gray-500 hover:text-gray-900 dark:hover:text-white">
+                        <a href="#" class="text-neutral-500 hover:text-neutral-900 dark:hover:text-white">
                             <svg class="w-4 h-4" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
                                 fill="currentColor" viewBox="0 0 8 19">
                                 <path fill-rule="evenodd"
@@ -20,7 +20,7 @@
                             </svg>
                             <span class="sr-only">Facebook page</span>
                         </a>
-                        <a href="#" class="text-gray-500 hover:text-gray-900 dark:hover:text-white ms-5">
+                        <a href="#" class="text-neutral-500 hover:text-neutral-900 dark:hover:text-white ms-5">
                             <svg class="w-4 h-4" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
                                 fill="currentColor" viewBox="0 0 21 16">
                                 <path
@@ -28,7 +28,7 @@
                             </svg>
                             <span class="sr-only">Discord community</span>
                         </a>
-                        <a href="#" class="text-gray-500 hover:text-gray-900 dark:hover:text-white ms-5">
+                        <a href="#" class="text-neutral-500 hover:text-neutral-900 dark:hover:text-white ms-5">
                             <svg class="w-4 h-4" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
                                 fill="currentColor" viewBox="0 0 20 17">
                                 <path fill-rule="evenodd"
@@ -37,7 +37,7 @@
                             </svg>
                             <span class="sr-only">Twitter page</span>
                         </a>
-                        <a href="#" class="text-gray-500 hover:text-gray-900 dark:hover:text-white ms-5">
+                        <a href="#" class="text-neutral-500 hover:text-neutral-900 dark:hover:text-white ms-5">
                             <svg class="w-4 h-4" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
                                 fill="currentColor" viewBox="0 0 20 20">
                                 <path fill-rule="evenodd"
@@ -46,7 +46,7 @@
                             </svg>
                             <span class="sr-only">GitHub account</span>
                         </a>
-                        <a href="#" class="text-gray-500 hover:text-gray-900 dark:hover:text-white ms-5">
+                        <a href="#" class="text-neutral-500 hover:text-neutral-900 dark:hover:text-white ms-5">
                             <svg class="w-4 h-4" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
                                 fill="currentColor" viewBox="0 0 20 20">
                                 <path fill-rule="evenodd"
@@ -58,38 +58,38 @@
                     </div>
                 </div>
                 <div class="col-span-1">
-                    <h3 class="text-sm font-semibold text-gray-900 mb-4">Services</h3>
-                    <ul class="space-y-2 text-sm text-gray-600">
-                        <li><a href="#" class="hover:text-gray-900">Software Development</a></li>
-                        <li><a href="#" class="hover:text-gray-900">UI/UX Design </a></li>
-                        <li><a href="#" class="hover:text-gray-900">Mobile App Developement</a></li>
-                        <li><a href="#" class="hover:text-gray-900">Web Application Development</a></li>
-                        <li><a href="#" class="hover:text-gray-900">QA Testing</a></li>
-                        <li><a href="#" class="hover:text-gray-900">Database Management</a></li>
+                    <h3 class="text-sm font-semibold text-neutral-900 mb-4">Services</h3>
+                    <ul class="space-y-2 text-sm text-neutral-600">
+                        <li><a href="#" class="hover:text-neutral-900">Software Development</a></li>
+                        <li><a href="#" class="hover:text-neutral-900">UI/UX Design </a></li>
+                        <li><a href="#" class="hover:text-neutral-900">Mobile App Developement</a></li>
+                        <li><a href="#" class="hover:text-neutral-900">Web Application Development</a></li>
+                        <li><a href="#" class="hover:text-neutral-900">QA Testing</a></li>
+                        <li><a href="#" class="hover:text-neutral-900">Database Management</a></li>
                     </ul>
                 </div>
 
                 <div class="col-span-1">
-                    <h3 class="text-sm font-semibold text-gray-900 mb-4">Company</h3>
-                    <ul class="space-y-2 text-sm text-gray-600">
-                        <li><a href="#" class="hover:text-gray-900">About Us</a></li>
-                        <li><a href="#" class="hover:text-gray-900">Blog</a></li>
-                        <li><a href="#" class="hover:text-gray-900">Careers</a></li>
-                        <li><a href="#" class="hover:text-gray-900">Pricing</a></li>
+                    <h3 class="text-sm font-semibold text-neutral-900 mb-4">Company</h3>
+                    <ul class="space-y-2 text-sm text-neutral-600">
+                        <li><a href="#" class="hover:text-neutral-900">About Us</a></li>
+                        <li><a href="#" class="hover:text-neutral-900">Blog</a></li>
+                        <li><a href="#" class="hover:text-neutral-900">Careers</a></li>
+                        <li><a href="#" class="hover:text-neutral-900">Pricing</a></li>
                     </ul>
                 </div>
 
                 <div class="col-span-1">
-                    <h3 class="text-sm font-semibold text-gray-900 mb-4">Contact us</h3>
-                    <ul class="space-y-2 text-sm text-gray-600">
-                        <li><a href="#" class="hover:text-gray-900">Zavisoft@gmail.com</a></li>
-                        <li><a href="#" class="hover:text-gray-900">01729-645913</a></li>
-                        <li><a href="#" class="hover:text-gray-900">House #44, Road 02, ASA Center, Zigatola,
+                    <h3 class="text-sm font-semibold text-neutral-900 mb-4">Contact us</h3>
+                    <ul class="space-y-2 text-sm text-neutral-600">
+                        <li><a href="#" class="hover:text-neutral-900">Zavisoft@gmail.com</a></li>
+                        <li><a href="#" class="hover:text-neutral-900">01729-645913</a></li>
+                        <li><a href="#" class="hover:text-neutral-900">House #44, Road 02, ASA Center, Zigatola,
                                 Dhanmondi-1209</a></li>
                     </ul>
                 </div>
             </div>
-            <div class="border-t border-gray-200 mt-12 pt-6 text-center text-sm text-gray-500">
+            <div class="border-t border-neutral-200 mt-12 pt-6 text-center text-sm text-neutral-500">
                 Copyright © 2025 Transparent. All rights reserved.
             </div>
         </div>
