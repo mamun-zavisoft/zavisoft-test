@@ -1,15 +1,15 @@
 <template>
     <Listbox as="div" v-model="selected">
-        <ListboxLabel class="block text-sm/6 font-medium text-gray-900">Assigned to</ListboxLabel>
+        <ListboxLabel class="block text-sm/6 font-medium text-neutral-900">Assigned to</ListboxLabel>
         <div class="relative mt-2">
             <ListboxButton
-                class="grid w-full cursor-default grid-cols-1 rounded-md bg-white py-1.5 pr-2 pl-3 text-left text-gray-900 outline-1 -outline-offset-1 outline-gray-300 focus-visible:outline-2 focus-visible:-outline-offset-2 focus-visible:outline-indigo-600 sm:text-sm/6">
+                class="grid w-full cursor-default grid-cols-1 rounded-md bg-white py-1.5 pr-2 pl-3 text-left text-neutral-900 outline-1 -outline-offset-1 outline-neutral-300 focus-visible:outline-2 focus-visible:-outline-offset-2 focus-visible:outline-primary-600 sm:text-sm/6">
                 <span class="col-start-1 row-start-1 flex items-center gap-3 pr-6">
-                    <img :src="selected.avatar" alt="" class="size-5 shrink-0 rounded-full bg-gray-100" />
+                    <img :src="selected.avatar" alt="" class="size-5 shrink-0 rounded-full bg-neutral-100" />
                     <span class="block truncate">{{ selected.name }}</span>
                 </span>
                 <ChevronUpDownIcon
-                    class="col-start-1 row-start-1 size-5 self-center justify-self-end text-gray-500 sm:size-4"
+                    class="col-start-1 row-start-1 size-5 self-center justify-self-end text-neutral-500 sm:size-4"
                     aria-hidden="true" />
             </ListboxButton>
 
@@ -20,7 +20,7 @@
                     <ListboxOption as="template" v-for="person in people" :key="person.id" :value="person"
                         v-slot="{ active, selected }">
                         <li
-                            :class="[active ? 'bg-indigo-600 text-white outline-hidden' : 'text-gray-900', 'relative cursor-default py-2 pr-9 pl-3 select-none']">
+                            :class="[active ? 'bg-primary-600 text-white outline-hidden' : 'text-neutral-900', 'relative cursor-default py-2 pr-9 pl-3 select-none']">
                             <div class="flex items-center">
                                 <img :src="person.avatar" alt="" class="size-5 shrink-0 rounded-full" />
                                 <span :class="[selected ? 'font-semibold' : 'font-normal', 'ml-3 block truncate']">{{
@@ -28,7 +28,7 @@
                             </div>
 
                             <span v-if="selected"
-                                :class="[active ? 'text-white' : 'text-indigo-600', 'absolute inset-y-0 right-0 flex items-center pr-4']">
+                                :class="[active ? 'text-white' : 'text-primary-600', 'absolute inset-y-0 right-0 flex items-center pr-4']">
                                 <CheckIcon class="size-5" aria-hidden="true" />
                             </span>
                         </li>

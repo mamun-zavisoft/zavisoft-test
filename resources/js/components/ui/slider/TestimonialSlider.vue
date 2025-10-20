@@ -36,8 +36,8 @@
                     <div class="flex items-center gap-3 mt-6">
                         <img :src="t.image" class="w-10 h-10 rounded-full object-cover" :alt="t.name" />
                         <div>
-                            <p class="font-semibold text-gray-900">{{ t.name }}</p>
-                            <p class="text-sm text-gray-600">{{ t.position }}</p>
+                            <p class="font-semibold text-neutral-900">{{ t.name }}</p>
+                            <p class="text-sm text-neutral-600">{{ t.position }}</p>
                         </div>
                     </div>
                 </div>

@@ -349,22 +349,22 @@
                             class="grid grid-cols-1 sm:grid-cols-2 gap-y-4 sm:gap-y-6 sm:gap-x-10 text-neutral-900 font-semibold">
                             <!-- Left Column -->
                             <div class="space-y-5">
-                                <div class="flex items-center gap-3 border-b border-gray-200 pb-3">
+                                <div class="flex items-center gap-3 border-b border-neutral-200 pb-3">
                                     <img src="@/assets/images/icons/ecommerce.svg" alt="" class="w-6 h-6" />
                                     <span class="font-semibold">E-Commerce (B2C)</span>
                                 </div>
 
-                                <div class="flex items-center gap-3 border-b border-gray-200 pb-3">
+                                <div class="flex items-center gap-3 border-b border-neutral-200 pb-3">
                                     <img src="@/assets/images/icons/entertainment.svg" alt="" class="w-6 h-6" />
                                     <span class="font-semibold">Entertainment</span>
                                 </div>
 
-                                <div class="flex items-center gap-3 border-b border-gray-200 pb-3">
+                                <div class="flex items-center gap-3 border-b border-neutral-200 pb-3">
                                     <img src="@/assets/images/icons/tech.svg" alt="" class="w-6 h-6" />
                                     <span class="font-semibold">Tech</span>
                                 </div>
 
-                                <div class="flex items-center gap-3  border-b border-gray-200 pb-3 ">
+                                <div class="flex items-center gap-3  border-b border-neutral-200 pb-3 ">
                                     <img src="@/assets/images/icons/digital_marketing.svg" alt="" class="w-6 h-6" />
                                     <span class="font-semibold">Digital Marketing</span>
                                 </div>
@@ -372,22 +372,22 @@
 
                             <!-- Right Column -->
                             <div class="space-y-5">
-                                <div class="flex items-center gap-3 border-b border-gray-200 pb-3">
+                                <div class="flex items-center gap-3 border-b border-neutral-200 pb-3">
                                     <img src="@/assets/images/icons/healthcare.svg" alt="" class="w-6 h-6" />
                                     <span class="font-semibold">Healthcare</span>
                                 </div>
 
-                                <div class="flex items-center gap-3 border-b border-gray-200 pb-3">
+                                <div class="flex items-center gap-3 border-b border-neutral-200 pb-3">
                                     <img src="@/assets/images/icons/travel_tourism.svg" alt="" class="w-6 h-6" />
                                     <span class="font-semibold">Travel & Tourism</span>
                                 </div>
 
-                                <div class="flex items-center gap-3 border-b border-gray-200 pb-3">
+                                <div class="flex items-center gap-3 border-b border-neutral-200 pb-3">
                                     <img src="@/assets/images/icons/education.svg" alt="" class="w-6 h-6" />
                                     <span class="font-semibold">Education</span>
                                 </div>
 
-                                <div class="flex items-center gap-3  border-b border-gray-200 pb-3 ">
+                                <div class="flex items-center gap-3  border-b border-neutral-200 pb-3 ">
                                     <img src="@/assets/images/icons/real_estate.svg" alt="" class="w-6 h-6" />
                                     <span class="font-semibold">Real-Estate</span>
                                 </div>
@@ -405,7 +405,7 @@
     <section class="industry-tech py-8 md:py-10 lg:py-12">
         <div class="container mx-auto">
             <div
-                class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 divide-x divide-y divide-gray-200 grid-tech">
+                class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 divide-x divide-y divide-neutral-200 grid-tech">
                 <!-- Repeat these items dynamically -->
                 <div class="flex items-center justify-center p-6">
                     <img class="h-12 w-auto"
