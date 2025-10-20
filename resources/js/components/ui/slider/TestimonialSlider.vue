@@ -26,7 +26,7 @@
         </div>
 
         <Swiper :modules="[Autoplay]" :space-between="30" :slides-per-view="1" :loop="true"
-            :autoplay="autoplay ? { delay: 400000 } : false" class="testimonial-swiper" @swiper="onSwiper"
+            :autoplay="autoplay ? { delay: 4000 } : false" class="testimonial-swiper" @swiper="onSwiper"
             @slideChange="onSlideChange">
             <SwiperSlide v-for="(t, i) in testimonials" :key="i">
                 <div class="w-[100%] md:w-[80%] mr-auto">
@@ -36,8 +36,8 @@
                     <div class="flex items-center gap-3 mt-6">
                         <img :src="t.image" class="w-10 h-10 rounded-full object-cover" :alt="t.name" />
                         <div>
-                            <p class="font-semibold text-gray-900">{{ t.name }}</p>
-                            <p class="text-sm text-gray-600">{{ t.position }}</p>
+                            <p class="font-semibold text-neutral-900">{{ t.name }}</p>
+                            <p class="text-sm text-neutral-600">{{ t.position }}</p>
                         </div>
                     </div>
                 </div>
