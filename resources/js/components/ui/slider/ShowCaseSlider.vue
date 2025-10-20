@@ -1,25 +1,23 @@
 <template>
     <div class="container">
-
-
-        <Swiper class="showcase-swiper pb-12" :modules="[Autoplay, Pagination]" :slides-per-view="1" :space-between="24"
+        <Swiper class="showcase-swiper" :modules="[Autoplay, Pagination]" :slides-per-view="1" :space-between="24"
             :loop="loopEnabled" :autoplay="{
                 delay: 3500,
                 disableOnInteraction: false
             }" :breakpoints="{
-                640: { slidesPerView: 1 },
-                768: { slidesPerView: 2 },
+                575: { slidesPerView: 1.2 },
+                640: { slidesPerView: 2 },
                 1024: { slidesPerView: 3 }
             }" :pagination="{
                 clickable: true
             }" @swiper="onSwiper" @slideChange="onSlideChange">
             <SwiperSlide v-for="(item, index) in showcaseItems" :key="index">
                 <article>
-                    <div class="bg-white rounded-lg  p-4 transition group"
+                    <div class="bg-white rounded-lg  p-4 transition group border border-transparent hover:border-primary-500"
                         style="box-shadow: 0px 2px 4px 0px #0F1C330F, 0px 2px 2px 0px #0F1C3312;">
                         <div class="flex justify-between items-start mb-4">
                             <div class="mb-4 pr-4">
-                                <h3 class="text-xl font-bold text-neutral-900 mb-3">{{ item.title }}</h3>
+                                <h3 class="text-lg md:text-xl font-bold text-neutral-900 mb-3">{{ item.title }}</h3>
                                 <p class="text-neutral-600 text-sm line-clamp-3">{{ item.description }}
                                 </p>
                             </div>
@@ -27,7 +25,7 @@
                                 class="p-2 rounded-full border border-neutral-300 bg-white transition group-hover:bg-primary-500 group-hover:border-primary-500 hover:bg-primary-500 hover:border-primary-500 cursorpointer">
                                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
                                     stroke-width="1.5" stroke="currentColor"
-                                    class="w-5 h-5 text-neutral-700 transform origin-center transition-transform transition-colors duration-300 group-hover:-rotate-45 group-hover:text-white">
+                                    class="h-4 w-4 md:w-5 md:h-5 text-neutral-700 transform origin-center transition-transform transition-colors duration-300 group-hover:-rotate-45 group-hover:text-white">
                                     <path stroke-linecap="round" stroke-linejoin="round"
                                         d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3" />
                                 </svg>
