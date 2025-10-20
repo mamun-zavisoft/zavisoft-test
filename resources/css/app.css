@@ -301,6 +301,10 @@ body {
 
 }
 
+.showcase-swiper[data-v-d4923aca] {
+    padding: 16px;
+}
+
 
 
 @media (max-width: 1023px) {
@@ -332,10 +336,18 @@ body {
     .feature_grid .feature_grid_item:nth-child(6n) {
         border: 0px solid var(--color-neutral-200);
     }
+
+    .showcase-swiper[data-v-d4923aca] {
+        padding: 12px;
+    }
 }
 
 @media (max-width: 767px) {
     .growth .ele {
-        display: none;
+        display: none !important;
+    }
+
+    .showcase-swiper[data-v-d4923aca] {
+        padding: 4px;
     }
 }

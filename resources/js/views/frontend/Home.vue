@@ -325,6 +325,199 @@
         </div>
     </section>
 
+    <section class="py-8 md:py-10 lg:py-12">
+        <div class="container">
+            <div class="industry-focus lg:border-b border-neutral-200 pb-12">
+                <div class="flex flex-col lg:flex-row gap-8 lg:gap-16  justify-between">
+                    <div class="lg:w-1/2">
+                        <span
+                            class="inline-block text-sm font-medium border border-neutral-300 text-neutral-900 bg-neutral-100 px-3 py-1 rounded-full mb-2">
+                            Industry Focus
+                        </span>
+                        <h1 class="text-2xl md:text-3xl lg:text-4xl font-bold">Sectors Driving Our Expertise</h1>
+                        <p class="mt-4 md:mt-6 lg:mt-8 text-sm md:text-base text-neutral-600">With over years of
+                            experience, Brand Vision
+                            takes pride in
+                            collaborating with exceptional
+                            businesses and industries across the globe. These partnerships have enriched our expertise,
+                            sharpened our skills, and enabled us to consistently enhance our services—delivering
+                            outstanding results for our clients.</p>
+                        <NagigatePrimaryButton text="Let’s solve your issues" to="/services" class="mt-8 md:mt-12" />
+                    </div>
+                    <div class="lg:w-1/2 ">
+                        <div
+                            class="grid grid-cols-1 sm:grid-cols-2 gap-y-4 sm:gap-y-6 sm:gap-x-10 text-neutral-900 font-semibold">
+                            <!-- Left Column -->
+                            <div class="space-y-5">
+                                <div class="flex items-center gap-3 border-b border-gray-200 pb-3">
+                                    <img src="@/assets/images/icons/ecommerce.svg" alt="" class="w-6 h-6" />
+                                    <span class="font-semibold">E-Commerce (B2C)</span>
+                                </div>
+
+                                <div class="flex items-center gap-3 border-b border-gray-200 pb-3">
+                                    <img src="@/assets/images/icons/entertainment.svg" alt="" class="w-6 h-6" />
+                                    <span class="font-semibold">Entertainment</span>
+                                </div>
+
+                                <div class="flex items-center gap-3 border-b border-gray-200 pb-3">
+                                    <img src="@/assets/images/icons/tech.svg" alt="" class="w-6 h-6" />
+                                    <span class="font-semibold">Tech</span>
+                                </div>
+
+                                <div class="flex items-center gap-3  border-b border-gray-200 pb-3 ">
+                                    <img src="@/assets/images/icons/digital_marketing.svg" alt="" class="w-6 h-6" />
+                                    <span class="font-semibold">Digital Marketing</span>
+                                </div>
+                            </div>
+
+                            <!-- Right Column -->
+                            <div class="space-y-5">
+                                <div class="flex items-center gap-3 border-b border-gray-200 pb-3">
+                                    <img src="@/assets/images/icons/healthcare.svg" alt="" class="w-6 h-6" />
+                                    <span class="font-semibold">Healthcare</span>
+                                </div>
+
+                                <div class="flex items-center gap-3 border-b border-gray-200 pb-3">
+                                    <img src="@/assets/images/icons/travel_tourism.svg" alt="" class="w-6 h-6" />
+                                    <span class="font-semibold">Travel & Tourism</span>
+                                </div>
+
+                                <div class="flex items-center gap-3 border-b border-gray-200 pb-3">
+                                    <img src="@/assets/images/icons/education.svg" alt="" class="w-6 h-6" />
+                                    <span class="font-semibold">Education</span>
+                                </div>
+
+                                <div class="flex items-center gap-3  border-b border-gray-200 pb-3 ">
+                                    <img src="@/assets/images/icons/real_estate.svg" alt="" class="w-6 h-6" />
+                                    <span class="font-semibold">Real-Estate</span>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+
+    <section class="industry-focus py-8 md:py-10 lg:py-12">
+        <div class="container mx-auto">
+            <div
+                class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 divide-x divide-y divide-gray-200 grid-tech">
+                <!-- Repeat these items dynamically -->
+                <div class="flex items-center justify-center p-6">
+                    <img class="h-12 w-auto"
+                        src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/figma/figma-original.svg" alt="Figma">
+                </div>
+
+                <div class="flex items-center justify-center p-6">
+                    <img class="h-12 w-auto"
+                        src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg"
+                        alt="Node.js">
+                </div>
+
+                <div class="flex items-center justify-center p-6">
+                    <img class="h-12 w-auto"
+                        src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/jira/jira-original.svg" alt="Jira">
+                </div>
+
+                <div class="flex items-center justify-center p-6">
+                    <img class="h-12 w-auto"
+                        src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/bitbucket/bitbucket-original.svg"
+                        alt="Bitbucket">
+                </div>
+
+                <div class="flex items-center justify-center p-6">
+                    <img class="h-12 w-auto"
+                        src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/discordjs/discordjs-original.svg"
+                        alt="Discord">
+                </div>
+
+                <div class="flex items-center justify-center p-6">
+                    <img class="h-12 w-auto"
+                        src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg" alt="Java">
+                </div>
+                <div class="flex items-center justify-center p-6">
+                    <img class="h-12 w-auto"
+                        src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg"
+                        alt="JavaScript">
+                </div>
+
+                <div class="flex items-center justify-center p-6">
+                    <img class="h-12 w-auto"
+                        src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/angularjs/angularjs-plain.svg"
+                        alt="Angular">
+                </div>
+
+                <div class="flex items-center justify-center p-6">
+                    <img class="h-12 w-auto"
+                        src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg" alt="React">
+                </div>
+
+                <div class="flex items-center justify-center p-6">
+                    <img class="h-12 w-auto"
+                        src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/dot-net/dot-net-original.svg"
+                        alt=".NET">
+                </div>
+
+                <div class="flex items-center justify-center p-6">
+                    <img class="h-12 w-auto"
+                        src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/laravel/laravel-plain.svg"
+                        alt="Laravel">
+                </div>
+
+                <div class="flex items-center justify-center p-6">
+                    <img class="h-12 w-auto"
+                        src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg"
+                        alt="Python">
+                </div>
+
+                <div class="flex items-center justify-center p-6">
+                    <img class="h-12 w-auto"
+                        src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/cypressio/cypressio-original.svg"
+                        alt="Cypress">
+                </div>
+
+                <div class="flex items-center justify-center p-6">
+                    <img class="h-12 w-auto"
+                        src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/figma/figma-original.svg" alt="Figma">
+                </div>
+
+                <div class="flex items-center justify-center p-6">
+                    <img class="h-12 w-auto"
+                        src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg"
+                        alt="Node.js">
+                </div>
+
+                <div class="flex items-center justify-center p-6">
+                    <img class="h-12 w-auto"
+                        src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/jira/jira-original.svg" alt="Jira">
+                </div>
+
+                <div class="flex items-center justify-center p-6">
+                    <img class="h-12 w-auto"
+                        src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/bitbucket/bitbucket-original.svg"
+                        alt="Bitbucket">
+                </div>
+
+                <div class="flex items-center justify-center p-6">
+                    <img class="h-12 w-auto"
+                        src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/discordjs/discordjs-original.svg"
+                        alt="Discord">
+                </div>
+
+
+            </div>
+        </div>
+    </section>
+
+    <section class=" pb-16 sm:pb-0 py-8 md:py-10 lg:py-12 bg-primary-50">
+        <div class="container">
+            <TestimonialSlider />
+        </div>
+    </section>
 
 </template>
 <script setup>
@@ -335,6 +528,8 @@ import HeroSlider from '@/components/ui/slider/HeroSlider.vue';
 import PartnerMarquee from '@/components/ui/slider/PatnerMarquee.vue';
 import FeatureCard from '@/components/why_us/FeatureCard.vue';
 import ShowCaseSlider from '@/components/ui/slider/ShowCaseSlider.vue';
+import NagigatePrimaryButton from '@/components/ui/button/NavigatePrimary.vue';
+import TestimonialSlider from '@/components/ui/slider/TestimonialSlider.vue';
 
 const slides = [
     '@/assets/images/team_image.svg',
