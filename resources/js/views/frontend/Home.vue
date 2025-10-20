@@ -592,7 +592,7 @@
                 that help our clients delight the audience, increase brand awareness.</p>
 
             <!-- Cards -->
-            <div class="mt-6 grid grid-cols-1 lg:grid-cols-2 gap-6">
+            <div class="mt-6 grid grid-cols-1 md:grid-cols-2 gap-6">
                 <!-- Left: contact info card -->
                 <div class="rounded-lg border border-neutral-300 bg-white p-4 lg:p-6">
                     <div class=" flex flex-col gap-4 md:gap-6 justify-between h-full">
