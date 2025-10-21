@@ -1,121 +1,137 @@
 <template>
-    <!-- Desktop / Tablet: Grid -->
-    <div v-if="members?.length" class="hidden sm:grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-x-12 gap-y-6">
-        <div v-for="(m, i) in members" :key="i">
-            <MemberCard :member="m" />
+    <!-- Desktop Grid -->
+    <div class="hidden sm:grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-x-12 gap-y-6">
+        <div class="group relative" v-for="team in teamMembers" :key="team.name">
+            <img :src="team.photo" alt="" class="w-full lg:h-60 object-cover" />
+            <div class="mt-4 flex justify-between">
+                <div>
+                    <h3 class="text-base md:text-lg text-neutral-900 font-bold">
+                        {{ team.name }}
+                    </h3>
+                    <p class="mt-1 text-xs md:text-sm text-neutral-500">{{ team.title }}</p>
+                </div>
+
+                <a v-if="team.linkedin" :href="team.linkedin" target="_blank" rel="noopener"
+                    class="w-7 h-7 md:w-9 md:h-9 inline-flex items-center justify-center">
+                    <img src="@/assets/images/icons/linkEdin.svg" alt="LinkedIn">
+                </a>
+            </div>
         </div>
     </div>
 
-    <!-- Mobile: Swiper -->
-    <div class="sm:hidden" v-if="members?.length">
-        <Swiper class="px-4 pb-8" :modules="swiperModules" :slides-per-view="1.2" :space-between="16"
-            :centered-slides="false" :loop="false" :autoplay="{ delay: 2500, disableOnInteraction: false }"
-            :pagination="{ clickable: true }">
-            <SwiperSlide v-for="(m, i) in members" :key="i">
-                <MemberCard :member="m" />
-            </SwiperSlide>
+    <!-- Mobile Slider -->
+    <div class="sm:hidden">
+        <Swiper class="showcase-swiper" v-bind="swiperOptions" @swiper="onSwiper" @slideChange="onSlideChange">
+            <SwiperSlide v-for="team in teamMembers" :key="team.name">
+                <article>
+                    <div class="group relative">
+                        <img :src="team.photo" alt="" class="w-full lg:h-60 object-cover" />
+                        <div class="mt-4 flex justify-between">
+                            <div>
+                                <h3 class="text-base md:text-lg text-neutral-900 font-bold">
+                                    {{ team.name }}
+                                </h3>
+                                <p class="mt-1 text-xs md:text-sm text-neutral-500">{{ team.title }}</p>
+                            </div>
 
-            <!-- Swiper renders its own pagination; style via CSS below -->
+                            <a v-if="team.linkedin" :href="team.linkedin" target="_blank" rel="noopener"
+                                class="w-7 h-7 md:w-9 md:h-9 inline-flex items-center justify-center">
+                                <img src="@/assets/images/icons/linkEdin.svg" alt="LinkedIn">
+                            </a>
+                        </div>
+                    </div>
+                </article>
+            </SwiperSlide>
         </Swiper>
+
+        <div class="mt-4 flex items-center justify-center gap-4">
+            <button type="button" @click="swiperPrev"
+                class="flex h-10 w-10 items-center justify-center rounded-full border border-neutral-300 text-neutral-600 transition hover:bg-neutral-100 hover:text-neutral-900 cursor-pointer">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                    stroke="currentColor" class="w-4 h-4">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M10.5 19.5 3 12m0 0 7.5-7.5M3 12h18" />
+                </svg>
+            </button>
+
+            <button type="button" @click="swiperNext"
+                class="flex h-10 w-10 items-center justify-center rounded-full bg-neutral-900 text-white transition hover:bg-neutral-700 cursor-pointer">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                    stroke="currentColor" class="w-4 h-4">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3" />
+                </svg>
+            </button>
+        </div>
     </div>
 </template>
 
 <script setup>
-import { FwbCard } from 'flowbite-vue'
+import { ref, computed } from 'vue'
 import { Swiper, SwiperSlide } from 'swiper/vue'
-import { Pagination, Autoplay } from 'swiper/modules'
+import 'swiper/css'
+import 'swiper/css/pagination'
+import { Autoplay, Pagination } from 'swiper/modules'
 
-// Props: pass an array of members
-const props = defineProps({
-    members: {
-        type: Array,
-        required: true,
-        // [{ name, title, photo, linkedin? }]
+const teamMembers = [
+    { name: 'Avery Collins', title: 'Chief Technology Officer', photo: new URL('@/assets/images/john.png', import.meta.url).href, linkedin: '#' },
+    { name: 'Lena Park', title: 'Principal Product Designer', photo: new URL('@/assets/images/john.png', import.meta.url).href, linkedin: '#' },
+    { name: 'Noah Martinez', title: 'Lead Frontend Engineer', photo: new URL('@/assets/images/john.png', import.meta.url).href, linkedin: '#' },
+    { name: 'Riya Sharma', title: 'Product Strategist', photo: new URL('@/assets/images/john.png', import.meta.url).href, linkedin: '#' },
+    { name: 'Erik Johansson', title: 'Senior Backend Engineer', photo: new URL('@/assets/images/john.png', import.meta.url).href, linkedin: '#' },
+    { name: 'Maya Rodriguez', title: 'QA & Automation Lead', photo: new URL('@/assets/images/john.png', import.meta.url).href, linkedin: '#' },
+]
+
+const totalSlides = teamMembers.length
+const loopEnabled = totalSlides > 1
+
+const swiperInstance = ref(null)
+const currentSlide = ref(1)
+
+const swiperOptions = computed(() => ({
+    modules: [Autoplay, Pagination],
+    slidesPerView: 1,
+    spaceBetween: 24,
+    loop: loopEnabled,
+    autoplay: {
+        delay: 3500,
+        disableOnInteraction: false,
     },
-})
-
-const swiperModules = [Pagination, Autoplay]
-
-/**
- * Local sub-component for a single card
- * Keeps template tidy and reused for grid + slider
- */
-const MemberCard = {
-    name: 'MemberCard',
-    components: { FwbCard },
-    props: {
-        member: {
-            type: Object,
-            required: true, // { name, title, photo, linkedin? }
-        },
+    breakpoints: {
+        425: { slidesPerView: 1.5 },
+        640: { slidesPerView: 2.5 },
+        1024: { slidesPerView: 3 },
     },
-    template: `
-    <fwb-card
-      variant="image"
-      :img-src="member.photo"
-      :img-alt="\`Photo of \${member.name}\`"
-      class="border-0 shadow-sm rounded-xl overflow-hidden"
-    >
-      <div class="py-3 px-1.5">
-        <div class="flex items-start justify-between">
-          <div class="pr-3">
-            <h3 class="text-base md:text-lg font-bold text-neutral-900 leading-snug">
-              {{ member.name }}
-            </h3>
-            <p class="text-xs md:text-sm text-neutral-500 mt-1">
-              {{ member.title }}
-            </p>
-          </div>
-          <a
-            v-if="member.linkedin"
-            :href="member.linkedin"
-            target="_blank"
-            rel="noopener"
-            class="shrink-0 inline-flex h-8 w-8 items-center justify-center rounded-full bg-neutral-100 text-neutral-600 hover:bg-neutral-200 hover:text-neutral-800 transition"
-            aria-label="LinkedIn profile"
-          >
-            <svg viewBox="0 0 24 24" class="h-4 w-4" fill="currentColor" aria-hidden="true">
-              <path d="M19 3A2.94 2.94 0 0 1 22 6v12a2.94 2.94 0 0 1-3 3H5a2.94 2.94 0 0 1-3-3V6a2.94 2.94 0 0 1 3-3h14ZM8.34 18v-7.2H5.7V18h2.64Zm-.03-8.4c.9 0 1.47-.6 1.47-1.35-.02-.78-.57-1.35-1.44-1.35S6.9 7.47 6.9 8.25c0 .75.57 1.35 1.41 1.35ZM18.3 18v-4c0-2.13-1.14-3.12-2.67-3.12-1.24 0-1.8.69-2.1 1.17V10.8H10.9V18h2.64v-4.02c0-1.05.6-1.71 1.5-1.71.9 0 1.41.6 1.41 1.71V18H18.3Z"/>
-            </svg>
-          </a>
-        </div>
-      </div>
-    </fwb-card>
-  `,
+    pagination: {
+        clickable: true,
+    },
+}))
+
+const updateCurrentSlide = (instance) => {
+    if (!instance) return
+    const baseIndex = loopEnabled ? instance.realIndex : instance.activeIndex
+    currentSlide.value = ((baseIndex % totalSlides) + totalSlides) % totalSlides + 1
 }
+
+const onSwiper = (instance) => {
+    swiperInstance.value = instance
+    updateCurrentSlide(instance)
+}
+
+const onSlideChange = (instance) => {
+    updateCurrentSlide(instance)
+}
+
+const swiperNext = () => swiperInstance.value?.slideNext()
+const swiperPrev = () => swiperInstance.value?.slidePrev()
 </script>
 
-<style>
-/* Swiper core styles (global, not scoped) */
-@import 'swiper/css';
-@import 'swiper/css/pagination';
-</style>
-
 <style scoped>
-/* Make images cover nicely */
-:deep(img) {
-    object-fit: cover;
+.showcase-swiper {
+    overflow: hidden;
+    /* keep if you don't want overflow shadows */
 }
 
-/* Subtle hover lift on larger screens */
-.fwb-card:hover {
-    transform: translateY(-2px);
-}
-
-/* Pagination bullets look like your mock */
-:deep(.swiper-pagination-bullet) {
-    width: 8px;
-    height: 8px;
-    opacity: 0.35;
-    background: #111827;
-    /* neutral-900 */
-    margin: 0 6px !important;
-    transition: width 200ms ease, opacity 200ms ease;
-}
-
-:deep(.swiper-pagination-bullet-active) {
-    width: 36px;
-    border-radius: 9999px;
-    opacity: 0.8;
+/* If you actually want to SEE pagination bullets, remove this block */
+.showcase-swiper :deep(.swiper-pagination) {
+    display: none;
 }
 </style>

@@ -15,12 +15,13 @@
                 <article>
                     <div class="bg-white rounded-lg  p-4 transition group border border-transparent hover:border-primary-500"
                         style="box-shadow: 0px 2px 4px 0px #0F1C330F, 0px 2px 2px 0px #0F1C3312;">
-                        <div class="flex justify-between items-start mb-4">
+                        <div class="flex justify-between items-start">
                             <div class="mb-4 pr-4">
                                 <h3 class="text-lg md:text-xl font-bold text-neutral-900 mb-3">{{ item.title }}</h3>
                                 <p class="text-neutral-600 text-sm line-clamp-3">{{ item.description }}
                                 </p>
                             </div>
+
                             <a href="#"
                                 class="p-2 rounded-full border border-neutral-300 bg-white transition group-hover:bg-primary-500 group-hover:border-primary-500 hover:bg-primary-500 hover:border-primary-500 cursorpointer">
                                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
@@ -31,6 +32,11 @@
                                 </svg>
                             </a>
                         </div>
+                        <ul class="flex flex-wrap gap-2">
+                            <li class="px-3 py-1 bg-neutral-100 text-neutral-900 text-xs rounded-full">
+                                All
+                            </li>
+                        </ul>
                         <img :src="item.image" alt={{item.title}} class="w-full rounded-lg object-cover mt-4" />
                     </div>
                 </article>

@@ -715,7 +715,6 @@
 </template>
 <script setup>
 import bgImg from '@/assets/images/hero_bg.webp';
-import teamBg from '@/assets/images/teamBg.svg';
 import NavigateSecondaryButton from '@/components/ui/button/NavigateSecondary.vue';
 import StartBuilding from '@/components/section/StartBuilding.vue';
 import HeroSlider from '@/components/ui/slider/HeroSlider.vue';

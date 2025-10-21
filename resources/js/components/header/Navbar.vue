@@ -1,6 +1,7 @@
 <template>
     <header
-        :class="['w-full bg-white px-4 py-2 sm:py-2.5 md:py-3 relative', mobileMenuOpen ? 'rounded-tr-lg rounded-tl-lg' : 'rounded-full']">
+        :class="['w-full bg-white px-4 py-2 sm:py-2.5 md:py-3 relative', mobileMenuOpen ? 'rounded-tr-lg rounded-tl-lg' : 'rounded-full']"
+        style="box-shadow: 4px 0px 20px -4px #0F1C330F;">
         <div class="flex justify-between items-center">
             <!-- Logo & Navigation -->
             <div class="flex items-center gap-5 justify-between w-full lg:w-auto">

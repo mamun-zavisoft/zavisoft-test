@@ -116,13 +116,13 @@
             <div class="grid grid-cols-1 md:grid-cols-12 gap-10 items-center">
 
                 <!-- Middle Image -->
-                <div class="col-span-12 md:col-span-7">
+                <div class=" md:col-span-7">
                     <img src="https://images.unsplash.com/photo-1598256989800-fe5f95da9787?auto=format&fit=crop&w=800&q=80"
                         alt="Team celebrating" class="rounded-lg w-full h-auto object-cover shadow-md" />
                 </div>
 
                 <!-- Right Stats -->
-                <div class="col-span-12 md:col-span-5 flex flex-col gap-4">
+                <div class=" md:col-span-5 flex flex-col gap-4">
                     <div class="border rounded-lg p-6 border-neutral-300">
                         <div class="flex items-center gap-6">
                             <h3 class="text-3xl font-bold text-neutral-900">1.8k+</h3>
@@ -186,6 +186,44 @@
         </div>
     </section>
 
+    <section class="py-8 md:py-10 lg:py-12 bg-primary-50">
+        <div class="container">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-10">
+                <div class="h-full flex flex-col justify-between">
+                    <div class="">
+                        <span
+                            class="inline-block text-sm font-medium border border-neutral-300 text-neutral-900 bg-neutral-100 px-3 py-1 rounded-full mb-3">
+                            Career opportunities
+                        </span>
+                        <h2 class="text-2xl lg:text-3xl font-bold text-neutral-900 leading-snug">
+                            Maximize Your Software Development Potential with Us
+                        </h2>
+                        <p class="text-sm lg:text-base text-neutral-600 mt-6 md:mt-8 lg:mt-10">With our innovative
+                            solutions and committed
+                            expertise, success is a guaranteed outcome. Let’s
+                            accelerate
+                            together towards your goals—and beyond.
+                            We are close-knit company that’s been committed from the start to forging our own path, not
+                            simply
+                            following modern management trends. For example, we don’t adopt Scrum by the book or through
+                            standard
+                            training, but instead, we focus on creating the ideal conditions to implement the best
+                            practices.</p>
+                    </div>
+                    <div class="">
+                        <NavigatePrimary text="Let’s join our team" to="/contact" class="mt-4 md:mt-6 lg:mt-8" />
+                    </div>
+                </div>
+                <div class="pl-0 md:pl-6 lg:pl-8">
+                    <img src="@/assets/images/career_img.png" alt=""
+                        class="w-full h-auto rounded-tl-[50px] md:rounded-tl-[100px] lg:rounded-tl-[300px]">
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
 </template>
 
 
@@ -198,6 +236,7 @@ import TeamSlider from '@/components/ui/slider/TeamSlider.vue';
 import StartBuilding from '@/components/section/StartBuilding.vue';
 import teamImg from '@/assets/images/team_slider_img.png'
 import TeamMemberCard from '@/components/ui/card/TeamMemberCard.vue'
+import NavigatePrimary from '@/components/ui/button/NavigatePrimary.vue';
 
 
 const slides = [
@@ -211,5 +250,4 @@ const slides = [
     { src: teamImg, rotation: 15 },
     { src: teamImg, rotation: -6 },
 ]
-
 </script>
