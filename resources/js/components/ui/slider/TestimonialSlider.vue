@@ -4,7 +4,7 @@
         <div class="mb-4 md:mb-6 lg:mb-8 flex items-center justify-between">
             <img src="@/assets/images/icons/qute.svg" alt="quote" class="w-20 md:w-24 lg:w-28 h-auto" />
             <div
-                class="flex items-center justify-center md:justify-end absolute mt-10 sm:mt-0 sm:static bottom-[-40px] right-0 z-20 ">
+                class="flex items-center justify-center md:justify-end absolute mt-10 sm:mt-0 sm:static bottom-[-40px] right-0 z-8 ">
                 <button type="button" @click="swiperPrev"
                     class="flex w-7 h-7 md:w-8 md:h-8 lg:h-10 lg:w-10 items-center justify-center rounded-full border border-neutral-300 bg-white transition hover:bg-neutral-100 cursor-pointer">
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
