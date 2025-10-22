@@ -43,40 +43,40 @@ import 'swiper/css/pagination'
 
 const services = [
     {
-        name: 'Design System Strategy',
+        name: 'Problem-Solvers at Heart',
         content:
-            'We create cohesive and scalable design systems that ensure consistency, usability, and a seamless user experience across all digital products.',
-        icon: new URL('@/assets/images/icons/design_system.svg', import.meta.url).href,
+            ' We tackle complexity head-on, turning challenges into opportunities.',
+        icon: new URL('@/assets/images/icons/problem_solver.svg', import.meta.url).href,
     },
     {
-        name: 'Full-Stack Expertise',
+        name: 'Tech-Driven Innovators',
         content:
             'We create cohesive and scalable design systems that ensure consistency, usability, and a seamless user experience across all digital products.',
-        icon: new URL('@/assets/images/icons/full_stack.svg', import.meta.url).href,
+        icon: new URL('@/assets/images/icons/inovator.svg', import.meta.url).href,
     },
     {
-        name: 'Tool-Agnostic Flexibility',
+        name: 'Strategic Thinkers',
         content:
             'We create cohesive and scalable design systems that ensure consistency, usability, and a seamless user experience across all digital products.',
-        icon: new URL('@/assets/images/icons/tool_agnostic.svg', import.meta.url).href,
+        icon: new URL('@/assets/images/icons/thinker.svg', import.meta.url).href,
     },
     {
-        name: 'Quality-Driven Development',
+        name: 'Creative Collaborators',
         content:
             'We create cohesive and scalable design systems that ensure consistency, usability, and a seamless user experience across all digital products.',
-        icon: new URL('@/assets/images/icons/quality_driven.svg', import.meta.url).href,
+        icon: new URL('@/assets/images/icons/creative_team.svg', import.meta.url).href,
     },
     {
-        name: 'Client-Centric Approach',
+        name: 'Quality-Focused Professionals',
         content:
             'We create cohesive and scalable design systems that ensure consistency, usability, and a seamless user experience across all digital products.',
-        icon: new URL('@/assets/images/icons/client_centric.svg', import.meta.url).href,
+        icon: new URL('@/assets/images/icons/qa_professional.svg', import.meta.url).href,
     },
     {
-        name: 'Comprehensive System Testing',
+        name: 'Agile and Adaptive',
         content:
             'We create cohesive and scalable design systems that ensure consistency, usability, and a seamless user experience across all digital products.',
-        icon: new URL('@/assets/images/icons/comprehensive_system.svg', import.meta.url).href,
+        icon: new URL('@/assets/images/icons/agil_team.svg', import.meta.url).href,
     },
 ]
 
@@ -85,7 +85,6 @@ const onSlideChange = () => console.log('slide change')
 </script>
 
 <style scoped>
-
 :deep(.feature-slider .swiper-pagination-bullets) {
     display: flex;
     justify-content: center;

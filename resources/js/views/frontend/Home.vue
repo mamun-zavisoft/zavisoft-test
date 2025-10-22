@@ -521,7 +521,7 @@
 
     <!-- team section -->
     <section class=" py-8 md:py-10 lg:py-12">
-        <div class="w-[84%] ml-auto">
+        <div class="w-[84%] ml-auto relative ">
             <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center relative">
                 <!-- Left copy -->
                 <div class="md:col-span-9">
@@ -568,6 +568,9 @@
                             alt="person" class="h-[60px] w-[60px] rounded-full object-cover" />
                     </div>
                 </div>
+            </div>
+            <div class="absolute left-[20%] bottom-[-110px] z-[-1]">
+                <img src="@/assets/images/teamBg.svg" alt="" />
             </div>
         </div>
     </section>
