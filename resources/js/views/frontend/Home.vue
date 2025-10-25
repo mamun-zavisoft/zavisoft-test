@@ -412,10 +412,9 @@
                 <p class="text-neutral-600 mt-3 text-sm lg:text-base"> Bring your idea to life with the tools you need
                     to start selling. </p>
             </div>
-            <div
-                class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 divide-x divide-y divide-neutral-200 grid-tech">
-                
-                <GridLayout />
+            <div class="grid grid-cols-4 lg:grid-cols-6 grid-tech">
+
+                <TechStacks />
 
             </div>
         </div>
@@ -426,7 +425,6 @@
             <TestimonialSlider />
         </div>
     </section>
-
     <!-- team section -->
     <section class=" py-8 md:py-10 lg:py-12">
         <div class="w-[84%] ml-auto relative ">
@@ -490,8 +488,6 @@
             </div>
         </div>
     </section>
-
-
 
     <section class="py-8 md:py-10 lg:py-12">
         <div class="container">
@@ -632,7 +628,7 @@ import ShowCaseSlider from '@/components/ui/slider/ShowCaseSlider.vue';
 import NagigatePrimaryButton from '@/components/ui/button/NavigatePrimary.vue';
 import TestimonialSlider from '@/components/ui/slider/TestimonialSlider.vue';
 import FAQ from '@/components/section/FAQ.vue';
-import GridLayout from '@/components/section/GridLayout.vue';
+import TechStacks from '@/components/section/TechStacks.vue';
 
 const slides = [
     '@/assets/images/team_image.svg',
