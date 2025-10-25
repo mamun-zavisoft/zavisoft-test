@@ -414,107 +414,8 @@
             </div>
             <div
                 class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 divide-x divide-y divide-neutral-200 grid-tech">
-                <!-- Repeat these items dynamically -->
-                <div class="flex items-center justify-center p-6">
-                    <img class="h-12 w-auto"
-                        src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/figma/figma-original.svg" alt="Figma">
-                </div>
-
-                <div class="flex items-center justify-center p-6">
-                    <img class="h-12 w-auto"
-                        src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg"
-                        alt="Node.js">
-                </div>
-
-                <div class="flex items-center justify-center p-6">
-                    <img class="h-12 w-auto"
-                        src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/jira/jira-original.svg" alt="Jira">
-                </div>
-
-                <div class="flex items-center justify-center p-6">
-                    <img class="h-12 w-auto"
-                        src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/bitbucket/bitbucket-original.svg"
-                        alt="Bitbucket">
-                </div>
-
-                <div class="flex items-center justify-center p-6">
-                    <img class="h-12 w-auto"
-                        src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/discordjs/discordjs-original.svg"
-                        alt="Discord">
-                </div>
-
-                <div class="flex items-center justify-center p-6">
-                    <img class="h-12 w-auto"
-                        src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg" alt="Java">
-                </div>
-                <div class="flex items-center justify-center p-6">
-                    <img class="h-12 w-auto"
-                        src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg"
-                        alt="JavaScript">
-                </div>
-
-                <div class="flex items-center justify-center p-6">
-                    <img class="h-12 w-auto"
-                        src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/angularjs/angularjs-plain.svg"
-                        alt="Angular">
-                </div>
-
-                <div class="flex items-center justify-center p-6">
-                    <img class="h-12 w-auto"
-                        src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg" alt="React">
-                </div>
-
-                <div class="flex items-center justify-center p-6">
-                    <img class="h-12 w-auto"
-                        src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/dot-net/dot-net-original.svg"
-                        alt=".NET">
-                </div>
-
-                <div class="flex items-center justify-center p-6">
-                    <img class="h-12 w-auto"
-                        src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/laravel/laravel-plain.svg"
-                        alt="Laravel">
-                </div>
-
-                <div class="flex items-center justify-center p-6">
-                    <img class="h-12 w-auto"
-                        src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg"
-                        alt="Python">
-                </div>
-
-                <div class="flex items-center justify-center p-6">
-                    <img class="h-12 w-auto"
-                        src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/cypressio/cypressio-original.svg"
-                        alt="Cypress">
-                </div>
-
-                <div class="flex items-center justify-center p-6">
-                    <img class="h-12 w-auto"
-                        src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/figma/figma-original.svg" alt="Figma">
-                </div>
-
-                <div class="flex items-center justify-center p-6">
-                    <img class="h-12 w-auto"
-                        src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg"
-                        alt="Node.js">
-                </div>
-
-                <div class="flex items-center justify-center p-6">
-                    <img class="h-12 w-auto"
-                        src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/jira/jira-original.svg" alt="Jira">
-                </div>
-
-                <div class="flex items-center justify-center p-6">
-                    <img class="h-12 w-auto"
-                        src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/bitbucket/bitbucket-original.svg"
-                        alt="Bitbucket">
-                </div>
-
-                <div class="flex items-center justify-center p-6">
-                    <img class="h-12 w-auto"
-                        src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/discordjs/discordjs-original.svg"
-                        alt="Discord">
-                </div>
+                
+                <GridLayout />
 
             </div>
         </div>
@@ -731,6 +632,7 @@ import ShowCaseSlider from '@/components/ui/slider/ShowCaseSlider.vue';
 import NagigatePrimaryButton from '@/components/ui/button/NavigatePrimary.vue';
 import TestimonialSlider from '@/components/ui/slider/TestimonialSlider.vue';
 import FAQ from '@/components/section/FAQ.vue';
+import GridLayout from '@/components/section/GridLayout.vue';
 
 const slides = [
     '@/assets/images/team_image.svg',
