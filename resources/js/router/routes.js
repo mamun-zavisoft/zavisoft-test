@@ -29,10 +29,29 @@ const routes = [
         meta: { layout: LayoutFrontend, title: "About Us" },
     },
     {
+        path: "/projects",
+        name: "Projects",
+        component: () => import("@/views/frontend/Projects.vue"),
+        meta: { layout: LayoutFrontend, title: "Our Projects" },
+    },
+    {
         path: "/career",
         name: "Career",
         component: () => import("@/views/frontend/Career.vue"),
         meta: { layout: LayoutFrontend, title: "Career" },
+    },
+     {
+        path: "/job-apply",
+        name: "JobApply",
+        component: () => import("@/views/frontend/JobApply.vue"),
+        meta: { layout: LayoutFrontend, title: "Job Apply" },
+    },
+       {
+        path: '/career/:id',
+        name: 'CareerDetails',
+        component: () => import('@/views/frontend/CareerDetails.vue'),
+        props: true,
+        meta: { layout: LayoutFrontend, title: "Career Details" },
     },
     {
         path: "/blog",

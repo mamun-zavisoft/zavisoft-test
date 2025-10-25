@@ -38,11 +38,10 @@
                         </div>
 
                         <!-- Fit-content only, sits at bottom of sticky column -->
-                        <div class="share-link mt-4 shrink-0 flex gap-3">
+                        <div class="share-link mt-4 shrink-0 flex gap-3 items-center ">
                             <h6> Share link</h6>
                             <div class="flex items-center gap-2">
-                                <a href="#"
-                                    class="w-8 h-8 rounded-full bg-neutral-100 flex items-center justify-center ">
+                                <a href="#" class="w-8 h-8 rounded-full bg-neutral-100 flex items-center ">
                                     <svg class="w-4 h-4" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
                                         fill="currentColor" viewBox="0 0 8 19">
                                         <path fill-rule="evenodd"

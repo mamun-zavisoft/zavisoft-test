@@ -42,9 +42,13 @@
                         <NavRoute />
                     </fwb-dropdown>
 
-                    <router-link to="/casestudy"
+                    <!-- <router-link to="/casestudy"
                         class="px-2 py-1 text-sm font-medium text-neutral-900  transition-colors">
                         Case Study
+                    </router-link> -->
+                    <router-link to="/projects"
+                        class="px-2 py-1 text-sm font-medium text-neutral-900 transition-colors">
+                        Our Projects
                     </router-link>
                     <router-link to="/about" class="px-2 py-1 text-sm font-medium text-neutral-900 transition-colors">
                         About Us
