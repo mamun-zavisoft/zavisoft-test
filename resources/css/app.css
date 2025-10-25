@@ -90,7 +90,7 @@ body {
 
 
 .container {
-    max-width: 80rem;
+    max-width: 90rem;
     margin: 0 auto;
 }
 
@@ -140,7 +140,7 @@ body {
 
 
 
-@media (max-width: 1300px) {
+@media (max-width: 1480px) {
     .container {
         max-width: 100%;
         width: 100%;

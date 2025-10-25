@@ -15,6 +15,14 @@ const routes = [
         meta: { layout: LayoutFrontend, title: "Case Study" },
     },
     {
+        path: '/case-study/:id',
+        name: 'CaseStudyDetails',
+        component: () => import('@/views/frontend/CaseStudyDetails.vue'),
+        props: true,
+        meta: { layout: LayoutFrontend, title: "Case Study" },
+    },
+
+    {
         path: "/about",
         name: "About",
         component: () => import("@/views/frontend/About.vue"),
