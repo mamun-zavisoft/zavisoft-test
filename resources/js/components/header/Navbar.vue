@@ -25,7 +25,8 @@
             </div>
             <div class="menu-link">
                 <nav class="hidden lg:flex lg:gap-4 xl:gap-6 items-center">
-                    <fwb-dropdown class="megaMenu" @show="isDropdownOpen = true" @hide="isDropdownOpen = false">
+                    <fwb-dropdown class="megaMenu" close-inside @show="isDropdownOpen = true"
+                        @hide="isDropdownOpen = false">
                         <template #trigger>
                             <div class="px-2 py-1 flex items-center gap-2 cursor-pointer text-neutral-900 font-medium">
                                 <span>Service</span>
@@ -117,5 +118,13 @@ function toggleMobileMenu() {
     mobileMenuOpen.value = !mobileMenuOpen.value;
 }
 const isDropdownOpen = ref(false);
+
+import { useRouter } from 'vue-router'
+
+const router = useRouter()
+router.afterEach(() => {
+    isDropdownOpen.value = false
+})
+
 
 </script>
