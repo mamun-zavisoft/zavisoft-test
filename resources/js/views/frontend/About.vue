@@ -92,7 +92,7 @@
 
     <!-- slider  -->
     <section class="py-8 md:py-10 lg:py-12">
-        <TeamSlider :slides="slides" size="md" />
+        <TeamSlider />
     </section>
 
     <section class=" py-8 md:py-10 lg:py-12">
@@ -234,20 +234,7 @@ import WeAreCard from '@/components/why_us/WeAreCard.vue';
 import NavigateSecondary from '@/components/ui/button/NavigateSecondary.vue';
 import TeamSlider from '@/components/ui/slider/TeamSlider.vue';
 import StartBuilding from '@/components/section/StartBuilding.vue';
-import teamImg from '@/assets/images/team_slider_img.png'
 import TeamMemberCard from '@/components/ui/card/TeamMemberCard.vue'
 import NavigatePrimary from '@/components/ui/button/NavigatePrimary.vue';
 
-
-const slides = [
-    { src: teamImg, rotation: -12 },
-    { src: teamImg, rotation: 9 },
-    { src: teamImg, rotation: -6 },
-    { src: teamImg, rotation: 11 },
-    { src: teamImg, rotation: -8 },
-    { src: teamImg, rotation: 12 },
-    { src: teamImg, rotation: -5 },
-    { src: teamImg, rotation: 15 },
-    { src: teamImg, rotation: -6 },
-]
 </script>

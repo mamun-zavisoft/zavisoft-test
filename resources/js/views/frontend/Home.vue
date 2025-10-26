@@ -1,10 +1,10 @@
 <template>
     <section>
-        <div class="hero relative w-full h-screen bg-no-repeat bg-center bg-cover mt-[-120px]"
+        <div class="hero relative w-full bg-no-repeat bg-center bg-cover mt-[-120px]"
             :style="{ backgroundImage: `url(${bgImg})` }">
             <div class="container">
                 <div
-                    class="hero-content text-center text-white pt-24 md:pt-30 lg:pt-36 xl:pt-40 flex flex-col items-center gap-3">
+                    class="relative z-1 hero-content text-center text-white pt-24 md:pt-30 lg:pt-36 xl:pt-40 flex flex-col items-center gap-3">
                     <div class="bg-white rounded-full px-4 py-1.5 text-primary-500">
                         <span class="w-2 h-2 rounded-full bg-primary-500 inline-block mr-2"></span>
                         <span class="text-sm font-semibold"> Top Software Development Company</span>
@@ -41,13 +41,14 @@
 
                 </div>
             </div>
-            <div class="hero-slider mt-4">
-                <HeroSlider :images="slides" :interval="3200" :autoplay="true" />
+            <div class="relative hero-slider ">
+                <HeroSlider :images="imageUrls" :autoSpeed="0.15" />
             </div>
         </div>
     </section>
 
-    <section>
+
+    <section class=" mt-[-10%] md:mt-[-8%] xl:mt-[-6%] relative z-1">
         <div class="container">
             <div class="border-b border-neutral-200 pb-8 md:pb-10 lg:pb-12">
                 <h5 class=" text-base font-semibold text-neutral-900 text-center mb-3">Our recent clients & partners
@@ -57,6 +58,8 @@
             </div>
         </div>
     </section>
+
+
 
     <section class="py-8 md:py-10 lg:py-12 ">
         <div class="container flex flex-col-reverse md:flex-row items-center justify-between gap-16 ">
@@ -627,12 +630,7 @@ import TestimonialSlider from '@/components/ui/slider/TestimonialSlider.vue';
 import FAQ from '@/components/section/FAQ.vue';
 import TechStacks from '@/components/section/TechStacks.vue';
 
-const slides = [
-    '@/assets/images/team_image.svg',
-    '@/assets/images/team_image.svg',
-    '@/assets/images/team_image.svg',
-    '@/assets/images/team_image.svg',
-    '@/assets/images/team_image.svg',
-];
+const ids = [1015, 1016, 1018, 1019, 1020, 1021, 1022, 1023, 1024, 1025]
+const imageUrls = ids.map(id => `https://picsum.photos/id/${id}/720/480`)
 
 </script>

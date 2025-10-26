@@ -12,7 +12,7 @@
 
     <!-- Mobile Slider -->
     <div class="sm:hidden">
-        <Swiper class="feature-slider px-4" :modules="[Autoplay, Pagination]" :slides-per-view="1.2" :space-between="16"
+        <Swiper class="feature-slider px-4" :modules="[Autoplay, Pagination]" :slides-per-view="1" :space-between="16"
             :centered-slides="false" :loop="false" :autoplay="{
                 delay: 2500,
                 disableOnInteraction: false
