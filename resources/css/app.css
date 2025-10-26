@@ -179,7 +179,7 @@ body {
 .marquee {
     width: var(--marquee-width);
     height: var(--marquee-height);
-    background: #fff;
+    /* background: #fff; */
     overflow: hidden;
     position: relative;
 }
@@ -197,12 +197,13 @@ body {
 
 .marquee::before {
     left: 0;
-    background: linear-gradient(to right, #fff 0%, transparent 100%);
+     background: linear-gradient(to right, #F8FAFC 0%, transparent 100%);
+    /* background: linear-gradient(to right, #fff 0%, transparent 100%); */
 }
 
 .marquee::after {
     right: 0;
-    background: linear-gradient(to left, #fff 0%, transparent 100%);
+    background: linear-gradient(to left, #F8FAFC 0%, transparent 100%);
 }
 
 .marquee-content {
