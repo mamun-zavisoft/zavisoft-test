@@ -132,7 +132,7 @@
             </div>
 
             <!-- Service Grid -->
-            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 mg:gap-4 lg:gap-6">
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 lg:gap-6">
                 <!-- Card 1 -->
                 <div class="bg-white rounded-lg  p-4 transition group">
                     <div class="flex justify-between items-start mb-4">
@@ -404,110 +404,17 @@
 
     <section class="industry-tech py-8 md:py-10 lg:py-12">
         <div class="container mx-auto">
-            <div
-                class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 divide-x divide-y divide-neutral-200 grid-tech">
-                <!-- Repeat these items dynamically -->
-                <div class="flex items-center justify-center p-6">
-                    <img class="h-12 w-auto"
-                        src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/figma/figma-original.svg" alt="Figma">
-                </div>
+            <div class="text-center mb-8 md:mb-10 lg:mb-12"><span
+                    class="inline-block text-sm font-medium border border-neutral-300 text-neutral-900 bg-neutral-100 px-3 py-1 rounded-full mb-2">
+                    We Serve All Tech Stacks</span>
+                <h2 class="text-2xl md:text-3xl lg:text-4xl font-bold text-neutral-900 mt-2"> Frameworks to Functions —
+                    We Do It All. </h2>
+                <p class="text-neutral-600 mt-3 text-sm lg:text-base"> Bring your idea to life with the tools you need
+                    to start selling. </p>
+            </div>
+            <div class="grid grid-cols-4 lg:grid-cols-6 grid-tech">
 
-                <div class="flex items-center justify-center p-6">
-                    <img class="h-12 w-auto"
-                        src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg"
-                        alt="Node.js">
-                </div>
-
-                <div class="flex items-center justify-center p-6">
-                    <img class="h-12 w-auto"
-                        src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/jira/jira-original.svg" alt="Jira">
-                </div>
-
-                <div class="flex items-center justify-center p-6">
-                    <img class="h-12 w-auto"
-                        src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/bitbucket/bitbucket-original.svg"
-                        alt="Bitbucket">
-                </div>
-
-                <div class="flex items-center justify-center p-6">
-                    <img class="h-12 w-auto"
-                        src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/discordjs/discordjs-original.svg"
-                        alt="Discord">
-                </div>
-
-                <div class="flex items-center justify-center p-6">
-                    <img class="h-12 w-auto"
-                        src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg" alt="Java">
-                </div>
-                <div class="flex items-center justify-center p-6">
-                    <img class="h-12 w-auto"
-                        src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg"
-                        alt="JavaScript">
-                </div>
-
-                <div class="flex items-center justify-center p-6">
-                    <img class="h-12 w-auto"
-                        src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/angularjs/angularjs-plain.svg"
-                        alt="Angular">
-                </div>
-
-                <div class="flex items-center justify-center p-6">
-                    <img class="h-12 w-auto"
-                        src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg" alt="React">
-                </div>
-
-                <div class="flex items-center justify-center p-6">
-                    <img class="h-12 w-auto"
-                        src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/dot-net/dot-net-original.svg"
-                        alt=".NET">
-                </div>
-
-                <div class="flex items-center justify-center p-6">
-                    <img class="h-12 w-auto"
-                        src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/laravel/laravel-plain.svg"
-                        alt="Laravel">
-                </div>
-
-                <div class="flex items-center justify-center p-6">
-                    <img class="h-12 w-auto"
-                        src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg"
-                        alt="Python">
-                </div>
-
-                <div class="flex items-center justify-center p-6">
-                    <img class="h-12 w-auto"
-                        src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/cypressio/cypressio-original.svg"
-                        alt="Cypress">
-                </div>
-
-                <div class="flex items-center justify-center p-6">
-                    <img class="h-12 w-auto"
-                        src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/figma/figma-original.svg" alt="Figma">
-                </div>
-
-                <div class="flex items-center justify-center p-6">
-                    <img class="h-12 w-auto"
-                        src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg"
-                        alt="Node.js">
-                </div>
-
-                <div class="flex items-center justify-center p-6">
-                    <img class="h-12 w-auto"
-                        src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/jira/jira-original.svg" alt="Jira">
-                </div>
-
-                <div class="flex items-center justify-center p-6">
-                    <img class="h-12 w-auto"
-                        src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/bitbucket/bitbucket-original.svg"
-                        alt="Bitbucket">
-                </div>
-
-                <div class="flex items-center justify-center p-6">
-                    <img class="h-12 w-auto"
-                        src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/discordjs/discordjs-original.svg"
-                        alt="Discord">
-                </div>
-
+                <TechStacks />
 
             </div>
         </div>
@@ -518,12 +425,11 @@
             <TestimonialSlider />
         </div>
     </section>
-
     <!-- team section -->
     <section class=" py-8 md:py-10 lg:py-12">
         <div class="w-[84%] ml-auto relative ">
             <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center relative">
-                <!-- Left copy -->
+
                 <div class="md:col-span-9">
                     <span
                         class="inline-block text-sm font-medium border border-neutral-300 text-neutral-900 bg-neutral-100 px-3 py-1 rounded-full mb-2">
@@ -548,9 +454,6 @@
                         <NagigatePrimaryButton text="Let’s meet our team" to="/contact" />
                     </div>
                 </div>
-
-
-                <!-- Right visuals -->
                 <div class="md:col-span-3">
                     <div
                         class="absolute right-16 top-16 h-[220px] w-[220px] rounded-full bg-violet-100 flex items-center justify-center shadow-[0_10px_30px_rgba(2,6,23,0.08)]">
@@ -569,7 +472,7 @@
                     </div>
                 </div>
             </div>
-            <div class="absolute left-[20%] bottom-[-110px] z-[-1]">
+            <div class="absolute z-[-1] left-[1%] bottom-[10px]">
                 <img src="@/assets/images/teamBg.svg" alt="" />
             </div>
         </div>
@@ -582,8 +485,6 @@
             </div>
         </div>
     </section>
-
-
 
     <section class="py-8 md:py-10 lg:py-12">
         <div class="container">
@@ -724,6 +625,7 @@ import ShowCaseSlider from '@/components/ui/slider/ShowCaseSlider.vue';
 import NagigatePrimaryButton from '@/components/ui/button/NavigatePrimary.vue';
 import TestimonialSlider from '@/components/ui/slider/TestimonialSlider.vue';
 import FAQ from '@/components/section/FAQ.vue';
+import TechStacks from '@/components/section/TechStacks.vue';
 
 const slides = [
     '@/assets/images/team_image.svg',

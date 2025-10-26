@@ -35,7 +35,7 @@
                                         </p>
                                     </div>
 
-                                    <a href="#"
+                                    <router-link :to="{ name: 'CaseStudyDetails', params: { id: project.id } }"
                                         class="p-2 rounded-full border border-neutral-300 bg-white transition group-hover:bg-primary-500 group-hover:border-primary-500 hover:bg-primary-500 hover:border-primary-500 cursorpointer">
                                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
                                             stroke-width="1.5" stroke="currentColor"
@@ -43,7 +43,7 @@
                                             <path stroke-linecap="round" stroke-linejoin="round"
                                                 d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3" />
                                         </svg>
-                                    </a>
+                                    </router-link>
                                 </div>
                                 <ul class="flex flex-wrap gap-2">
                                     <li v-for="tech in project.tech" :key="tech"
@@ -88,6 +88,7 @@ const projects = [
         description: 'Cross-platform food delivery app built with Flutter and Node.js backend.',
         image: new URL('@/assets/images/service/soft.png', import.meta.url).href,
         tech: ['Flutter', 'Node.js', 'MongoDB'],
+
     },
     {
         id: 3,
@@ -96,6 +97,7 @@ const projects = [
         description: 'Advanced analytics dashboard for tracking business KPIs in real time.',
         image: new URL('@/assets/images/service/soft.png', import.meta.url).href,
         tech: ['React', 'Chart.js', 'Express'],
+
     },
     {
         id: 4,
@@ -104,6 +106,7 @@ const projects = [
         description: 'Scalable multi-vendor store optimized for SEO and mobile users.',
         image: new URL('@/assets/images/service/soft.png', import.meta.url).href,
         tech: ['Next.js', 'Prisma', 'PostgreSQL'],
+
     },
     {
         id: 5,
@@ -112,6 +115,7 @@ const projects = [
         description: 'Personal fitness tracking app with habit reminders and dark mode.',
         image: new URL('@/assets/images/service/soft.png', import.meta.url).href,
         tech: ['Flutter', 'Dart', 'Firebase'],
+
     },
 ]
 
@@ -120,6 +124,7 @@ const categories = [
     { name: 'ecommerce', label: 'Ecommerce' },
     { name: 'mobile-app', label: 'Mobile App' },
     { name: 'admin-dashboard', label: 'Admin Dashboard' },
+
 ]
 
 const filteredProjects = computed(() => {

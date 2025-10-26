@@ -22,7 +22,7 @@
                 </span>
             </div>
             <div class="mt-4">
-                <a v-if="job.link" :href="job.link" target="_blank" rel="noopener"
+                <router-link :to="{ name: 'CareerDetails', params: { id: job.id } }"
                     class="group flex items-center gap-2 text-neutral-900 font-semibold text-sm group-hover:text-white">
                     Details
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
@@ -30,7 +30,7 @@
                         <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3" />
                     </svg>
 
-                </a>
+                </router-link>
             </div>
         </article>
     </div>
@@ -109,7 +109,6 @@ const jobListings = [
         employment: "Full Time",
         experience: "1–2 year experience",
         salaryRange: "৳20,000 – ৳30,000 BDT/month",
-        link: "#",
     },
     {
         id: 2,
