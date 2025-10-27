@@ -12,18 +12,18 @@
 import { computed, onBeforeUnmount, onMounted, ref } from 'vue';
 
 const techStack = [
-    { name: "Figma", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/discordjs/discordjs-original.svg" },
-    { name: "Node.js", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/bitbucket/bitbucket-original.svg" },
-    { name: "Jira", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/jira/jira-original.svg" },
-    { name: "Bitbucket", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg" },
-    { name: "Discord", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/discordjs/discordjs-original.svg" },
-    { name: "Java", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg" },
-    { name: "JavaScript", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" },
-    { name: "Angular", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/angularjs/angularjs-plain.svg" },
-    { name: "React", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg" },
-    { name: ".NET", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/dot-net/dot-net-original.svg" },
-    { name: "Laravel", icon: new URL('@/assets/images/icons/laravel.svg', import.meta.url).href },
-    { name: "Python", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" },
+    { name: "Figma", icon: new URL('@/assets/images/tech/figma.svg', import.meta.url).href },
+    { name: "Python", icon: new URL('@/assets/images/tech/python.svg', import.meta.url).href },
+    { name: "Confluence", icon: new URL('@/assets/images/tech/confluence.svg', import.meta.url).href },
+    { name: "Bitbucket", icon: new URL('@/assets/images/tech/bitbucket.svg', import.meta.url).href },
+    { name: "Cypress", icon: new URL('@/assets/images/tech/cypress.svg', import.meta.url).href },
+    { name: "Discord", icon: new URL('@/assets/images/tech/discord.svg', import.meta.url).href },
+    { name: "JavaScript", icon: new URL('@/assets/images/tech/js.svg', import.meta.url).href },
+    { name: "Angular", icon: new URL('@/assets/images/tech/angular.svg', import.meta.url).href },
+    { name: "React", icon: new URL('@/assets/images/tech/react.svg', import.meta.url).href },
+    { name: "Unit", icon: new URL('@/assets/images/tech/unit.svg', import.meta.url).href },
+    { name: "Vue", icon: new URL('@/assets/images/tech/vue.svg', import.meta.url).href },
+    { name: "Laravel", icon: new URL('@/assets/images/tech/laravel.svg', import.meta.url).href },
 
 ];
 

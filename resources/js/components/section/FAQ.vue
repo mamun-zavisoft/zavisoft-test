@@ -1,10 +1,7 @@
 <template>
     <div class="flex flex-col gap-8 lg:gap-12 lg:flex-row ">
         <div class="lg:w-1/2">
-            <span
-                class="inline-block text-sm font-medium border border-neutral-300 text-neutral-900 bg-neutral-100 px-3 py-1 rounded-full mb-2">
-                FAQ’s
-            </span>
+            <SectionHeader text="FAQ’s" />
             <h2 class="text-xl md:text-2xl lg:text-3xl font-bold leading-snug text-neutral-900">
                 Our Frequently Asked Questions
             </h2>
@@ -63,5 +60,6 @@ import {
     FwbAccordionPanel,
 } from 'flowbite-vue'
 import NavigateSecondary from '@/components/ui/button/NavigateSecondary.vue';
+import SectionHeader from '../ui/heading/SectionHeader.vue';
 
 </script>

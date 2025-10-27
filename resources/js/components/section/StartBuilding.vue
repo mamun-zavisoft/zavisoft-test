@@ -6,9 +6,9 @@
                 <div class="flex items-center justify-center -space-x-2">
                     <img src="@/assets/images/icons/user_20.svg" alt="Person 1"
                         class="w-12 h-12 lg:w-16 lg:h-16 rounded-full border-2 border-white object-cover" />
-                    <img src="@/assets/images/icons/user_20.svg" alt="Person 2"
+                    <img src="@/assets/images/cntuser_1.png" alt="Person 2"
                         class="w-12 h-12 lg:w-16 lg:h-16 rounded-full border-2 border-white object-cover" />
-                    <img src="@/assets/images/icons/user_20.svg" alt="Person 3"
+                    <img src="@/assets/images/cntuser_2.png" alt="Person 3"
                         class="w-12 h-12 lg:w-16 lg:h-16 rounded-full border-2 border-white object-cover" />
                 </div>
                 <h1
