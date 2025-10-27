@@ -28,9 +28,9 @@
                             <div class="flex items-center justify-center md:justify-end -space-x-2">
                                 <img src="@/assets/images/icons/user_20.svg" alt="Person 1"
                                     class="w-5 h-5 lg:w-7 lg:h-7 rounded-full border-2 border-white object-cover" />
-                                <img src="@/assets/images/icons/user_20.svg" alt="Person 2"
+                                <img src="@/assets/images/cntuser_1.png" alt="Person 2"
                                     class="w-5 h-5 lg:w-7 lg:h-7 rounded-full border-2 border-white object-cover" />
-                                <img src="@/assets/images/icons/user_20.svg" alt="Person 3"
+                                <img src="@/assets/images/cntuser_1.png" alt="Person 3"
                                     class="w-5 h-5 lg:w-7 lg:h-7 rounded-full border-2 border-white object-cover" />
                             </div>
                         </router-link>
@@ -423,7 +423,7 @@
         </div>
     </section>
 
-    <section class=" pb-16 sm:pb-0 py-8 md:py-10 lg:py-12 bg-primary-50">
+    <section class=" pb-16 sm:pb-4 py-8 md:py-10 lg:py-12 bg-primary-50">
         <div class="container">
             <TestimonialSlider />
         </div>

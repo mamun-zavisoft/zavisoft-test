@@ -80,14 +80,14 @@ const showcaseItems = [
         title: 'Packly',
         description: 'Our design team helps clients achieve their marketing and business goals.',
         tags: ['e-commerce'],
-        image: new URL('@/assets/images/service/soft.png', import.meta.url).href,
+        image: new URL('@/assets/images/project_3.png', import.meta.url).href,
 
     },
     {
         title: 'Packly - Super App',
         description: 'Our design team helps clients achieve their marketing and business goals.',
         tags: ['e-commerce'],
-        image: new URL('@/assets/images/service/soft.png', import.meta.url).href,
+        image: new URL('@/assets/images/project_2.png', import.meta.url).href,
 
 
     },
@@ -95,7 +95,7 @@ const showcaseItems = [
         title: 'Packly - Event',
         description: 'Our design team helps clients achieve their marketing and business goals.',
         tags: ['Ticket Management', 'Ticket Platform Website'],
-        image: new URL('@/assets/images/service/soft.png', import.meta.url).href,
+        image: new URL('@/assets/images/project_1.png', import.meta.url).href,
 
 
     },
@@ -103,7 +103,7 @@ const showcaseItems = [
         title: 'Packly - Shopping',
         description: 'Our design team helps clients achieve their marketing and business goals.',
         tags: ['Ticket Management', 'Ticket Platform Website'],
-        image: new URL('@/assets/images/service/soft.png', import.meta.url).href,
+        image: new URL('@/assets/images/project_3.png', import.meta.url).href,
 
 
     },
@@ -111,7 +111,7 @@ const showcaseItems = [
         title: 'Packly - Kaj',
         description: 'Our design team helps clients achieve their marketing and business goals.',
         tags: ['Ticket Management', 'Ticket Platform Website'],
-        image: new URL('@/assets/images/service/soft.png', import.meta.url).href,
+        image: new URL('@/assets/images/project_2.png', import.meta.url).href,
 
 
     },
@@ -119,7 +119,7 @@ const showcaseItems = [
         title: 'Packly - Zavisoft',
         description: 'Our design team helps clients achieve their marketing and business goals.',
         tags: ['Ticket Management', 'Ticket Platform Website'],
-        image: new URL('@/assets/images/service/soft.png', import.meta.url).href,
+        image: new URL('@/assets/images/project_1.png', import.meta.url).href,
 
     },
 ]
