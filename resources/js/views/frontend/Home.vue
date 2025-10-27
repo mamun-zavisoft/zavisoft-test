@@ -7,7 +7,7 @@
                     class="relative z-1 hero-content text-center text-white pt-24 md:pt-30 lg:pt-36 xl:pt-40 flex flex-col items-center gap-3">
                     <div class="bg-white rounded-full px-4 py-1.5 text-primary-500">
                         <span class="w-2 h-2 rounded-full bg-primary-500 inline-block mr-2"></span>
-                        <span class="text-sm font-semibold"> Top Software Development Company</span>
+                        <span class="text-xs lg:text-sm font-semibold"> Top Software Development Company</span>
                     </div>
                     <h1
                         class="hero-title text-3xl md:text-4xl lg:text-5xl xl:text-7xl font-bold mb-2 lg:mb-4 text-neutral-900">
@@ -23,7 +23,7 @@
                         help your business thrive in today’s digital landscape.</p>
                     <div class="heroaction flex mt-6 lg:mt-8 justify-center gap-2 items-center">
                         <router-link to="#"
-                            class="bg-primary-500 px-3 md:px-4 py-2 lg:py-3 rounded-full flex gap-3 text-sm lg:text-base items-center">
+                            class="bg-primary-500 px-3 md:px-4 py-2.5 lg:py-3 rounded-full flex gap-3 text-sm lg:text-base items-center">
                             <span class="font-medium">Contact us</span>
                             <div class="flex items-center justify-center md:justify-end -space-x-2">
                                 <img src="@/assets/images/icons/user_20.svg" alt="Person 1"
@@ -42,7 +42,7 @@
                 </div>
             </div>
             <div class="relative hero-slider ">
-                <HeroSlider :images="imageUrls" :autoSpeed="0.15" />
+                <HeroSlider />
             </div>
         </div>
     </section>
@@ -630,7 +630,5 @@ import TestimonialSlider from '@/components/ui/slider/TestimonialSlider.vue';
 import FAQ from '@/components/section/FAQ.vue';
 import TechStacks from '@/components/section/TechStacks.vue';
 
-const ids = [1015, 1016, 1018, 1019, 1020, 1021, 1022, 1023, 1024, 1025]
-const imageUrls = ids.map(id => `https://picsum.photos/id/${id}/720/480`)
 
 </script>

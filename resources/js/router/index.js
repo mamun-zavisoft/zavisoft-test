@@ -5,13 +5,22 @@ import routes from "./routes";
 const router = createRouter({
     history: createWebHistory(),
     routes,
+    scrollBehavior(to, from, savedPosition) {
+        // if the user used the browser back/forward button, keep the saved position
+        if (savedPosition) {
+            return savedPosition
+        } else {
+            // always scroll to top on route change
+            return { top: 0 }
+        }
+    },
 });
 
 router.beforeEach(async (to, from, next) => {
     const authStore = useAuthStore();
 
     // Set page title
-    document.title = to.meta.title ? `${to.meta.title} | My App` : "My App";
+    document.title = to.meta.title ? `${to.meta.title} | Zavisoft` : "Zavisoft";
 
     // Check authentication status
     const isAuthenticated = authStore.isAuthenticated;
@@ -24,8 +33,8 @@ router.beforeEach(async (to, from, next) => {
     // Redirect authenticated users away from public routes
     if (isAuthenticated && isPublicRoute && !allowVerified) {
         // Redirect to appropriate dashboard based on user role
-        const redirectPath = role === "admin" 
-            ? "/admin/dashboard" 
+        const redirectPath = role === "admin"
+            ? "/admin/dashboard"
             : "/user/dashboard";
         return next(redirectPath);
     }

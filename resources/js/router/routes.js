@@ -111,6 +111,7 @@ const routes = [
         component: () => import("@/views/errors/NotFound.vue"),
         meta: { layout: LayoutError, title: "Page Not Found" },
     },
+    
 ];
 
 export default routes;
