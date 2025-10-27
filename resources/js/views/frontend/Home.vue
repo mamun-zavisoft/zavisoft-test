@@ -30,7 +30,7 @@
                                     class="w-5 h-5 lg:w-7 lg:h-7 rounded-full border-2 border-white object-cover" />
                                 <img src="@/assets/images/cntuser_1.png" alt="Person 2"
                                     class="w-5 h-5 lg:w-7 lg:h-7 rounded-full border-2 border-white object-cover" />
-                                <img src="@/assets/images/cntuser_1.png" alt="Person 3"
+                                <img src="@/assets/images/cntuser_2.png" alt="Person 3"
                                     class="w-5 h-5 lg:w-7 lg:h-7 rounded-full border-2 border-white object-cover" />
                             </div>
                         </router-link>
@@ -71,10 +71,8 @@
 
             <!-- Right Content -->
             <div class="md:w-1/2 w-full">
-                <span
-                    class="inline-block text-sm font-medium border border-neutral-300 text-neutral-900 bg-neutral-100 px-3 py-1 rounded-full mb-2">
-                    Team Achievements
-                </span>
+                <SectionHeader text="Team Achievements" />
+
                 <h2 class="text-2xl lg:text-3xl font-bold text-neutral-900 mb-4">
                     Smart Solutions for Bold Thinkers
                 </h2>
@@ -120,10 +118,8 @@
     <section class="py-8 md:py-10 lg:py-12 bg-neutral-50">
         <div class="container">
             <div class="text-center mb-8 md:mb-10 lg:mb-12">
-                <span
-                    class="inline-block text-sm font-medium border border-neutral-300 text-neutral-900 bg-neutral-100 px-3 py-1 rounded-full mb-2">
-                    Services We Provide
-                </span>
+                <SectionHeader text="Services We Provide" />
+
                 <h2 class="text-2xl md:text-3xl lg:text-4xl font-bold text-neutral-900 mt-2">
                     Everything You Need to Build, Launch, and Grow
                 </h2>
@@ -144,10 +140,8 @@
     <section class="py-8 md:py-10 lg:py-12 bg-white">
         <div class="container">
             <!-- Header -->
-            <span
-                class="inline-block text-sm font-medium border border-neutral-300 text-neutral-900 bg-neutral-100 px-3 py-1 rounded-full mb-2">
-                Why Choose Us
-            </span>
+
+            <SectionHeader text="Why Choose Us" />
             <div class="flex flex-col md:flex-row gap-4  justify-between mb-8 md:mb-10 lg:mb-12">
                 <div class="md:w-1/2">
                     <h2 class="text-2xl lg:text-3xl font-bold text-neutral-900 leading-snug">
@@ -174,10 +168,9 @@
     <section class="py-8 md:py-10 lg:py-12">
         <div class="container">
             <!-- Header -->
-            <span
-                class="inline-block text-sm font-medium border border-neutral-300 text-neutral-900 bg-neutral-100 px-3 py-1 rounded-full mb-2">
-                Product show case
-            </span>
+
+            <SectionHeader text="Product Show Case" />
+
             <div class="flex flex-col md:flex-row gap-8  justify-between mb-8 md:mb-10 lg:mb-12">
                 <div class="md:w-1/2 ">
                     <h2 class="text-2xl lg:text-3xl font-bold text-neutral-900 leading-snug">
@@ -200,10 +193,9 @@
             <div class="industry-focus lg:border-b border-neutral-200 pb-12">
                 <div class="flex flex-col lg:flex-row gap-8 lg:gap-16  justify-between">
                     <div class="lg:w-1/2">
-                        <span
-                            class="inline-block text-sm font-medium border border-neutral-300 text-neutral-900 bg-neutral-100 px-3 py-1 rounded-full mb-2">
-                            Industry Focus
-                        </span>
+
+                        <SectionHeader text="Industry Focus" />
+
                         <h1 class="text-2xl md:text-3xl lg:text-4xl font-bold">Sectors Driving Our Expertise</h1>
                         <p class="mt-4 md:mt-6 lg:mt-8 text-sm md:text-base text-neutral-600">With over years of
                             experience, Brand Vision
@@ -274,9 +266,8 @@
 
     <section class="industry-tech py-8 md:py-10 lg:py-12">
         <div class="container mx-auto">
-            <div class="text-center mb-8 md:mb-10 lg:mb-12"><span
-                    class="inline-block text-sm font-medium border border-neutral-300 text-neutral-900 bg-neutral-100 px-3 py-1 rounded-full mb-2">
-                    We Serve All Tech Stacks</span>
+            <div class="text-center mb-8 md:mb-10 lg:mb-12">
+                <SectionHeader text="We Serve All Tech Stacks" />
                 <h2 class="text-2xl md:text-3xl lg:text-4xl font-bold text-neutral-900 mt-2"> Frameworks to Functions —
                     We Do It All. </h2>
                 <p class="text-neutral-600 mt-3 text-sm lg:text-base"> Bring your idea to life with the tools you need
@@ -301,10 +292,8 @@
             <div class="grid grid-cols-1 lg:grid-cols-12 lg:gap-0 gap-24 items-center relative">
 
                 <div class="md:col-span-8 pr-0 lg:pr-8">
-                    <span
-                        class="inline-block text-sm font-medium border border-neutral-300 text-neutral-900 bg-neutral-100 px-3 py-1 rounded-full mb-2">
-                        Our Team
-                    </span>
+                    <SectionHeader text="Our Team" />
+
                     <h2 class="text-2xl md:text-3xl lg:text-4xl font-bold leading-snug text-neutral-900">
                         Collaborating with us is your pathways to success
                     </h2>
@@ -390,6 +379,7 @@ import FAQ from '@/components/section/FAQ.vue';
 import TechStacks from '@/components/section/TechStacks.vue';
 import Service from '@/components/section/Service.vue';
 import ContactCard from '@/components/ui/card/ContactCard.vue';
+import SectionHeader from '@/components/ui/heading/SectionHeader.vue';
 
 
 </script>

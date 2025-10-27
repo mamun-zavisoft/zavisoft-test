@@ -72,12 +72,14 @@ import 'swiper/css/pagination'
 import { Autoplay, Pagination } from 'swiper/modules'
 
 const teamMembers = [
-    { name: 'Avery Collins', title: 'Chief Technology Officer', photo: new URL('@/assets/images/john.png', import.meta.url).href, linkedin: '#' },
-    { name: 'Lena Park', title: 'Principal Product Designer', photo: new URL('@/assets/images/john.png', import.meta.url).href, linkedin: '#' },
-    { name: 'Noah Martinez', title: 'Lead Frontend Engineer', photo: new URL('@/assets/images/john.png', import.meta.url).href, linkedin: '#' },
-    { name: 'Riya Sharma', title: 'Product Strategist', photo: new URL('@/assets/images/john.png', import.meta.url).href, linkedin: '#' },
-    { name: 'Erik Johansson', title: 'Senior Backend Engineer', photo: new URL('@/assets/images/john.png', import.meta.url).href, linkedin: '#' },
-    { name: 'Maya Rodriguez', title: 'QA & Automation Lead', photo: new URL('@/assets/images/john.png', import.meta.url).href, linkedin: '#' },
+    { name: 'Avery Collins', title: 'Chief Technology Officer', photo: new URL('@/assets/images/jone_1.png', import.meta.url).href, linkedin: '#' },
+    { name: 'Lena Park', title: 'Principal Product Designer', photo: new URL('@/assets/images/jone_2.png', import.meta.url).href, linkedin: '#' },
+    { name: 'Noah Martinez', title: 'Lead Frontend Engineer', photo: new URL('@/assets/images/jone_3.png', import.meta.url).href, linkedin: '#' },
+    { name: 'Riya Sharma', title: 'Product Strategist', photo: new URL('@/assets/images/jone_4.png', import.meta.url).href, linkedin: '#' },
+    { name: 'Erik Johansson', title: 'Senior Backend Engineer', photo: new URL('@/assets/images/jone_1.png', import.meta.url).href, linkedin: '#' },
+    { name: 'Maya Rodriguez', title: 'QA & Automation Lead', photo: new URL('@/assets/images/jone_2.png', import.meta.url).href, linkedin: '#' },
+    { name: 'Maya Rodriguez', title: 'QA & Automation Lead', photo: new URL('@/assets/images/jone_3.png', import.meta.url).href, linkedin: '#' },
+    { name: 'Maya Rodriguez', title: 'QA & Automation Lead', photo: new URL('@/assets/images/jone_4.png', import.meta.url).href, linkedin: '#' },
 ]
 
 const totalSlides = teamMembers.length

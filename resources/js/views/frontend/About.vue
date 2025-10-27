@@ -31,9 +31,9 @@
                         <p class="text-center text-sm lg:text-base text-neutral-600">
                             Together, we turn potential into progress and ideas into innovation. The future starts now.
                         </p>
-                        <a href="#" class="mt-2 inline-block text-neutral-900 font-medium transition">
+                        <router-link to="/contact" class="mt-2 inline-block text-neutral-900 font-medium transition">
                             Let’s talk
-                        </a>
+                        </router-link>
                     </div>
                 </div>
             </div>
@@ -44,10 +44,8 @@
     <section class="py-8 md:py-10 lg:py-12 bg-neutral-50">
         <div class="container">
             <!-- Header -->
-            <span
-                class="inline-block text-sm font-medium border border-neutral-300 text-neutral-900 bg-neutral-100 px-3 py-1 rounded-full mb-2">
-                Who We Are?
-            </span>
+            <SectionHeader text="Who We Are?" />
+
             <div class="flex flex-col md:flex-row gap-4  justify-between mb-8 md:mb-10 lg:mb-12">
                 <div class="md:w-1/2">
                     <h2 class="text-2xl lg:text-3xl font-bold text-neutral-900 leading-snug">
@@ -71,10 +69,7 @@
         <div class="container">
             <div class="grid grid-cols-1 md:grid-cols-12 gap-4 md:gap-0">
                 <div class="col-span-12 md:col-span-4">
-                    <span
-                        class="inline-block text-sm font-medium border border-neutral-300 text-neutral-900 bg-neutral-100 px-3 py-1 rounded-full mb-2">
-                        Who We Are?
-                    </span>
+                    <SectionHeader text="Manifesto" />
                     <h2 class="text-2xl lg:text-3xl font-bold text-neutral-900 leading-snug">
                         Our Exceptional Workplace Culture
                     </h2>
@@ -91,16 +86,13 @@
     </section>
 
     <!-- slider  -->
-    <section class="py-8 md:py-10 lg:py-12">
+    <section>
         <TeamSlider />
     </section>
 
     <section class=" py-8 md:py-10 lg:py-12">
         <div class="container">
-            <span
-                class="inline-block text-sm font-medium border border-neutral-300 text-neutral-900 bg-neutral-100 px-3 py-1 rounded-full mb-2">
-                Our Vision & Mission
-            </span>
+            <SectionHeader text="Our Vision & Mission" />
             <div class="flex flex-col md:flex-row gap-8  justify-between mb-4 md:mb-6 lg:mb-8">
                 <div class="md:w-1/2 ">
                     <h2 class="text-2xl lg:text-3xl font-bold text-neutral-900 leading-snug">
@@ -117,8 +109,8 @@
 
                 <!-- Middle Image -->
                 <div class=" md:col-span-7">
-                    <img src="https://images.unsplash.com/photo-1598256989800-fe5f95da9787?auto=format&fit=crop&w=800&q=80"
-                        alt="Team celebrating" class="rounded-lg w-full h-auto object-cover shadow-md" />
+                    <img src="@/assets/images/about_3.png" alt="Team celebrating"
+                        class="rounded-lg w-full h-auto object-cover shadow-md" />
                 </div>
 
                 <!-- Right Stats -->
@@ -161,10 +153,7 @@
     <section class="py-8 md:py-10 lg:py-12">
         <div class="container">
             <div class="mb-4 md:mb-6 lg:mb-8">
-                <span
-                    class="inline-block text-sm font-medium border border-neutral-300 text-neutral-900 bg-neutral-100 px-3 py-1 rounded-full mb-2">
-                    Our Team
-                </span>
+                <SectionHeader text="Meet Our Team" />
                 <h2 class="text-2xl lg:text-3xl font-bold text-neutral-900 leading-snug">
                     Our Diverse Team Tackles Numerous Exciting Projects
                 </h2>
@@ -191,10 +180,7 @@
             <div class="grid grid-cols-1 md:grid-cols-2 gap-10">
                 <div class="h-full flex flex-col justify-between">
                     <div class="">
-                        <span
-                            class="inline-block text-sm font-medium border border-neutral-300 text-neutral-900 bg-neutral-100 px-3 py-1 rounded-full mb-3">
-                            Career opportunities
-                        </span>
+                        <SectionHeader text="Career opportunities" />
                         <h2 class="text-2xl lg:text-3xl font-bold text-neutral-900 leading-snug">
                             Maximize Your Software Development Potential with Us
                         </h2>
@@ -236,5 +222,7 @@ import TeamSlider from '@/components/ui/slider/TeamSlider.vue';
 import StartBuilding from '@/components/section/StartBuilding.vue';
 import TeamMemberCard from '@/components/ui/card/TeamMemberCard.vue'
 import NavigatePrimary from '@/components/ui/button/NavigatePrimary.vue';
+import SectionHeader from '@/components/ui/heading/SectionHeader.vue';
+
 
 </script>
