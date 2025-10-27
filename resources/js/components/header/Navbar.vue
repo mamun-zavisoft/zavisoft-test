@@ -69,7 +69,7 @@
                     <img src="@/assets/images/icons/whatsapp_24.svg" alt="Phone" class="h-6 w-6" />
                     <span class="text-sm font-semibold text-neutral-800">Let’s Talk!</span>
                 </a>
-                <NavigatePrimaryButton text="Schedule a call" to="/about" />
+                <NavigatePrimaryButton text="Schedule a call" to="/contact" />
             </div>
         </div>
 
@@ -80,11 +80,11 @@
                 <NavRoute />
 
                 <nav class="flex flex-col gap-2 px-4 mt-4" role="menu">
-                    <router-link to="/casestudy"
-                        class="px-2 py-1 text-sm font-medium text-neutral-900  transition-colors">
-                        Case Study
+                    <router-link to="/projects"
+                        class="px-2 py-1 text-sm font-medium text-neutral-900 transition-colors">
+                        Our Projects
                     </router-link>
-                    <router-link to="/about " class="px-2 py-1 text-sm font-medium text-neutral-900 transition-colors">
+                    <router-link to="/about" class="px-2 py-1 text-sm font-medium text-neutral-900 transition-colors">
                         About Us
                     </router-link>
                     <router-link to="/career" class="px-2 py-1text-sm font-medium text-neutral-900 transition-colors">
@@ -112,23 +112,22 @@
 </template>
 
 <script setup>
-import { ref } from 'vue';
-import NavigatePrimaryButton from '@/components/ui/button/NavigatePrimary.vue';
-import NavRoute from '@/components/header/NavRoute.vue';
-import { FwbDropdown } from 'flowbite-vue';
-
-const mobileMenuOpen = ref(false);
-function toggleMobileMenu() {
-    mobileMenuOpen.value = !mobileMenuOpen.value;
-}
-const isDropdownOpen = ref(false);
-
+import { ref } from 'vue'
 import { useRouter } from 'vue-router'
+import NavigatePrimaryButton from '@/components/ui/button/NavigatePrimary.vue'
+import NavRoute from '@/components/header/NavRoute.vue'
+import { FwbDropdown } from 'flowbite-vue'
+
+const mobileMenuOpen = ref(false)
+const isDropdownOpen = ref(false)
+
+function toggleMobileMenu() {
+    mobileMenuOpen.value = !mobileMenuOpen.value
+}
 
 const router = useRouter()
 router.afterEach(() => {
+    mobileMenuOpen.value = false
     isDropdownOpen.value = false
 })
-
-
 </script>

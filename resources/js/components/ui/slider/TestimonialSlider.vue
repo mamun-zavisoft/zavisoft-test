@@ -2,7 +2,7 @@
     <div class=" relative">
 
         <div class="mb-4 md:mb-6 lg:mb-8 flex items-center justify-between">
-            <img src="@/assets/images/icons/qute.svg" alt="quote" class="w-20 md:w-24 lg:w-28 h-auto" />
+            <img src="@/assets/images/icons/qute.svg" alt="quote" class="w-16 md:w-20 lg:w-24 xl:w-28 h-auto" />
             <div
                 class="flex items-center justify-center md:justify-end absolute mt-10 sm:mt-0 sm:static bottom-[-40px] right-0 z-8 ">
                 <button type="button" @click="swiperPrev"

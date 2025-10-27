@@ -16,15 +16,55 @@ export default {
         let resizeObserver;
         let windowResizeHandler;
 
-        // Image data
-        const imageIds = [1015, 1016, 1018, 1019, 1020, 1021, 1022, 1023, 1024, 1025];
-        const imageUrls = imageIds.map((id) => `https://picsum.photos/id/${id}/720/480`);
+
+        // Image index
+        const images = [
+            {
+                id: 1,
+                name: 'Wade Cooper',
+                image: new URL('@/assets/images/grbimage/hero_1.jpg', import.meta.url).href,
+            },
+            {
+                id: 2,
+                name: 'Wade Cooper',
+                image: new URL('@/assets/images/grbimage/hero_5.png', import.meta.url).href,
+            },
+            {
+                id: 3,
+                name: 'Wade Cooper',
+                image: new URL('@/assets/images/grbimage/hero_4.png', import.meta.url).href,
+            },
+            {
+                id: 4,
+                name: 'Wade Cooper',
+                image: new URL('@/assets/images/grbimage/hero_3.png', import.meta.url).href,
+            },
+            {
+                id: 5,
+                name: 'Wade Cooper',
+                image: new URL('@/assets/images/grbimage/hero_2.png', import.meta.url).href,
+            },
+            {
+                id: 6,
+                name: 'Wade Cooper',
+                image: new URL('@/assets/images/grbimage/hero_1.png', import.meta.url).href,
+            },
+
+        ]
+
+        // extract URLs
+        let imageUrls = images.map(item => item.image)
+
+        if (imageUrls.length < 12) {
+            const repeatCount = Math.ceil(12 / imageUrls.length)
+            imageUrls = Array.from({ length: repeatCount }, () => imageUrls).flat().slice(0, 12)
+        }
 
         // Three.js variables
         let scene, camera, renderer, group, loader;
         let animationFrameHandle;
         let clock;
-        const autoRotateSpeed = 0.003;
+        const autoRotateSpeed = 0.002;
         let currentConfig;
 
         // Responsive configuration
@@ -46,10 +86,19 @@ export default {
                     radius: 3.2,
                     planeWidth: 2.8,
                     planeHeight: 1.87,
-                    cameraZ: 0.5,
-                    fov: 60
+                    cameraZ: 1.5,
+                    fov: 50
                 };
-            } else { // Desktop
+            } else if (width < 1440) { // Tablet
+                return {
+                    radius: 3.2,
+                    planeWidth: 2.8,
+                    planeHeight: 1.87,
+                    cameraZ: 0.75,
+                    fov: 50
+                };
+            }
+            else { // Desktop
                 return {
                     radius: 4,
                     planeWidth: 3.6,
