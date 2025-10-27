@@ -22,7 +22,7 @@
                         software to
                         help your business thrive in today’s digital landscape.</p>
                     <div class="heroaction flex mt-6 lg:mt-8 justify-center gap-2 items-center">
-                        <router-link to="#"
+                        <router-link to="/contact"
                             class="bg-primary-500 px-3 md:px-4 py-2.5 lg:py-3 rounded-full flex gap-3 text-sm lg:text-base items-center">
                             <span class="font-medium">Contact us</span>
                             <div class="flex items-center justify-center md:justify-end -space-x-2">
@@ -36,7 +36,7 @@
                         </router-link>
 
 
-                        <NavigateSecondaryButton text="See Our Case Study" to="/casestudy" />
+                        <NavigateSecondaryButton text="See Our Case Study" to="/projects" />
                     </div>
 
                 </div>
@@ -135,140 +135,7 @@
             </div>
 
             <!-- Service Grid -->
-            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 lg:gap-6">
-                <!-- Card 1 -->
-                <div class="bg-white rounded-lg  p-4 transition group">
-                    <div class="flex justify-between items-start mb-4">
-                        <div class="mb-4 pr-4">
-                            <h3 class="text-xl font-bold text-neutral-900 mb-3">UI/UX Design & Audit</h3>
-                            <p class="text-neutral-600 text-sm line-clamp-3">To lay a solid foundation for the creative
-                                process that follows.
-                            </p>
-                        </div>
-                        <a href="#"
-                            class="p-2 rounded-full border border-neutral-300 bg-white transition group-hover:bg-primary-500 group-hover:border-primary-500 hover:bg-primary-500 hover:border-primary-500 cursorpointer">
-                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
-                                stroke="currentColor"
-                                class="w-5 h-5 text-neutral-700 transform origin-center transition-transform transition-colors duration-300 group-hover:-rotate-45 group-hover:text-white">
-                                <path stroke-linecap="round" stroke-linejoin="round"
-                                    d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3" />
-                            </svg>
-                        </a>
-                    </div>
-                    <img src="@/assets/images/service/ui.png" alt="UI UX Design"
-                        class="w-full rounded-lg object-cover mt-4" />
-                </div>
-                <!-- Card 2 -->
-                <div class="bg-white rounded-lg  p-4 transition group">
-                    <div class="flex justify-between items-start mb-4">
-                        <div class="mb-4 pr-4">
-                            <h3 class="text-xl font-bold text-neutral-900 mb-3">Software Development</h3>
-                            <p class="text-neutral-600 text-sm line-clamp-3">We believe that great software starts with
-                                understanding. Our development process begins with a deep discovery phase
-                            </p>
-                        </div>
-                        <a href="#"
-                            class="p-2 rounded-full border border-neutral-300 bg-white transition group-hover:bg-primary-500 group-hover:border-primary-500 hover:bg-primary-500 hover:border-primary-500 cursorpointer">
-                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
-                                stroke="currentColor"
-                                class="w-5 h-5 text-neutral-700 transform origin-center transition-transform transition-colors duration-300 group-hover:-rotate-45 group-hover:text-white">
-                                <path stroke-linecap="round" stroke-linejoin="round"
-                                    d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3" />
-                            </svg>
-                        </a>
-                    </div>
-                    <img src="@/assets/images/service/web.png" alt="web development"
-                        class="w-full rounded-lg object-cover mt-4" />
-                </div>
-                <!-- Card 3 -->
-                <div class="bg-white rounded-lg  p-4 transition group">
-                    <div class="flex justify-between items-start mb-4">
-                        <div class="mb-4 pr-4">
-                            <h3 class="text-xl font-bold text-neutral-900 mb-3">Web Application Development</h3>
-                            <p class="text-neutral-600 text-sm line-clamp-3">o build powerful and user-centric web
-                                experiences, we begin our journey with a deep understanding of your goals.
-                            </p>
-                        </div>
-                        <a href="#"
-                            class="p-2 rounded-full border border-neutral-300 bg-white transition group-hover:bg-primary-500 group-hover:border-primary-500 hover:bg-primary-500 hover:border-primary-500 cursorpointer">
-                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
-                                stroke="currentColor"
-                                class="w-5 h-5 text-neutral-700 transform origin-center transition-transform transition-colors duration-300 group-hover:-rotate-45 group-hover:text-white">
-                                <path stroke-linecap="round" stroke-linejoin="round"
-                                    d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3" />
-                            </svg>
-                        </a>
-                    </div>
-                    <img src="@/assets/images/service/soft.png" alt="software development"
-                        class="w-full rounded-lg object-cover mt-4" />
-                </div>
-                <!-- Card 4 -->
-                <div class="bg-white rounded-lg  p-4 transition group">
-                    <div class="flex justify-between items-start mb-4">
-                        <div class="mb-4 pr-4">
-                            <h3 class="text-xl font-bold text-neutral-900 mb-3">Mobile App Developement</h3>
-                            <p class="text-neutral-600 text-sm line-clamp-3">To craft mobile experiences that truly
-                                connect with users.
-                            </p>
-                        </div>
-                        <a href="#"
-                            class="p-2 rounded-full border border-neutral-300 bg-white transition group-hover:bg-primary-500 group-hover:border-primary-500 hover:bg-primary-500 hover:border-primary-500 cursorpointer">
-                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
-                                stroke="currentColor"
-                                class="w-5 h-5 text-neutral-700 transform origin-center transition-transform transition-colors duration-300 group-hover:-rotate-45 group-hover:text-white">
-                                <path stroke-linecap="round" stroke-linejoin="round"
-                                    d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3" />
-                            </svg>
-                        </a>
-                    </div>
-                    <img src="@/assets/images/service/app.png" alt="App development"
-                        class="w-full rounded-lg object-cover mt-4" />
-                </div>
-                <!-- Card 5 -->
-                <div class="bg-white rounded-lg  p-4 transition group">
-                    <div class="flex justify-between items-start mb-4">
-                        <div class="mb-4 pr-4">
-                            <h3 class="text-xl font-bold text-neutral-900 mb-3">QA Testing</h3>
-                            <p class="text-neutral-600 text-sm line-clamp-3">Through meticulous testing, validation, and
-                                continuous feedback, we identify issues early, refine functionality.
-                            </p>
-                        </div>
-                        <a href="#"
-                            class="p-2 rounded-full border border-neutral-300 bg-white transition group-hover:bg-primary-500 group-hover:border-primary-500 hover:bg-primary-500 hover:border-primary-500 cursorpointer">
-                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
-                                stroke="currentColor"
-                                class="w-5 h-5 text-neutral-700 transform origin-center transition-transform transition-colors duration-300 group-hover:-rotate-45 group-hover:text-white">
-                                <path stroke-linecap="round" stroke-linejoin="round"
-                                    d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3" />
-                            </svg>
-                        </a>
-                    </div>
-                    <img src="@/assets/images/service/qa.png" alt="QA Testing"
-                        class="w-full rounded-lg object-cover mt-4" />
-                </div>
-                <!-- Card 6 -->
-                <div class="bg-white rounded-lg  p-4 transition group">
-                    <div class="flex justify-between items-start mb-4">
-                        <div class="mb-4 pr-4">
-                            <h3 class="text-xl font-bold text-neutral-900 mb-3">Database Management</h3>
-                            <p class="text-neutral-600 text-sm line-clamp-3">To ensure reliability, performance, and
-                                scalability, we start by understanding your data ecosystem inside out.
-                            </p>
-                        </div>
-                        <a href="#"
-                            class="p-2 rounded-full border border-neutral-300 bg-white transition group-hover:bg-primary-500 group-hover:border-primary-500 hover:bg-primary-500 hover:border-primary-500 cursorpointer">
-                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
-                                stroke="currentColor"
-                                class="w-5 h-5 text-neutral-700 transform origin-center transition-transform transition-colors duration-300 group-hover:-rotate-45 group-hover:text-white">
-                                <path stroke-linecap="round" stroke-linejoin="round"
-                                    d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3" />
-                            </svg>
-                        </a>
-                    </div>
-                    <img src="@/assets/images/service/database.png" alt="Database Management"
-                        class="w-full rounded-lg object-cover mt-4" />
-                </div>
-            </div>
+            <Service />
         </div>
     </section>
 
@@ -430,10 +297,10 @@
     </section>
     <!-- team section -->
     <section class=" py-8 md:py-10 lg:py-12">
-        <div class="w-[84%] ml-auto relative ">
-            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center relative">
+        <div class="w-full px-5 xl:px-0 xl:w-[84%] ml-auto relative ">
+            <div class="grid grid-cols-1 lg:grid-cols-12 lg:gap-0 gap-24 items-center relative">
 
-                <div class="md:col-span-9">
+                <div class="md:col-span-8 pr-0 lg:pr-8">
                     <span
                         class="inline-block text-sm font-medium border border-neutral-300 text-neutral-900 bg-neutral-100 px-3 py-1 rounded-full mb-2">
                         Our Team
@@ -442,7 +309,7 @@
                         Collaborating with us is your pathways to success
                     </h2>
 
-                    <div class="mt-2 text-neutral-600 w-[60%] mr-auto">
+                    <div class="mt-2 text-neutral-600 w-full md:w-[85%] xl:w-[80%] mr-auto">
                         <p class="mb-2 text-neutral-600">
                             Bring your idea to life with the tools you need to start selling.
                         </p>
@@ -457,27 +324,29 @@
                         <NagigatePrimaryButton text="Let’s meet our team" to="/contact" />
                     </div>
                 </div>
-                <div class="md:col-span-3">
+                <div class="md:col-span-4 h-full flex lg:items-center xl:items-end relative">
                     <div
-                        class="absolute right-16 top-16 h-[220px] w-[220px] rounded-full bg-violet-100 flex items-center justify-center shadow-[0_10px_30px_rgba(2,6,23,0.08)]">
+                        class="relative w-[140px] h-[140px] md:w-[160px] md:h-[160px] lg:h-[200px] lg:w-[200px] rounded-full bg-violet-100 flex items-center justify-center shadow-[0_10px_30px_rgba(2,6,23,0.08)]">
                         <img src="https://images.unsplash.com/photo-1544723795-3fb6469f5b39?q=80&w=640&auto=format&fit=crop"
-                            alt="person" class="h-[170px] w-[170px] rounded-full object-cover" />
+                            alt="person"
+                            class="h-[140px] w-[140px] lg:h-[170px] lg:w-[170px] rounded-full object-cover" />
+                        <div
+                            class="absolute right-[-140px] top-[-70px] h-[90px] w-[90px] lg:h-[110px] lg:w-[110px] rounded-full bg-primary-100 flex items-center justify-center shadow-[0_8px_20px_rgba(2,6,23,0.06)]">
+                            <img src="https://images.unsplash.com/photo-1524504388940-b1c1722653e1?q=80&w=320&auto=format&fit=crop"
+                                alt="person" class="h-[78px] w-[78px] rounded-full object-cover" />
+                        </div>
+                        <div
+                            class="absolute right-[-120px] bottom-[-40px] h-[70px] w-[70px] lg:h-[90px] lg:w-[90px] rounded-full bg-neutral-100 flex items-center justify-center shadow-[0_8px_20px_rgba(2,6,23,0.06)]">
+                            <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?q=80&w=320&auto=format&fit=crop"
+                                alt="person" class="h-[60px] w-[60px] rounded-full object-cover" />
+                        </div>
                     </div>
-                    <div
-                        class="absolute right-4 -top-2 h-[110px] w-[110px] rounded-full bg-primary-100 flex items-center justify-center shadow-[0_8px_20px_rgba(2,6,23,0.06)]">
-                        <img src="https://images.unsplash.com/photo-1524504388940-b1c1722653e1?q=80&w=320&auto=format&fit=crop"
-                            alt="person" class="h-[78px] w-[78px] rounded-full object-cover" />
-                    </div>
-                    <div
-                        class="absolute right-8 top-[230px] h-[90px] w-[90px] rounded-full bg-neutral-100 flex items-center justify-center shadow-[0_8px_20px_rgba(2,6,23,0.06)]">
-                        <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?q=80&w=320&auto=format&fit=crop"
-                            alt="person" class="h-[60px] w-[60px] rounded-full object-cover" />
-                    </div>
+
                 </div>
             </div>
-            <div class="absolute z-[-1] left-[1%] bottom-[10px]">
+            <!-- <div class="absolute z-[-1] left-[1%] bottom-[10px]">
                 <img src="@/assets/images/teamBg.svg" alt="" />
-            </div>
+            </div> -->
         </div>
     </section>
 
@@ -629,6 +498,7 @@ import NagigatePrimaryButton from '@/components/ui/button/NavigatePrimary.vue';
 import TestimonialSlider from '@/components/ui/slider/TestimonialSlider.vue';
 import FAQ from '@/components/section/FAQ.vue';
 import TechStacks from '@/components/section/TechStacks.vue';
+import Service from '@/components/section/Service.vue';
 
 
 </script>

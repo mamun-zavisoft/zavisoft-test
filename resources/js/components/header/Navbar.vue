@@ -69,7 +69,7 @@
                     <img src="@/assets/images/icons/whatsapp_24.svg" alt="Phone" class="h-6 w-6" />
                     <span class="text-sm font-semibold text-neutral-800">Let’s Talk!</span>
                 </a>
-                <NavigatePrimaryButton text="Schedule a call" to="/about" />
+                <NavigatePrimaryButton text="Schedule a call" to="/contact" />
             </div>
         </div>
 
