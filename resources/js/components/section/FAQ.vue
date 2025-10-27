@@ -14,7 +14,7 @@
                     We put people first, understanding that a well-crafted product significantly impacts the lives of
                     those who use it.
                 </p>
-                <NavigateSecondary text="See our Case studies" to="/contact" class=" mt-4 md:mt-6 lg:mt-8" />
+                <NavigateSecondary text="See our Case studies" to="/projects" class=" mt-4 md:mt-6 lg:mt-8" />
             </div>
         </div>
         <div class="lg:w-1/2">
