@@ -6,14 +6,15 @@ const router = createRouter({
     history: createWebHistory(),
     routes,
     scrollBehavior(to, from, savedPosition) {
-        // if the user used the browser back/forward button, keep the saved position
         if (savedPosition) {
             return savedPosition
         } else {
-            // always scroll to top on route change
-            return { top: 0 }
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            })
         }
-    },
+    }
 });
 
 router.beforeEach(async (to, from, next) => {

@@ -1,7 +1,7 @@
-<svg width="80" height="80" viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
-<path fill-rule="evenodd" clip-rule="evenodd" d="M40 40C40 33.7868 45.0368 28.75 51.25 28.75C57.4632 28.75 62.5 33.7868 62.5 40C62.5 46.2132 57.4632 51.25 51.25 51.25C45.0368 51.25 40 46.2132 40 40Z" fill="#1ABCFE"/>
-<path fill-rule="evenodd" clip-rule="evenodd" d="M17.5 62.5C17.5 56.2868 22.5368 51.25 28.75 51.25H40V62.5C40 68.7132 34.9632 73.75 28.75 73.75C22.5368 73.75 17.5 68.7132 17.5 62.5Z" fill="#0ACF83"/>
-<path fill-rule="evenodd" clip-rule="evenodd" d="M40 6.25V28.75H51.25C57.4632 28.75 62.5 23.7132 62.5 17.5C62.5 11.2868 57.4632 6.25 51.25 6.25H40Z" fill="#FF7262"/>
-<path fill-rule="evenodd" clip-rule="evenodd" d="M17.5 17.5C17.5 23.7132 22.5368 28.75 28.75 28.75H40V6.25H28.75C22.5368 6.25 17.5 11.2868 17.5 17.5Z" fill="#F24E1E"/>
-<path fill-rule="evenodd" clip-rule="evenodd" d="M17.5 40C17.5 46.2132 22.5368 51.25 28.75 51.25H40V28.75H28.75C22.5368 28.75 17.5 33.7868 17.5 40Z" fill="#A259FF"/>
+<svg width="100" height="100" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path fill-rule="evenodd" clip-rule="evenodd" d="M50 50C50 42.2335 56.296 35.9375 64.0625 35.9375C71.829 35.9375 78.125 42.2335 78.125 50C78.125 57.7665 71.829 64.0625 64.0625 64.0625C56.296 64.0625 50 57.7665 50 50Z" fill="#1ABCFE"/>
+<path fill-rule="evenodd" clip-rule="evenodd" d="M21.875 78.125C21.875 70.3585 28.171 64.0625 35.9375 64.0625H50V78.125C50 85.8915 43.704 92.1875 35.9375 92.1875C28.171 92.1875 21.875 85.8915 21.875 78.125Z" fill="#0ACF83"/>
+<path fill-rule="evenodd" clip-rule="evenodd" d="M50 7.8125V35.9375H64.0625C71.829 35.9375 78.125 29.6415 78.125 21.875C78.125 14.1085 71.829 7.8125 64.0625 7.8125H50Z" fill="#FF7262"/>
+<path fill-rule="evenodd" clip-rule="evenodd" d="M21.875 21.875C21.875 29.6415 28.171 35.9375 35.9375 35.9375H50V7.8125H35.9375C28.171 7.8125 21.875 14.1085 21.875 21.875Z" fill="#F24E1E"/>
+<path fill-rule="evenodd" clip-rule="evenodd" d="M21.875 50C21.875 57.7665 28.171 64.0625 35.9375 64.0625H50V35.9375H35.9375C28.171 35.9375 21.875 42.2335 21.875 50Z" fill="#A259FF"/>
 </svg>

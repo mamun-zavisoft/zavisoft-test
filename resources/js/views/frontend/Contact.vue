@@ -3,7 +3,7 @@
         <div class="heo relative w-full  bg-no-repeat bg-center bg-cover mt-[-120px] pb-8"
             :style="{ backgroundImage: `url(${bgImg})` }">
             <div class="container">
-                <div class=" pt-24 md:pt-30 lg:pt-36 xl:pt-40 flex flex-col items-center gap-3">
+                <div class="pt-30 lg:pt-36 xl:pt-40 flex flex-col items-center gap-3">
                     <div class="flex flex-col items-center gap-4 justify-center ">
                         <h1
                             class=" text-center text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold text-neutral-900">
@@ -35,10 +35,7 @@
             <div class="grid grid-cols-1 md:grid-cols-2 gap-10">
                 <div class="h-full flex flex-col justify-between">
                     <div class="">
-                        <span
-                            class="inline-block text-sm font-medium border border-neutral-300 text-neutral-900 bg-neutral-100 px-3 py-1 rounded-full mb-3">
-                            Career opportunities
-                        </span>
+                        <SectionHeader text="Career opportunities" />
                         <h2 class="text-2xl lg:text-3xl font-bold text-neutral-900 leading-snug">
                             Maximize Your Software Development Potential with Us
                         </h2>
@@ -72,6 +69,7 @@
 import bgImg from '@/assets/images/career_bg.svg';
 import PartnerMarquee from '@/components/ui/slider/PatnerMarquee.vue';
 import ContactCard from '@/components/ui/card/ContactCard.vue';
+import SectionHeader from '@/components/ui/heading/SectionHeader.vue';
 
 
 

@@ -1,18 +1,13 @@
 <template>
     <section>
-        <div class=" mt-[-120px] pb-8">
-            <div class="container">
-                <div class=" pt-20 md:pt-24 lg:pt-30 xl:pt-36">
-                    <div class="flex flex-col gap-4 ">
-                        <h1 class="  text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold text-neutral-900">
-                            Our latest projects
-                        </h1>
-                        <p class="text-sm md:text-base text-neutral-600">We create appealing, user-friendly designs that
-                            help our clients delight the audience, increase brand awareness.</p>
+        <div class="container">
+            <div class="flex flex-col gap-4 mb-6 lg:mb-8 ">
+                <h1 class="text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold text-neutral-900">
+                    Our latest projects
+                </h1>
+                <p class="text-sm md:text-base text-neutral-600">We create appealing, user-friendly designs that
+                    help our clients delight the audience, increase brand awareness.</p>
 
-                    </div>
-
-                </div>
             </div>
         </div>
     </section>
@@ -28,14 +23,14 @@
                                 style="box-shadow: 0px 2px 4px 0px #0F1C330F, 0px 2px 2px 0px #0F1C3312;">
                                 <div class="flex justify-between items-start">
                                     <div class="mb-4 pr-4">
-                                        <h3 class="text-lg md:text-xl font-bold text-neutral-900 mb-3">{{
+                                        <h3 class="text-base md:text-lg lg:text-xl font-bold text-neutral-900 mb-3">{{
                                             project.title
                                             }}</h3>
                                         <p class="text-neutral-600 text-sm line-clamp-3">{{ project.description }}
                                         </p>
                                     </div>
 
-                                    <router-link :to="{ name: 'CaseStudyDetails', params: { id: project.id } }"
+                                    <router-link :to="{ name: 'ProjectsDetails', params: { id: project.id } }"
                                         class="p-2 rounded-full border border-neutral-300 bg-white transition group-hover:bg-primary-500 group-hover:border-primary-500 hover:bg-primary-500 hover:border-primary-500 cursorpointer">
                                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
                                             stroke-width="1.5" stroke="currentColor"
@@ -75,46 +70,58 @@ const activeTab = ref('all')
 const projects = [
     {
         id: 1,
-        title: 'ShopNest – Ecommerce Platform',
-        category: 'ecommerce',
-        description: 'A full-featured online shopping platform with real-time inventory sync.',
-        image: new URL('@/assets/images/service/soft.png', import.meta.url).href,
-        tech: ['Vue', 'Tailwind', 'Firebase'],
+        title: 'Packly',
+        description: 'Our design team helps clients achieve their marketing and business goals.',
+        tags: ['e-commerce'],
+        image: new URL('@/assets/images/project_3.png', import.meta.url).href,
+
     },
     {
         id: 2,
-        title: 'FoodieHub – Mobile Delivery App',
-        category: 'mobile-app',
-        description: 'Cross-platform food delivery app built with Flutter and Node.js backend.',
-        image: new URL('@/assets/images/service/soft.png', import.meta.url).href,
-        tech: ['Flutter', 'Node.js', 'MongoDB'],
+        title: 'Packly - Super App',
+        description: 'Our design team helps clients achieve their marketing and business goals.',
+        tags: ['e-commerce'],
+        image: new URL('@/assets/images/project_2.png', import.meta.url).href,
+
 
     },
     {
         id: 3,
-        title: 'Insightly – Admin Dashboard',
-        category: 'admin-dashboard',
-        description: 'Advanced analytics dashboard for tracking business KPIs in real time.',
-        image: new URL('@/assets/images/service/soft.png', import.meta.url).href,
-        tech: ['React', 'Chart.js', 'Express'],
+        title: 'Packly - Event',
+        description: 'Our design team helps clients achieve their marketing and business goals.',
+        tags: ['Ticket Management', 'Ticket Platform Website'],
+        image: new URL('@/assets/images/project_1.png', import.meta.url).href,
+
 
     },
     {
         id: 4,
-        title: 'TechCart – Ecommerce Solution',
-        category: 'ecommerce',
-        description: 'Scalable multi-vendor store optimized for SEO and mobile users.',
-        image: new URL('@/assets/images/service/soft.png', import.meta.url).href,
-        tech: ['Next.js', 'Prisma', 'PostgreSQL'],
+        title: 'Packly - Shopping',
+        description: 'Our design team helps clients achieve their marketing and business goals.',
+        tags: ['Ticket Management', 'Ticket Platform Website'],
+        image: new URL('@/assets/images/project_3.png', import.meta.url).href,
+        category: 'ecommerce'
+
 
     },
     {
         id: 5,
-        title: 'HealthTrack – Fitness Mobile App',
-        category: 'mobile-app',
-        description: 'Personal fitness tracking app with habit reminders and dark mode.',
-        image: new URL('@/assets/images/service/soft.png', import.meta.url).href,
-        tech: ['Flutter', 'Dart', 'Firebase'],
+        title: 'Packly - Kaj',
+        description: 'Our design team helps clients achieve their marketing and business goals.',
+        tags: ['Ticket Management', 'Ticket Platform Website'],
+        image: new URL('@/assets/images/project_2.png', import.meta.url).href,
+        category: 'mobile-app'
+
+
+
+    },
+    {
+        id: 6,
+        title: 'Packly - Zavisoft',
+        description: 'Our design team helps clients achieve their marketing and business goals.',
+        tags: ['Ticket Management', 'Ticket Platform Website'],
+        image: new URL('@/assets/images/project_1.png', import.meta.url).href,
+        category: 'ecommerce'
 
     },
 ]

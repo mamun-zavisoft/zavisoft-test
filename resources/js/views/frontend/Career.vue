@@ -5,7 +5,7 @@
             :style="{ backgroundImage: `url(${bgImg})` }">
             <div class="container">
                 <div
-                    class=" pt-24 md:pt-30 lg:pt-36 xl:pt-40 flex flex-col items-center gap-3 border-b border-neutral-200 mb-6 md:pb-8 lg:pb-12">
+                    class="pt-30 lg:pt-36 xl:pt-40 flex flex-col items-center gap-3 border-b border-neutral-200 pb-6 md:pb-8 lg:pb-12">
                     <div class="flex flex-col items-center gap-4 justify-center ">
                         <h1
                             class=" text-center text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold text-neutral-900">
@@ -22,10 +22,8 @@
 
                 </div>
                 <div class="mt-6 md:mt-8 lg:mt-12">
-                    <span
-                        class="inline-block text-sm font-medium border border-neutral-300 text-neutral-900 bg-neutral-100 px-3 py-1 rounded-full mb-2">
-                        Our values
-                    </span>
+                    <SectionHeader text="Our values" />
+
                     <div class="flex flex-col md:flex-row gap-4  justify-between">
                         <div class="md:w-1/2">
                             <h2 class="text-2xl lg:text-3xl font-bold text-neutral-900 leading-snug">
@@ -42,14 +40,13 @@
             </div>
         </div>
     </section>
-    <section class="py-8 md:py-10 lg:py-12">
+    <section class="pb-8 md:pb-10 lg:pb-12">
         <div class="container">
             <div class="grid grid-cols-1 md:grid-cols-12 gap-10 items-center">
 
                 <!-- Middle Image -->
                 <div class=" md:col-span-7">
-                    <img src="https://images.unsplash.com/photo-1598256989800-fe5f95da9787?auto=format&fit=crop&w=800&q=80"
-                        alt="Team celebrating" class="rounded-lg w-full h-auto " />
+                    <img src="@/assets/images/career.png" alt="Team celebrating" class="rounded-lg w-full h-auto " />
                 </div>
 
                 <!-- Right Stats -->
@@ -57,7 +54,8 @@
                     <div class="">
                         <div class="flex items-center gap-3">
                             <img src="@/assets/images/icons/mission_icon_1.svg" alt="">
-                            <h3 class="text-3xl font-bold text-neutral-900">Driven by Purpose</h3>
+                            <h3 class="text-xl md:text-2xl lg:text-3xl font-bold text-neutral-900">Driven by Purpose
+                            </h3>
                         </div>
                         <p class="mt-2 text-neutral-600 text-sm">
                             With a diverse client portfolio, we’re the go-to agency for all things digital.
@@ -69,7 +67,7 @@
                     <div class="">
                         <div class="flex items-center gap-3">
                             <img src="@/assets/images/icons/mission_icon_2.svg" alt="">
-                            <h3 class="text-3xl font-bold text-neutral-900">Huuuuuge Impact</h3>
+                            <h3 class="text-xl md:text-2xl lg:text-3xl font-bold text-neutral-900">Huuuuuge Impact</h3>
                         </div>
                         <p class="mt-2 text-neutral-800 text-sm">
                             We know that the launch of a new digital product is just the start.
@@ -86,10 +84,7 @@
     <section class="py-8 md:py-10 lg:py-12 bg-neutral-50">
         <div class="container">
             <div class="mb-4 md:mb-6 lg:mb-8">
-                <span
-                    class="inline-block text-sm font-medium border border-neutral-300 text-neutral-900 bg-neutral-100 px-3 py-1 rounded-full mb-2">
-                    Opening Positions
-                </span>
+                <SectionHeader text="Opening Positions" />
                 <h2 class="text-2xl lg:text-3xl font-bold text-neutral-900 leading-snug">
                     Be part of a team that's redefining the tech landscape and shaping tomorrow’s solutions.
                 </h2>
@@ -119,6 +114,7 @@ import bgImg from '@/assets/images/career_bg.svg';
 import JobsCard from '@/components/ui/card/JobsCard.vue';
 import PartnerMarquee from '@/components/ui/slider/PatnerMarquee.vue';
 import FAQ from '@/components/section/FAQ.vue';
+import SectionHeader from '@/components/ui/heading/SectionHeader.vue';
 
 
 </script>

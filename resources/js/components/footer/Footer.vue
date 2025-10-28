@@ -73,7 +73,8 @@
                                 <li><router-link to="/services/software-development" class="hover:text-white">Web
                                         Application
                                         Development</router-link></li>
-                                <li><a href="services/ui-ux-design-audit" class="hover:text-white">QA Testing</a></li>
+                                <li><a href="/services/software-development" class="hover:text-white">QA Testing</a>
+                                </li>
                                 <li><router-link to="/services/software-development" class="hover:text-white">Database
                                         Management</router-link></li>
                             </ul>

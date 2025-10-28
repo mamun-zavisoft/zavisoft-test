@@ -8,19 +8,19 @@ const routes = [
         component: () => import("@/views/frontend/Home.vue"),
         meta: { layout: LayoutFrontend, title: "Home" },
     },
-    {
-        path: "/casestudy",
-        name: "CaseStudy",
-        component: () => import("@/views/frontend/CaseStudy.vue"),
-        meta: { layout: LayoutFrontend, title: "Case Study" },
-    },
-    {
-        path: '/case-study/:id',
-        name: 'CaseStudyDetails',
-        component: () => import('@/views/frontend/CaseStudyDetails.vue'),
-        props: true,
-        meta: { layout: LayoutFrontend, title: "Case Study" },
-    },
+    // {
+    //     path: "/casestudy",
+    //     name: "CaseStudy",
+    //     component: () => import("@/views/frontend/CaseStudy.vue"),
+    //     meta: { layout: LayoutFrontend, title: "Case Study" },
+    // },
+    // {
+    //     path: '/case-study/:id',
+    //     name: 'CaseStudyDetails',
+    //     component: () => import('@/views/frontend/CaseStudyDetails.vue'),
+    //     props: true,
+    //     meta: { layout: LayoutFrontend, title: "Case Study" },
+    // },
 
     {
         path: "/about",
@@ -35,18 +35,26 @@ const routes = [
         meta: { layout: LayoutFrontend, title: "Our Projects" },
     },
     {
+        path: '/projects/:id',
+        name: 'ProjectsDetails',
+        component: () => import('@/views/frontend/ProjectsDetails.vue'),
+        props: true,
+        meta: { layout: LayoutFrontend, title: "Projects Details" },
+    },
+
+    {
         path: "/career",
         name: "Career",
         component: () => import("@/views/frontend/Career.vue"),
         meta: { layout: LayoutFrontend, title: "Career" },
     },
-     {
+    {
         path: "/job-apply",
         name: "JobApply",
         component: () => import("@/views/frontend/JobApply.vue"),
         meta: { layout: LayoutFrontend, title: "Job Apply" },
     },
-       {
+    {
         path: '/career/:id',
         name: 'CareerDetails',
         component: () => import('@/views/frontend/CareerDetails.vue'),
@@ -111,7 +119,7 @@ const routes = [
         component: () => import("@/views/errors/NotFound.vue"),
         meta: { layout: LayoutError, title: "Page Not Found" },
     },
-    
+
 ];
 
 export default routes;
