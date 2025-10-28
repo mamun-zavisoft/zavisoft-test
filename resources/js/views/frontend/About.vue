@@ -3,7 +3,7 @@
         <div class="hero relative w-full  bg-no-repeat bg-center bg-cover mt-[-120px] pb-8"
             :style="{ backgroundImage: `url(${bgImg})` }">
             <div class="container">
-                <div class=" pt-24 md:pt-30 lg:pt-36 xl:pt-40 flex flex-col items-center gap-3">
+                <div class="pt-30 lg:pt-36 xl:pt-40 flex flex-col items-center gap-3">
                     <div class="grid grid-cols-1 md:grid-cols-12 gap-4 md:gap-0">
                         <div class="col-span-12 md:col-span-6 lg:col-span-7">
                             <h1

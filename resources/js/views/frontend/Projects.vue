@@ -1,18 +1,13 @@
 <template>
     <section>
-        <div class=" mt-[-120px] pb-8">
-            <div class="container">
-                <div class=" pt-20 md:pt-24 lg:pt-30 xl:pt-36">
-                    <div class="flex flex-col gap-4 ">
-                        <h1 class="  text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold text-neutral-900">
-                            Our latest projects
-                        </h1>
-                        <p class="text-sm md:text-base text-neutral-600">We create appealing, user-friendly designs that
-                            help our clients delight the audience, increase brand awareness.</p>
+        <div class="container">
+            <div class="flex flex-col gap-4 mb-6 lg:mb-8 ">
+                <h1 class="text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold text-neutral-900">
+                    Our latest projects
+                </h1>
+                <p class="text-sm md:text-base text-neutral-600">We create appealing, user-friendly designs that
+                    help our clients delight the audience, increase brand awareness.</p>
 
-                    </div>
-
-                </div>
             </div>
         </div>
     </section>
@@ -28,14 +23,14 @@
                                 style="box-shadow: 0px 2px 4px 0px #0F1C330F, 0px 2px 2px 0px #0F1C3312;">
                                 <div class="flex justify-between items-start">
                                     <div class="mb-4 pr-4">
-                                        <h3 class="text-lg md:text-xl font-bold text-neutral-900 mb-3">{{
+                                        <h3 class="text-base md:text-lg lg:text-xl font-bold text-neutral-900 mb-3">{{
                                             project.title
                                             }}</h3>
                                         <p class="text-neutral-600 text-sm line-clamp-3">{{ project.description }}
                                         </p>
                                     </div>
 
-                                    <router-link :to="{ name: 'CaseStudyDetails', params: { id: project.id } }"
+                                    <router-link :to="{ name: 'ProjectsDetails', params: { id: project.id } }"
                                         class="p-2 rounded-full border border-neutral-300 bg-white transition group-hover:bg-primary-500 group-hover:border-primary-500 hover:bg-primary-500 hover:border-primary-500 cursorpointer">
                                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
                                             stroke-width="1.5" stroke="currentColor"

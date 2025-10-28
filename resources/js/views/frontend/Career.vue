@@ -5,7 +5,7 @@
             :style="{ backgroundImage: `url(${bgImg})` }">
             <div class="container">
                 <div
-                    class=" pt-24 md:pt-30 lg:pt-36 xl:pt-40 flex flex-col items-center gap-3 border-b border-neutral-200 mb-6 md:pb-8 lg:pb-12">
+                    class="pt-30 lg:pt-36 xl:pt-40 flex flex-col items-center gap-3 border-b border-neutral-200 mb-6 md:pb-8 lg:pb-12">
                     <div class="flex flex-col items-center gap-4 justify-center ">
                         <h1
                             class=" text-center text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold text-neutral-900">

@@ -138,21 +138,61 @@ body {
 
 /* hamburger button animations */
 
+.stroke-dash-6 {
+    stroke-dasharray: 6 10;
+}
 
+.accordion-header {
+    padding: 12px 0 !important;
+    border-color: var(--color-neutral-300) !important;
+    cursor: pointer;
+}
 
-@media (max-width: 1480px) {
-    .container {
-        max-width: 100%;
-        width: 100%;
-        padding: 0 16px;
+.accordion-header .size-6 {
+    width: 24px !important;
+    height: 24px !important;
+}
+
+.accordion-content {
+    border: 0px !important;
+    padding: 0px !important;
+    border-bottom: 1px solid var(--color-neutral-200) !important;
+    margin-top: 8px;
+    padding-bottom: 16px !important;
+}
+
+.case-study-tabs {
+    ul {
+        gap: 16px;
+        overflow-x: scroll;
+        white-space: nowrap;
+        flex-wrap: nowrap;
+
+        li div {
+            cursor: pointer;
+            font-weight: 600;
+            background: var(--color-white);
+            border: 1px solid var(--color-neutral-300) !important;
+            border-radius: 100px;
+            padding: 8px 16px;
+            color: var(--color-neutral-900)
+        }
+
+        li div.active {
+            background: var(--color-primary-900);
+            color: var(--color-white);
+            border: 1px solid transparent !important;
+        }
     }
 }
 
-@media (max-width: 1280px) {
-    .megaMenu .absolute.z-10 {
-        width: 800px !important;
+.case-study-tabs {
+    ul::-webkit-scrollbar {
+        display: none;
     }
 }
+
+
 
 
 :root {
@@ -197,7 +237,7 @@ body {
 
 .marquee::before {
     left: 0;
-     background: linear-gradient(to right, #F8FAFC 0%, transparent 100%);
+    background: linear-gradient(to right, #F8FAFC 0%, transparent 100%);
     /* background: linear-gradient(to right, #fff 0%, transparent 100%); */
 }
 
@@ -245,17 +285,7 @@ body {
     height: 32px;
 }
 
-@media (max-width: 768px) {
-    :root {
-        --marquee-elements-displayed: 3;
 
-    }
-
-    .marquee::before,
-    .marquee::after {
-        width: 5rem;
-    }
-}
 
 
 .feature_grid .feature_grid_item {
@@ -308,6 +338,24 @@ body {
 
 
 
+
+
+
+@media (max-width: 1480px) {
+    .container {
+        max-width: 100%;
+        width: 100%;
+        padding: 0 16px;
+    }
+}
+
+@media (max-width: 1280px) {
+    .megaMenu .absolute.z-10 {
+        width: 800px !important;
+    }
+}
+
+
 @media (max-width: 1023px) {
     .feature_grid .feature_grid_item:first-child {
         border-bottom: 1px solid var(--color-neutral-200);
@@ -343,6 +391,18 @@ body {
     }
 }
 
+@media (max-width: 768px) {
+    :root {
+        --marquee-elements-displayed: 3;
+
+    }
+
+    .marquee::before,
+    .marquee::after {
+        width: 5rem;
+    }
+}
+
 @media (max-width: 767px) {
     .growth .ele {
         display: none !important;
@@ -351,58 +411,34 @@ body {
     .showcase-swiper[data-v-d4923aca] {
         padding: 4px;
     }
-}
 
-.stroke-dash-6 {
-    stroke-dasharray: 6 10;
-}
+    .case-study-tabs {
+        ul {
+            gap: 12px;
 
-.accordion-header {
-    padding: 12px 0 !important;
-    border-color: var(--color-neutral-300) !important;
-    cursor: pointer;
-}
 
-.accordion-header .size-6 {
-    width: 24px !important;
-    height: 24px !important;
-}
-
-.accordion-content {
-    border: 0px !important;
-    padding: 0px !important;
-    border-bottom: 1px solid var(--color-neutral-200) !important;
-    margin-top: 8px;
-    padding-bottom: 16px !important;
-}
-
-.case-study-tabs {
-    ul {
-        gap: 16px;
-        overflow-x: scroll;
-        white-space: nowrap;
-        flex-wrap: nowrap;
-
-        li div {
-            cursor: pointer;
-            font-weight: 600;
-            background: var(--color-white);
-            border: 1px solid var(--color-neutral-300) !important;
-            border-radius: 100px;
-            padding: 8px 16px;
-            color: var(--color-neutral-900)
-        }
-
-        li div.active {
-            background: var(--color-primary-900);
-            color: var(--color-white);
-            border: 1px solid transparent !important;
+            li div {
+                padding: 4px 12px;
+            }
         }
     }
 }
 
-.case-study-tabs {
-    ul::-webkit-scrollbar {
-        display: none;
+
+@media (max-width: 425px) {
+    .growth .ele {
+        display: none !important;
+    }
+
+    .showcase-swiper[data-v-d4923aca] {
+        padding: 4px;
+    }
+
+    .case-study-tabs {
+        ul {
+            li div {
+                font-size: 12px;
+            }
+        }
     }
 }

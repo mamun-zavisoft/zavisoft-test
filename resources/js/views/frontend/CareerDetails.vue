@@ -2,7 +2,7 @@
     <section>
         <div class="hero relative w-full  mt-[-120px] pb-8 bg-neutral-50">
             <div class="container">
-                <div class=" pt-24 md:pt-30 lg:pt-36 xl:pt-40">
+                <div class="pt-30 lg:pt-36 xl:pt-40">
                     <div class="grid grid-cols-1 md:grid-cols-12 lg:gap-12 gap-8">
                         <div class="md:col-span-7 lg:col-span-8">
                             <h2 class="text-2xl lg:text-3xl font-bold text-neutral-900 leading-snug">

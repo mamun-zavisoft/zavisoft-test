@@ -4,7 +4,7 @@
             :style="{ backgroundImage: `url(${bgImg})` }">
             <div class="container">
                 <div
-                    class="relative z-1 hero-content text-center text-white pt-24 md:pt-30 lg:pt-36 xl:pt-40 flex flex-col items-center gap-3">
+                    class="relative z-1 hero-content text-center text-white pt-30 lg:pt-36 xl:pt-40 flex flex-col items-center gap-3">
                     <div class="bg-white rounded-full px-4 py-1.5 text-primary-500">
                         <span class="w-2 h-2 rounded-full bg-primary-500 inline-block mr-2"></span>
                         <span class="text-xs lg:text-sm font-semibold"> Top Software Development Company</span>

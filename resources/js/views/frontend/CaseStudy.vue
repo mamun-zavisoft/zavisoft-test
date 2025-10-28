@@ -30,12 +30,12 @@
                                     <div class="mb-4 pr-4">
                                         <h3 class="text-lg md:text-xl font-bold text-neutral-900 mb-3">{{
                                             project.title
-                                        }}</h3>
+                                            }}</h3>
                                         <p class="text-neutral-600 text-sm line-clamp-3">{{ project.description }}
                                         </p>
                                     </div>
 
-                                    <router-link :to="{ name: 'CaseStudyDetails', params: { id: project.id } }"
+                                    <router-link :to="{ name: 'ProjectsDetails', params: { id: project.id } }"
                                         class="p-2 rounded-full border border-neutral-300 bg-white transition group-hover:bg-primary-500 group-hover:border-primary-500 hover:bg-primary-500 hover:border-primary-500 cursorpointer">
                                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
                                             stroke-width="1.5" stroke="currentColor"

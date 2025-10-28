@@ -7,9 +7,9 @@
 
             <div class="grid grid-cols-1 md:grid-cols-12 gap-6 lg:gap-8 mt-9">
 
-                <div class="md:col-span-7 lg:col-span-8">
-                    <img src="@/assets/images/case_details.svg" alt="" class="block w-full h-auto object-cover"
-                        loading="lazy">
+                <div class="md:col-span-7 lg:col-span-8 max-h-[360px]">
+                    <img src="@/assets/images/case_details.svg" alt=""
+                        class=" max-h-[360px] block w-full h-auto object-cover rounded" loading="lazy">
                 </div>
                 <div class="md:col-span-5 lg:col-span-4 md:sticky md:top-20 self-start h-full">
                     <div class="flex flex-col h-full">
@@ -40,8 +40,9 @@
                         <!-- Fit-content only, sits at bottom of sticky column -->
                         <div class="share-link mt-4 shrink-0 flex gap-3 items-center ">
                             <h6> Share link</h6>
-                            <div class="flex items-center gap-2">
-                                <a href="#" class="w-8 h-8 rounded-full bg-neutral-100 flex items-center ">
+                            <div class="flex items-center  gap-2">
+                                <a href="#"
+                                    class="w-8 h-8 rounded-full bg-neutral-100 flex items-center justify-center ">
                                     <svg class="w-4 h-4" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
                                         fill="currentColor" viewBox="0 0 8 19">
                                         <path fill-rule="evenodd"
@@ -64,9 +65,9 @@
     <section class="py-8 md:py-10 lg:py-12">
         <div class="container">
             <div class="max-w-[800px] mr-auto">
-                <div class="border-b border-neutral-300 pb-12">
-                    <h1 class="text-xl md:text-2xl lg:text-3xl">About the Project</h1>
-                    <p class="text-sm md:text-base text-neutral-400 mt-4 md:mt-6">Packly’s slogan captures the essence
+                <div class="border-b border-neutral-300 pb-8 lg:pb-12">
+                    <h1 class="text-xl md:text-2xl lg:text-3xl font-semibold">About the Project</h1>
+                    <p class="text-sm md:text-base text-neutral-500 mt-4 md:mt-6">Packly’s slogan captures the essence
                         of
                         our mission:
 
@@ -79,9 +80,9 @@
                         effortlessly, and reliably. We take the hassle out of your day, packing convenience,choice, and
                         quality into one platform designed just for you.</p>
                 </div>
-                <div class="border-b border-neutral-300 pb-12">
-                    <h1 class="text-xl md:text-2xl lg:text-3xl">Business Result</h1>
-                    <p class="text-sm md:text-base text-neutral-400 mt-4 md:mt-6">65% Increase in Conversions: With the
+                <div class="border-b border-neutral-300 pb-8 lg:pb-12 mt-6 lg:mt-8">
+                    <h1 class="text-xl md:text-2xl lg:text-3xl font-semibold">Business Result</h1>
+                    <p class="text-sm md:text-base text-neutral-500 mt-4 md:mt-6">65% Increase in Conversions: With the
                         redesigned UI/UX and optimized checkout flow, the number of completed custom packaging orders
                         rose significantly.
 
@@ -91,23 +92,25 @@
                         Improved Customer Satisfaction: Enhanced user interface and robust cross-device compatibility
                         led to better customer retention and positive user feedback.</p>
                 </div>
-                <div class="project-images pt-12">
-                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div class="project-images pt-8 lg:pt-12">
+                    <div class="grid grid-cols-2 lg:grid-cols-3 gap-4">
                         <div class="max-h-[360px]">
-                            <img class="w-full h-full rounded-lg"
-                                src="https://flowbite.s3.amazonaws.com/docs/gallery/masonry/image.jpg" alt="">
+                            <img class="w-full h-full rounded-lg" src="@/assets/images/project_image_1.png" alt="">
                         </div>
                         <div class="max-h-[360px]">
-                            <img class="w-full h-full rounded-lg"
-                                src="https://flowbite.s3.amazonaws.com/docs/gallery/masonry/image.jpg" alt="">
+                            <img class="w-full h-full rounded-lg" src="@/assets/images/project_image_2.png" alt="">
+
+                        </div>
+                        <div class="max-h-[360px]">
+                            <img class="w-full h-full rounded-lg" src="@/assets/images/project_image_1.png" alt="">
 
                         </div>
                     </div>
                 </div>
 
                 <div class=" pt-8">
-                    <h1 class="text-xl md:text-2xl lg:text-3xl">Challenge</h1>
-                    <p class="text-sm md:text-base text-neutral-400 mt-4 md:mt-6">Complex Product Customization Flow:
+                    <h1 class="text-xl md:text-2xl lg:text-3xl font-semibold">Challenge</h1>
+                    <p class="text-sm md:text-base text-neutral-500 mt-4 md:mt-6">Complex Product Customization Flow:
                         Users needed to configure packaging size, material, print options, and 3D previews — all without
                         feeling overwhelmed.
 
@@ -121,11 +124,11 @@
                         before deployment.</p>
                 </div>
                 <div class="mt-8 p-4 bg-primary-50 rounded-lg ">
-                    <h1 class="text-xl md:text-2xl lg:text-3xl mb-6">Solution</h1>
+                    <h1 class="text-xl md:text-2xl lg:text-3xl mb-6 font-semibold">Solution</h1>
                     <div class="mb-6">
                         <p class="text-base text-neutral-900">UI/UX Design</p>
 
-                        <ul class="mt-3 pl-4  text-neutral-400 space-y-2 text-sm">
+                        <ul class="mt-3 pl-4  text-neutral-500 space-y-2 text-sm">
                             <li class="relative list-none pl-4
              before:content-[''] before:absolute before:-left-2 before:top-2
              before:h-1.5 before:w-1.5 before:rounded-full before:bg-neutral-400">
@@ -147,7 +150,7 @@
                     <div class="mb-6">
                         <p class="text-base text-neutral-900">Development</p>
 
-                        <ul class="mt-3 pl-4  text-neutral-400 space-y-2 text-sm">
+                        <ul class="mt-3 pl-4  text-neutral-500 space-y-2 text-sm">
                             <li class="relative list-none pl-4
              before:content-[''] before:absolute before:-left-2 before:top-2
              before:h-1.5 before:w-1.5 before:rounded-full before:bg-neutral-400">
@@ -169,7 +172,7 @@
                     <div class="">
                         <p class="text-base text-neutral-900">QA & Testing</p>
 
-                        <ul class="mt-3 pl-4  text-neutral-400 space-y-2 text-sm">
+                        <ul class="mt-3 pl-4  text-neutral-500 space-y-2 text-sm">
                             <li class="relative list-none pl-4
              before:content-[''] before:absolute before:-left-2 before:top-2
              before:h-1.5 before:w-1.5 before:rounded-full before:bg-neutral-400">
@@ -191,8 +194,8 @@
 
                 </div>
                 <div class=" pt-8">
-                    <h1 class="text-xl md:text-2xl lg:text-3xl">Final Impact</h1>
-                    <p class="text-sm md:text-base text-neutral-400 mt-4 md:mt-6">Packly’s reimagined eCommerce
+                    <h1 class="text-xl md:text-2xl lg:text-3xl font-semibold">Final Impact</h1>
+                    <p class="text-sm md:text-base text-neutral-500 mt-4 md:mt-6">Packly’s reimagined eCommerce
                         experience empowered users to create customized packaging effortlessly — leading to higher
                         engagement, smoother conversions, and stronger brand trust.</p>
                 </div>
