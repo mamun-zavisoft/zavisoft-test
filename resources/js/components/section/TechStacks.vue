@@ -1,38 +1,43 @@
 <template>
-    <div v-for="(tech, index) in techStack" :key="tech.name" :class="[
-        'flex items-center justify-center p-6 border-neutral-200',
-        !isLastColumn(index) && 'border-r',
-        !isInLastRow(index) && 'border-b'
-    ]">
-        <img class="h-12 w-auto" :src="tech.icon" :alt="tech.name" />
+    <div class="grid grid-cols-4 lg:grid-cols-7 grid-tech">
+        <div v-for="(tech, index) in techStack" :key="tech.name" :class="[
+            'flex items-center justify-center py-6 md:py-8 lg:py-12 border-neutral-200',
+            !isLastColumn(index) && 'border-r',
+            !isInLastRow(index) && 'border-b'
+        ]">
+            <img class="h-12 md:h-16 lg:h-20 w-auto" :src="tech.icon" :alt="tech.name" />
+        </div>
     </div>
+
 </template>
 
 <script setup>
 import { computed, onBeforeUnmount, onMounted, ref } from 'vue';
 
 const techStack = [
-    { name: "Figma", icon: new URL('@/assets/images/tech/figma.svg', import.meta.url).href },
-    { name: "Python", icon: new URL('@/assets/images/tech/python.svg', import.meta.url).href },
-    { name: "Confluence", icon: new URL('@/assets/images/tech/confluence.svg', import.meta.url).href },
-    { name: "Bitbucket", icon: new URL('@/assets/images/tech/bitbucket.svg', import.meta.url).href },
-    { name: "Cypress", icon: new URL('@/assets/images/tech/cypress.svg', import.meta.url).href },
-    { name: "Discord", icon: new URL('@/assets/images/tech/discord.svg', import.meta.url).href },
-    { name: "JavaScript", icon: new URL('@/assets/images/tech/js.svg', import.meta.url).href },
-    { name: "Angular", icon: new URL('@/assets/images/tech/angular.svg', import.meta.url).href },
-    { name: "React", icon: new URL('@/assets/images/tech/react.svg', import.meta.url).href },
-    { name: "Unit", icon: new URL('@/assets/images/tech/unit.svg', import.meta.url).href },
-    { name: "Vue", icon: new URL('@/assets/images/tech/vue.svg', import.meta.url).href },
     { name: "Laravel", icon: new URL('@/assets/images/tech/laravel.svg', import.meta.url).href },
+    { name: "Slack", icon: new URL('@/assets/images/tech/slack.svg', import.meta.url).href },
+    { name: "React", icon: new URL('@/assets/images/tech/react.svg', import.meta.url).href },
+    { name: "Next JS", icon: new URL('@/assets/images/tech/nextjs.svg', import.meta.url).href },
+    { name: "Vue JS", icon: new URL('@/assets/images/tech/vue.svg', import.meta.url).href },
+    { name: "Express JS", icon: new URL('@/assets/images/tech/expressjs.svg', import.meta.url).href },
+    { name: "Selenium", icon: new URL('@/assets/images/tech/selenium.svg', import.meta.url).href },
+    { name: "MySql", icon: new URL('@/assets/images/tech/mysql.svg', import.meta.url).href },
+    { name: "Flutter", icon: new URL('@/assets/images/tech/flutter.svg', import.meta.url).href },
+    { name: "Click Up", icon: new URL('@/assets/images/tech/clickup.svg', import.meta.url).href },
+    { name: "TypeScript", icon: new URL('@/assets/images/tech/typescript.svg', import.meta.url).href },
+    { name: "Figma", icon: new URL('@/assets/images/tech/figma.svg', import.meta.url).href },
+    { name: "Jira", icon: new URL('@/assets/images/tech/jira.svg', import.meta.url).href },
+    { name: "Dart", icon: new URL('@/assets/images/tech/dart.svg', import.meta.url).href },
 
 ];
 
-const columns = ref(6);
+const columns = ref(7);
 const totalItems = computed(() => techStack.length);
 
 const getColumnsForWidth = (width) => {
-    if (width >= 1024) return 6;
-    if (width >= 768) return 4;
+    if (width >= 1024) return 7;
+    if (width >= 768) return 5;
     if (width >= 640) return 4;
     return 4;
 };

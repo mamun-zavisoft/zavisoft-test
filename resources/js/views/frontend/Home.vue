@@ -273,10 +273,8 @@
                 <p class="text-neutral-600 mt-3 text-sm lg:text-base"> Bring your idea to life with the tools you need
                     to start selling. </p>
             </div>
-            <div class="grid grid-cols-4 lg:grid-cols-6 grid-tech">
-
+            <div class="w-full lg:max-w-[1220px] mx-auto">
                 <TechStacks />
-
             </div>
         </div>
     </section>
