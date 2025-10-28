@@ -5,8 +5,10 @@ import { createPinia } from "pinia";
 import Toast from "vue-toastification";
 import "vue-toastification/dist/index.css";
 import { i18nVue } from "laravel-vue-i18n";
+import { loaderPlugin } from "./plugins/loader";
 
 const app = createApp(App);
+const pinia = createPinia();
 
 const options = {
     position: "bottom-right",
@@ -23,12 +25,14 @@ const options = {
     rtl: false,
 };
 
+pinia.use(loaderPlugin); 
+
 app.use(Toast, options);
 app.use(i18nVue, {
     lang: import.meta.env.VITE_APP_LOCALE,
     resolve: (lang) => import(`../../lang/${lang}.json`),
 });
-app.use(createPinia());
+app.use(pinia);
 app.use(router);
 
 app.mount("#app");

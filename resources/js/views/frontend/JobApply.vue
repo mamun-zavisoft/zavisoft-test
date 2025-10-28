@@ -3,7 +3,7 @@
     <section class="mb-10">
         <div class="container">
             <div class="max-w-[700px] mx-auto">
-                <form action="#" method="post" class="space-y-5 bg-neutral-50 rounded-2xl p-6">
+                <form @submit.prevent="submitForm" class="space-y-5 bg-neutral-50 rounded-2xl p-6">
                     <div class="grid grid-cols-1">
                         <div class="flex flex-col gap-2">
                             <label for="name" class="text-sm font-medium text-neutral-600">Your Name</label>
@@ -66,7 +66,7 @@
 
                     <div class="flex justify-end">
                         <button type="submit"
-                            class="w-[160px] inline-flex items-center justify-center rounded-full bg-primary-500 px-6 py-3 text-sm font-medium text-white shadow-sm hover:bg-primary-600 focus:outline-none focus:ring-2 focus:ring-primary-500">
+                            class="cursor-pointer w-[160px] inline-flex items-center justify-center rounded-full bg-primary-500 px-6 py-3 text-sm font-medium text-white shadow-sm hover:bg-primary-600 focus:outline-none focus:ring-2 focus:ring-primary-500">
                             Submit</button>
                     </div>
                 </form>
@@ -76,3 +76,10 @@
         </div>
     </section>
 </template>
+
+<script setup>
+
+const submitForm = async () => {
+
+}
+</script>
