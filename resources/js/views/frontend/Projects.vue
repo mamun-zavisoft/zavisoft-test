@@ -70,46 +70,58 @@ const activeTab = ref('all')
 const projects = [
     {
         id: 1,
-        title: 'ShopNest – Ecommerce Platform',
-        category: 'ecommerce',
-        description: 'A full-featured online shopping platform with real-time inventory sync.',
-        image: new URL('@/assets/images/service/soft.png', import.meta.url).href,
-        tech: ['Vue', 'Tailwind', 'Firebase'],
+        title: 'Packly',
+        description: 'Our design team helps clients achieve their marketing and business goals.',
+        tags: ['e-commerce'],
+        image: new URL('@/assets/images/project_3.png', import.meta.url).href,
+
     },
     {
         id: 2,
-        title: 'FoodieHub – Mobile Delivery App',
-        category: 'mobile-app',
-        description: 'Cross-platform food delivery app built with Flutter and Node.js backend.',
-        image: new URL('@/assets/images/service/soft.png', import.meta.url).href,
-        tech: ['Flutter', 'Node.js', 'MongoDB'],
+        title: 'Packly - Super App',
+        description: 'Our design team helps clients achieve their marketing and business goals.',
+        tags: ['e-commerce'],
+        image: new URL('@/assets/images/project_2.png', import.meta.url).href,
+
 
     },
     {
         id: 3,
-        title: 'Insightly – Admin Dashboard',
-        category: 'admin-dashboard',
-        description: 'Advanced analytics dashboard for tracking business KPIs in real time.',
-        image: new URL('@/assets/images/service/soft.png', import.meta.url).href,
-        tech: ['React', 'Chart.js', 'Express'],
+        title: 'Packly - Event',
+        description: 'Our design team helps clients achieve their marketing and business goals.',
+        tags: ['Ticket Management', 'Ticket Platform Website'],
+        image: new URL('@/assets/images/project_1.png', import.meta.url).href,
+
 
     },
     {
         id: 4,
-        title: 'TechCart – Ecommerce Solution',
-        category: 'ecommerce',
-        description: 'Scalable multi-vendor store optimized for SEO and mobile users.',
-        image: new URL('@/assets/images/service/soft.png', import.meta.url).href,
-        tech: ['Next.js', 'Prisma', 'PostgreSQL'],
+        title: 'Packly - Shopping',
+        description: 'Our design team helps clients achieve their marketing and business goals.',
+        tags: ['Ticket Management', 'Ticket Platform Website'],
+        image: new URL('@/assets/images/project_3.png', import.meta.url).href,
+        category: 'ecommerce'
+
 
     },
     {
         id: 5,
-        title: 'HealthTrack – Fitness Mobile App',
-        category: 'mobile-app',
-        description: 'Personal fitness tracking app with habit reminders and dark mode.',
-        image: new URL('@/assets/images/service/soft.png', import.meta.url).href,
-        tech: ['Flutter', 'Dart', 'Firebase'],
+        title: 'Packly - Kaj',
+        description: 'Our design team helps clients achieve their marketing and business goals.',
+        tags: ['Ticket Management', 'Ticket Platform Website'],
+        image: new URL('@/assets/images/project_2.png', import.meta.url).href,
+        category: 'mobile-app'
+
+
+
+    },
+    {
+        id: 6,
+        title: 'Packly - Zavisoft',
+        description: 'Our design team helps clients achieve their marketing and business goals.',
+        tags: ['Ticket Management', 'Ticket Platform Website'],
+        image: new URL('@/assets/images/project_1.png', import.meta.url).href,
+        category: 'ecommerce'
 
     },
 ]

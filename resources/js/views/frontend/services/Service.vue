@@ -3,7 +3,7 @@
         <div class="hero relative w-full  bg-no-repeat bg-center bg-cover mt-[-120px] pb-8"
             :style="{ backgroundImage: `url(${bgImg})` }">
             <div class="container">
-                <div class="pt-24 md:pt-30 lg:pt-36 border-b border-neutral-200 pb-8 lg:pb-12 ">
+                <div class="pt-26 border-b border-neutral-200 pb-8 lg:pb-12 ">
                     <div class="grid grid-cols-1 lg:grid-cols-2">
                         <!-- Left: Content -->
                         <div class="h-full pr-0 lg:pr-10 xl:pr-14 ">
@@ -58,9 +58,7 @@
                 <div class="pt-8 lg:pt-12">
 
                     <div class=" mb-4 md:mb-6 lg:mb-8">
-                        <span
-                            class="inline-block text-sm font-medium border border-neutral-300 text-neutral-900 bg-neutral-100 px-3 py-1 rounded-full mb-3">
-                            Turn your website into a showstopper </span>
+                        <SectionHeader text="Turn your website into a showstopper" />
                         <h2 class="text-2xl lg:text-3xl font-bold text-neutral-900 leading-snug"> Complex problems fuel
                             our creativity and passion. </h2>
                         <p class="text-sm lg:text-base text-neutral-600 mt-2">Combining human
@@ -83,9 +81,7 @@
                 </div>
                 <div class="col-span-12 md:col-span-6 lg:col-span-5 pl-0  lg:pl-8 h-full flex items-center">
                     <div class=" border border-neutral-200 p-4 rounded-lg">
-                        <span
-                            class="inline-block text-sm font-medium border border-neutral-300 text-neutral-900 bg-neutral-100 px-3 py-1 rounded-full mb-2">
-                            Why choose us </span>
+                        <SectionHeader text="Why choose us" />
                         <h1 class="text-xl md:text-2xl lg:text-3xl font-bold">Design side-by-side with your designer in
                             Figma — in real time.</h1>
                         <p class="mt-4 md:mt-6 lg:mt-8 text-sm md:text-base text-neutral-600">With over years of
@@ -101,9 +97,7 @@
 
     <section class="py-8 md:py-10 lg:py-12">
         <div class="container">
-            <span
-                class="inline-block text-sm font-medium border border-neutral-300 text-neutral-900 bg-neutral-100 px-3 py-1 rounded-full mb-2">
-                Product show case </span>
+            <SectionHeader text="Product show case" />
             <div class="flex flex-col md:flex-row gap-4 justify-between mb-8 md:mb-10 lg:mb-12">
                 <div class="md:w-1/2">
                     <h2 class="text-2xl lg:text-3xl font-bold text-neutral-900 leading-snug"> Explore a selection of our
@@ -127,7 +121,7 @@
                                     <div class="mb-4 pr-4">
                                         <h3 class="text-lg md:text-xl font-bold text-neutral-900 mb-3">{{
                                             project.title
-                                            }}</h3>
+                                        }}</h3>
                                         <p class="text-neutral-600 text-sm line-clamp-3">{{ project.description }}
                                         </p>
                                     </div>
@@ -170,10 +164,8 @@
             <div class="industry-focus">
                 <div class="flex flex-col lg:flex-row gap-8 lg:gap-16  justify-between">
                     <div class="lg:w-1/2">
-                        <span
-                            class="inline-block text-sm font-medium border border-neutral-300 text-neutral-900 bg-neutral-100 px-3 py-1 rounded-full mb-2">
-                            Industry Focus
-                        </span>
+                        <SectionHeader text="Industry Focus" />
+
                         <h1 class="text-2xl md:text-3xl lg:text-4xl font-bold">Sectors Driving Our Expertise</h1>
                         <p class="mt-4 md:mt-6 lg:mt-8 text-sm md:text-base text-neutral-600">With over years of
                             experience, Brand Vision
@@ -253,10 +245,7 @@
     <section class=" pb-8 md:pb-10 lg:pb-12">
         <div class="container">
             <div class="mb-6">
-                <span
-                    class="inline-block text-sm font-medium border border-neutral-300 text-neutral-900 bg-neutral-100 px-3 py-1 rounded-full mb-2">
-                    Our other Services
-                </span>
+                <SectionHeader text="Other Services" />
                 <h1 class="text-2xl md:text-3xl lg:text-4xl font-bold">Explore other services</h1>
                 <p class="mt-2 text-sm md:text-base text-neutral-600">Pick your self-paced career path and break into a
                     booming industry</p>
@@ -275,6 +264,7 @@ import ShowStopper from '@/components/section/ShowStopper.vue';
 import TestimonialSlider from '@/components/ui/slider/TestimonialSlider.vue';
 import StartBuilding from '@/components/section/StartBuilding.vue';
 import FAQ from '@/components/section/FAQ.vue';
+import SectionHeader from '@/components/ui/heading/SectionHeader.vue';
 
 
 import { ref, computed } from 'vue'
@@ -286,43 +276,59 @@ const activeTab = ref('all')
 const projects = [
     {
         id: 1,
-        title: 'ShopNest – Ecommerce Platform',
-        category: 'ecommerce',
-        description: 'A full-featured online shopping platform with real-time inventory sync.',
-        image: new URL('@/assets/images/service/soft.png', import.meta.url).href,
-        tech: ['Vue', 'Tailwind', 'Firebase'],
+        title: 'Packly',
+        description: 'Our design team helps clients achieve their marketing and business goals.',
+        tags: ['e-commerce'],
+        image: new URL('@/assets/images/project_3.png', import.meta.url).href,
+
     },
     {
         id: 2,
-        title: 'FoodieHub – Mobile Delivery App',
-        category: 'mobile-app',
-        description: 'Cross-platform food delivery app built with Flutter and Node.js backend.',
-        image: new URL('@/assets/images/service/soft.png', import.meta.url).href,
-        tech: ['Flutter', 'Node.js', 'MongoDB'],
+        title: 'Packly - Super App',
+        description: 'Our design team helps clients achieve their marketing and business goals.',
+        tags: ['e-commerce'],
+        image: new URL('@/assets/images/project_2.png', import.meta.url).href,
+
+
     },
     {
         id: 3,
-        title: 'Insightly – Admin Dashboard',
-        category: 'admin-dashboard',
-        description: 'Advanced analytics dashboard for tracking business KPIs in real time.',
-        image: new URL('@/assets/images/service/soft.png', import.meta.url).href,
-        tech: ['React', 'Chart.js', 'Express'],
+        title: 'Packly - Event',
+        description: 'Our design team helps clients achieve their marketing and business goals.',
+        tags: ['Ticket Management', 'Ticket Platform Website'],
+        image: new URL('@/assets/images/project_1.png', import.meta.url).href,
+
+
     },
     {
         id: 4,
-        title: 'TechCart – Ecommerce Solution',
-        category: 'ecommerce',
-        description: 'Scalable multi-vendor store optimized for SEO and mobile users.',
-        image: new URL('@/assets/images/service/soft.png', import.meta.url).href,
-        tech: ['Next.js', 'Prisma', 'PostgreSQL'],
+        title: 'Packly - Shopping',
+        description: 'Our design team helps clients achieve their marketing and business goals.',
+        tags: ['Ticket Management', 'Ticket Platform Website'],
+        image: new URL('@/assets/images/project_3.png', import.meta.url).href,
+        category: 'ecommerce'
+
+
     },
     {
         id: 5,
-        title: 'HealthTrack – Fitness Mobile App',
-        category: 'mobile-app',
-        description: 'Personal fitness tracking app with habit reminders and dark mode.',
-        image: new URL('@/assets/images/service/soft.png', import.meta.url).href,
-        tech: ['Flutter', 'Dart', 'Firebase'],
+        title: 'Packly - Kaj',
+        description: 'Our design team helps clients achieve their marketing and business goals.',
+        tags: ['Ticket Management', 'Ticket Platform Website'],
+        image: new URL('@/assets/images/project_2.png', import.meta.url).href,
+        category: 'mobile-app'
+
+
+
+    },
+    {
+        id: 6,
+        title: 'Packly - Zavisoft',
+        description: 'Our design team helps clients achieve their marketing and business goals.',
+        tags: ['Ticket Management', 'Ticket Platform Website'],
+        image: new URL('@/assets/images/project_1.png', import.meta.url).href,
+        category: 'ecommerce'
+
     },
 ]
 

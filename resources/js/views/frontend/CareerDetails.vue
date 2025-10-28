@@ -66,7 +66,7 @@
         <div class="container">
             <div class="max-w-[920px] mr-auto">
                 <div class="">
-                    <p class="text-base text-neutral-900 font-semibold">Description</p>
+                    <h6 class="text-lg lg:text-xl text-neutral-900 font-semibold">Description</h6>
 
                     <p class="text-sm text-neutral-400 mt-2">We   are   a   dynamic   digital   agency   specializing  
                         in  
@@ -82,7 +82,7 @@
                 </div>
 
                 <div class="mt-6">
-                    <p class="text-base text-neutral-900 font-semibold">Essential Requirement</p>
+                    <p class="text-lg lg:text-xl text-neutral-900 font-semibold">Essential Requirement</p>
 
                     <ul class="mt-3 pl-4  text-neutral-400 space-y-2 text-sm">
                         <li class="relative list-none pl-4
@@ -103,7 +103,7 @@
                     </ul>
                 </div>
                 <div class="mt-6">
-                    <p class="text-base text-neutral-900 font-semibold">Your Key Responsibilities</p>
+                    <p class="text-lg lg:text-xl text-neutral-900 font-semibold">Your Key Responsibilities</p>
 
                     <ul class="mt-3 pl-4  text-neutral-400 space-y-2 text-sm">
                         <li class="relative list-none pl-4
@@ -124,7 +124,7 @@
                     </ul>
                 </div>
                 <div class="mt-6">
-                    <p class="text-base text-neutral-900 font-semibold">Why Join Zavisoft</p>
+                    <p class="text-lg lg:text-xl text-neutral-900 font-semibold">Why Join Zavisoft</p>
 
                     <ul class="mt-3 pl-4  text-neutral-400 space-y-2 text-sm">
                         <li class="relative list-none pl-4

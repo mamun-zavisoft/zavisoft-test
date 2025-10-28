@@ -5,7 +5,7 @@
         <!-- Left: contact info card -->
         <div class="rounded-lg border border-neutral-300 bg-white p-4 lg:p-6">
             <div class=" flex flex-col gap-4 md:gap-6 justify-between h-full">
-                <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 sm:gap-8">
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-5 md:gap-4 lg:gap-8">
                     <!-- Give us a call -->
                     <div>
                         <p class="text-base font-medium text-neutral-500">Give us a call</p>
