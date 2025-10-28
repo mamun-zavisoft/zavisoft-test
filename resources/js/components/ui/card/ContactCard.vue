@@ -63,7 +63,7 @@
 
         <!-- Right: form card -->
         <div class="rounded-lg border border-neutral-300 p-4 lg:p-6 bg-neutral-50">
-            <form action="#" method="post" class="space-y-5">
+            <form @submit.prevent="submitForm" class="space-y-5">
                 <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
                     <div class="flex flex-col gap-2">
                         <label for="name" class="text-sm font-medium text-neutral-600">Your Name</label>
@@ -101,10 +101,17 @@
 
                 <div class="flex justify-end">
                     <button type="submit"
-                        class="inline-flex items-center justify-center rounded-full bg-primary-500 px-6 py-3 text-sm font-medium text-white shadow-sm hover:bg-primary-600 focus:outline-none focus:ring-2 focus:ring-primary-500">Send
+                        class="cursor-pointer inline-flex items-center justify-center rounded-full bg-primary-500 px-6 py-3 text-sm font-medium text-white shadow-sm hover:bg-primary-600 focus:outline-none focus:ring-2 focus:ring-primary-500">Send
                         a Brief</button>
                 </div>
             </form>
         </div>
     </div>
 </template>
+
+<script setup>
+
+const submitForm = async () => {
+
+}
+</script>
