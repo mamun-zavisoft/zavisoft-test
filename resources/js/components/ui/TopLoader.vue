@@ -1,6 +1,6 @@
 <template>
     <div v-show="visible" class="fixed left-0 top-0 w-full z-[9999] pointer-events-none" aria-hidden="true">
-        <div class="h-[3px] bg-primary-500" :style="{ width: progress + '%', transition: 'width 150ms ease' }" />
+        <div class="h-[3px] bg-primary-500" :style="{ width: progress + '%', transition: 'width 50ms ease' }" />
     </div>
 </template>
 

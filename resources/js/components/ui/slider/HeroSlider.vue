@@ -81,7 +81,7 @@ export default {
                     cameraZ: 2,
                     fov: 40
                 };
-            } else if (width < 1024) { // Tablet
+            } else if (width < 1024) { 
                 return {
                     radius: 3.2,
                     planeWidth: 2.8,
@@ -89,7 +89,7 @@ export default {
                     cameraZ: 1.5,
                     fov: 50
                 };
-            } else if (width < 1440) { // Tablet
+            } else if (width < 1440) { 
                 return {
                     radius: 3.2,
                     planeWidth: 2.8,
@@ -98,7 +98,7 @@ export default {
                     fov: 50
                 };
             }
-            else { // Desktop
+            else { 
                 return {
                     radius: 4,
                     planeWidth: 3.6,

@@ -1,9 +1,10 @@
 let startImpl = () => { };
 let doneImpl = () => { };
 let pending = 0;
-let lastStart = 0;
-let finishTimer = 0;
-const MIN_VISIBLE_MS = 2000;
+let hasStarted = false; 
+let lastStart = 0; 
+let finishTimer = 0; 
+const MIN_VISIBLE_MS = 1000; 
 
 export function registerTopLoader(api) {
     if (!api) return;
@@ -12,11 +13,12 @@ export function registerTopLoader(api) {
 }
 
 function begin() {
-    if (pending === 0) {
+    if (pending === 0 && !hasStarted) {
         if (finishTimer) {
             clearTimeout(finishTimer);
             finishTimer = 0;
         }
+        hasStarted = true;
         lastStart = Date.now();
         startImpl();
     }
@@ -31,8 +33,9 @@ function finish() {
         const remaining = Math.max(0, MIN_VISIBLE_MS - elapsed);
         const finalize = () => {
             finishTimer = 0;
+            hasStarted = false;
             lastStart = 0;
-            doneImpl();
+            doneImpl(); 
         };
 
         if (remaining > 0) {
