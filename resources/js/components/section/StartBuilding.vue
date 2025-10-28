@@ -5,11 +5,11 @@
             <div class="flex flex-col items-center text-center justify-center h-full">
                 <div class="flex items-center justify-center -space-x-2">
                     <img src="@/assets/images/icons/user_20.svg" alt="Person 1"
-                        class="w-12 h-12 lg:w-16 lg:h-16 rounded-full border-2 border-white object-cover" />
-                    <img src="@/assets/images/cntuser_1.png" alt="Person 2"
-                        class="w-12 h-12 lg:w-16 lg:h-16 rounded-full border-2 border-white object-cover" />
-                    <img src="@/assets/images/cntuser_2.png" alt="Person 3"
-                        class="w-12 h-12 lg:w-16 lg:h-16 rounded-full border-2 border-white object-cover" />
+                        class="w-12 h-12 lg:w-16 lg:h-16 rounded-full  object-cover" />
+                    <img src="@/assets/images/cntuser_1.svg" alt="Person 2"
+                        class="w-12 h-12 lg:w-16 lg:h-16 rounded-full  object-cover" />
+                    <img src="@/assets/images/cntuser_2.svg" alt="Person 3"
+                        class="w-12 h-12 lg:w-16 lg:h-16 rounded-full  object-cover" />
                 </div>
                 <h1
                     class="text-2xl md:text-3xl lg:text-4xl font-bold text-neutral-900 mt-4 md:mt-6 lg:mt-8 px-0 md:px-16 lg:px-32">
