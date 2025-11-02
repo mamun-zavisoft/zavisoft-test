@@ -8,6 +8,16 @@
 
 <script>
 import { onMounted, onUnmounted, ref } from 'vue';
+import * as THREE from 'three';
+
+THREE.Cache.enabled = true;
+
+const textureCache = new Map();
+const MAX_PIXEL_RATIO = 1.5;
+
+if (typeof window !== 'undefined' && !window.THREE) {
+    window.THREE = THREE;
+}
 
 export default {
     name: 'CurvedSlider3D',
@@ -16,38 +26,37 @@ export default {
         let resizeObserver;
         let windowResizeHandler;
 
-
         // Image index
         const images = [
             {
                 id: 1,
                 name: 'Wade Cooper',
-                image: new URL('@/assets/images/grbimage/hero_1.jpg', import.meta.url).href,
+                image: new URL('@/assets/images/grbimage/hero_1.webp', import.meta.url).href,
             },
             {
                 id: 2,
                 name: 'Wade Cooper',
-                image: new URL('@/assets/images/grbimage/hero_5.png', import.meta.url).href,
+                image: new URL('@/assets/images/grbimage/hero_5.webp', import.meta.url).href,
             },
             {
                 id: 3,
                 name: 'Wade Cooper',
-                image: new URL('@/assets/images/grbimage/hero_4.png', import.meta.url).href,
+                image: new URL('@/assets/images/grbimage/hero_4.webp', import.meta.url).href,
             },
             {
                 id: 4,
                 name: 'Wade Cooper',
-                image: new URL('@/assets/images/grbimage/hero_3.png', import.meta.url).href,
+                image: new URL('@/assets/images/grbimage/hero_3.webp', import.meta.url).href,
             },
             {
                 id: 5,
                 name: 'Wade Cooper',
-                image: new URL('@/assets/images/grbimage/hero_2.png', import.meta.url).href,
+                image: new URL('@/assets/images/grbimage/hero_2.webp', import.meta.url).href,
             },
             {
                 id: 6,
                 name: 'Wade Cooper',
-                image: new URL('@/assets/images/grbimage/hero_1.png', import.meta.url).href,
+                image: new URL('@/assets/images/grbimage/hero_1.webp', import.meta.url).href,
             },
 
         ]
@@ -61,7 +70,9 @@ export default {
         }
 
         // Three.js variables
-        let scene, camera, renderer, group, loader;
+        let scene, camera, renderer, group;
+        const loader = new THREE.TextureLoader();
+        loader.setCrossOrigin("anonymous");
         let animationFrameHandle;
         let clock;
         const autoRotateSpeed = 0.002;
@@ -81,7 +92,7 @@ export default {
                     cameraZ: 2,
                     fov: 40
                 };
-            } else if (width < 1024) { 
+            } else if (width < 1024) {
                 return {
                     radius: 3.2,
                     planeWidth: 2.8,
@@ -89,7 +100,7 @@ export default {
                     cameraZ: 1.5,
                     fov: 50
                 };
-            } else if (width < 1440) { 
+            } else if (width < 1440) {
                 return {
                     radius: 3.2,
                     planeWidth: 2.8,
@@ -98,7 +109,7 @@ export default {
                     fov: 50
                 };
             }
-            else { 
+            else {
                 return {
                     radius: 4,
                     planeWidth: 3.6,
@@ -122,14 +133,88 @@ export default {
             return { width, height };
         };
 
-        const initThreeJS = () => {
-            // Check if Three.js is available
-            if (!window.THREE) {
-                console.error("Three.js is not available");
+        const getPixelRatio = () => {
+            if (typeof window === "undefined" || !window.devicePixelRatio) {
+                return 1;
+            }
+            return window.devicePixelRatio;
+        };
+
+        const loadTexture = (url) => new Promise((resolve, reject) => {
+            loader.load(url, resolve, undefined, reject);
+        });
+
+        const getTexture = (url) => {
+            if (!textureCache.has(url)) {
+                const texturePromise = loadTexture(url)
+                    .then((texture) => {
+                        texture.colorSpace = THREE.SRGBColorSpace;
+                        texture.generateMipmaps = false;
+                        texture.minFilter = THREE.LinearFilter;
+                        texture.magFilter = THREE.LinearFilter;
+                        texture.needsUpdate = true;
+                        return texture;
+                    })
+                    .catch((error) => {
+                        textureCache.delete(url);
+                        throw error;
+                    });
+                textureCache.set(url, texturePromise);
+            }
+            return textureCache.get(url);
+        };
+
+        const loadImages = async (config) => {
+            if (!group) {
                 return;
             }
 
-            const { THREE } = window;
+            const angleStep = (Math.PI * 2) / imageUrls.length;
+            const origin = new THREE.Vector3(0, 0, 0);
+
+            const textures = await Promise.all(
+                imageUrls.map(async (url) => {
+                    try {
+                        return await getTexture(url);
+                    } catch (error) {
+                        console.warn("Image failed to load:", { url, error });
+                        return null;
+                    }
+                })
+            );
+
+            textures.forEach((texture, index) => {
+                if (!texture) {
+                    return;
+                }
+
+                const geometry = new THREE.PlaneGeometry(
+                    config.planeWidth,
+                    config.planeHeight
+                );
+                const material = new THREE.MeshBasicMaterial({
+                    map: texture,
+                    transparent: true
+                });
+                const plane = new THREE.Mesh(geometry, material);
+
+                const angle = index * angleStep;
+                plane.position.set(
+                    Math.sin(angle) * config.radius,
+                    0,
+                    Math.cos(angle) * config.radius
+                );
+                plane.lookAt(origin);
+
+                group.add(plane);
+            });
+        };
+
+        const initThreeJS = async () => {
+            if (typeof window === "undefined") {
+                return;
+            }
+
             const { width, height } = measureContainer();
             currentConfig = getResponsiveConfig(width);
 
@@ -150,7 +235,7 @@ export default {
                 antialias: true,
                 alpha: true,
             });
-            renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+            renderer.setPixelRatio(Math.min(getPixelRatio(), MAX_PIXEL_RATIO));
             renderer.setSize(width, height, false);
             renderer.domElement.style.width = '100%';
             renderer.domElement.style.height = '100%';
@@ -165,55 +250,14 @@ export default {
             group = new THREE.Group();
             scene.add(group);
 
-            // Create texture loader
-            loader = new THREE.TextureLoader();
-            loader.setCrossOrigin("anonymous");
-
             // Create clock
             clock = new THREE.Clock();
 
             // Create image planes
-            loadImages(currentConfig);
+            await loadImages(currentConfig);
 
             // Kick off sizing observer
             setupResizeObserver();
-        };
-
-        const loadImages = (config) => {
-            const angleStep = (Math.PI * 2) / imageUrls.length;
-
-            imageUrls.forEach((url, index) => {
-                loader.load(
-                    url,
-                    (texture) => {
-                        texture.colorSpace = window.THREE.SRGBColorSpace;
-                        const geometry = new window.THREE.PlaneGeometry(
-                            config.planeWidth,
-                            config.planeHeight
-                        );
-                        const material = new window.THREE.MeshBasicMaterial({
-                            map: texture,
-                            transparent: true
-                        });
-                        const plane = new window.THREE.Mesh(geometry, material);
-
-                        // Position the plane in a circular pattern
-                        const angle = index * angleStep;
-                        plane.position.set(
-                            Math.sin(angle) * config.radius,
-                            0,
-                            Math.cos(angle) * config.radius
-                        );
-                        plane.lookAt(new window.THREE.Vector3(0, 0, 0));
-
-                        group.add(plane);
-                    },
-                    undefined,
-                    (error) => {
-                        console.warn("Image failed to load:", { url, error });
-                    }
-                );
-            });
         };
 
         const animate = () => {
@@ -239,17 +283,18 @@ export default {
 
             // Update renderer
             renderer.setSize(size.width, size.height, false);
-            renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+            renderer.setPixelRatio(Math.min(getPixelRatio(), MAX_PIXEL_RATIO));
 
             // Update plane positions and sizes
             if (group && group.children.length > 0) {
                 const angleStep = (Math.PI * 2) / imageUrls.length;
+                const origin = new THREE.Vector3(0, 0, 0);
 
                 group.children.forEach((child, index) => {
                     if (child.isMesh) {
                         // Update geometry size
                         child.geometry.dispose();
-                        child.geometry = new window.THREE.PlaneGeometry(
+                        child.geometry = new THREE.PlaneGeometry(
                             config.planeWidth,
                             config.planeHeight
                         );
@@ -261,7 +306,7 @@ export default {
                             0,
                             Math.cos(angle) * config.radius
                         );
-                        child.lookAt(new window.THREE.Vector3(0, 0, 0));
+                        child.lookAt(origin);
                     }
                 });
             }
@@ -301,11 +346,12 @@ export default {
                     if (child.isMesh) {
                         child.geometry.dispose();
                         if (child.material.map) {
-                            child.material.map.dispose();
+                            child.material.map = null;
                         }
                         child.material.dispose();
                     }
                 });
+                group.clear();
             }
 
             if (resizeObserver && curvedSlider.value) {
@@ -320,9 +366,13 @@ export default {
             }
         };
 
-        onMounted(() => {
-            initThreeJS();
-            animate();
+        onMounted(async () => {
+            try {
+                await initThreeJS();
+                animate();
+            } catch (error) {
+                console.error("Failed to initialize CurvedSlider3D:", error);
+            }
         });
 
         onUnmounted(() => {
