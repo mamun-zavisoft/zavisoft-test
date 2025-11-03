@@ -68,6 +68,13 @@ const routes = [
         meta: { layout: LayoutFrontend, title: "Blog" },
     },
     {
+        path: '/blog/:id',
+        name: 'BlogDetails',
+        component: () => import('@/views/frontend/BlogDetails.vue'),
+        props: true,
+        meta: { layout: LayoutFrontend, title: "Blog Details" },
+    },
+    {
         path: "/contact",
         name: "Contact",
         component: () => import("@/views/frontend/Contact.vue"),
