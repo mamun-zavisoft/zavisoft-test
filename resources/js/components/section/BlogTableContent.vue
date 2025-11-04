@@ -1,161 +1,190 @@
-<!-- UxArticleScrollSpy.vue -->
 <template>
-    <div class="grid grid-cols-1 md:grid-cols-12 gap-6">
-        <!-- TOC -->
-        <aside class="md:col-span-4 lg:col-span-3">
-            <div class="sticky top-4 rounded-2xl border border-gray-200 bg-white">
-                <div class="border-b border-gray-200 p-4">
-                    <h2 class="text-sm font-semibold tracking-wide text-gray-700">Table of Contents</h2>
+
+    <div class="post-content-wrapper">
+        <div class="grid grid-cols-1 md:grid-cols-[370px_1fr] md:gap-8  lg:gap-12">
+            <aside class="max-w-[370px]  sticky top-20 self-start">
+                <div class=" bg-neutral-50 rounded p-3 ">
+                    <h2 class="text-base lg:text-lg font-semibold tracking-wide text-neutral-900">
+                        Table of Contents
+                    </h2>
+                    <nav class="mt-3">
+                        <ul class="space-y-4 text-neutral-400 font-medium text-sm lg:text-[15px]">
+                            <li
+                                class="relative pl-4 before:content-['•'] before:absolute before:left-0 before:text-neutral-400 before:text-lg before:top-[-4px]">
+                                What Is a UX Design Strategy?
+                            </li>
+                            <li
+                                class="relative pl-4 before:content-['•'] before:absolute before:left-0 before:text-neutral-400 before:text-lg before:top-[-4px]">
+                                Core Components of UX Design Strategy
+                            </li>
+
+                            <li
+                                class="relative pl-4 before:content-['•'] before:absolute before:left-0 before:text-neutral-400 before:text-lg before:top-[-4px]">
+                                Why UX Design Strategy Is Important?
+                            </li>
+                            <li
+                                class="relative pl-4 before:content-['•'] before:absolute before:left-0 before:text-neutral-400 before:text-lg before:top-[-4px]">
+                                Can Small Teams Use UX Strategy Effectively?
+                            </li>
+
+                            <li
+                                class="relative pl-4 before:content-['•'] before:absolute before:left-0 before:text-neutral-400 before:text-lg before:top-[-4px]">
+                                What Is a UX Design Strategy?
+                            </li>
+                            <li
+                                class="relative pl-4 before:content-['•'] before:absolute before:left-0 before:text-neutral-400 before:text-lg before:top-[-4px]">
+                                Core Components of UX Design Strategy
+                            </li>
+
+                            <li
+                                class="relative pl-4 before:content-['•'] before:absolute before:left-0 before:text-neutral-400 before:text-lg before:top-[-4px]">
+                                Why UX Design Strategy Is Important?
+                            </li>
+                            <li
+                                class="relative pl-4 before:content-['•'] before:absolute before:left-0 before:text-neutral-400 before:text-lg before:top-[-4px]">
+                                Can Small Teams Use UX Strategy Effectively?
+                            </li>
+                        </ul>
+                    </nav>
                 </div>
-                <!-- Desktop: nested list (H2/H3) -->
-                <nav class="hidden md:block p-2">
-                    <ul class="space-y-1">
-                        <li v-for="item in toc" :key="item.id" :class="item.level === 3 ? 'ml-6' : ''">
-                            <button type="button" class="group w-full text-left rounded-lg px-3 py-2 transition"
-                                :class="activeId === item.id ? 'bg-gray-900 text-white' : 'text-gray-700 hover:bg-gray-100'"
-                                @click="scrollToId(item.id)" :aria-current="activeId === item.id ? 'page' : undefined">
-                                <span class="inline-flex items-center gap-2">
-                                    <span class="h-1.5 w-1.5 rounded-full"
-                                        :class="activeId === item.id ? 'bg-white' : 'bg-gray-300 group-hover:bg-gray-400'"
-                                        aria-hidden="true" />
-                                    <span class="text-sm font-medium">{{ item.label }}</span>
-                                </span>
-                            </button>
+            </aside>
+
+            <main class="w-full">
+                <p class=" text-sm lg:text-base text-neutral-400 ">
+                    Ever dreamed of turning your design ideas into real, working code—without writing a single line
+                    yourself? That’s where Canva Code comes in.
+                    Unveiled at Canva Create 2025 on April 10, Canva Code is a game-changing AI feature that takes
+                    simple
+                    prompts and transforms them into fully functional, interactive elements—all within Canva’s intuitive
+                    platform.
+                    But this isn’t just another feature update—it’s a whole new way to create. Whether you’re
+                    prototyping a
+                    startup concept, building classroom tools, or crafting your next big idea, Canva Code brings
+                    intelligent
+                    development right to your fingertips.
+                    Heads up: Canva Code is launching soon, but it’s not available to everyone just yet.
+                    Want to see what it can do? Keep reading—this is something you won’t want to miss.
+                </p>
+
+                <hr class="mt-6 md:mt-8 border-neutral-200" />
+
+                <div class="section-title mt-6 md:mt-8">
+                    <h2 class="text-xl md:text-2xl lg:text-3xl font-semibold text-neutral-900 mb-4">
+                        What is Canva Code?
+                    </h2>
+                    <p class=" text-sm lg:text-base text-neutral-400 ">
+                        65% Increase in Conversions: With the redesigned UI/UX and optimized checkout flow, the number
+                        of
+                        completed custom packaging orders rose significantly.
+                    </p>
+
+                    <div class="mt-4 md:mt-6 lg:mt-8">
+                        <img src="@/assets/images/project_image_2.png" alt="Canva Code Feature Image"
+                            class="w-full max-h-[420px] object-cover">
+                    </div>
+                </div>
+
+                <div class="section-title mt-6 md:mt-8">
+                    <h2 class="text-xl md:text-2xl lg:text-3xl font-semibold text-neutral-900 mb-4">
+                        ‍Frequently Asked Questions
+                    </h2>
+                    <p class=" text-sm lg:text-base text-neutral-400 ">
+                        65% Increase in Conversions: With the redesigned UI/UX and optimized checkout flow, the number
+                        of
+                        completed custom packaging orders rose significantly.
+                    </p>
+                </div>
+
+                <div class="writer mt-6 md:mt-8 border-t border-neutral-200 pt-6">
+                    <div class="flex gap-4  items-center ">
+                        <img src="@/assets/images/john.png" alt="Author Avatar"
+                            class="w-16 h-16 rounded-full object-cover mb-4">
+                        <p class="text-sm lg:text-base text-neutral-400">Richard Aurora</p>
+                    </div>
+
+                    <p class="text-sm text-neutral-400">With over 8 years of design expertise, Atiqur Rahaman
+                        has worked on 40+ innovative products in over 20 industries. Big names like Oter, Transcom, and
+                        SwissLife trust his creative ideas.</p>
+                    <div class="social-icon flex mt-4 gap-3">
+                        <a href="#"
+                            class="inline-flex h-9 w-9 items-center justify-center rounded-full  bg-neutral-100 p-2">
+                            <img src="@/assets/images/icons/facebooks.svg" alt="">
+                        </a>
+                        <a href="#"
+                            class="inline-flex h-9 w-9 items-center justify-center rounded-full  bg-neutral-100 p-2">
+                            <img src="@/assets/images/icons/linkedine.svg" alt="">
+
+                        </a>
+                        <a href="#"
+                            class="inline-flex h-9 w-9 items-center justify-center rounded-full  bg-neutral-100 p-2">
+                            <img src="@/assets/images/icons/youtube.svg" alt="">
+
+                        </a>
+                        <a href="#"
+                            class="inline-flex h-9 w-9 items-center justify-center rounded-full  bg-neutral-100 p-2">
+                            <img src="@/assets/images/icons/instagram.svg" alt="">
+
+                        </a>
+                    </div>
+                </div>
+
+            </main>
+        </div>
+    </div>
+
+</template>
+
+<!-- <template>
+    <div class="grid grid-cols-1 md:grid-cols-[370px_1fr] md:gap-8  lg:gap-12">
+        <aside class="max-w-[370px] hidden md:block toc-sticky">
+            <div class=" bg-neutral-50 rounded p-3 ">
+                <h2 class="text-base lg:text-lg font-semibold tracking-wide text-neutral-900">
+                    Table of Contents
+                </h2>
+                <nav class="mt-3">
+                    <ul class="space-y-4 text-neutral-400 font-medium text-sm lg:text-[15px]">
+                        <li
+                            class="relative pl-4 before:content-['•'] before:absolute before:left-0 before:text-neutral-400 before:text-lg before:top-[-4px]">
+                            What Is a UX Design Strategy?
                         </li>
+                        <li
+                            class="relative pl-4 before:content-['•'] before:absolute before:left-0 before:text-neutral-400 before:text-lg before:top-[-4px]">
+                            Core Components of UX Design Strategy
+                        </li>
+
                     </ul>
                 </nav>
             </div>
         </aside>
 
-        <!-- Article -->
-        <main class="md:col-span-8 lg:col-span-9">
-            <article ref="articleRef" class="rounded-2xl border border-gray-200 bg-white p-6 md:p-8 prose max-w-none">
-                <!-- Example content: use h2/h3; IDs will be auto-added -->
-                <p>
-                    Ever dreamed of turning your design ideas into working code—without writing a single line yourself?
-                    That’s where Canva Code comes in…
-                </p>
+        <main class="w-full">
+            <p class=" text-sm lg:text-base text-neutral-400 ">
+                Ever dreamed of turning your design ideas into real, working code—without writing a single line
+                yourself? That’s where Canva Code comes in.
+                Unveiled at Canva Create 2025 on April 10, Canva Code is a game-changing AI feature that takes simple
 
-                <h2>What Is a UX Design Strategy?</h2>
-                <p>A UX design strategy aligns user needs with business goals through evidence-driven decisions.</p>
+            </p>
 
-                <h3>Why it matters</h3>
-                <p>Reduces rework, accelerates delivery, compounds value.</p>
-
-                <h2>Core Components of UX Design Strategy</h2>
-                <ul>
-                    <li>User research & modeling</li>
-                    <li>Experience principles</li>
-                    <li>Prioritization & roadmap</li>
-                    <li>Design system & tooling</li>
-                    <li>Analytics & feedback loops</li>
-                </ul>
-
-                <h2>How to Create an Effective UX Design Strategy</h2>
-                <h3>Step 1: Clarify outcomes & KPIs</h3>
-                <p>Define north-star metric and guardrails.</p>
-                <h3>Step 2: Map jobs-to-be-done</h3>
-                <p>Find moments that matter, then prototype riskiest assumptions.</p>
-
-                <h2>What is Canva Code?</h2>
-                <p>New AI feature to turn prompts into functional experiences in Canva.</p>
-
-                <h2>Frequently Asked Questions</h2>
-                <h3>Is Canva Code available to everyone?</h3>
-                <p>Rollout may be gradual.</p>
-
-                <h2>Conclusions</h2>
-                <p>Treat UX strategy as a living system. Outcomes &gt; outputs.</p>
-            </article>
         </main>
     </div>
-</template>
+</template> -->
 
-<script setup lang="ts">
-import { onMounted, onBeforeUnmount, ref } from 'vue'
 
-type TocItem = { id: string; label: string; level: 2 | 3 }
+<script setup>
+import { ref } from 'vue';
 
-const articleRef = ref<HTMLElement | null>(null)
-const toc = ref<TocItem[]>([])
-const activeId = ref<string>('')
-
-// If you have a fixed header, set its height here to offset scrolling
-const SCROLL_OFFSET = 12 // px (tweak as needed or compute from header height)
-
-let observer: IntersectionObserver | null = null
-
-onMounted(() => {
-    // 1) Build TOC from H2/H3 in the article
-    const article = articleRef.value!
-    const headings = Array.from(article.querySelectorAll('h2, h3')) as HTMLHeadingElement[]
-
-    toc.value = headings.map(h => {
-        if (!h.id) h.id = slugify(h.textContent || 'section')
-        // Add a little top padding + negative margin so anchor lands nicely
-        h.classList.add('scroll-mt-24') // Tailwind: margin-top for scroll anchoring
-        return { id: h.id, label: h.textContent || '', level: (h.tagName === 'H2' ? 2 : 3) }
-    })
-
-    if (toc.value.length) activeId.value = toc.value[0].id
-
-    // 2) Scroll-spy via IntersectionObserver (tracks which heading is in view)
-    const options: IntersectionObserverInit = {
-        root: null,
-        rootMargin: '-20% 0px -60% 0px', // focus on top third of viewport
-        threshold: [0, 1],
+const faqs = ref([
+    {
+        question: "What is Canva Code?",
+        answer: "Canva Code is a powerful tool that allows users to create stunning designs effortlessly."
+    },
+    {
+        question: "How does it work?",
+        answer: "Canva Code uses advanced algorithms to simplify the design process, making it accessible to everyone."
+    },
+    {
+        question: "Is it free to use?",
+        answer: "Yes, Canva Code offers a free tier with basic features, as well as premium options for advanced users."
     }
-
-    observer = new IntersectionObserver((entries) => {
-        // Pick the entry nearest the top that is intersecting
-        const visible = entries
-            .filter(e => e.isIntersecting)
-            .sort((a, b) => (a.target as HTMLElement).offsetTop - (b.target as HTMLElement).offsetTop)
-
-        if (visible.length) {
-            const id = (visible[0].target as HTMLElement).id
-            if (id) activeId.value = id
-        }
-    }, options)
-
-    headings.forEach(h => observer!.observe(h))
-
-    // 3) Hash deep-link support on initial load
-    if (location.hash) {
-        const idFromHash = decodeURIComponent(location.hash.replace('#', ''))
-        setTimeout(() => scrollToId(idFromHash, false), 0)
-    }
-
-    // 4) Update hash when activeId changes (optional but useful)
-    const onScroll = () => {
-        if (!activeId.value) return
-        if (location.hash !== `#${activeId.value}`) history.replaceState(null, '', `#${activeId.value}`)
-    }
-    window.addEventListener('scroll', onScroll, { passive: true })
-    cleanup.push(() => window.removeEventListener('scroll', onScroll))
-})
-
-onBeforeUnmount(() => {
-    observer?.disconnect()
-    cleanup.forEach(fn => fn())
-})
-
-const cleanup: Array<() => void> = []
-
-function scrollToId(id: string, smooth = true) {
-    const el = document.getElementById(id)
-    if (!el) return
-    const y = el.getBoundingClientRect().top + window.scrollY - SCROLL_OFFSET
-    window.scrollTo({ top: y, behavior: smooth ? 'smooth' : 'auto' })
-    activeId.value = id
-}
-
-function slugify(text: string) {
-    return text
-        .toLowerCase()
-        .trim()
-        .replace(/[^\w\s-]/g, '')
-        .replace(/\s+/g, '-')
-        .replace(/-+/g, '-')
-}
+]);
 </script>

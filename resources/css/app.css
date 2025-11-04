@@ -442,3 +442,18 @@ body {
         }
     }
 }
+
+
+/* .toc-sticky {
+    position: sticky;
+    top: 10rem;
+
+    height: fit-content;
+    z-index: 50;
+}
+
+.single-post-container,
+.post-content-wrapper,
+.toc-sticky {
+    overflow: visible !important;
+} */
