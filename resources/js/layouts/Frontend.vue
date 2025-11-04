@@ -10,7 +10,7 @@
         </div>
 
         <!-- Main Content -->
-        <main class="content flex-grow overflow-y-auto pt-[90px] md:pt-[100px] lg:pt-[120px]">
+        <main class="content flex-grow  pt-[90px] md:pt-[100px] lg:pt-[120px]">
             <slot />
         </main>
 
