@@ -2,7 +2,7 @@
     <div class=" relative">
 
         <div class="mb-4 md:mb-6 lg:mb-8 flex items-center justify-between">
-            <img src="@/assets/images/icons/qute.svg" alt="quote" class="w-16 md:w-20 lg:w-24 xl:w-28 h-auto" />
+            <img src="@/assets/images/icons/qute.svg" alt="quote" class="wow animate__animated animate__fadeInUp w-16 md:w-20 lg:w-24 xl:w-28 h-auto" />
             <div
                 class="flex items-center justify-center md:justify-end absolute mt-10 sm:mt-0 sm:static bottom-[-40px] right-0 z-8 ">
                 <button type="button" @click="swiperPrev"
@@ -29,7 +29,7 @@
             :autoplay="autoplay ? { delay: 4000 } : false" class="testimonial-swiper" @swiper="onSwiper"
             @slideChange="onSlideChange">
             <SwiperSlide v-for="(t, i) in testimonials" :key="i">
-                <div class="w-[100%] md:w-[80%] mr-auto">
+                <div class="w-[100%] md:w-[80%] mr-auto wow animate__animated animate__fadeInRight">
                     <p class="text-xl md:text-2xl lg:text-3xl text-neutral-800 font-semibold line-clamp-3">
                         {{ t.quote }}
                     </p>

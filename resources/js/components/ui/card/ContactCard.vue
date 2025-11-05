@@ -3,27 +3,32 @@
     <!-- Cards -->
     <div class="mt-6 grid grid-cols-1 md:grid-cols-2 gap-6 border-b border-neutral-200 mb-6 md:pb-8 lg:pb-12">
         <!-- Left: contact info card -->
-        <div class="rounded-lg border border-neutral-300 bg-white p-4 lg:p-6">
+        <div class="rounded-lg border border-neutral-300 bg-white p-4 lg:p-6 wow animate__animated animate__fadeInUp">
             <div class=" flex flex-col gap-4 md:gap-6 justify-between h-full">
                 <div class="grid grid-cols-1 sm:grid-cols-2 gap-5 md:gap-4 lg:gap-8">
                     <!-- Give us a call -->
                     <div>
-                        <p class="text-base font-medium text-neutral-500">Give us a call</p>
-                        <p class="mt-3 text-neutral-900 text-lg font-medium">01729–645913</p>
+                        <p class="text-base font-medium text-neutral-500 wow animate__zoomIn animate__animated">Give us
+                            a call</p>
+                        <p class="mt-3 text-neutral-900 text-lg font-medium wow animate__zoomIn animate__animated">
+                            01729–645913</p>
                     </div>
 
                     <!-- Email us -->
                     <div>
-                        <p class="text-base font-medium text-neutral-500">Email us</p>
-                        <p class="mt-3 text-neutral-900 text-lg font-medium">Zavisoft@gmail.com</p>
+                        <p class="text-base font-medium text-neutral-500 wow animate__zoomIn animate__animated">Email us
+                        </p>
+                        <p class="mt-3 text-neutral-900 text-lg font-medium wow animate__zoomIn animate__animated">
+                            Zavisoft@gmail.com</p>
                     </div>
                 </div>
 
                 <div class="grid grid-cols-1 gap-6 md:gap-10">
                     <!-- Socials -->
                     <div>
-                        <p class="text-base font-medium text-neutral-500">Follow us</p>
-                        <div class="mt-4 flex items-center gap-3">
+                        <p class="text-base font-medium text-neutral-500 wow animate__zoomIn animate__animated">Follow
+                            us</p>
+                        <div class="mt-4 flex items-center gap-3 wow animate__zoomIn animate__animated">
                             <!-- Simple icon buttons -->
                             <a href="#"
                                 class="inline-flex h-9 w-9 items-center justify-center rounded-full  bg-neutral-100 p-2">
@@ -63,7 +68,7 @@
 
         <!-- Right: form card -->
         <div class="rounded-lg border border-neutral-300 p-4 lg:p-6 bg-neutral-50">
-            <form @submit.prevent="submitForm" class="space-y-5">
+            <form @submit.prevent="submitForm" class="space-y-5 wow animate__animated animate__fadeInUp">
                 <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
                     <div class="flex flex-col gap-2">
                         <label for="name" class="text-sm font-medium text-neutral-600">Your Name</label>

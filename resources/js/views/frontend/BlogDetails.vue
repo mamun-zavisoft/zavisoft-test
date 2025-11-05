@@ -8,7 +8,7 @@
                     <div class="flex flex-col items-center gap-2 md:gap-3 lg:gap-4 justify-center ">
                         <h1
                             class=" text-center text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl leading-8 md:leading-10 lg:leading-16  font-bold text-neutral-900">
-                            Game Changer Alert: Canva Code is Here Transforms Ideas into Reality
+                            A Developer’s Journey Through Platform Onboarding
                         </h1>
                         <p class="text-xs md:text-[13px] lg:text-sm text-neutral-400 font-medium flex gap-2 md:gap-4">
                             <span>By Richard Aurora</span> |
@@ -18,8 +18,8 @@
 
                     </div>
                     <div class="mt-6 w-full">
-                        <img src="@/assets/images/blog_2.svg" alt="Blog Image"
-                            class="w-full max-h-[620px] object-cover">
+                        <img src="@/assets/images/blog_1.svg" alt="Blog Image"
+                            class="w-full max-h-[735px] object-cover">
                     </div>
 
                 </div>

@@ -1,7 +1,7 @@
 <template>
     <div class="grid grid-cols-4 lg:grid-cols-7 grid-tech">
         <div v-for="(tech, index) in techStack" :key="tech.name" :class="[
-            'flex items-center justify-center py-6 md:py-8 lg:py-12 border-neutral-200',
+            'flex items-center justify-center py-6 md:py-8 lg:py-12 border-neutral-200 wow animate__zoomIn animate__animated',
             !isLastColumn(index) && 'border-r',
             !isInLastRow(index) && 'border-b'
         ]">

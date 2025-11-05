@@ -1,7 +1,8 @@
 <template>
     <!-- Desktop Grid -->
     <div class="hidden sm:grid feature_grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3">
-        <div v-for="(service, index) in services" :key="index" class="feature_grid_item">
+        <div v-for="(service, index) in services" :key="index"
+            class="feature_grid_item wow animate__animated animate__fadeInUp">
             <img :src="service.icon" alt="" class="mb-3" />
             <h3 class="mb-4 text-xl font-bold text-neutral-900">{{ service.name }}</h3>
             <p class="text-sm leading-relaxed text-neutral-600 line-clamp-3">

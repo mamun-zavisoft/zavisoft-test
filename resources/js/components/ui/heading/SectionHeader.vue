@@ -1,6 +1,6 @@
 <template>
     <span
-        class="inline-block text-sm font-medium border border-primary-500 text-neutral-900 bg-neutral-100 px-3 py-1 rounded-full mb-2">
+        class="wow animate__animated animate__pulse inline-block text-sm font-medium border border-primary-500 text-neutral-900 bg-neutral-100 px-3 py-1 rounded-full mb-2">
         <slot>{{ text }}</slot>
     </span>
 

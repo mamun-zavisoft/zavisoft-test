@@ -1,4 +1,5 @@
-import { createApp } from "vue";
+
+import { createApp, nextTick } from "vue";
 import App from "./App.vue";
 import router from "./router";
 import { createPinia } from "pinia";
@@ -6,6 +7,9 @@ import Toast from "vue-toastification";
 import "vue-toastification/dist/index.css";
 import { i18nVue } from "laravel-vue-i18n";
 import { loaderPlugin } from "./plugins/loader";
+
+import "animate.css";
+import WOW from "wow.js";
 
 const app = createApp(App);
 const pinia = createPinia();
@@ -25,7 +29,7 @@ const options = {
     rtl: false,
 };
 
-pinia.use(loaderPlugin); 
+pinia.use(loaderPlugin);
 
 app.use(Toast, options);
 app.use(i18nVue, {
@@ -34,5 +38,24 @@ app.use(i18nVue, {
 });
 app.use(pinia);
 app.use(router);
+let wow;
+app.mixin({
+    mounted() {
+        if (!wow) {
+            wow = new WOW({
+                boxClass: "wow",
+                animateClass: "animate__animated",
+                offset: 0,
+                mobile: true,
+                live: true,
+            });
+            wow.init();
+        }
+    },
+});
 
 app.mount("#app");
+router.afterEach(async () => {
+    await nextTick();
+    if (wow && typeof wow.sync === "function") wow.sync();
+});
