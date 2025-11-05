@@ -27,7 +27,7 @@
                 <div class="mt-6 md:mt-8 lg:mt-10 relative single-post-container ">
                     <div class="post-content-wrapper">
                         <div class="grid grid-cols-1 md:grid-cols-[370px_1fr] md:gap-8  lg:gap-12">
-                            <aside class="max-w-[370px]  sticky top-20 self-start">
+                            <aside class="max-w-[370px]  sticky top-20 self-start hidden md:block">
                                 <div class=" bg-neutral-50 rounded p-3 ">
                                     <h2 class="text-base lg:text-lg font-semibold tracking-wide text-neutral-900">
                                         Table of Contents
@@ -426,7 +426,7 @@
                 <div class="grid grid-cols-1 md:grid-cols-2  gap-6">
                     <!-- Example Blog Card -->
                     <article v-for="(blog, index) in blogs" :key="index">
-                        <router-link :to="{ name: 'BlogDetails', params: { id: blog.id } }">
+                        <router-link :to="blog.link">
                             <div class="overflow-hidden duration-300">
                                 <div class="">
                                     <img :src="blog.image" alt="Blog Image" class="w-full max-h-[360px] object-cover">
@@ -458,13 +458,15 @@ const blogs = [
         id: 1,
         writer: "Richard Aurora",
         image: new URL('@/assets/images/blog_1.svg', import.meta.url).href,
-        title: "A Developer’s Journey Through Platform Onboarding"
+        title: "A Developer’s Journey Through Platform Onboarding",
+        link: "/blog-one"
     },
     {
         id: 2,
         writer: "Mira Donovan",
         image: new URL('@/assets/images/blog_2.svg', import.meta.url).href,
-        title: "A Complete Look at End-to-End Testing"
+        title: "A Complete Look at End-to-End Testing",
+        link: "/blog-two"
     }
 
 ];

@@ -31,7 +31,7 @@
                     <div class="grid grid-cols-1 md:grid-cols-2  gap-6">
                         <!-- Example Blog Card -->
                         <article v-for="(blog, index) in blogs" :key="index">
-                            <router-link :to="{ name: 'BlogDetails', params: { id: blog.id } }">
+                            <router-link :to="blog.link">
                                 <div class="overflow-hidden duration-300 wow animate__zoomIn animate__animated">
                                     <div class="">
                                         <img :src="blog.image" alt="Blog Image"
@@ -137,25 +137,29 @@ const blogs = [
         id: 1,
         writer: "Richard Aurora",
         image: new URL('@/assets/images/blog_1.svg', import.meta.url).href,
-        title: "A Developer’s Journey Through Platform Onboarding"
+        title: "A Developer’s Journey Through Platform Onboarding",
+        link: "/blog-one"
     },
     {
         id: 2,
         writer: "Mira Donovan",
         image: new URL('@/assets/images/blog_2.svg', import.meta.url).href,
-        title: "A Complete Look at End-to-End Testing"
+        title: "A Complete Look at End-to-End Testing",
+        link: "/blog-two"
     },
     {
         id: 3,
         writer: "Adrian Keller",
         image: new URL('@/assets/images/blog_3.svg', import.meta.url).href,
-        title: "The Smart Way Developers Validate Products Faster with AI Coding Support"
+        title: "The Smart Way Developers Validate Products Faster with AI Coding Support",
+        link: "/blog-three"
     },
     {
         id: 4,
         writer: "Dylan Mercer",
         image: new URL('@/assets/images/blog_4.svg', import.meta.url).href,
-        title: "Agile Excellence: Developing a Holistic Quality Perspective"
+        title: "Agile Excellence: Developing a Holistic Quality Perspective",
+        link: "/blog-four"
     }
 
 ];
