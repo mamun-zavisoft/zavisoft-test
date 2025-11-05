@@ -2,16 +2,16 @@
     <div class="flex flex-col gap-8 lg:gap-12 lg:flex-row ">
         <div class="lg:w-1/2">
             <SectionHeader text="FAQ’s" />
-            <h2 class="text-xl md:text-2xl lg:text-3xl font-bold leading-snug text-neutral-900">
+            <h2 class="wow animate__animated animate__fadeInUp text-xl md:text-2xl lg:text-3xl font-bold leading-snug text-neutral-900">
                 Our Frequently Asked Questions
             </h2>
 
-            <div class="mt-2 text-neutral-600 lg:w-[60%] mr-auto">
+            <div class="wow animate__animated animate__fadeInUp mt-2 text-neutral-600 lg:w-[60%] mr-auto">
                 <p class="mb-2 text-neutral-600 lg:text-base text-sm">
                     We put people first, understanding that a well-crafted product significantly impacts the lives of
                     those who use it.
                 </p>
-                <NavigateSecondary text="See our Case studies" to="/projects" class=" mt-4 md:mt-6 lg:mt-8" />
+                <NavigateSecondary text="See our Case studies" to="/projects" class="wow animate__animated animate__fadeInUp mt-4 md:mt-6 lg:mt-8" />
             </div>
         </div>
         <div class="lg:w-1/2">

@@ -5,23 +5,27 @@
             <div class="container">
                 <div
                     class="relative z-1 hero-content text-center text-white pt-30 lg:pt-36 xl:pt-40 flex flex-col items-center gap-3">
-                    <div class="bg-white rounded-full px-4 py-1.5 text-primary-500">
+                    <div
+                        class="bg-white rounded-full px-4 py-1.5 text-primary-500 wow animate__animated animate__pulse">
                         <span class="w-2 h-2 rounded-full bg-primary-500 inline-block mr-2"></span>
                         <span class="text-xs lg:text-sm font-semibold"> Top Software Development Company</span>
                     </div>
                     <h1
-                        class="hero-title text-3xl md:text-4xl lg:text-5xl xl:text-7xl font-bold mb-2 lg:mb-4 text-neutral-900">
+                        class="wow animate__animated animate__fadeIn  hero-title text-3xl md:text-4xl lg:text-5xl xl:text-7xl font-bold mb-2 lg:mb-4 text-neutral-900">
                         Transforming Ideas, into
                         reality
                         with <br>
                         <span class="text-neutral-500">Software Solutions</span>
                     </h1>
-                    <p class="hero-description text-base font-normal md:text-lg text-neutral-500">Our expert team
+                    <p
+                        class="wow animate__animated animate__fadeInUp hero-description text-base font-normal md:text-lg text-neutral-500">
+                        Our expert team
                         develops
                         innovative, tailored
                         software to
                         help your business thrive in today’s digital landscape.</p>
-                    <div class="heroaction flex mt-6 lg:mt-8 justify-center gap-2 items-center">
+                    <div
+                        class="wow animate__animated animate__fadeInUp heroaction flex mt-6 lg:mt-8 justify-center gap-2 items-center">
                         <router-link to="/contact"
                             class="bg-primary-500 px-3 md:px-4 py-2.5 lg:py-3 rounded-full flex gap-3 text-sm lg:text-base items-center">
                             <span class="font-medium">Contact us</span>
@@ -64,29 +68,35 @@
     <section class="py-8 md:py-10 lg:py-12 ">
         <div class="container flex flex-col-reverse md:flex-row items-center justify-between gap-16 ">
             <!-- Left Image -->
-            <div class="md:w-1/2 w-full">
-                <img src="@/assets/images/team_image.svg" alt="Team discussion"
-                    class="w-full h-auto rounded-lg object-cover shadow-lg" />
+            <div class="md:w-1/2 w-full ">
+                <div class="wow animate__animated animate__fadeInLeft">
+                    <img src="@/assets/images/team_image.svg" alt="Team discussion"
+                        class=" w-full h-auto rounded-lg object-cover shadow-lg" />
+                </div>
             </div>
 
             <!-- Right Content -->
             <div class="md:w-1/2 w-full">
                 <SectionHeader text="Team Achievements" />
 
-                <h2 class="text-2xl lg:text-3xl font-bold text-neutral-900 mb-4">
+                <h2
+                    class="wow animate__animated animate__fadeInUp text-2xl lg:text-3xl font-bold text-neutral-900 mb-4">
                     Smart Solutions for Bold Thinkers
                 </h2>
-                <p class="text-neutral-600 leading-relaxed mb-1 text-sm lg:text-base">
+                <p
+                    class="wow animate__animated animate__fadeInUp text-neutral-600 leading-relaxed mb-1 text-sm lg:text-base">
                     We believe that great products begin with empathy. By putting people at the center of everything we
                     do,
                     we create solutions that make a meaningful difference.
                 </p>
-                <p class="text-neutral-600 leading-relaxed mb-1 text-sm lg:text-base">
+                <p
+                    class="wow animate__animated animate__fadeInUp text-neutral-600 leading-relaxed mb-1 text-sm lg:text-base">
                     Our goal is to bridge technology and human insight — designing experiences that inspire
                     collaboration,
                     creativity, and empower growth.
                 </p>
-                <p class="text-neutral-600 leading-relaxed mb-8 text-sm lg:text-base">
+                <p
+                    class="wow animate__animated animate__fadeInUp text-neutral-600 leading-relaxed mb-8 text-sm lg:text-base">
                     By staying curious and adaptable, we continuously push boundaries to build software that not only
                     meets
                     today’s needs but is ready for tomorrow’s opportunities.
@@ -120,10 +130,11 @@
             <div class="text-center mb-8 md:mb-10 lg:mb-12">
                 <SectionHeader text="Services We Provide" />
 
-                <h2 class="text-2xl md:text-3xl lg:text-4xl font-bold text-neutral-900 mt-2">
+                <h2
+                    class="wow animate__animated animate__fadeInUp text-2xl md:text-3xl lg:text-4xl font-bold text-neutral-900 mt-2">
                     Everything You Need to Build, Launch, and Grow
                 </h2>
-                <p class="text-neutral-600 mt-3 text-sm lg:text-base">
+                <p class="wow animate__animated animate__fadeInUp text-neutral-600 mt-3 text-sm lg:text-base">
                     We offer end-to-end digital solutions tailored to your needs — from web and mobile app development
                     to QA
                     testing and full-stack engineering.
@@ -144,11 +155,13 @@
             <SectionHeader text="Why Choose Us" />
             <div class="flex flex-col md:flex-row gap-4  justify-between mb-8 md:mb-10 lg:mb-12">
                 <div class="md:w-1/2">
-                    <h2 class="text-2xl lg:text-3xl font-bold text-neutral-900 leading-snug">
+                    <h2
+                        class="wow animate__animated animate__fadeInUp text-2xl lg:text-3xl font-bold text-neutral-900 leading-snug">
                         Shaping Your Vision into Real-World Success
                     </h2>
                 </div>
-                <p class="md:w-1/2 text-neutral-600 md:pt-2 text-sm lg:text-base">
+                <p
+                    class="wow animate__animated animate__fadeInUp md:w-1/2 text-neutral-600 md:pt-2 text-sm lg:text-base">
                     We specialize in custom software development outsourcing, delivering high-quality, scalable,
                     and efficient solutions to clients worldwide.
                 </p>
@@ -173,11 +186,13 @@
 
             <div class="flex flex-col md:flex-row gap-8  justify-between mb-8 md:mb-10 lg:mb-12">
                 <div class="md:w-1/2 ">
-                    <h2 class="text-2xl lg:text-3xl font-bold text-neutral-900 leading-snug">
+                    <h2
+                        class="wow animate__animated animate__fadeInLeft text-2xl lg:text-3xl font-bold text-neutral-900 leading-snug">
                         A glimpse into some of our top-performing product we develop
                     </h2>
                 </div>
-                <p class="md:w-1/2 text-neutral-600 md:pt-2 text-sm lg:text-base">
+                <p
+                    class="wow animate__animated animate__fadeInRight md:w-1/2 text-neutral-600 md:pt-2 text-sm lg:text-base">
                     We are the best custom software development company for custom software development outsourcing. And
                     we provide robust, scalable, and efficient solutions to various clients around the world
                 </p>
@@ -196,37 +211,45 @@
 
                         <SectionHeader text="Industry Focus" />
 
-                        <h1 class="text-2xl md:text-3xl lg:text-4xl font-bold">Sectors Driving Our Expertise</h1>
-                        <p class="mt-4 md:mt-6 lg:mt-8 text-sm md:text-base text-neutral-600">With over years of
+                        <h1 class="wow animate__animated animate__fadeInUp text-2xl md:text-3xl lg:text-4xl font-bold">
+                            Sectors Driving Our Expertise</h1>
+                        <p
+                            class="wow animate__animated animate__fadeInUp mt-4 md:mt-6 lg:mt-8 text-sm md:text-base text-neutral-600">
+                            With over years of
                             experience, Brand Vision
                             takes pride in
                             collaborating with exceptional
                             businesses and industries across the globe. These partnerships have enriched our expertise,
                             sharpened our skills, and enabled us to consistently enhance our services—delivering
                             outstanding results for our clients.</p>
-                        <NagigatePrimaryButton text="Let’s solve your issues" to="/contact" class="mt-8 md:mt-12" />
+                        <NagigatePrimaryButton text="Let’s solve your issues" to="/contact"
+                            class="wow animate__animated animate__fadeInUp mt-8 md:mt-12" />
                     </div>
                     <div class="lg:w-1/2 ">
                         <div
                             class="grid grid-cols-1 sm:grid-cols-2 gap-y-4 sm:gap-y-6 sm:gap-x-10 text-neutral-900 font-semibold">
                             <!-- Left Column -->
                             <div class="space-y-5">
-                                <div class="flex items-center gap-3 border-b border-neutral-200 pb-3">
+                                <div
+                                    class="wow animate__animated animate__pulse flex items-center gap-3 border-b border-neutral-200 pb-3">
                                     <img src="@/assets/images/icons/ecommerce.svg" alt="" class="w-6 h-6" />
                                     <span class="font-semibold">E-Commerce (B2C)</span>
                                 </div>
 
-                                <div class="flex items-center gap-3 border-b border-neutral-200 pb-3">
+                                <div
+                                    class=" wow animate__animated animate__pulse flex items-center gap-3 border-b border-neutral-200 pb-3">
                                     <img src="@/assets/images/icons/entertainment.svg" alt="" class="w-6 h-6" />
                                     <span class="font-semibold">Entertainment</span>
                                 </div>
 
-                                <div class="flex items-center gap-3 border-b border-neutral-200 pb-3">
+                                <div
+                                    class="wow animate__animated animate__pulse flex items-center gap-3 border-b border-neutral-200 pb-3">
                                     <img src="@/assets/images/icons/tech.svg" alt="" class="w-6 h-6" />
                                     <span class="font-semibold">Tech</span>
                                 </div>
 
-                                <div class="flex items-center gap-3  border-b border-neutral-200 pb-3 ">
+                                <div
+                                    class="wow animate__animated animate__pulse flex items-center gap-3  border-b border-neutral-200 pb-3 ">
                                     <img src="@/assets/images/icons/digital_marketing.svg" alt="" class="w-6 h-6" />
                                     <span class="font-semibold">Digital Marketing</span>
                                 </div>
@@ -234,22 +257,26 @@
 
                             <!-- Right Column -->
                             <div class="space-y-5">
-                                <div class="flex items-center gap-3 border-b border-neutral-200 pb-3">
+                                <div
+                                    class="wow animate__animated animate__pulse flex items-center gap-3 border-b border-neutral-200 pb-3">
                                     <img src="@/assets/images/icons/healthcare.svg" alt="" class="w-6 h-6" />
                                     <span class="font-semibold">Healthcare</span>
                                 </div>
 
-                                <div class="flex items-center gap-3 border-b border-neutral-200 pb-3">
+                                <div
+                                    class="wow animate__animated animate__pulse flex items-center gap-3 border-b border-neutral-200 pb-3">
                                     <img src="@/assets/images/icons/travel_tourism.svg" alt="" class="w-6 h-6" />
                                     <span class="font-semibold">Travel & Tourism</span>
                                 </div>
 
-                                <div class="flex items-center gap-3 border-b border-neutral-200 pb-3">
+                                <div
+                                    class="wow animate__animated animate__pulse flex items-center gap-3 border-b border-neutral-200 pb-3">
                                     <img src="@/assets/images/icons/education.svg" alt="" class="w-6 h-6" />
                                     <span class="font-semibold">Education</span>
                                 </div>
 
-                                <div class="flex items-center gap-3  border-b border-neutral-200 pb-3 ">
+                                <div
+                                    class="wow animate__animated animate__pulse flex items-center gap-3 border-b border-neutral-200 pb-3">
                                     <img src="@/assets/images/icons/real_estate.svg" alt="" class="w-6 h-6" />
                                     <span class="font-semibold">Real-Estate</span>
                                 </div>
@@ -268,9 +295,12 @@
         <div class="container mx-auto">
             <div class="text-center mb-8 md:mb-10 lg:mb-12">
                 <SectionHeader text="We Serve All Tech Stacks" />
-                <h2 class="text-2xl md:text-3xl lg:text-4xl font-bold text-neutral-900 mt-2"> Frameworks to Functions —
+                <h2
+                    class="wow animate__animated animate__fadeInUp text-2xl md:text-3xl lg:text-4xl font-bold text-neutral-900 mt-2">
+                    Frameworks to Functions —
                     We Do It All. </h2>
-                <p class="text-neutral-600 mt-3 text-sm lg:text-base"> Bring your idea to life with the tools you need
+                <p class="wow animate__animated animate__fadeInUp text-neutral-600 mt-3 text-sm lg:text-base"> Bring
+                    your idea to life with the tools you need
                     to start selling. </p>
             </div>
             <div class="w-full lg:max-w-[1220px] mx-auto">
@@ -292,11 +322,13 @@
                 <div class="md:col-span-8 pr-0 lg:pr-8">
                     <SectionHeader text="Our Team" />
 
-                    <h2 class="text-2xl md:text-3xl lg:text-4xl font-bold leading-snug text-neutral-900">
+                    <h2
+                        class="wow animate__animated animate__fadeInUp text-2xl md:text-3xl lg:text-4xl font-bold leading-snug text-neutral-900">
                         Collaborating with us is your pathways to success
                     </h2>
 
-                    <div class="mt-2 text-neutral-600 w-full md:w-[85%] xl:w-[80%] mr-auto">
+                    <div
+                        class="mt-2 text-neutral-600 w-full md:w-[85%] xl:w-[80%] mr-auto wow animate__animated animate__fadeInUp">
                         <p class="mb-2 text-neutral-600">
                             Bring your idea to life with the tools you need to start selling.
                         </p>
@@ -307,13 +339,13 @@
                             improve our services and deliver excellent results for our clients.
                         </p>
                     </div>
-                    <div class=" mt-4 md:mt-6 lg:mt-8">
+                    <div class=" mt-4 md:mt-6 lg:mt-8 wow animate__animated animate__fadeInUp">
                         <NagigatePrimaryButton text="Let’s meet our team" to="/contact" />
                     </div>
                 </div>
                 <div class="md:col-span-4 h-full flex lg:items-center xl:items-end relative">
                     <div
-                        class="relative w-[140px] h-[140px] md:w-[160px] md:h-[160px] lg:h-[200px] lg:w-[200px] rounded-full bg-violet-100 flex items-center justify-center shadow-[0_10px_30px_rgba(2,6,23,0.08)]">
+                        class="wow animate__animated animate__fadeInRight relative w-[140px] h-[140px] md:w-[160px] md:h-[160px] lg:h-[200px] lg:w-[200px] rounded-full bg-violet-100 flex items-center justify-center shadow-[0_10px_30px_rgba(2,6,23,0.08)]">
                         <img src="https://images.unsplash.com/photo-1544723795-3fb6469f5b39?q=80&w=640&auto=format&fit=crop"
                             alt="person"
                             class="h-[140px] w-[140px] lg:h-[170px] lg:w-[170px] rounded-full object-cover" />
@@ -350,10 +382,10 @@
     <section class="py-8 md:py-10 lg:py-12">
         <div class="container">
             <!-- Heading -->
-            <h2 class="text-xl md:text-2xl lg:text-3xl font-semibold text-neutral-900">Have a project idea in mind?
+            <h2 class="wow animate__animated animate__fadeInUp text-xl md:text-2xl lg:text-3xl font-semibold text-neutral-900">Have a project idea in mind?
                 Let's get started.
             </h2>
-            <p class="mt-2 text-sm lg:text-base text-neutral-500 max-w-3xl">We create appealing, user-friendly designs
+            <p class="wow animate__animated animate__fadeInUp mt-2 text-sm lg:text-base text-neutral-500 max-w-3xl">We create appealing, user-friendly designs
                 that help our clients delight the audience, increase brand awareness.</p>
 
             <!-- Cards -->

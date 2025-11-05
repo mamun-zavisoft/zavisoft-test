@@ -1,7 +1,7 @@
 <template>
     <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 lg:gap-6">
         <div v-for="(service, index) in services" :key="index" class="bg-white rounded-lg  p-4 transition group">
-            <div class="flex justify-between items-start mb-4">
+            <div class="flex justify-between items-start mb-4 wow animate__zoomIn animate__animated">
                 <div class="mb-4 pr-4">
                     <h3 class="text-xl font-bold text-neutral-900 mb-3">{{ service.title }}</h3>
                     <p class="text-neutral-600 text-sm line-clamp-3">{{ service.description }}

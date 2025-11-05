@@ -4,7 +4,9 @@
             :style="{ backgroundImage: `url(${bgImg})` }">
             <div class="container h-full">
                 <div class="w-full h-full lg:w-3xl mx-auto py-16 flex flex-col items-center justify-center">
-                    <h1 class="text-2xl md:text-4xl lg:text-6xl text-white text-center font-semibold">Ready to bring
+                    <h1
+                        class="wow animate__animated animate__fadeInUp text-2xl md:text-4xl lg:text-6xl text-white text-center font-semibold">
+                        Ready to bring
                         your Technology
                         skills with us to the
                         next level?
@@ -126,4 +128,6 @@
 
 <script setup>
 import bgImg from '@/assets/images/footer_bg.svg';
+import 'animate.css'
+
 </script>

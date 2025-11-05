@@ -67,6 +67,34 @@ const routes = [
         component: () => import("@/views/frontend/Blog.vue"),
         meta: { layout: LayoutFrontend, title: "Blog" },
     },
+
+    // static routes
+    {
+        path: "/blog-one",
+        name: "BlogOne",
+        component: () => import("@/views/frontend/BlogOne.vue"),
+        meta: { layout: LayoutFrontend, title: "Blog One" },
+    },
+    {
+        path: "/blog-two",
+        name: "BlogTwo",
+        component: () => import("@/views/frontend/BlogTwo.vue"),
+        meta: { layout: LayoutFrontend, title: "Blog Two" },
+    },
+    {
+        path: "/blog-three",
+        name: "BlogThree",
+        component: () => import("@/views/frontend/BlogThree.vue"),
+        meta: { layout: LayoutFrontend, title: "Blog Three" },
+    },
+    {
+        path: "/blog-four",
+        name: "BlogFour",
+        component: () => import("@/views/frontend/BlogFour.vue"),
+        meta: { layout: LayoutFrontend, title: "Blog Four" },
+    },
+
+    // static routes
     {
         path: '/blog/:id',
         name: 'BlogDetails',
