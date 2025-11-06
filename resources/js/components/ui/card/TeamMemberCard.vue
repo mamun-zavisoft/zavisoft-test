@@ -72,14 +72,16 @@ import 'swiper/css/pagination'
 import { Autoplay, Pagination } from 'swiper/modules'
 
 const teamMembers = [
-    { name: 'Avery Collins', title: 'Chief Technology Officer', photo: new URL('@/assets/images/jone_1.png', import.meta.url).href, linkedin: '#' },
-    { name: 'Lena Park', title: 'Principal Product Designer', photo: new URL('@/assets/images/jone_2.png', import.meta.url).href, linkedin: '#' },
-    { name: 'Noah Martinez', title: 'Lead Frontend Engineer', photo: new URL('@/assets/images/jone_3.png', import.meta.url).href, linkedin: '#' },
-    { name: 'Riya Sharma', title: 'Product Strategist', photo: new URL('@/assets/images/jone_4.png', import.meta.url).href, linkedin: '#' },
-    { name: 'Erik Johansson', title: 'Senior Backend Engineer', photo: new URL('@/assets/images/jone_1.png', import.meta.url).href, linkedin: '#' },
-    { name: 'Maya Rodriguez', title: 'QA & Automation Lead', photo: new URL('@/assets/images/jone_2.png', import.meta.url).href, linkedin: '#' },
-    { name: 'Maya Rodriguez', title: 'QA & Automation Lead', photo: new URL('@/assets/images/jone_3.png', import.meta.url).href, linkedin: '#' },
-    { name: 'Maya Rodriguez', title: 'QA & Automation Lead', photo: new URL('@/assets/images/jone_4.png', import.meta.url).href, linkedin: '#' },
+    { name: 'Mosarrof Hossain', title: 'Tech Advisor', photo: new URL('@/assets/images/rubel.png', import.meta.url).href, linkedin: '#' },
+    { name: 'Md Ratul Uddin Ashraf', title: 'Team Lead', photo: new URL('@/assets/images/ratul.jpg', import.meta.url).href, linkedin: '#' },
+    { name: 'Badrul Hasan Sajib', title: 'Project & Recruitment Manager', photo: new URL('@/assets/images/sajib.jpg', import.meta.url).href, linkedin: '#' },
+    { name: 'Mizanur Rahman', title: 'Sr. UI/Ux Designer', photo: new URL('@/assets/images/mizan.jpg', import.meta.url).href, linkedin: '#' },
+    { name: 'Md. Meraz Hossain', title: 'Scrum Master', photo: new URL('@/assets/images/meraz.JPG', import.meta.url).href, linkedin: 'https://bd.linkedin.com/in/md-meraz-hossain-400424133' },
+    { name: 'SMK Shawon', title: 'Software Quality Assurance Engineer', photo: new URL('@/assets/images/shawon.jpg', import.meta.url).href, linkedin: '#' },
+    { name: 'Amadul Haque', title: 'Software Developer', photo: new URL('@/assets/images/amad.jpg', import.meta.url).href, linkedin: '#' },
+    { name: 'Mashikur Rahman Mirash', title: 'Software Engineer', photo: new URL('@/assets/images/mashikur.jpg', import.meta.url).href, linkedin: '#' },
+    { name: 'Jeishanul Haque Shishir', title: 'Laravel & Vue.js Developer', photo: new URL('@/assets/images/shishir.jpg', import.meta.url).href, linkedin: '#' },
+    { name: 'Tamim Hossain', title: 'Frontend Developer', photo: new URL('@/assets/images/tamim.png', import.meta.url).href, linkedin: '#' },
 ]
 
 const totalSlides = teamMembers.length
