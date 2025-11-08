@@ -7,7 +7,7 @@
                     class="pt-30 lg:pt-36 xl:pt-40 flex flex-col items-center gap-3 border-b border-neutral-200 pb-6 md:pb-8 lg:pb-12">
                     <div class="flex flex-col items-center gap-2 md:gap-3 lg:gap-4 justify-center ">
                         <h1
-                            class=" text-center text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl leading-8 md:leading-10 lg:leading-16  font-bold text-neutral-900">
+                            class="wow animate__animated animate__fadeInUp text-center text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl leading-8 md:leading-10 lg:leading-16  font-bold text-neutral-900">
                             A Developer’s Journey Through Platform Onboarding
                         </h1>
                         <p class="text-xs md:text-[13px] lg:text-sm text-neutral-400 font-medium flex gap-2 md:gap-4">
@@ -17,7 +17,7 @@
                         </p>
 
                     </div>
-                    <div class="mt-6 w-full">
+                    <div class="mt-6 w-full wow animate__animated animate__fadeInUp">
                         <img src="@/assets/images/blog_1.svg" alt="Blog Image"
                             class="w-full max-h-[735px] object-cover">
                     </div>
@@ -82,7 +82,8 @@
                             </aside>
 
                             <main class="w-full">
-                                <p class=" text-sm lg:text-base text-neutral-400 ">
+                                <p
+                                    class="wow animate__animated animate__fadeInUp text-sm lg:text-base text-neutral-400 ">
                                     For years, I managed cloud environments the traditional way — manually spinning up
                                     clusters, setting
                                     up networks, handling credentials, and deploying with long, detailed scripts. I
@@ -93,7 +94,8 @@
                                     exhausting, and
                                     dependent on careful orchestration that limited agility. Then everything changed.
                                 </p>
-                                <p class="mt-3 text-sm lg:text-base text-neutral-400 ">
+                                <p
+                                    class="wow animate__animated animate__fadeInUp mt-3 text-sm lg:text-base text-neutral-400 ">
                                     Our organization introduced a developer platform — a unified environment built for
                                     automation,
                                     golden paths, and guardrails. It wasn’t just another tool; it was a complete shift
@@ -126,10 +128,12 @@
                                 <hr class="mt-6 md:mt-8 border-neutral-200" />
 
                                 <div class="section-title mt-6 md:mt-8">
-                                    <h2 class="text-xl md:text-2xl lg:text-3xl font-semibold text-neutral-900 mb-4">
+                                    <h2
+                                        class="wow animate__animated animate__fadeInUp text-xl md:text-2xl lg:text-3xl font-semibold text-neutral-900 mb-4">
                                         Beyond the Console: My Journey from Manual Ops to Platform Empowerment
                                     </h2>
-                                    <p class="text-sm lg:text-base text-neutral-400">
+                                    <p
+                                        class="wow animate__animated animate__fadeInUp text-sm lg:text-base text-neutral-400">
                                         For decades, developers and operations shared a goal — deliver value — but
                                         approached it from
                                         opposite ends. Developers chased speed. Operations guarded stability. Both were
@@ -155,8 +159,10 @@
                                     </p>
 
                                     <div class="mt-4">
-                                        <p class="text-sm lg:text-base text-neutral-900">In short : </p>
-                                        <ul class="mt-2">
+                                        <p
+                                            class="wow animate__animated animate__fadeInUp text-sm lg:text-base text-neutral-900">
+                                            In short : </p>
+                                        <ul class="mt-2 wow animate__animated animate__fadeInUp">
                                             <li
                                                 class="relative text-neutral-500 pl-4 before:content-['•'] before:absolute before:left-0 before:text-neutral-400 before:text-lg before:top-[-4px]">
                                                 <span class="text-neutral-900"> Platform engineering is the craft</span>
@@ -176,10 +182,12 @@
                                 </div>
 
                                 <div class="section-title mt-6 md:mt-8">
-                                    <h2 class="text-xl md:text-2xl lg:text-3xl font-semibold text-neutral-900 mb-4">
+                                    <h2
+                                        class="wow animate__animated animate__fadeInUp text-xl md:text-2xl lg:text-3xl font-semibold text-neutral-900 mb-4">
                                         ‍Core Design Principles of a Modern Platform
                                     </h2>
-                                    <p class=" text-sm lg:text-base text-neutral-400 ">
+                                    <p
+                                        class="wow animate__animated animate__fadeInUp text-sm lg:text-base text-neutral-400 ">
                                         A strong platform isn’t a random collection of tools; it’s an engineered system
                                         that balances
                                         automation, governance, and reliability. Its design principles define how
@@ -188,7 +196,7 @@
                                         stands on three
                                         essential pillars:
                                     </p>
-                                    <div class="mt-4">
+                                    <div class="wow animate__animated animate__fadeInUp mt-4">
                                         <ul>
                                             <li
                                                 class="relative text-neutral-500 pl-4 before:content-['•'] before:absolute before:left-0 before:text-neutral-400 before:text-lg before:top-[-4px]">
@@ -219,10 +227,12 @@
                                     </div>
                                 </div>
                                 <div class="section-title mt-6 md:mt-8">
-                                    <h2 class="text-xl md:text-2xl lg:text-3xl font-semibold text-neutral-900 mb-4">
+                                    <h2
+                                        class="wow animate__animated animate__fadeInUp text-xl md:text-2xl lg:text-3xl font-semibold text-neutral-900 mb-4">
                                         The Human Side of Platform Engineering
                                     </h2>
-                                    <p class=" text-sm lg:text-base text-neutral-400 ">
+                                    <p
+                                        class="wow animate__animated animate__fadeInUp text-sm lg:text-base text-neutral-400 ">
                                         Even the most elegant onboarding journey has moments of uncertainty — Which
                                         variable links to
                                         which secret? or How can I safely roll back a feature?
@@ -238,16 +248,18 @@
                                     </p>
 
                                 </div>
-                                <div class="mt-4 md:mt-6 lg:mt-8">
+                                <div class="mt-4 md:mt-6 lg:mt-8 wow animate__animated animate__fadeInUp">
                                     <img src="@/assets/images/detail_blog.svg" alt="Canva Code Feature Image"
                                         class="w-full max-h-[420px] object-cover">
                                 </div>
 
                                 <div class="section-title mt-6 md:mt-8">
-                                    <h2 class="text-xl md:text-2xl lg:text-3xl font-semibold text-neutral-900 mb-4">
+                                    <h2
+                                        class="wow animate__animated animate__fadeInUp text-xl md:text-2xl lg:text-3xl font-semibold text-neutral-900 mb-4">
                                         My End-to-End Platform Onboarding Experience
                                     </h2>
-                                    <p class=" text-sm lg:text-base text-neutral-400 ">
+                                    <p
+                                        class="wow animate__animated animate__fadeInUp text-sm lg:text-base text-neutral-400 ">
                                         Week 1 – The Beginning of Change
                                         When I joined the team, the word platform seemed to be everywhere. It was
                                         described as the
@@ -292,14 +304,16 @@
                                 </div>
 
                                 <div class="section-title mt-6 md:mt-8">
-                                    <h2 class="text-xl md:text-2xl lg:text-3xl font-semibold text-neutral-900 mb-4">
+                                    <h2
+                                        class="wow animate__animated animate__fadeInUp text-xl md:text-2xl lg:text-3xl font-semibold text-neutral-900 mb-4">
                                         Key Lessons Learned
                                     </h2>
-                                    <p class="text-sm lg:text-base text-neutral-400">
+                                    <p
+                                        class="wow animate__animated animate__fadeInUp text-sm lg:text-base text-neutral-400">
                                         The journey taught me lessons that continue to shape how I work and think:
                                     </p>
 
-                                    <div class="mt-4">
+                                    <div class="mt-4 wow animate__animated animate__fadeInUp">
                                         <ul>
                                             <li
                                                 class="relative text-neutral-500 pl-4 before:content-['•'] before:absolute before:left-0 before:text-neutral-400 before:text-lg before:top-[-4px]">
@@ -365,10 +379,12 @@
                                 </div>
 
                                 <div class="section-title mt-6 md:mt-8">
-                                    <h2 class="text-xl md:text-2xl lg:text-3xl font-semibold text-neutral-900 mb-4">
+                                    <h2
+                                        class="wow animate__animated animate__fadeInUp text-xl md:text-2xl lg:text-3xl font-semibold text-neutral-900 mb-4">
                                         Final Impact
                                     </h2>
-                                    <p class="text-sm lg:text-base text-neutral-400">
+                                    <p
+                                        class="wow animate__animated animate__fadeInUp text-sm lg:text-base text-neutral-400">
                                         Onboarding into a platform isn’t simply about learning new tools — it’s about
                                         experiencing
                                         empowerment. When a platform reduces complexity, it allows developers to return
@@ -383,20 +399,21 @@
                                 </div>
 
                                 <div class="writer mt-6 md:mt-8 border-t border-neutral-200 pt-6">
-                                    <div class="flex gap-4  items-center ">
+                                    <div class="flex gap-4  items-center wow animate__animated animate__fadeInUp ">
                                         <img src="@/assets/images/john.png" alt="Author Avatar"
                                             class="w-16 h-16 rounded-full object-cover mb-4">
                                         <p class="text-sm lg:text-base text-neutral-400">Richard Aurora</p>
                                     </div>
 
-                                    <p class="text-sm text-neutral-400">Richard Aurora is a technology strategist and
+                                    <p class="wow animate__animated animate__fadeInUp text-sm text-neutral-400">Richard
+                                        Aurora is a technology strategist and
                                         writer
                                         specializing in software engineering excellence, agile transformation, and
                                         AI-driven innovation.
                                         With extensive experience in building scalable platforms and leading
                                         cross-functional teams,
                                         Richard focuses on bridging the gap between technology, people, and process.</p>
-                                    <div class="social-icon flex mt-4 gap-3">
+                                    <div class="social-icon flex mt-4 gap-3 wow animate__animated animate__fadeInUp">
                                         <a href="#"
                                             class="inline-flex h-9 w-9 items-center justify-center rounded-full  bg-neutral-100 p-2">
                                             <img src="@/assets/images/icons/facebooks.svg" alt="">

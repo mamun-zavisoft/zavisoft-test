@@ -8,17 +8,20 @@
                         <!-- Left: Content -->
                         <div class="h-full pr-0 lg:pr-10 xl:pr-14 ">
                             <div class="max-w-[809px] h-full flex flex-col justify-end pb-0 lg:pb-16">
-                                <h1 class="text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-bold text-neutral-900">
+                                <h1
+                                    class="wow animate__animated animate__fadeInUp text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-bold text-neutral-900">
                                     A provider of trusted <br><span class="text-neutral-500">UI/UX design
                                         services</span>
                                 </h1>
 
-                                <p class="mt-6 text-neutral-600 text-sm sm:text-base leading-relaxed">
+                                <p
+                                    class="wow animate__animated animate__fadeInUp mt-6 text-neutral-600 text-sm sm:text-base leading-relaxed">
                                     We design visually appealing, user-friendly interfaces that captivate
                                     audiences, strengthen brand presence, reduce churn, and boost conversions.
                                 </p>
 
-                                <p class="mt-3 text-neutral-600 text-sm sm:text-base leading-relaxed">
+                                <p
+                                    class="wow animate__animated animate__fadeInUp mt-3 text-neutral-600 text-sm sm:text-base leading-relaxed">
                                     The user experience heavily relies on the visual aspect—our UI designers
                                     bring products to life through interactive prototypes and smooth motion design.
                                 </p>
@@ -27,11 +30,11 @@
                                 <div class="mt-6 md:mt-10 flex flex-col sm:flex-row gap-3 sm:gap-4">
 
                                     <a href="#"
-                                        class="sm:w-1/2 inline-flex items-center justify-center rounded-full px-4 py-3 bg-primary-500 text-white hover:bg-primary-600 focus:outline-none focus:ring-0 focus:ring-primary-300 transition-colors duration-300">
+                                        class="wow animate__animated animate__pulse sm:w-1/2 inline-flex items-center justify-center rounded-full px-4 py-3 bg-primary-500 text-white hover:bg-primary-600 focus:outline-none focus:ring-0 focus:ring-primary-300 transition-colors duration-300">
                                         Send a Brief
                                     </a>
                                     <a href="#"
-                                        class="sm:w-1/2 inline-flex items-center justify-center rounded-full px-4 py-3 bg-white border border-neutral-300 text-sm font-medium text-neutral-900  focus:outline-none focus:ring-0 focus:ring-transparent transition-colors duration-300">
+                                        class="wow animate__animated animate__pulse sm:w-1/2 inline-flex items-center justify-center rounded-full px-4 py-3 bg-white border border-neutral-300 text-sm font-medium text-neutral-900  focus:outline-none focus:ring-0 focus:ring-transparent transition-colors duration-300">
                                         See UI/UX Projects
                                     </a>
                                 </div>
@@ -44,7 +47,7 @@
                             <div class="h-full w-full">
                                 <div class="ml-0 lg:ml-10 xl:ml-16  lg:h-full flex items-center">
                                     <div class="mx-auto lg:ml-auto ">
-                                        <div class="relative max-w-[632px]">
+                                        <div class="relative max-w-[632px] wow animate__animated animate__fadeInRight">
                                             <img src="@/assets/images/service_image.svg" alt="UI/UX sample work preview"
                                                 class="block w-full h-auto object-cover" loading="lazy" />
                                         </div>
@@ -59,9 +62,12 @@
 
                     <div class=" mb-4 md:mb-6 lg:mb-8">
                         <SectionHeader text="Turn your website into a showstopper" />
-                        <h2 class="text-2xl lg:text-3xl font-bold text-neutral-900 leading-snug"> Complex problems fuel
+                        <h2
+                            class="text-2xl lg:text-3xl font-bold text-neutral-900 leading-snug wow animate__animated animate__fadeInUp">
+                            Complex problems fuel
                             our creativity and passion. </h2>
-                        <p class="text-sm lg:text-base text-neutral-600 mt-2">Combining human
+                        <p class="text-sm lg:text-base text-neutral-600 mt-2 wow animate__animated animate__fadeInUp">
+                            Combining human
                             aesthetics with functional design, we take a systematised approach to designing practical
                             and intuitive user interfaces.</p>
                     </div>
@@ -76,15 +82,19 @@
         <div class="container">
             <div class="grid lg:grid-cols-12 gap-8 lg:gap-0">
                 <div class="col-span-12 md:col-span-6 lg:col-span-7">
-                    <img src="@/assets/images/service_why_choose.svg" alt="" class="block w-full h-auto object-cover"
+                    <img src="@/assets/images/service_why_choose.svg" alt=""
+                        class="wow animate__animated animate__fadeInLeft block w-full h-auto object-cover"
                         loading="lazy">
                 </div>
                 <div class="col-span-12 md:col-span-6 lg:col-span-5 pl-0  lg:pl-8 h-full flex items-center">
                     <div class=" border border-neutral-200 p-4 rounded-lg">
                         <SectionHeader text="Why choose us" />
-                        <h1 class="text-xl md:text-2xl lg:text-3xl font-bold">Design side-by-side with your designer in
+                        <h1 class="text-xl md:text-2xl lg:text-3xl font-bold wow animate__animated animate__fadeInUp">
+                            Design side-by-side with your designer in
                             Figma — in real time.</h1>
-                        <p class="mt-4 md:mt-6 lg:mt-8 text-sm md:text-base text-neutral-600">With over years of
+                        <p
+                            class="mt-4 md:mt-6 lg:mt-8 text-sm md:text-base text-neutral-600 wow animate__animated animate__fadeInUp">
+                            With over years of
                             experience, Brand Vision takes pride in collaborating with exceptional businesses and
                             industries across the globe. These partnerships have enriched our expertise, sharpened our
                             skills, and enabled us to consistently enhance our services—delivering outstanding results
@@ -100,12 +110,16 @@
             <SectionHeader text="Product show case" />
             <div class="flex flex-col md:flex-row gap-4 justify-between mb-8 md:mb-10 lg:mb-12">
                 <div class="md:w-1/2">
-                    <h2 class="text-2xl lg:text-3xl font-bold text-neutral-900 leading-snug"> Explore a selection of our
+                    <h2
+                        class="text-2xl lg:text-3xl font-bold text-neutral-900 leading-snug wow animate__animated animate__fadeInUp">
+                        Explore a selection of our
                         <br>
                         most impactful UI/UX case studies.
                     </h2>
                 </div>
-                <p class="md:w-1/2 text-neutral-600 md:pt-2 text-sm lg:text-base"> We specialize in custom software
+                <p
+                    class="wow animate__animated animate__fadeInUp md:w-1/2 text-neutral-600 md:pt-2 text-sm lg:text-base">
+                    We specialize in custom software
                     development outsourcing, delivering high-quality, scalable, and efficient solutions to clients
                     worldwide. </p>
             </div>
@@ -115,13 +129,13 @@
                         <!-- Tab Content -->
                         <div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3 mt-6">
                             <article v-for="project in filteredProjects" :key="project.id"
-                                class="bg-white rounded-lg  p-4 transition group border border-transparent hover:border-primary-500"
+                                class="wow animate__zoomIn animate__animated bg-white rounded-lg  p-4 transition group border border-transparent hover:border-primary-500"
                                 style="box-shadow: 0px 2px 4px 0px #0F1C330F, 0px 2px 2px 0px #0F1C3312;">
                                 <div class="flex justify-between items-start">
                                     <div class="mb-4 pr-4">
                                         <h3 class="text-lg md:text-xl font-bold text-neutral-900 mb-3">{{
                                             project.title
-                                        }}</h3>
+                                            }}</h3>
                                         <p class="text-neutral-600 text-sm line-clamp-3">{{ project.description }}
                                         </p>
                                     </div>
@@ -161,42 +175,51 @@
 
     <section class="py-8 md:py-10 lg:py-12">
         <div class="container">
-            <div class="industry-focus">
+            <div class="industry-focus lg:border-b border-neutral-200 pb-12">
                 <div class="flex flex-col lg:flex-row gap-8 lg:gap-16  justify-between">
                     <div class="lg:w-1/2">
+
                         <SectionHeader text="Industry Focus" />
 
-                        <h1 class="text-2xl md:text-3xl lg:text-4xl font-bold">Sectors Driving Our Expertise</h1>
-                        <p class="mt-4 md:mt-6 lg:mt-8 text-sm md:text-base text-neutral-600">With over years of
+                        <h1 class="wow animate__animated animate__fadeInUp text-2xl md:text-3xl lg:text-4xl font-bold">
+                            Sectors Driving Our Expertise</h1>
+                        <p
+                            class="wow animate__animated animate__fadeInUp mt-4 md:mt-6 lg:mt-8 text-sm md:text-base text-neutral-600">
+                            With over years of
                             experience, Brand Vision
                             takes pride in
                             collaborating with exceptional
                             businesses and industries across the globe. These partnerships have enriched our expertise,
                             sharpened our skills, and enabled us to consistently enhance our services—delivering
                             outstanding results for our clients.</p>
-                        <NagigatePrimaryButton text="Let’s solve your issues" to="/services" class="mt-8 md:mt-12" />
+                        <NagigatePrimaryButton text="Let’s solve your issues" to="/contact"
+                            class="wow animate__animated animate__fadeInUp mt-8 md:mt-12" />
                     </div>
                     <div class="lg:w-1/2 ">
                         <div
                             class="grid grid-cols-1 sm:grid-cols-2 gap-y-4 sm:gap-y-6 sm:gap-x-10 text-neutral-900 font-semibold">
                             <!-- Left Column -->
                             <div class="space-y-5">
-                                <div class="flex items-center gap-3 border-b border-neutral-200 pb-3">
+                                <div
+                                    class="wow animate__animated animate__pulse flex items-center gap-3 border-b border-neutral-200 pb-3">
                                     <img src="@/assets/images/icons/ecommerce.svg" alt="" class="w-6 h-6" />
                                     <span class="font-semibold">E-Commerce (B2C)</span>
                                 </div>
 
-                                <div class="flex items-center gap-3 border-b border-neutral-200 pb-3">
+                                <div
+                                    class=" wow animate__animated animate__pulse flex items-center gap-3 border-b border-neutral-200 pb-3">
                                     <img src="@/assets/images/icons/entertainment.svg" alt="" class="w-6 h-6" />
                                     <span class="font-semibold">Entertainment</span>
                                 </div>
 
-                                <div class="flex items-center gap-3 border-b border-neutral-200 pb-3">
+                                <div
+                                    class="wow animate__animated animate__pulse flex items-center gap-3 border-b border-neutral-200 pb-3">
                                     <img src="@/assets/images/icons/tech.svg" alt="" class="w-6 h-6" />
                                     <span class="font-semibold">Tech</span>
                                 </div>
 
-                                <div class="flex items-center gap-3  border-b border-neutral-200 pb-3 ">
+                                <div
+                                    class="wow animate__animated animate__pulse flex items-center gap-3  border-b border-neutral-200 pb-3 ">
                                     <img src="@/assets/images/icons/digital_marketing.svg" alt="" class="w-6 h-6" />
                                     <span class="font-semibold">Digital Marketing</span>
                                 </div>
@@ -204,22 +227,26 @@
 
                             <!-- Right Column -->
                             <div class="space-y-5">
-                                <div class="flex items-center gap-3 border-b border-neutral-200 pb-3">
+                                <div
+                                    class="wow animate__animated animate__pulse flex items-center gap-3 border-b border-neutral-200 pb-3">
                                     <img src="@/assets/images/icons/healthcare.svg" alt="" class="w-6 h-6" />
                                     <span class="font-semibold">Healthcare</span>
                                 </div>
 
-                                <div class="flex items-center gap-3 border-b border-neutral-200 pb-3">
+                                <div
+                                    class="wow animate__animated animate__pulse flex items-center gap-3 border-b border-neutral-200 pb-3">
                                     <img src="@/assets/images/icons/travel_tourism.svg" alt="" class="w-6 h-6" />
                                     <span class="font-semibold">Travel & Tourism</span>
                                 </div>
 
-                                <div class="flex items-center gap-3 border-b border-neutral-200 pb-3">
+                                <div
+                                    class="wow animate__animated animate__pulse flex items-center gap-3 border-b border-neutral-200 pb-3">
                                     <img src="@/assets/images/icons/education.svg" alt="" class="w-6 h-6" />
                                     <span class="font-semibold">Education</span>
                                 </div>
 
-                                <div class="flex items-center gap-3  border-b border-neutral-200 pb-3 ">
+                                <div
+                                    class="wow animate__animated animate__pulse flex items-center gap-3 border-b border-neutral-200 pb-3">
                                     <img src="@/assets/images/icons/real_estate.svg" alt="" class="w-6 h-6" />
                                     <span class="font-semibold">Real-Estate</span>
                                 </div>
@@ -246,8 +273,8 @@
         <div class="container">
             <div class="mb-6">
                 <SectionHeader text="Other Services" />
-                <h1 class="text-2xl md:text-3xl lg:text-4xl font-bold">Explore other services</h1>
-                <p class="mt-2 text-sm md:text-base text-neutral-600">Pick your self-paced career path and break into a
+                <h1 class="text-2xl md:text-3xl lg:text-4xl font-bold wow animate__animated animate__fadeInUp">Explore other services</h1>
+                <p class="mt-2 text-sm md:text-base text-neutral-600 wow animate__animated animate__fadeInUp">Pick your self-paced career path and break into a
                     booming industry</p>
             </div>
             <div class="">

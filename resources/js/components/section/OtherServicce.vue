@@ -9,7 +9,7 @@
                 clickable: true
             }" @swiper="onSwiper" @slideChange="onSlideChange">
             <SwiperSlide v-for="(item, index) in showcaseItems" :key="index" class="py-2">
-                <article class="bg-neutral-50 rounded-lg  p-4 h-full">
+                <article class="bg-neutral-50 rounded-lg  p-4 h-full wow animate__zoomIn animate__animated ">
                     <img :src="item.icon" alt="" class="mb-1 h-9 w-9 object-contain" />
                     <h3 class="mb-2 text-[15px] font-bold text-neutral-900">{{ item.name }}</h3>
                     <p class="text-sm leading-relaxed text-neutral-600 line-clamp-3">

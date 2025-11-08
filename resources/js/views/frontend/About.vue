@@ -7,12 +7,13 @@
                     <div class="grid grid-cols-1 md:grid-cols-12 gap-4 md:gap-0">
                         <div class="col-span-12 md:col-span-6 lg:col-span-7">
                             <h1
-                                class=" text-center sm:text-left text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold text-neutral-900">
+                                class="wow animate__animated animate__fadeInUp text-center sm:text-left text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold text-neutral-900">
                                 From Simple Start to Strategic <span class="text-neutral-500">Global Ally.</span>
                             </h1>
                         </div>
                         <div class="col-span-12 md:col-span-6 lg:col-span-5">
-                            <p class="text-center  sm:text-left text-sm font-normal lg:text-base text-neutral-500">
+                            <p
+                                class="wow animate__animated animate__fadeInUp text-center  sm:text-left text-sm font-normal lg:text-base text-neutral-500">
                                 Our
                                 expert
                                 team
@@ -21,10 +22,11 @@
                                 solutions.</p>
                         </div>
                     </div>
-                    <div class="group-image my-4 md:my-6 lg:my-8 max-h-[570px]">
+                    <div class="group-image my-4 md:my-6 lg:my-8 max-h-[570px] wow animate__animated animate__fadeInUp">
                         <img src="@/assets/images/ab_1.png" alt="">
                     </div>
-                    <div class="w-full md:w-[70%] mx-auto flex flex-col gap-3 items-center">
+                    <div
+                        class="w-full md:w-[70%] mx-auto flex flex-col gap-3 items-center wow animate__animated animate__fadeInUp">
                         <h2 class="text-center text-2xl md:text-3xl lg:text-4xl font-bold text-neutral-900">
                             At Zavisoft, we connect advanced technology with the power of human creativity.
                         </h2>
@@ -47,12 +49,13 @@
             <SectionHeader text="Who We Are?" />
 
             <div class="flex flex-col md:flex-row gap-4  justify-between mb-8 md:mb-10 lg:mb-12">
-                <div class="md:w-1/2">
+                <div class="md:w-1/2 wow animate__animated animate__fadeInLeft">
                     <h2 class="text-2xl lg:text-3xl font-bold text-neutral-900 leading-snug">
                         Solving complex challenges is what drives us.
                     </h2>
                 </div>
-                <p class="md:w-1/2 text-neutral-600 md:pt-2 text-sm lg:text-base">
+                <p
+                    class="md:w-1/2 text-neutral-600 md:pt-2 text-sm lg:text-base wow animate__animated animate__fadeInRight">
                     We specialize in custom software development outsourcing, delivering high-quality, scalable, and
                     efficient solutions to clients worldwide.
                 </p>
@@ -70,16 +73,18 @@
             <div class="grid grid-cols-1 md:grid-cols-12 gap-4 md:gap-0">
                 <div class="col-span-12 md:col-span-4">
                     <SectionHeader text="Manifesto" />
-                    <h2 class="text-2xl lg:text-3xl font-bold text-neutral-900 leading-snug">
+                    <h2
+                        class="text-2xl lg:text-3xl font-bold text-neutral-900 leading-snug wow animate__animated animate__fadeInUp">
                         Our Exceptional Workplace Culture
                     </h2>
                 </div>
                 <div class="col-span-12 md:col-span-8 pl-0 md:pl-8">
-                    <p class="text-neutral-600 text-sm lg:text-base">
+                    <p class="text-neutral-600 text-sm lg:text-base wow animate__animated animate__fadeInUp">
                         We specialize in custom software development outsourcing, delivering high-quality, scalable, and
                         efficient solutions to clients worldwide.
                     </p>
-                    <NavigateSecondary text="See our Case studies" to="/contact" class=" mt-4 md:mt-6 lg:mt-8" />
+                    <NavigateSecondary text="See our Case studies" to="/contact"
+                        class=" mt-4 md:mt-6 lg:mt-8 wow animate__animated animate__fadeInUp" />
                 </div>
             </div>
         </div>
@@ -95,12 +100,14 @@
             <SectionHeader text="Our Vision & Mission" />
             <div class="flex flex-col md:flex-row gap-8  justify-between mb-4 md:mb-6 lg:mb-8">
                 <div class="md:w-1/2 ">
-                    <h2 class="text-2xl lg:text-3xl font-bold text-neutral-900 leading-snug">
+                    <h2
+                        class="text-2xl lg:text-3xl font-bold text-neutral-900 leading-snug wow animate__animated animate__fadeInUp">
                         We combine brand, culture, and experience to create impact both within and beyond an
                         organization.
                     </h2>
                 </div>
-                <p class="md:w-1/2 text-neutral-600 md:pt-2 text-sm lg:text-base">
+                <p
+                    class="md:w-1/2 text-neutral-600 md:pt-2 text-sm lg:text-base wow animate__animated animate__fadeInUp">
                     We are the best custom software development company for custom software development outsourcing. And
                     we provide robust, scalable, and efficient solutions to various clients around the world
                 </p>
@@ -108,14 +115,14 @@
             <div class="grid grid-cols-1 md:grid-cols-12 gap-10 items-center">
 
                 <!-- Middle Image -->
-                <div class=" md:col-span-7">
+                <div class=" md:col-span-7 wow animate__animated animate__fadeInLeft">
                     <img src="@/assets/images/about_3.png" alt="Team celebrating"
                         class="rounded-lg w-full h-auto object-cover shadow-md" />
                 </div>
 
                 <!-- Right Stats -->
                 <div class=" md:col-span-5 flex flex-col gap-4">
-                    <div class="border rounded-lg p-6 border-neutral-300">
+                    <div class="border rounded-lg p-6 border-neutral-300 wow animate__animated animate__fadeInUp">
                         <div class="flex items-center gap-6">
                             <h3 class="text-3xl font-bold text-neutral-900">1.8k+</h3>
                             <p class="text-sm text-neutral-500">Happy Customers</p>
@@ -127,7 +134,7 @@
                         </p>
                     </div>
 
-                    <div class="border rounded-lg p-6 border-neutral-300">
+                    <div class="border rounded-lg p-6 border-neutral-300 wow animate__animated animate__fadeInUp">
                         <div class="flex items-center gap-6">
                             <h3 class="text-3xl font-bold text-neutral-900">1.8k+</h3>
                             <p class="text-sm text-neutral-500">Project complete</p>
@@ -154,7 +161,8 @@
         <div class="container">
             <div class="mb-4 md:mb-6 lg:mb-8">
                 <SectionHeader text="Meet Our Team" />
-                <h2 class="text-2xl lg:text-3xl font-bold text-neutral-900 leading-snug">
+                <h2
+                    class="text-2xl lg:text-3xl font-bold text-neutral-900 leading-snug wow animate__animated animate__fadeInUp">
                     Our Diverse Team Tackles Numerous Exciting Projects
                 </h2>
             </div>
@@ -179,12 +187,15 @@
         <div class="container">
             <div class="grid grid-cols-1 md:grid-cols-2 gap-10">
                 <div class="h-full flex flex-col justify-between">
-                    <div class="">
+                    <div class="wow animate__animated animate__fadeInUp">
                         <SectionHeader text="Career opportunities" />
-                        <h2 class="text-2xl lg:text-3xl font-bold text-neutral-900 leading-snug">
+                        <h2
+                            class="text-2xl lg:text-3xl font-bold text-neutral-900 leading-snug wow animate__animated animate__fadeInUp">
                             Maximize Your Software Development Potential with Us
                         </h2>
-                        <p class="text-sm lg:text-base text-neutral-600 mt-6 md:mt-8 lg:mt-10">With our innovative
+                        <p
+                            class="text-sm lg:text-base text-neutral-600 mt-6 md:mt-8 lg:mt-10 wow animate__animated animate__fadeInUp">
+                            With our innovative
                             solutions and committed
                             expertise, success is a guaranteed outcome. Let’s
                             accelerate
@@ -197,12 +208,13 @@
                             practices.</p>
                     </div>
                     <div class="">
-                        <NavigatePrimary text="Let’s join our team" to="/contact" class="mt-4 md:mt-6 lg:mt-8" />
+                        <NavigatePrimary text="Let’s join our team" to="/contact"
+                            class="mt-4 md:mt-6 lg:mt-8 wow animate__animated animate__fadeInUp" />
                     </div>
                 </div>
-                <div class="pl-0 md:pl-6 lg:pl-8">
+                <div class="pl-0 md:pl-6 lg:pl-8 wow animate__animated animate__fadeInRight">
                     <img src="@/assets/images/career_img.png" alt=""
-                        class="w-full h-auto rounded-tl-[50px] md:rounded-tl-[100px] lg:rounded-tl-[300px]">
+                        class="w-full h-auto rounded-tl-[50px] md:rounded-tl-[100px] lg:rounded-tl-[300px] " />
                 </div>
             </div>
         </div>

@@ -7,8 +7,8 @@
                     class="pt-30 lg:pt-36 xl:pt-40 flex flex-col items-center gap-3 border-b border-neutral-200 pb-6 md:pb-8 lg:pb-12">
                     <div class="flex flex-col items-center gap-2 md:gap-3 lg:gap-4 justify-center ">
                         <h1
-                            class=" text-center text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl leading-8 md:leading-10 lg:leading-16  font-bold text-neutral-900">
-                            A Developer’s Journey Through Platform Onboarding
+                            class=" wow animate__animated animate__fadeInUp text-center text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl leading-8 md:leading-10 lg:leading-16  font-bold text-neutral-900">
+                            Agile Excellence: Developing a Holistic Quality Perspective
                         </h1>
                         <p class="text-xs md:text-[13px] lg:text-sm text-neutral-400 font-medium flex gap-2 md:gap-4">
                             <span>By Richard Aurora</span> |
@@ -17,8 +17,8 @@
                         </p>
 
                     </div>
-                    <div class="mt-6 w-full">
-                        <img src="@/assets/images/blog_1.svg" alt="Blog Image"
+                    <div class="mt-6 w-full wow animate__animated animate__fadeInUp">
+                        <img src="@/assets/images/blog_4.svg" alt="Blog Image"
                             class="w-full max-h-[735px] object-cover">
                     </div>
 
@@ -36,31 +36,32 @@
                                         <ul class="space-y-4 text-neutral-400 font-medium text-sm lg:text-[15px]">
                                             <li
                                                 class="cursor-pointer relative pl-4 before:content-['•'] before:absolute before:left-0 before:text-neutral-400 before:text-lg before:top-[-4px]">
-                                                From Manual Operations to Platform Empowerment: My Transformation Story
+                                                Quality Beyond Code: Building a Holistic Quality Culture in Agile Teams
                                             </li>
                                             <li
                                                 class="cursor-pointer relative pl-4 before:content-['•'] before:absolute before:left-0 before:text-neutral-400 before:text-lg before:top-[-4px]">
-                                                Core Design Principles of a Modern Platform
+                                                Understanding the Cost of Quality
                                             </li>
 
                                             <li
                                                 class="cursor-pointer relative pl-4 before:content-['•'] before:absolute before:left-0 before:text-neutral-400 before:text-lg before:top-[-4px]">
 
-                                                The Human Side of Platform Engineering
+                                                Rethinking Quality: Beyond the Product
                                             </li>
                                             <li
                                                 class="cursor-pointer relative pl-4 before:content-['•'] before:absolute before:left-0 before:text-neutral-400 before:text-lg before:top-[-4px]">
-                                                My End-to-End Platform Onboarding Experience
+                                                Delivery Excellence Through a Holistic Quality Mindset
                                             </li>
 
                                             <li
                                                 class="cursor-pointer relative pl-4 before:content-['•'] before:absolute before:left-0 before:text-neutral-400 before:text-lg before:top-[-4px]">
-                                                Key Lessons Learned
+                                                Why Agile Lowers the Hidden Cost of Quality
                                             </li>
                                             <li
                                                 class="cursor-pointer relative pl-4 before:content-['•'] before:absolute before:left-0 before:text-neutral-400 before:text-lg before:top-[-4px]">
-                                                Final Impact
+                                                Conclusion: Quality as a Habit, Not a Phase
                                             </li>
+
 
                                         </ul>
                                         <div class="flex items-center gap-3 mt-4">
@@ -82,321 +83,185 @@
                             </aside>
 
                             <main class="w-full">
-                                <p class=" text-sm lg:text-base text-neutral-400 ">
-                                    For years, I managed cloud environments the traditional way — manually spinning up
-                                    clusters, setting
-                                    up networks, handling credentials, and deploying with long, detailed scripts. I
-                                    believed I had
-                                    mastered the rhythm of delivery. My days revolved around dashboards, support
-                                    tickets, and tightly
-                                    controlled change windows. It was safe, structured, and predictable — but also slow,
-                                    exhausting, and
-                                    dependent on careful orchestration that limited agility. Then everything changed.
-                                </p>
-                                <p class="mt-3 text-sm lg:text-base text-neutral-400 ">
-                                    Our organization introduced a developer platform — a unified environment built for
-                                    automation,
-                                    golden paths, and guardrails. It wasn’t just another tool; it was a complete shift
-                                    in mindset. For
-                                    someone used to full control — provisioning servers, managing configs, and deploying
-                                    manually — the
-                                    concept of self-service pipelines and abstracted infrastructure felt both liberating
-                                    and
-                                    intimidating. It was like moving from steering a ship manually to trusting an
-                                    intelligent navigation
-                                    system to chart the best route.
-                                    Initially, I was skeptical. Could a system really manage the complex, hands-on tasks
-                                    I had done for
-                                    years? But as I explored the platform — creating my first workspace, deploying
-                                    services, and
-                                    watching everything come together seamlessly — I realized what it truly meant. It
-                                    wasn’t about
-                                    losing control. It was about breaking free from repetitive, low-value work so I
-                                    could focus on
-                                    building solutions that mattered.
-                                    This blog is about that transformation — moving from manual craftsmanship to
-                                    platform-powered
-                                    delivery, where speed, consistency, and security work in harmony. It’s about letting
-                                    go of old
-                                    routines, embracing automation, and understanding that adopting a platform doesn’t
-                                    mean giving up
-                                    expertise — it means expanding it.
+                                <p
+                                    class=" text-sm lg:text-base text-neutral-400 wow animate__animated animate__fadeInUp">
+                                    Quality today extends far beyond code reviews or testing cycles. It touches every
+                                    decision, every meeting, and every collaboration that moves a project forward. A
+                                    genuine focus on quality beyond code reduces operational waste, improves delivery
+                                    outcomes, and increases the overall efficiency of engineering organizations.
                                 </p>
 
                                 <hr class="mt-6 md:mt-8 border-neutral-200" />
 
                                 <div class="section-title mt-6 md:mt-8">
-                                    <h2 class="text-xl md:text-2xl lg:text-3xl font-semibold text-neutral-900 mb-4">
-                                        Beyond the Console: My Journey from Manual Ops to Platform Empowerment
+                                    <h2
+                                        class="wow animate__animated animate__fadeInUp text-xl md:text-2xl lg:text-3xl font-semibold text-neutral-900 mb-4">
+                                        Quality Beyond Code: Building a Holistic Quality Culture in Agile Teams
                                     </h2>
-                                    <p class="text-sm lg:text-base text-neutral-400">
-                                        For decades, developers and operations shared a goal — deliver value — but
-                                        approached it from
-                                        opposite ends. Developers chased speed. Operations guarded stability. Both were
-                                        right, but
-                                        together they created friction.
-                                        Then came platform engineering — the bridge between the two worlds.
-                                        Platform engineers didn’t just build tools; they designed ecosystems. They
-                                        automated the
-                                        routine, simplified the complex, and created guardrails that helped developers
-                                        move faster
-                                        without fear of breaking things.
-                                        From that work emerged the Internal Developer Platform (IDP) — not just a
-                                        bridge, but the
-                                        highway that connected agility and reliability. No more waiting on tickets or
-                                        approvals for
-                                        every change. Developers could go from idea to deployment in minutes, safely and
-                                        consistently.
-                                        Behind that smooth experience was the invisible effort of the platform team —
-                                        refining
-                                        automation, enforcing guardrails, and ensuring every release flowed smoothly
-                                        from code to
-                                        production. The outcome wasn’t just faster delivery — it was smarter innovation.
+                                    <p
+                                        class="wow animate__animated animate__fadeInUp text-sm lg:text-base text-neutral-400">
+                                        Let’s look at the numbers. Developers assisted by AI complete coding tasks
+                                        roughly 55 % faster. Impressive—but that statistic tells only part of the story.
+                                        The real improvement shows up after the code is written. AI-enabled teams cut
+                                        their time-to-production by about 55 %, largely because the initial
+                                        implementation and the first code review move faster.
+                                        Why do reviews take less time? AI-generated code typically follows consistent
+                                        patterns and adheres more closely to standard styles. Even skilled engineers
+                                        working under deadlines rarely match that level of uniformity. As a result,
+                                        reviewers spend less energy correcting formatting or trivial issues and more on
+                                        architecture, performance, and business logic.
                                     </p>
-
-                                    <div class="mt-4">
-                                        <p class="text-sm lg:text-base text-neutral-900">In short : </p>
-                                        <ul class="mt-2">
-                                            <li
-                                                class="relative text-neutral-500 pl-4 before:content-['•'] before:absolute before:left-0 before:text-neutral-400 before:text-lg before:top-[-4px]">
-                                                <span class="text-neutral-900"> Platform engineering is the craft</span>
-                                                — designing the
-                                                systems, workflows, and safety layers
-                                                that empower developers.
-                                            </li>
-                                            <li
-                                                class="relative text-neutral-500 pl-4 before:content-['•'] before:absolute before:left-0 before:text-neutral-400 before:text-lg before:top-[-4px]">
-                                                <span class="text-neutral-900"> The IDP is the product </span> — the
-                                                manifestation of
-                                                that craft, offering a self-service, secure, and scalable foundation for
-                                                delivery.
-                                            </li>
-                                        </ul>
-                                    </div>
                                 </div>
 
                                 <div class="section-title mt-6 md:mt-8">
-                                    <h2 class="text-xl md:text-2xl lg:text-3xl font-semibold text-neutral-900 mb-4">
-                                        ‍Core Design Principles of a Modern Platform
+                                    <h2
+                                        class="wow animate__animated animate__fadeInUp text-xl md:text-2xl lg:text-3xl font-semibold text-neutral-900 mb-4">
+                                        Understanding the Cost of Quality
                                     </h2>
-                                    <p class=" text-sm lg:text-base text-neutral-400 ">
-                                        A strong platform isn’t a random collection of tools; it’s an engineered system
-                                        that balances
-                                        automation, governance, and reliability. Its design principles define how
-                                        developers engage with
-                                        infrastructure while ensuring consistency and control at scale. Our platform
-                                        stands on three
-                                        essential pillars:
-                                    </p>
-                                    <div class="mt-4">
-                                        <ul>
-                                            <li
-                                                class="relative text-neutral-500 pl-4 before:content-['•'] before:absolute before:left-0 before:text-neutral-400 before:text-lg before:top-[-4px]">
-                                                Runtime – Applications must run reliably and scale effortlessly across
-                                                environments. The
-                                                platform abstracts infrastructure complexity, automating deployment,
-                                                scaling, and
-                                                monitoring so teams can focus on their core development work.
-                                            </li>
-                                            <li
-                                                class="relative text-neutral-500 pl-4 before:content-['•'] before:absolute before:left-0 before:text-neutral-400 before:text-lg before:top-[-4px]">
-                                                Compliance – Governance is woven into the system itself. Every
-                                                deployment automatically
-                                                meets organizational and regulatory standards through policy
-                                                enforcement, controlled
-                                                access, and audit trails.
-                                            </li>
-                                            <li
-                                                class="relative text-neutral-500 pl-4 before:content-['•'] before:absolute before:left-0 before:text-neutral-400 before:text-lg before:top-[-4px]">
-                                                SRE Integration – Reliability is a collective responsibility. Embedding
-                                                Site Reliability
-                                                Engineering practices such as observability, proactive monitoring, error
-                                                budgets, and
-                                                automated recovery ensures resilience and repeatable operational
-                                                excellence.
-                                            </li>
-                                        </ul>
-                                    </div>
-                                </div>
-                                <div class="section-title mt-6 md:mt-8">
-                                    <h2 class="text-xl md:text-2xl lg:text-3xl font-semibold text-neutral-900 mb-4">
-                                        The Human Side of Platform Engineering
-                                    </h2>
-                                    <p class=" text-sm lg:text-base text-neutral-400 ">
-                                        Even the most elegant onboarding journey has moments of uncertainty — Which
-                                        variable links to
-                                        which secret? or How can I safely roll back a feature?
-                                        But when the platform team responds through community sessions, chatbot support,
-                                        feedback
-                                        portals, or quick documentation updates, trust begins to grow.
-                                        A well-designed platform isn’t just a technical product — it’s a relationship
-                                        between builders
-                                        and enablers.
-                                        “Whenever a problem arose, the team solved it through automation so no one else
-                                        would face it
-                                        again. That was the moment I truly grasped what platform engineering is about.”
+                                    <p
+                                        class="wow animate__animated animate__fadeInUp text-sm lg:text-base text-neutral-400 ">
+                                        Quality isn’t just a byproduct of technology or product development — it
+                                        influences every layer of daily project execution.
+                                        The Cost of Quality (CoQ) describes the total effort and expense required to
+                                        ensure and sustain desired levels of quality. It combines both the costs of
+                                        achieving good quality and the costs of addressing poor quality. Lowering this
+                                        cost directly improves project profitability and delivery efficiency.
                                     </p>
 
                                 </div>
-                                <div class="mt-4 md:mt-6 lg:mt-8">
+                                <div class="section-title mt-6 md:mt-8">
+                                    <h2
+                                        class="wow animate__animated animate__fadeInUp text-xl md:text-2xl lg:text-3xl font-semibold text-neutral-900 mb-4">
+                                        Rethinking Quality: Beyond the Product
+                                    </h2>
+                                    <p
+                                        class="wow animate__animated animate__fadeInUp text-sm lg:text-base text-neutral-400 ">
+                                        In software engineering, quality is often measured through defect counts or
+                                        product performance. But its real potential lies in applying quality thinking
+                                        holistically — across teams, workflows, decisions, and communication.
+                                        Reducing CoQ is not limited to writing cleaner code; it’s about designing
+                                        smarter operations.
+                                        In Lean philosophy, any activity that doesn’t create direct value for the
+                                        customer is considered waste. Eliminating that waste — whether it’s unnecessary
+                                        meetings, unclear communication, or redundant approvals — is a quality
+                                        improvement effort in itself.
+                                    </p>
+
+                                </div>
+                                <div class="mt-4 md:mt-6 lg:mt-8 wow animate__animated animate__fadeInUp">
                                     <img src="@/assets/images/detail_blog.svg" alt="Canva Code Feature Image"
                                         class="w-full max-h-[420px] object-cover">
                                 </div>
 
-                                <div class="section-title mt-6 md:mt-8">
-                                    <h2 class="text-xl md:text-2xl lg:text-3xl font-semibold text-neutral-900 mb-4">
-                                        My End-to-End Platform Onboarding Experience
-                                    </h2>
-                                    <p class=" text-sm lg:text-base text-neutral-400 ">
-                                        Week 1 – The Beginning of Change
-                                        When I joined the team, the word platform seemed to be everywhere. It was
-                                        described as the
-                                        backbone that powered deployments, maintained compliance, and simplified release
-                                        management. My
-                                        onboarding didn’t begin with paperwork — it began with curiosity.
 
-                                        Upon logging into the internal developer portal, I wasn’t greeted by endless
-                                        manuals but by a
-                                        dashboard filled with golden paths — predefined, opinionated workflows designed
-                                        for efficiency.
-
-                                        The platform automatically created my Kubernetes namespace, enforced resource
-                                        quotas, and
-                                        applied security templates — no manual setup required. I simply entered basic
-                                        details like
-                                        repository name, image path, and environment, and within minutes my service was
-                                        live.
-
-                                        That first experience — from zero to deployment — revealed what automation could
-                                        truly achieve.
-                                        It wasn’t about restriction; it was about freedom within structure.
-
-                                        Week 2 – Shared Accountability
-                                        By the following week, I noticed how elegantly the platform embedded shared
-                                        responsibility.
-                                        Security was pre-built, performance standards were validated, and costs were
-                                        transparent. Every
-                                        developer action had a clear ownership boundary, reducing confusion and
-                                        friction.
-
-                                        One Month In – From Consumer to Contributor
-                                        Within a few weeks, I transitioned from a user to a contributor. The
-                                        contribution model allowed
-                                        me to enhance templates, create new workflows, and share best practices with
-                                        peers. That’s when
-                                        onboarding evolved from a one-time process into an ongoing collaboration between
-                                        developers and
-                                        the platform team.
-                                    </p>
-
-                                </div>
 
                                 <div class="section-title mt-6 md:mt-8">
-                                    <h2 class="text-xl md:text-2xl lg:text-3xl font-semibold text-neutral-900 mb-4">
-                                        Key Lessons Learned
+                                    <h2
+                                        class="wow animate__animated animate__fadeInUp text-xl md:text-2xl lg:text-3xl font-semibold text-neutral-900 mb-4">
+                                        Delivery Excellence Through a Holistic Quality Mindset
                                     </h2>
-                                    <p class="text-sm lg:text-base text-neutral-400">
-                                        The journey taught me lessons that continue to shape how I work and think:
+                                    <p
+                                        class="wow animate__animated animate__fadeInUp text-sm lg:text-base text-neutral-400 ">
+                                        Quality isn’t confined to testing; it’s woven through how teams plan,
+                                        communicate, and execute. Below are the key dimensions of this broader quality
+                                        culture.
                                     </p>
 
                                     <div class="mt-4">
-                                        <ul>
+                                        <p
+                                            class="wow animate__animated animate__fadeInUp text-sm lg:text-base text-neutral-400">
+                                            Quality in Collaboration and Communication</p>
+                                        <ul class="mt-2 wow animate__animated animate__fadeInUp">
                                             <li
                                                 class="relative text-neutral-500 pl-4 before:content-['•'] before:absolute before:left-0 before:text-neutral-400 before:text-lg before:top-[-4px]">
-                                                Simplicity unlocks productivity: Developers don’t seek more tools; they
-                                                want fewer
-                                                decisions that truly matter.
+                                                Clarity in communication: Simple, direct language reduces rework and
+                                                misunderstandings.
                                             </li>
                                             <li
                                                 class="relative text-neutral-500 pl-4 before:content-['•'] before:absolute before:left-0 before:text-neutral-400 before:text-lg before:top-[-4px]">
-                                                Golden paths reduce cognitive strain: Predefined workflows streamline
-                                                the right way to
-                                                build, minimizing errors and setup delays.
+                                                Active listening: Encourages alignment and fosters inclusivity within
+                                                teams.
                                             </li>
                                             <li
                                                 class="relative text-neutral-500 pl-4 before:content-['•'] before:absolute before:left-0 before:text-neutral-400 before:text-lg before:top-[-4px]">
-                                                Guardrails build confidence: When governance feels like guidance,
-                                                compliance becomes
-                                                natural.
+                                                Responsiveness: Prompt replies accelerate execution and decision flow.
+                                            </li>
+
+                                        </ul>
+                                    </div>
+                                    <div class="mt-4">
+                                        <p
+                                            class="wow animate__animated animate__fadeInUp text-sm lg:text-base text-neutral-400">
+                                            Quality in Meetings and Discussions</p>
+                                        <ul class="mt-2 wow animate__animated animate__fadeInUp">
+                                            <li
+                                                class="relative text-neutral-500 pl-4 before:content-['•'] before:absolute before:left-0 before:text-neutral-400 before:text-lg before:top-[-4px]">
+                                                Effective use of time: Limit meetings to defined outcomes and time boxes
+                                                to avoid waste.
                                             </li>
                                             <li
                                                 class="relative text-neutral-500 pl-4 before:content-['•'] before:absolute before:left-0 before:text-neutral-400 before:text-lg before:top-[-4px]">
-                                                Automation normalizes reliability: Continuous integration, deployment,
-                                                and observability
-                                                make resilience a built-in habit.
+                                                Prepared inputs: Encourage informed participation to ensure productive
+                                                decisions.
                                             </li>
                                             <li
                                                 class="relative text-neutral-500 pl-4 before:content-['•'] before:absolute before:left-0 before:text-neutral-400 before:text-lg before:top-[-4px]">
-                                                Observability is integral: Metrics, logs, and traces should be part of
-                                                every service
-                                                from the start.
-                                            </li>
-                                            <li
-                                                class="relative text-neutral-500 pl-4 before:content-['•'] before:absolute before:left-0 before:text-neutral-400 before:text-lg before:top-[-4px]">
-                                                Onboarding never really ends: The best platforms evolve alongside their
-                                                developers.
-                                            </li>
-                                            <li
-                                                class="relative text-neutral-500 pl-4 before:content-['•'] before:absolute before:left-0 before:text-neutral-400 before:text-lg before:top-[-4px]">
-                                                Platforms grow through people: When developers are heard, they become
-                                                contributors
-                                                instead of mere users.
-                                            </li>
-                                            <li
-                                                class="relative text-neutral-500 pl-4 before:content-['•'] before:absolute before:left-0 before:text-neutral-400 before:text-lg before:top-[-4px]">
-                                                Culture completes technology: Listening, empathy, and iteration turn
-                                                systems into
-                                                communities.
-                                            </li>
-                                            <li
-                                                class="relative text-neutral-500 pl-4 before:content-['•'] before:absolute before:left-0 before:text-neutral-400 before:text-lg before:top-[-4px]">
-                                                Standardization strengthens teamwork: When everyone follows shared
-                                                golden paths,
-                                                collaboration and troubleshooting become seamless.
-                                            </li>
-                                            <li
-                                                class="relative text-neutral-500 pl-4 before:content-['•'] before:absolute before:left-0 before:text-neutral-400 before:text-lg before:top-[-4px]">
-                                                Transparency enhances understanding: Good automation reveals complexity
-                                                when needed — it
-                                                educates rather than hides.
+                                                Inclusive engagement: Every voice matters — balanced participation
+                                                strengthens ownership and trust.
                                             </li>
                                         </ul>
                                     </div>
                                 </div>
 
                                 <div class="section-title mt-6 md:mt-8">
-                                    <h2 class="text-xl md:text-2xl lg:text-3xl font-semibold text-neutral-900 mb-4">
-                                        Final Impact
+                                    <h2
+                                        class="wow animate__animated animate__fadeInUp text-xl md:text-2xl lg:text-3xl font-semibold text-neutral-900 mb-4">
+                                        Why Agile Lowers the Hidden Cost of Quality
                                     </h2>
-                                    <p class="text-sm lg:text-base text-neutral-400">
-                                        Onboarding into a platform isn’t simply about learning new tools — it’s about
-                                        experiencing
-                                        empowerment. When a platform reduces complexity, it allows developers to return
-                                        to what they
-                                        love most: building, experimenting, and innovating.
-                                        A well-crafted platform doesn’t just help developers start faster — it instills
-                                        confidence.
-                                        That’s the real transformation I’ve witnessed: a platform turns technology into
-                                        a living
-                                        ecosystem, and its users into a collaborative community.
+                                    <p
+                                        class="wow animate__animated animate__fadeInUp text-sm lg:text-base text-neutral-400">
+                                        Agile principles naturally reduce the invisible costs of poor quality by turning
+                                        quality into a continuous behavior rather than a one-time checkpoint.
+                                        In Agile environments, improvement is constant — inspired by Kaizen, or small,
+                                        continuous refinements. By removing activities that don’t add value, teams
+                                        sustain quality without slowing down.
                                     </p>
+
+                                </div>
+                                <div class="section-title mt-6 md:mt-8">
+                                    <h2
+                                        class="wow animate__animated animate__fadeInUp text-xl md:text-2xl lg:text-3xl font-semibold text-neutral-900 mb-4">
+                                        Conclusion: Quality as a Habit, Not a Phase
+                                    </h2>
+                                    <p
+                                        class="wow animate__animated animate__fadeInUp text-sm lg:text-base text-neutral-400">
+                                        Quality is no longer a checkpoint or compliance task — it’s the core operating
+                                        principle behind delivery excellence.
+                                        Whether it’s in communication, risk control, or stakeholder engagement, quality
+                                        thinking must be embedded in every workflow. Agile empowers this by making
+                                        feedback, adaptation, and reflection part of everyday routines.
+                                        When teams adopt quality as a mindset rather than a metric, they not only reduce
+                                        failure costs but also unlock higher creativity, faster response to change, and
+                                        stronger collaboration.
+                                        Ultimately, this shift transforms quality from a late-stage validation exercise
+                                        into a proactive, team-owned discipline that drives meaningful outcomes across
+                                        the entire organization.
+                                    </p>
+
                                 </div>
 
                                 <div class="writer mt-6 md:mt-8 border-t border-neutral-200 pt-6">
-                                    <div class="flex gap-4  items-center ">
+                                    <div class="flex gap-4  items-center wow animate__zoomIn animate__animated ">
                                         <img src="@/assets/images/john.png" alt="Author Avatar"
                                             class="w-16 h-16 rounded-full object-cover mb-4">
-                                        <p class="text-sm lg:text-base text-neutral-400">Richard Aurora</p>
+                                        <p class="text-sm lg:text-base text-neutral-400">Dylan Mercer</p>
                                     </div>
 
-                                    <p class="text-sm text-neutral-400">Richard Aurora is a technology strategist and
-                                        writer
-                                        specializing in software engineering excellence, agile transformation, and
-                                        AI-driven innovation.
-                                        With extensive experience in building scalable platforms and leading
-                                        cross-functional teams,
-                                        Richard focuses on bridging the gap between technology, people, and process.</p>
-                                    <div class="social-icon flex mt-4 gap-3">
+                                    <p class="text-sm text-neutral-400 wow animate__animated animate__fadeInUp">Adrian
+                                        Dylan Mercer is a technology strategist and writer focused on software
+                                        engineering, DevOps culture, and the evolving intersection of AI and human
+                                        creativity.</p>
+                                    <div class="social-icon flex mt-4 gap-3 wow animate__animated animate__fadeInUp">
                                         <a href="#"
                                             class="inline-flex h-9 w-9 items-center justify-center rounded-full  bg-neutral-100 p-2">
                                             <img src="@/assets/images/icons/facebooks.svg" alt="">

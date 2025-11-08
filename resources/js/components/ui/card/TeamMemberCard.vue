@@ -1,8 +1,8 @@
 <template>
     <!-- Desktop Grid -->
     <div class="hidden sm:grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-x-12 gap-y-6">
-        <div class="group relative" v-for="team in teamMembers" :key="team.name">
-            <img :src="team.photo" alt="" class="w-full lg:h-60 object-cover" />
+        <div class="group relative wow animate__zoomIn animate__animated" v-for="team in teamMembers" :key="team.name">
+            <img :src="team.photo" alt="" class="w-full  max-h-60 object-contain" />
             <div class="mt-4 flex justify-between">
                 <div>
                     <h3 class="text-base md:text-lg text-neutral-900 font-bold">
@@ -24,8 +24,8 @@
         <Swiper class="showcase-swiper" v-bind="swiperOptions" @swiper="onSwiper" @slideChange="onSlideChange">
             <SwiperSlide v-for="team in teamMembers" :key="team.name">
                 <article>
-                    <div class="group relative">
-                        <img :src="team.photo" alt="" class="w-full lg:h-60 object-cover" />
+                    <div class="group relative wow animate__zoomIn animate__animated">
+                        <img :src="team.photo" alt="" class="w-full max-h-60 object-contain" />
                         <div class="mt-4 flex justify-between">
                             <div>
                                 <h3 class="text-base md:text-lg text-neutral-900 font-bold">
