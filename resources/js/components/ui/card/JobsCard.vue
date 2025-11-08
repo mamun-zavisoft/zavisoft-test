@@ -2,7 +2,7 @@
     <!-- Desktop Grid -->
     <div class="hidden sm:grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
         <article
-            class="group bg-white p-3 md:p-4 rounded transition-colors duration-300 hover:bg-primary-500 hover:text-white"
+            class="wow animate__zoomIn animate__animated group bg-white p-3 md:p-4 rounded transition-colors duration-300 hover:bg-primary-500 hover:text-white"
             v-for="job in jobListings" :key="job.id">
 
             <div
@@ -40,7 +40,7 @@
         <Swiper class="opertunity-swiper" v-bind="swiperOptions" @swiper="onSwiper" @slideChange="onSlideChange">
             <SwiperSlide v-for="job in jobListings" :key="job.id">
                 <article
-                    class="group bg-white p-3 md:p-4 rounded transition-colors duration-300 hover:bg-primary-500 hover:text-white">
+                    class="wow animate__zoomIn animate__animated group bg-white p-3 md:p-4 rounded transition-colors duration-300 hover:bg-primary-500 hover:text-white">
 
                     <div
                         class="inline-flex items-center gap-1 rounded-full bg-primary-50 text-primary-500 px-3 py-1 text-sm font-medium">

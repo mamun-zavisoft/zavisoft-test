@@ -7,7 +7,7 @@
                     class="pt-30 lg:pt-36 xl:pt-40 flex flex-col items-center gap-3 border-b border-neutral-200 pb-6 md:pb-8 lg:pb-12">
                     <div class="flex flex-col items-center gap-2 md:gap-3 lg:gap-4 justify-center ">
                         <h1
-                            class=" text-center text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl leading-8 md:leading-10 lg:leading-16  font-bold text-neutral-900">
+                            class="wow animate__animated animate__fadeInUp text-center text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl leading-8 md:leading-10 lg:leading-16  font-bold text-neutral-900">
                             A Complete Look at End-to-End Testing
                         </h1>
                         <p class="text-xs md:text-[13px] lg:text-sm text-neutral-400 font-medium flex gap-2 md:gap-4">
@@ -17,7 +17,7 @@
                         </p>
 
                     </div>
-                    <div class="mt-6 w-full">
+                    <div class="mt-6 w-full wow animate__animated animate__fadeInUp">
                         <img src="@/assets/images/blog_2.svg" alt="Blog Image"
                             class="w-full max-h-[735px] object-cover">
                     </div>
@@ -86,7 +86,7 @@
                             </aside>
 
                             <main class="w-full">
-                                <p class=" text-sm lg:text-base text-neutral-400 ">
+                                <p class="wow animate__animated animate__fadeInUp text-sm lg:text-base text-neutral-400 ">
                                     If you work on a software team, you’ve likely come across end-to-end testing. QA
                                     groups routinely schedule an E2E cycle to verify that the product behaves correctly
                                     when used the way a real person would.
@@ -101,10 +101,10 @@
                                 <hr class="mt-6 md:mt-8 border-neutral-200" />
 
                                 <div class="section-title mt-6 md:mt-8">
-                                    <h2 class="text-xl md:text-2xl lg:text-3xl font-semibold text-neutral-900 mb-4">
+                                    <h2 class="wow animate__animated animate__fadeInUp text-xl md:text-2xl lg:text-3xl font-semibold text-neutral-900 mb-4">
                                         What Is End-to-End Testing Needed?
                                     </h2>
-                                    <p class="text-sm lg:text-base text-neutral-400">
+                                    <p class="wow animate__animated animate__fadeInUp text-sm lg:text-base text-neutral-400">
                                         End-to-end testing evaluates the product from the user’s point of view,
                                         exercising the full workflow across modules, services, and integrations. The
                                         goal is to reproduce real usage and confirm that the system functions correctly
@@ -114,8 +114,8 @@
                                         validating each feature in isolation, an E2E flow would:
                                     </p>
 
-                                    <div class="mt-4">
-                                        <ul>
+                                    <div class="mt-4 wow animate__animated animate__fadeInUp">
+                                        <ul class="wow animate__animated animate__fadeInUp">
                                             <li
                                                 class="relative text-neutral-500 pl-4 before:content-['•'] before:absolute before:left-0 before:text-neutral-400 before:text-lg before:top-[-4px]">
                                                 register a new user,
@@ -137,20 +137,20 @@
                                                 and confirm the transaction in a report.
                                             </li>
                                         </ul>
-                                        <p class="text-sm lg:text-base text-neutral-400 mt-3">Because these steps mirror
+                                        <p class="wow animate__animated animate__fadeInUp text-sm lg:text-base text-neutral-400 mt-3">Because these steps mirror
                                             actual usage, they reveal issues that only surface when components work
                                             together.</p>
                                     </div>
                                 </div>
 
-                                <div class="section-title mt-6 md:mt-8">
+                                <div class="section-title mt-6 md:mt-8 wow animate__animated animate__fadeInUp">
                                     <h2 class="text-xl md:text-2xl lg:text-3xl font-semibold text-neutral-900 mb-4">
                                         ‍What Is the Goal?
                                     </h2>
                                     <p class=" text-sm lg:text-base text-neutral-400 ">
                                         Primary objectives of E2E testing include:
                                     </p>
-                                    <div class="mt-4">
+                                    <div class="mt-4 wow animate__animated animate__fadeInUp">
                                         <ul>
                                             <li
                                                 class="relative text-neutral-500 pl-4 before:content-['•'] before:absolute before:left-0 before:text-neutral-400 before:text-lg before:top-[-4px]">
@@ -170,8 +170,8 @@
                                             insight into the overall user experience.</p>
                                     </div>
                                 </div>
-                                <div class="section-title mt-6 md:mt-8">
-                                    <h2 class="text-xl md:text-2xl lg:text-3xl font-semibold text-neutral-900 mb-4">
+                                <div class="section-title mt-6 md:mt-8 wow animate__animated animate__fadeInUp">
+                                    <h2 class="wow animate__animated animate__fadeInUp text-xl md:text-2xl lg:text-3xl font-semibold text-neutral-900 mb-4">
                                         When Should You Run E2E Tests?
                                     </h2>
                                     <p class=" text-sm lg:text-base text-neutral-400 ">
@@ -184,12 +184,12 @@
                                     </p>
 
                                 </div>
-                                <div class="mt-4 md:mt-6 lg:mt-8">
+                                <div class="mt-4 md:mt-6 lg:mt-8 wow animate__animated animate__fadeInUp">
                                     <img src="@/assets/images/detail_blog.svg" alt="Canva Code Feature Image"
                                         class="w-full max-h-[420px] object-cover">
                                 </div>
 
-                                <div class="section-title mt-6 md:mt-8">
+                                <div class="section-title mt-6 md:mt-8 wow animate__animated animate__fadeInUp">
                                     <h2 class="text-xl md:text-2xl lg:text-3xl font-semibold text-neutral-900 mb-4">
                                         Test Strategy: Keep the Pyramid Shape
                                     </h2>
@@ -221,7 +221,7 @@
                                     </div>
                                 </div>
 
-                                <div class="section-title mt-6 md:mt-8">
+                                <div class="section-title mt-6 md:mt-8 wow animate__animated animate__fadeInUp">
                                     <h2 class="text-xl md:text-2xl lg:text-3xl font-semibold text-neutral-900 mb-4">
                                         Stages of End-to-End Testing
                                     </h2>
@@ -372,7 +372,7 @@
 
                                 </div>
 
-                                <div class="section-title mt-6 md:mt-8">
+                                <div class="section-title mt-6 md:mt-8 wow animate__animated animate__fadeInUp">
                                     <h2 class="text-xl md:text-2xl lg:text-3xl font-semibold text-neutral-900 mb-4">
                                         Final Impact
                                     </h2>
@@ -391,7 +391,7 @@
                                     </p>
                                 </div>
 
-                                <div class="writer mt-6 md:mt-8 border-t border-neutral-200 pt-6">
+                                <div class="writer mt-6 md:mt-8 border-t border-neutral-200 pt-6 wow animate__animated animate__fadeInUp">
                                     <div class="flex gap-4  items-center ">
                                         <img src="@/assets/images/john.png" alt="Author Avatar"
                                             class="w-16 h-16 rounded-full object-cover mb-4">

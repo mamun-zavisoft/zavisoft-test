@@ -7,8 +7,8 @@
                     class="pt-30 lg:pt-36 xl:pt-40 flex flex-col items-center gap-3 border-b border-neutral-200 pb-6 md:pb-8 lg:pb-12">
                     <div class="flex flex-col items-center gap-2 md:gap-3 lg:gap-4 justify-center ">
                         <h1
-                            class=" text-center text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl leading-8 md:leading-10 lg:leading-16  font-bold text-neutral-900">
-                            A Developer’s Journey Through Platform Onboarding
+                            class=" wow animate__animated animate__fadeInUp text-center text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl leading-8 md:leading-10 lg:leading-16  font-bold text-neutral-900">
+                            The Smart Way Developers Validate Products Faster with AI Coding Support
                         </h1>
                         <p class="text-xs md:text-[13px] lg:text-sm text-neutral-400 font-medium flex gap-2 md:gap-4">
                             <span>By Richard Aurora</span> |
@@ -17,8 +17,8 @@
                         </p>
 
                     </div>
-                    <div class="mt-6 w-full">
-                        <img src="@/assets/images/blog_1.svg" alt="Blog Image"
+                    <div class="mt-6 w-full wow animate__animated animate__fadeInUp">
+                        <img src="@/assets/images/blog_3.svg" alt="Blog Image"
                             class="w-full max-h-[735px] object-cover">
                     </div>
 
@@ -36,31 +36,32 @@
                                         <ul class="space-y-4 text-neutral-400 font-medium text-sm lg:text-[15px]">
                                             <li
                                                 class="cursor-pointer relative pl-4 before:content-['•'] before:absolute before:left-0 before:text-neutral-400 before:text-lg before:top-[-4px]">
-                                                From Manual Operations to Platform Empowerment: My Transformation Story
+                                                The Real Transformation Is in Validation
                                             </li>
                                             <li
                                                 class="cursor-pointer relative pl-4 before:content-['•'] before:absolute before:left-0 before:text-neutral-400 before:text-lg before:top-[-4px]">
-                                                Core Design Principles of a Modern Platform
+                                                What Developers Actually Do With AI
                                             </li>
 
                                             <li
                                                 class="cursor-pointer relative pl-4 before:content-['•'] before:absolute before:left-0 before:text-neutral-400 before:text-lg before:top-[-4px]">
 
-                                                The Human Side of Platform Engineering
+                                                Internal Validation: Testing at AI Speed
                                             </li>
                                             <li
                                                 class="cursor-pointer relative pl-4 before:content-['•'] before:absolute before:left-0 before:text-neutral-400 before:text-lg before:top-[-4px]">
-                                                My End-to-End Platform Onboarding Experience
+                                                External Validation: Getting to Real Users Sooner
                                             </li>
 
                                             <li
                                                 class="cursor-pointer relative pl-4 before:content-['•'] before:absolute before:left-0 before:text-neutral-400 before:text-lg before:top-[-4px]">
-                                                Key Lessons Learned
+                                                Navigating the Tool Ecosystem
                                             </li>
                                             <li
                                                 class="cursor-pointer relative pl-4 before:content-['•'] before:absolute before:left-0 before:text-neutral-400 before:text-lg before:top-[-4px]">
-                                                Final Impact
+                                                Looking Ahead
                                             </li>
+
 
                                         </ul>
                                         <div class="flex items-center gap-3 mt-4">
@@ -82,321 +83,235 @@
                             </aside>
 
                             <main class="w-full">
-                                <p class=" text-sm lg:text-base text-neutral-400 ">
-                                    For years, I managed cloud environments the traditional way — manually spinning up
-                                    clusters, setting
-                                    up networks, handling credentials, and deploying with long, detailed scripts. I
-                                    believed I had
-                                    mastered the rhythm of delivery. My days revolved around dashboards, support
-                                    tickets, and tightly
-                                    controlled change windows. It was safe, structured, and predictable — but also slow,
-                                    exhausting, and
-                                    dependent on careful orchestration that limited agility. Then everything changed.
-                                </p>
-                                <p class="mt-3 text-sm lg:text-base text-neutral-400 ">
-                                    Our organization introduced a developer platform — a unified environment built for
-                                    automation,
-                                    golden paths, and guardrails. It wasn’t just another tool; it was a complete shift
-                                    in mindset. For
-                                    someone used to full control — provisioning servers, managing configs, and deploying
-                                    manually — the
-                                    concept of self-service pipelines and abstracted infrastructure felt both liberating
-                                    and
-                                    intimidating. It was like moving from steering a ship manually to trusting an
-                                    intelligent navigation
-                                    system to chart the best route.
-                                    Initially, I was skeptical. Could a system really manage the complex, hands-on tasks
-                                    I had done for
-                                    years? But as I explored the platform — creating my first workspace, deploying
-                                    services, and
-                                    watching everything come together seamlessly — I realized what it truly meant. It
-                                    wasn’t about
-                                    losing control. It was about breaking free from repetitive, low-value work so I
-                                    could focus on
-                                    building solutions that mattered.
-                                    This blog is about that transformation — moving from manual craftsmanship to
-                                    platform-powered
-                                    delivery, where speed, consistency, and security work in harmony. It’s about letting
-                                    go of old
-                                    routines, embracing automation, and understanding that adopting a platform doesn’t
-                                    mean giving up
-                                    expertise — it means expanding it.
+                                <p
+                                    class=" text-sm lg:text-base text-neutral-400 wow animate__animated animate__fadeInUp">
+                                    Software creation has evolved dramatically over the last two years. Since the first
+                                    generation of AI-powered coding assistants appeared, I’ve worked with them
+                                    closely—and what’s most surprising is that the biggest change isn’t about speed.
+                                    It’s about how we verify and validate what we build.
                                 </p>
 
                                 <hr class="mt-6 md:mt-8 border-neutral-200" />
 
                                 <div class="section-title mt-6 md:mt-8">
-                                    <h2 class="text-xl md:text-2xl lg:text-3xl font-semibold text-neutral-900 mb-4">
-                                        Beyond the Console: My Journey from Manual Ops to Platform Empowerment
+                                    <h2
+                                        class="wow animate__animated animate__fadeInUp text-xl md:text-2xl lg:text-3xl font-semibold text-neutral-900 mb-4">
+                                        What Is End-to-End Testing Needed?
                                     </h2>
-                                    <p class="text-sm lg:text-base text-neutral-400">
-                                        For decades, developers and operations shared a goal — deliver value — but
-                                        approached it from
-                                        opposite ends. Developers chased speed. Operations guarded stability. Both were
-                                        right, but
-                                        together they created friction.
-                                        Then came platform engineering — the bridge between the two worlds.
-                                        Platform engineers didn’t just build tools; they designed ecosystems. They
-                                        automated the
-                                        routine, simplified the complex, and created guardrails that helped developers
-                                        move faster
-                                        without fear of breaking things.
-                                        From that work emerged the Internal Developer Platform (IDP) — not just a
-                                        bridge, but the
-                                        highway that connected agility and reliability. No more waiting on tickets or
-                                        approvals for
-                                        every change. Developers could go from idea to deployment in minutes, safely and
-                                        consistently.
-                                        Behind that smooth experience was the invisible effort of the platform team —
-                                        refining
-                                        automation, enforcing guardrails, and ensuring every release flowed smoothly
-                                        from code to
-                                        production. The outcome wasn’t just faster delivery — it was smarter innovation.
+                                    <p
+                                        class="wow animate__animated animate__fadeInUp text-sm lg:text-base text-neutral-400">
+                                        Let’s look at the numbers. Developers assisted by AI complete coding tasks
+                                        roughly 55 % faster. Impressive—but that statistic tells only part of the story.
+                                        The real improvement shows up after the code is written. AI-enabled teams cut
+                                        their time-to-production by about 55 %, largely because the initial
+                                        implementation and the first code review move faster.
+                                        Why do reviews take less time? AI-generated code typically follows consistent
+                                        patterns and adheres more closely to standard styles. Even skilled engineers
+                                        working under deadlines rarely match that level of uniformity. As a result,
+                                        reviewers spend less energy correcting formatting or trivial issues and more on
+                                        architecture, performance, and business logic.
                                     </p>
-
-                                    <div class="mt-4">
-                                        <p class="text-sm lg:text-base text-neutral-900">In short : </p>
-                                        <ul class="mt-2">
-                                            <li
-                                                class="relative text-neutral-500 pl-4 before:content-['•'] before:absolute before:left-0 before:text-neutral-400 before:text-lg before:top-[-4px]">
-                                                <span class="text-neutral-900"> Platform engineering is the craft</span>
-                                                — designing the
-                                                systems, workflows, and safety layers
-                                                that empower developers.
-                                            </li>
-                                            <li
-                                                class="relative text-neutral-500 pl-4 before:content-['•'] before:absolute before:left-0 before:text-neutral-400 before:text-lg before:top-[-4px]">
-                                                <span class="text-neutral-900"> The IDP is the product </span> — the
-                                                manifestation of
-                                                that craft, offering a self-service, secure, and scalable foundation for
-                                                delivery.
-                                            </li>
-                                        </ul>
-                                    </div>
                                 </div>
 
                                 <div class="section-title mt-6 md:mt-8">
-                                    <h2 class="text-xl md:text-2xl lg:text-3xl font-semibold text-neutral-900 mb-4">
-                                        ‍Core Design Principles of a Modern Platform
+                                    <h2
+                                        class="wow animate__animated animate__fadeInUp text-xl md:text-2xl lg:text-3xl font-semibold text-neutral-900 mb-4">
+                                        What Developers Actually Do With AI
                                     </h2>
-                                    <p class=" text-sm lg:text-base text-neutral-400 ">
-                                        A strong platform isn’t a random collection of tools; it’s an engineered system
-                                        that balances
-                                        automation, governance, and reliability. Its design principles define how
-                                        developers engage with
-                                        infrastructure while ensuring consistency and control at scale. Our platform
-                                        stands on three
-                                        essential pillars:
+                                    <p
+                                        class="wow animate__animated animate__fadeInUp text-sm lg:text-base text-neutral-400 ">
+                                        Working with these tools changes your role. You stop being a pure coder and
+                                        become more of an orchestrator—directing the AI, verifying its output, and
+                                        aligning it with your intent.
                                     </p>
                                     <div class="mt-4">
-                                        <ul>
+                                        <p
+                                            class="text-sm lg:text-base text-neutral-400 wow animate__animated animate__fadeInUp">
+                                            That shift elevates
+                                            different skills:</p>
+                                        <ul class="mt-2 wow animate__animated animate__fadeInUp">
                                             <li
                                                 class="relative text-neutral-500 pl-4 before:content-['•'] before:absolute before:left-0 before:text-neutral-400 before:text-lg before:top-[-4px]">
-                                                Runtime – Applications must run reliably and scale effortlessly across
-                                                environments. The
-                                                platform abstracts infrastructure complexity, automating deployment,
-                                                scaling, and
-                                                monitoring so teams can focus on their core development work.
+                                                Decomposing problems into small, well-defined parts
                                             </li>
                                             <li
                                                 class="relative text-neutral-500 pl-4 before:content-['•'] before:absolute before:left-0 before:text-neutral-400 before:text-lg before:top-[-4px]">
-                                                Compliance – Governance is woven into the system itself. Every
-                                                deployment automatically
-                                                meets organizational and regulatory standards through policy
-                                                enforcement, controlled
-                                                access, and audit trails.
+                                                Writing clear technical specifications
                                             </li>
                                             <li
                                                 class="relative text-neutral-500 pl-4 before:content-['•'] before:absolute before:left-0 before:text-neutral-400 before:text-lg before:top-[-4px]">
-                                                SRE Integration – Reliability is a collective responsibility. Embedding
-                                                Site Reliability
-                                                Engineering practices such as observability, proactive monitoring, error
-                                                budgets, and
-                                                automated recovery ensures resilience and repeatable operational
-                                                excellence.
+                                                Detecting when the AI lacks necessary context
+                                            </li>
+                                            <li
+                                                class="relative text-neutral-500 pl-4 before:content-['•'] before:absolute before:left-0 before:text-neutral-400 before:text-lg before:top-[-4px]">
+                                                Asking clarifying questions such as “Why did you choose this approach?”
                                             </li>
                                         </ul>
+                                        <p
+                                            class="wow animate__animated animate__fadeInUp mt-3 text-sm lg:text-base text-neutral-400">
+                                            Developers who treat AI
+                                            like an
+                                            autonomous wizard often struggle. The ones who succeed act like managers of
+                                            intelligent tools—guiding, critiquing, and refining their assistants’ work
+                                        </p>
                                     </div>
                                 </div>
                                 <div class="section-title mt-6 md:mt-8">
-                                    <h2 class="text-xl md:text-2xl lg:text-3xl font-semibold text-neutral-900 mb-4">
-                                        The Human Side of Platform Engineering
+                                    <h2
+                                        class="wow animate__animated animate__fadeInUp text-xl md:text-2xl lg:text-3xl font-semibold text-neutral-900 mb-4">
+                                        Internal Validation: Testing at AI Speed
                                     </h2>
-                                    <p class=" text-sm lg:text-base text-neutral-400 ">
-                                        Even the most elegant onboarding journey has moments of uncertainty — Which
-                                        variable links to
-                                        which secret? or How can I safely roll back a feature?
-                                        But when the platform team responds through community sessions, chatbot support,
-                                        feedback
-                                        portals, or quick documentation updates, trust begins to grow.
-                                        A well-designed platform isn’t just a technical product — it’s a relationship
-                                        between builders
-                                        and enablers.
-                                        “Whenever a problem arose, the team solved it through automation so no one else
-                                        would face it
-                                        again. That was the moment I truly grasped what platform engineering is about.”
+                                    <p
+                                        class="wow animate__animated animate__fadeInUp text-sm lg:text-base text-neutral-400 ">
+                                        One of the most productive uses of AI in my workflow is automated test
+                                        generation. Writing unit tests has always been dull, even though it’s crucial
+                                        for quality. AI turns this chore into a quick, high-value task—you can create
+                                        comprehensive test suites in minutes instead of hours.
+                                        The secret lies in how you prompt the system. Use structured reasoning prompts
+                                        (sometimes called Chain-of-Thought). Don’t just ask, “Write tests for this
+                                        function.”
                                     </p>
 
                                 </div>
-                                <div class="mt-4 md:mt-6 lg:mt-8">
+                                <div class="mt-4 md:mt-6 lg:mt-8 wow animate__animated animate__fadeInUp">
                                     <img src="@/assets/images/detail_blog.svg" alt="Canva Code Feature Image"
                                         class="w-full max-h-[420px] object-cover">
                                 </div>
 
                                 <div class="section-title mt-6 md:mt-8">
-                                    <h2 class="text-xl md:text-2xl lg:text-3xl font-semibold text-neutral-900 mb-4">
-                                        My End-to-End Platform Onboarding Experience
+                                    <h2
+                                        class="wow animate__animated animate__fadeInUp text-xl md:text-2xl lg:text-3xl font-semibold text-neutral-900 mb-4">
+                                        External Validation: Getting to Real Users Sooner
                                     </h2>
-                                    <p class=" text-sm lg:text-base text-neutral-400 ">
-                                        Week 1 – The Beginning of Change
-                                        When I joined the team, the word platform seemed to be everywhere. It was
-                                        described as the
-                                        backbone that powered deployments, maintained compliance, and simplified release
-                                        management. My
-                                        onboarding didn’t begin with paperwork — it began with curiosity.
-
-                                        Upon logging into the internal developer portal, I wasn’t greeted by endless
-                                        manuals but by a
-                                        dashboard filled with golden paths — predefined, opinionated workflows designed
-                                        for efficiency.
-
-                                        The platform automatically created my Kubernetes namespace, enforced resource
-                                        quotas, and
-                                        applied security templates — no manual setup required. I simply entered basic
-                                        details like
-                                        repository name, image path, and environment, and within minutes my service was
-                                        live.
-
-                                        That first experience — from zero to deployment — revealed what automation could
-                                        truly achieve.
-                                        It wasn’t about restriction; it was about freedom within structure.
-
-                                        Week 2 – Shared Accountability
-                                        By the following week, I noticed how elegantly the platform embedded shared
-                                        responsibility.
-                                        Security was pre-built, performance standards were validated, and costs were
-                                        transparent. Every
-                                        developer action had a clear ownership boundary, reducing confusion and
-                                        friction.
-
-                                        One Month In – From Consumer to Contributor
-                                        Within a few weeks, I transitioned from a user to a contributor. The
-                                        contribution model allowed
-                                        me to enhance templates, create new workflows, and share best practices with
-                                        peers. That’s when
-                                        onboarding evolved from a one-time process into an ongoing collaboration between
-                                        developers and
-                                        the platform team.
+                                    <p
+                                        class="wow animate__animated animate__fadeInUp text-sm lg:text-base text-neutral-400 ">
+                                        Validation also extends to how quickly you can put prototypes in front of users.
+                                        With AI tools, teams can move from idea to working proof-of-concept in days
+                                        instead of weeks.
+                                        I recently created an internal analytics dashboard. A few years back, it would
+                                        have taken a week. With AI support, I had a functional prototype in roughly six
+                                        hours—not production quality, but more than enough for stakeholders to evaluate.
+                                        This speed revolutionizes product testing. You can experiment with more ideas,
+                                        fail sooner, and refine based on actual feedback rather than speculation.
                                     </p>
 
                                 </div>
 
                                 <div class="section-title mt-6 md:mt-8">
-                                    <h2 class="text-xl md:text-2xl lg:text-3xl font-semibold text-neutral-900 mb-4">
-                                        Key Lessons Learned
+                                    <h2
+                                        class="wow animate__animated animate__fadeInUp text-xl md:text-2xl lg:text-3xl font-semibold text-neutral-900 mb-4">
+                                        Navigating the Tool Ecosystem
                                     </h2>
-                                    <p class="text-sm lg:text-base text-neutral-400">
-                                        The journey taught me lessons that continue to shape how I work and think:
+                                    <p
+                                        class="wow animate__animated animate__fadeInUp text-sm lg:text-base text-neutral-400">
+                                        By late 2025, more than 15 million developers use GitHub Copilot—a 400 %
+                                        increase from the previous year. But Copilot isn’t the only game in town.
+
                                     </p>
 
                                     <div class="mt-4">
-                                        <ul>
+                                        <p
+                                            class="wow animate__animated animate__fadeInUp text-sm lg:text-base text-neutral-400">
+                                            Comprehensive coding
+                                            assistants:</p>
+                                        <ul class="mt-2 wow animate__animated animate__fadeInUp">
                                             <li
                                                 class="relative text-neutral-500 pl-4 before:content-['•'] before:absolute before:left-0 before:text-neutral-400 before:text-lg before:top-[-4px]">
-                                                Simplicity unlocks productivity: Developers don’t seek more tools; they
-                                                want fewer
-                                                decisions that truly matter.
+                                                GitHub Copilot – Deep IDE integration and robust autocompletion.
                                             </li>
                                             <li
                                                 class="relative text-neutral-500 pl-4 before:content-['•'] before:absolute before:left-0 before:text-neutral-400 before:text-lg before:top-[-4px]">
-                                                Golden paths reduce cognitive strain: Predefined workflows streamline
-                                                the right way to
-                                                build, minimizing errors and setup delays.
+                                                Cursor – Designed for AI-first workflows with an excellent chat UI
                                             </li>
                                             <li
                                                 class="relative text-neutral-500 pl-4 before:content-['•'] before:absolute before:left-0 before:text-neutral-400 before:text-lg before:top-[-4px]">
-                                                Guardrails build confidence: When governance feels like guidance,
-                                                compliance becomes
-                                                natural.
+                                                Amazon CodeWhisperer – Tailored for AWS development.
+                                            </li>
+
+                                        </ul>
+                                    </div>
+                                    <div class="mt-4">
+                                        <p
+                                            class="wow animate__animated animate__fadeInUp text-sm lg:text-base text-neutral-400">
+                                            AI-powered development
+                                            platforms:</p>
+                                        <ul class="mt-2 wow animate__animated animate__fadeInUp">
+                                            <li
+                                                class="relative text-neutral-500 pl-4 before:content-['•'] before:absolute before:left-0 before:text-neutral-400 before:text-lg before:top-[-4px]">
+                                                Replit – Browser-based coding with built-in AI assistance
                                             </li>
                                             <li
                                                 class="relative text-neutral-500 pl-4 before:content-['•'] before:absolute before:left-0 before:text-neutral-400 before:text-lg before:top-[-4px]">
-                                                Automation normalizes reliability: Continuous integration, deployment,
-                                                and observability
-                                                make resilience a built-in habit.
+                                                Mimo – Combines learning and rapid app building
                                             </li>
                                             <li
                                                 class="relative text-neutral-500 pl-4 before:content-['•'] before:absolute before:left-0 before:text-neutral-400 before:text-lg before:top-[-4px]">
-                                                Observability is integral: Metrics, logs, and traces should be part of
-                                                every service
-                                                from the start.
+                                                Bolt – Generates full-stack applications with live previews
                                             </li>
                                             <li
                                                 class="relative text-neutral-500 pl-4 before:content-['•'] before:absolute before:left-0 before:text-neutral-400 before:text-lg before:top-[-4px]">
-                                                Onboarding never really ends: The best platforms evolve alongside their
-                                                developers.
+                                                v0.dev – Specializes in React component creation
                                             </li>
-                                            <li
-                                                class="relative text-neutral-500 pl-4 before:content-['•'] before:absolute before:left-0 before:text-neutral-400 before:text-lg before:top-[-4px]">
-                                                Platforms grow through people: When developers are heard, they become
-                                                contributors
-                                                instead of mere users.
-                                            </li>
-                                            <li
-                                                class="relative text-neutral-500 pl-4 before:content-['•'] before:absolute before:left-0 before:text-neutral-400 before:text-lg before:top-[-4px]">
-                                                Culture completes technology: Listening, empathy, and iteration turn
-                                                systems into
-                                                communities.
-                                            </li>
-                                            <li
-                                                class="relative text-neutral-500 pl-4 before:content-['•'] before:absolute before:left-0 before:text-neutral-400 before:text-lg before:top-[-4px]">
-                                                Standardization strengthens teamwork: When everyone follows shared
-                                                golden paths,
-                                                collaboration and troubleshooting become seamless.
-                                            </li>
-                                            <li
-                                                class="relative text-neutral-500 pl-4 before:content-['•'] before:absolute before:left-0 before:text-neutral-400 before:text-lg before:top-[-4px]">
-                                                Transparency enhances understanding: Good automation reveals complexity
-                                                when needed — it
-                                                educates rather than hides.
-                                            </li>
+
                                         </ul>
                                     </div>
                                 </div>
 
                                 <div class="section-title mt-6 md:mt-8">
-                                    <h2 class="text-xl md:text-2xl lg:text-3xl font-semibold text-neutral-900 mb-4">
-                                        Final Impact
+                                    <h2
+                                        class="wow animate__animated animate__fadeInUp text-xl md:text-2xl lg:text-3xl font-semibold text-neutral-900 mb-4">
+                                        Looking Ahead
                                     </h2>
-                                    <p class="text-sm lg:text-base text-neutral-400">
-                                        Onboarding into a platform isn’t simply about learning new tools — it’s about
-                                        experiencing
-                                        empowerment. When a platform reduces complexity, it allows developers to return
-                                        to what they
-                                        love most: building, experimenting, and innovating.
-                                        A well-crafted platform doesn’t just help developers start faster — it instills
-                                        confidence.
-                                        That’s the real transformation I’ve witnessed: a platform turns technology into
-                                        a living
-                                        ecosystem, and its users into a collaborative community.
+                                    <p
+                                        class="wow animate__animated animate__fadeInUp text-sm lg:text-base text-neutral-400">
+                                        AI-assisted development is still maturing. Context handling will improve,
+                                        security gaps will shrink, and workflows will stabilize. But one fact is already
+                                        clear: software creation is no longer defined by how quickly you type code—it’s
+                                        about how effectively you manage a human-AI partnership.
+                                        Competitive advantage will favor teams that integrate AI not only into coding
+                                        but into the entire validation process—testing, security, and feedback.
                                     </p>
+                                    <div class="mt-4">
+                                        <p
+                                            class="wow animate__animated animate__fadeInUp text-sm lg:text-base text-neutral-400">
+                                            To succeed:</p>
+                                        <ul class="mt-2 wow animate__animated animate__fadeInUp">
+                                            <li
+                                                class="relative text-neutral-500 pl-4 before:content-['•'] before:absolute before:left-0 before:text-neutral-400 before:text-lg before:top-[-4px]">
+                                                Embed user-feedback mechanisms in your MVPs from the start.
+                                            </li>
+                                            <li
+                                                class="relative text-neutral-500 pl-4 before:content-['•'] before:absolute before:left-0 before:text-neutral-400 before:text-lg before:top-[-4px]">
+                                                Automate every layer of your test pyramid.
+                                            </li>
+                                            <li
+                                                class="relative text-neutral-500 pl-4 before:content-['•'] before:absolute before:left-0 before:text-neutral-400 before:text-lg before:top-[-4px]">
+                                                Build continuous security validation into your pipeline.
+                                            </li>
+                                            <li
+                                                class="relative text-neutral-500 pl-4 before:content-['•'] before:absolute before:left-0 before:text-neutral-400 before:text-lg before:top-[-4px]">
+                                                Measure trust and adoption, not just velocity.
+                                            </li>
+
+                                        </ul>
+                                        <p class="mt-3 text-sm lg:text-base text-neutral-400 ">Teams that embrace this
+                                            holistic approach release high-quality, validated software at unprecedented
+                                            speed. Those that don’t may move quickly—but they’ll break more often.</p>
+                                    </div>
                                 </div>
 
                                 <div class="writer mt-6 md:mt-8 border-t border-neutral-200 pt-6">
-                                    <div class="flex gap-4  items-center ">
+                                    <div class="flex gap-4  items-center wow animate__zoomIn animate__animated ">
                                         <img src="@/assets/images/john.png" alt="Author Avatar"
                                             class="w-16 h-16 rounded-full object-cover mb-4">
-                                        <p class="text-sm lg:text-base text-neutral-400">Richard Aurora</p>
+                                        <p class="text-sm lg:text-base text-neutral-400">Adrian Keller</p>
                                     </div>
 
-                                    <p class="text-sm text-neutral-400">Richard Aurora is a technology strategist and
-                                        writer
-                                        specializing in software engineering excellence, agile transformation, and
-                                        AI-driven innovation.
-                                        With extensive experience in building scalable platforms and leading
-                                        cross-functional teams,
-                                        Richard focuses on bridging the gap between technology, people, and process.</p>
-                                    <div class="social-icon flex mt-4 gap-3">
+                                    <p class="text-sm text-neutral-400 wow animate__animated animate__fadeInUp">Adrian
+                                        Keller is a software engineering leader
+                                        and technology writer specializing in agile transformation, DevOps practices,
+                                        and platform engineering.</p>
+                                    <div class="social-icon flex mt-4 gap-3 wow animate__animated animate__fadeInUp">
                                         <a href="#"
                                             class="inline-flex h-9 w-9 items-center justify-center rounded-full  bg-neutral-100 p-2">
                                             <img src="@/assets/images/icons/facebooks.svg" alt="">

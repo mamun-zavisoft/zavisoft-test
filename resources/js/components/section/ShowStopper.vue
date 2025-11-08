@@ -2,9 +2,10 @@
     <!-- Desktop Grid -->
     <div class="hidden sm:grid  grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-y-6 gap-x-8 lg:gap-x-10 xl:gap-x-16">
         <div v-for="(service, index) in services" :key="index">
-            <img :src="service.icon" alt="" class="mb-3" />
-            <h3 class="mb-4 md:text-base lg:text-lg font-bold text-neutral-900">{{ service.name }}</h3>
-            <p class="text-sm leading-relaxed text-neutral-600 line-clamp-3">
+            <img :src="service.icon" alt="" class="mb-3 wow animate__animated animate__fadeInUp" />
+            <h3 class="mb-4 md:text-base lg:text-lg font-bold text-neutral-900 wow animate__animated animate__fadeInUp">
+                {{ service.name }}</h3>
+            <p class="text-sm leading-relaxed text-neutral-600 line-clamp-3 wow animate__animated animate__fadeInUp">
                 {{ service.content }}
             </p>
         </div>
@@ -21,9 +22,12 @@
             }" @swiper="onSwiper" @slideChange="onSlideChange">
             <SwiperSlide v-for="(service, index) in services" :key="index">
                 <article class="feature-card">
-                    <img :src="service.icon" alt="" class="mb-1 h-9 w-9 object-contain" />
-                    <h3 class="mb-2 text-base font-bold text-neutral-900">{{ service.name }}</h3>
-                    <p class="text-sm leading-relaxed text-neutral-600 line-clamp-3">
+                    <img :src="service.icon" alt="" class="mb-3 wow animate__animated animate__fadeInUp" />
+                    <h3
+                        class="mb-4 md:text-base lg:text-lg font-bold text-neutral-900 wow animate__animated animate__fadeInUp">
+                        {{ service.name }}</h3>
+                    <p
+                        class="text-sm leading-relaxed text-neutral-600 line-clamp-3 wow animate__animated animate__fadeInUp">
                         {{ service.content }}
                     </p>
                 </article>
