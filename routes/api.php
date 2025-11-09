@@ -3,6 +3,7 @@
 use App\Http\Controllers\Api\Auth\EmailVerification;
 use App\Http\Controllers\Api\Auth\LoginController;
 use App\Http\Controllers\Api\Auth\RegisterController;
+use App\Http\Controllers\Api\ContactUsController;
 use Illuminate\Support\Facades\Route;
 
 Route::post('/login', [LoginController::class, 'login']);
@@ -18,3 +19,5 @@ Route::middleware('auth:sanctum')->group(function (): void {
         Route::post('/email/resend', 'resendEmail');
     });
 });
+
+Route::post('/contact-us', [ContactUsController::class,'store']);
