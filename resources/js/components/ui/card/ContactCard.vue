@@ -68,55 +68,105 @@
 
         <!-- Right: form card -->
         <div class="rounded-lg border border-neutral-300 p-4 lg:p-6 bg-neutral-50">
-            <form @submit.prevent="submitForm" class="space-y-5 wow animate__animated animate__fadeInUp">
+            <form @submit.prevent="submitForm" class="space-y-5">
                 <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
                     <div class="flex flex-col gap-2">
                         <label for="name" class="text-sm font-medium text-neutral-600">Your Name</label>
-                        <input id="name" name="name" type="text" placeholder="Type your name"
+                        <input v-model="form.name" id="name" name="name" type="text" placeholder="Type your name"
                             class="h-10 rounded-full border border-neutral-200 bg-white px-3 text-sm text-neutral-900 outline-none ring-0 focus:border-primary-500" />
+                        <p v-if="errors.name" class="text-red-600 text-sm">{{ errors.name[0] }}</p>
                     </div>
+
                     <div class="flex flex-col gap-2">
                         <label for="email" class="text-sm font-medium text-neutral-600">Email</label>
-                        <input id="email" name="email" type="email" placeholder="you@gmail.com"
+                        <input v-model="form.email" id="email" name="email" type="email" placeholder="you@gmail.com"
                             class="h-10 rounded-full border border-neutral-200 bg-white px-3 text-sm text-neutral-900 outline-none ring-0 focus:border-primary-500" />
+                        <p v-if="errors.email" class="text-red-600 text-sm">{{ errors.email[0] }}</p>
                     </div>
                 </div>
 
                 <div class="grid grid-cols-1">
-                    <label for="service" class="text-sm font-medium text-neutral-600 mb-2">Service
-                        name</label>
+                    <label for="service" class="text-sm font-medium text-neutral-600 mb-2">Service name</label>
                     <div class="relative">
-                        <select id="service" name="service"
+                        <select v-model="form.service_name" id="service" name="service_name"
                             class="h-10 w-full appearance-none rounded-full border border-neutral-200 bg-white pl-3 pr-9 text-sm text-neutral-900 focus:border-primary-500">
-                            <option value="" selected>Select here</option>
-                            <option>UI/UX Design</option>
-                            <option>Web Development</option>
-                            <option>Mobile App (Flutter)</option>
-                            <option>Branding</option>
+                            <option value="" disabled>Select here</option>
+                            <option value="UI/UX Design">UI/UX Design & Audit</option>
+                            <option value="Software Development">Software Development</option>
+                            <option value="Web Development">Web Development</option>
+                            <option value="Mobile App Development">Mobile App Development</option>
+                            <option value="QA Testing">QA Testing</option>
+                            <option value="Database Management">Database Management</option>
                         </select>
                     </div>
+                    <p v-if="errors.service_name" class="text-red-600 text-sm">{{ errors.service_name[0] }}</p>
                 </div>
 
                 <div class="flex flex-col gap-2">
-                    <label for="details" class="text-sm font-medium text-neutral-600">Project
-                        details*</label>
-                    <textarea id="details" name="details" rows="3" placeholder="Type here"
+                    <label for="project_details" class="text-sm font-medium text-neutral-600">Project details*</label>
+                    <textarea v-model="form.project_details" id="project_details" name="project_details" rows="3"
+                        placeholder="Type here"
                         class="rounded-lg border border-neutral-200 bg-white px-3 text-sm text-neutral-900 outline-none ring-0 focus:border-primary-500"></textarea>
+                    <p v-if="errors.project_details" class="text-red-600 text-sm">{{ errors.project_details[0] }}</p>
                 </div>
 
-                <div class="flex justify-end">
-                    <button type="submit"
-                        class="cursor-pointer inline-flex items-center justify-center rounded-full bg-primary-500 px-6 py-3 text-sm font-medium text-white shadow-sm hover:bg-primary-600 focus:outline-none focus:ring-2 focus:ring-primary-500">Send
-                        a Brief</button>
+                <div class="flex justify-end items-center gap-3">
+                    <span v-if="serverMessage" class="text-sm">{{ serverMessage }}</span>
+                    <button :disabled="loading" type="submit"
+                        class="cursor-pointer inline-flex items-center justify-center rounded-full bg-primary-500 px-6 py-3 text-sm font-medium text-white shadow-sm hover:bg-primary-600 focus:outline-none focus:ring-2 focus:ring-primary-500">
+                        {{ loading ? 'Sending...' : 'Send a Brief' }}
+                    </button>
                 </div>
             </form>
         </div>
     </div>
 </template>
 
+
 <script setup>
+import { reactive, ref } from 'vue'
+import { useToast } from 'vue-toastification'
+
+const toast = useToast()
+
+const form = reactive({
+    name: '',
+    email: '',
+    service_name: '',
+    project_details: ''
+})
+
+const loading = ref(false)
+const errors = ref({})
 
 const submitForm = async () => {
+    loading.value = true
+    errors.value = {}
 
+    try {
+        const res = await fetch(`api/contact-us`, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(form)
+        })
+
+        if (res.status === 422) {
+            const json = await res.json()
+            errors.value = json.errors || {}
+            toast.error('Please fill all required fields correctly.')
+            return
+        }
+
+        if (!res.ok) throw new Error('Network error')
+
+        const data = await res.json()
+        toast.success(data.message || 'Message sent successfully!')
+        // reset form
+        Object.keys(form).forEach(k => form[k] = '')
+    } catch (e) {
+        toast.error('Something went wrong. Please try again.')
+    } finally {
+        loading.value = false
+    }
 }
 </script>

@@ -15,7 +15,7 @@ const app = createApp(App);
 const pinia = createPinia();
 
 const options = {
-    position: "bottom-right",
+    position: "top-right",
     timeout: 3000,
     closeOnClick: true,
     pauseOnFocusLoss: true,
