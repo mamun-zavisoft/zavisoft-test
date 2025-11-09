@@ -16,7 +16,7 @@ class ContactUsController
         $contact = ContactUs::create($request->validated());
 
         return response()->json([
-            'message' => 'Contact request received',
+            'message' => 'We’ve received your inquiry and will contact you soon.',
             'data' => $contact,
         ], 201);
     }
