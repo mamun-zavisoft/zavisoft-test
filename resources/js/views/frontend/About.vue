@@ -66,7 +66,6 @@
 
         </div>
     </section>
-
     <!-- Manifesto -->
     <section class="py-8 md:py-10 lg:py-12">
         <div class="container">
@@ -89,12 +88,10 @@
             </div>
         </div>
     </section>
-
     <!-- slider  -->
     <section>
         <TeamSlider />
     </section>
-
     <section class=" py-8 md:py-10 lg:py-12">
         <div class="container">
             <SectionHeader text="Our Vision & Mission" />
@@ -149,13 +146,10 @@
                 </div>
             </div>
         </div>
-
     </section>
-
     <section class="py-8 md:py-10 lg:py-12">
         <StartBuilding />
     </section>
-
     <!-- team -->
     <section class="py-8 md:py-10 lg:py-12">
         <div class="container">
@@ -166,12 +160,9 @@
                     Our Diverse Team Tackles Numerous Exciting Projects
                 </h2>
             </div>
-
             <TeamMemberCard />
-
         </div>
     </section>
-
     <section class="py-8 md:py-10 lg:py-12">
         <div class="container">
             <div class="">
@@ -182,7 +173,6 @@
             </div>
         </div>
     </section>
-
     <section class="py-8 md:py-10 lg:py-12 bg-primary-50">
         <div class="container">
             <div class="grid grid-cols-1 md:grid-cols-2 gap-10">
@@ -219,11 +209,7 @@
             </div>
         </div>
     </section>
-
-
-
 </template>
-
 
 <script setup>
 import PartnerMarquee from '@/components/ui/slider/PatnerMarquee.vue';
