@@ -50,8 +50,6 @@
             </div>
         </div>
     </section>
-
-
     <section class=" mt-[-10%] md:mt-[-8%] xl:mt-[-6%] relative z-1">
         <div class="container">
             <div class="border-b border-neutral-200 pb-8 md:pb-10 lg:pb-12">
@@ -62,9 +60,6 @@
             </div>
         </div>
     </section>
-
-
-
     <section class="py-8 md:py-10 lg:py-12 ">
         <div class="container flex flex-col-reverse md:flex-row items-center justify-between gap-16 ">
             <!-- Left Image -->
@@ -145,8 +140,6 @@
             <Service />
         </div>
     </section>
-
-
     <!-- why Choose us -->
     <section class="py-8 md:py-10 lg:py-12 bg-white">
         <div class="container">
@@ -172,12 +165,9 @@
 
         </div>
     </section>
-
-
     <section class="py-8 md:py-10 lg:py-12">
         <StartBuilding />
     </section>
-
     <section class="py-8 md:py-10 lg:py-12">
         <div class="container">
             <!-- Header -->
@@ -202,7 +192,6 @@
             <ShowCaseSlider />
         </div>
     </section>
-
     <section class="py-8 md:py-10 lg:py-12">
         <div class="container">
             <div class="industry-focus lg:border-b border-neutral-200 pb-12">
@@ -289,8 +278,6 @@
             </div>
         </div>
     </section>
-
-
     <section class="industry-tech py-8 md:py-10 lg:py-12">
         <div class="container mx-auto">
             <div class="text-center mb-8 md:mb-10 lg:mb-12">
@@ -308,7 +295,6 @@
             </div>
         </div>
     </section>
-
     <section class=" pb-16 sm:pb-4 py-8 md:py-10 lg:py-12 bg-primary-50">
         <div class="container">
             <TestimonialSlider />
@@ -370,7 +356,6 @@
             </div> -->
         </div>
     </section>
-
     <section class=" py-8 md:py-10 lg:py-12">
         <div class="container">
             <div class="border-b border-neutral-300 pb-12">
@@ -378,7 +363,6 @@
             </div>
         </div>
     </section>
-
     <section class="py-8 md:py-10 lg:py-12">
         <div class="container">
             <!-- Heading -->
@@ -393,7 +377,6 @@
 
         </div>
     </section>
-
 </template>
 <script setup>
 import bgImg from '@/assets/images/hero_bg.webp';
@@ -410,6 +393,5 @@ import TechStacks from '@/components/section/TechStacks.vue';
 import Service from '@/components/section/Service.vue';
 import ContactCard from '@/components/ui/card/ContactCard.vue';
 import SectionHeader from '@/components/ui/heading/SectionHeader.vue';
-
 
 </script>
