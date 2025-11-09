@@ -71,22 +71,22 @@
             <form @submit.prevent="submitForm" class="space-y-5">
                 <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
                     <div class="flex flex-col gap-2">
-                        <label for="name" class="text-sm font-medium text-neutral-600">Your Name</label>
+                        <label for="name" class="text-sm font-medium text-neutral-600">Your Name *</label>
                         <input v-model="form.name" id="name" name="name" type="text" placeholder="Type your name"
                             class="h-10 rounded-full border border-neutral-200 bg-white px-3 text-sm text-neutral-900 outline-none ring-0 focus:border-primary-500" />
-                        <p v-if="errors.name" class="text-red-600 text-sm">{{ errors.name[0] }}</p>
+                        <p v-if="errors.name" class="text-red-600 text-xs">{{ errors.name[0] }}</p>
                     </div>
 
                     <div class="flex flex-col gap-2">
-                        <label for="email" class="text-sm font-medium text-neutral-600">Email</label>
+                        <label for="email" class="text-sm font-medium text-neutral-600">Email *</label>
                         <input v-model="form.email" id="email" name="email" type="email" placeholder="you@gmail.com"
                             class="h-10 rounded-full border border-neutral-200 bg-white px-3 text-sm text-neutral-900 outline-none ring-0 focus:border-primary-500" />
-                        <p v-if="errors.email" class="text-red-600 text-sm">{{ errors.email[0] }}</p>
+                        <p v-if="errors.email" class="text-red-600 text-xs">{{ errors.email[0] }}</p>
                     </div>
                 </div>
 
                 <div class="grid grid-cols-1">
-                    <label for="service" class="text-sm font-medium text-neutral-600 mb-2">Service name</label>
+                    <label for="service" class="text-sm font-medium text-neutral-600 mb-2">Service name *</label>
                     <div class="relative">
                         <select v-model="form.service_name" id="service" name="service_name"
                             class="h-10 w-full appearance-none rounded-full border border-neutral-200 bg-white pl-3 pr-9 text-sm text-neutral-900 focus:border-primary-500">
@@ -99,15 +99,15 @@
                             <option value="Database Management">Database Management</option>
                         </select>
                     </div>
-                    <p v-if="errors.service_name" class="text-red-600 text-sm">{{ errors.service_name[0] }}</p>
+                    <p v-if="errors.service_name" class="text-red-600 text-xs mt-2">{{ errors.service_name[0] }}</p>
                 </div>
 
                 <div class="flex flex-col gap-2">
-                    <label for="project_details" class="text-sm font-medium text-neutral-600">Project details*</label>
+                    <label for="project_details" class="text-sm font-medium text-neutral-600">Project details *</label>
                     <textarea v-model="form.project_details" id="project_details" name="project_details" rows="3"
                         placeholder="Type here"
                         class="rounded-lg border border-neutral-200 bg-white px-3 text-sm text-neutral-900 outline-none ring-0 focus:border-primary-500"></textarea>
-                    <p v-if="errors.project_details" class="text-red-600 text-sm">{{ errors.project_details[0] }}</p>
+                    <p v-if="errors.project_details" class="text-red-600 text-xs">{{ errors.project_details[0] }}</p>
                 </div>
 
                 <div class="flex justify-end items-center gap-3">
@@ -139,21 +139,42 @@ const form = reactive({
 const loading = ref(false)
 const errors = ref({})
 
+// simple regex for basic email pattern
+const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
+
+const validateForm = () => {
+    const e = {}
+
+    if (!form.name.trim()) e.name = ['Name is required.']
+    if (!form.email.trim()) e.email = ['Email is required.']
+    else if (!emailPattern.test(form.email)) e.email = ['Invalid email address.']
+    if (!form.service_name) e.service_name = ['Please select a service.']
+    if (!form.project_details.trim()) e.project_details = ['Project details are required.']
+
+    errors.value = e
+    return Object.keys(e).length === 0
+}
+
 const submitForm = async () => {
+    // client-side validation
+    if (!validateForm()) {
+        // toast.error('Please fill all required fields correctly.')
+        return
+    }
+
     loading.value = true
-    errors.value = {}
 
     try {
-        const res = await fetch(`api/contact-us`, {
+        const res = await fetch(`/api/contact-us`, {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify(form)
+            body: JSON.stringify(form),
         })
 
         if (res.status === 422) {
             const json = await res.json()
             errors.value = json.errors || {}
-            toast.error('Please fill all required fields correctly.')
+            toast.error('Please correct the highlighted fields.')
             return
         }
 
@@ -161,8 +182,7 @@ const submitForm = async () => {
 
         const data = await res.json()
         toast.success(data.message || 'Message sent successfully!')
-        // reset form
-        Object.keys(form).forEach(k => form[k] = '')
+        Object.keys(form).forEach(k => (form[k] = ''))
     } catch (e) {
         toast.error('Something went wrong. Please try again.')
     } finally {
