@@ -7,7 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     {{-- <link rel="icon" href="@/assets/images/icons/favicon.svg" type="image/svg+xml"> --}}
     <link rel="icon" href="{{ asset('favicon.svg') }}" type="image/svg+xml">
-    {{-- <title>{{ config('app.name') }}</title> --}}
+    <title>{{ config('app.name') }} | @yield('title')</title>
     @vite(['resources/css/app.css', 'resources/js/app.js'])
     <link rel="stylesheet" href="{{ asset('assets/css/admin.css') }}">
 
@@ -20,10 +20,10 @@
 
     <div class="main-wrapper">
         <div class="header">
-            @include('admin.layouts.include.dashboardheader')
+            @include('backend.layouts.includes.dashboard.header')
         </div>
         <div class="sidebar" id="sidebar">
-            @include('admin.layouts.include.sidebar')
+            @include('backend.layouts.includes.dashboard.sidebar')
         </div>
 
         <main class="page-wrapper">

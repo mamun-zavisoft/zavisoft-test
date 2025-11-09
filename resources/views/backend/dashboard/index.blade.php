@@ -1,2 +1,6 @@
-<h3>Dashboard</h3>
- 
+@extends('backend.layouts.dashboard')
+@section('title', 'Dashboard')
+
+@section('content')
+    <h1>Dashboard</h1>
+@endsection

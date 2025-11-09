@@ -1,1 +1,6 @@
-<h4>login</h4>
+@extends('backend.layouts.auth')
+@section('title', 'Login')
+
+@section('content')
+    <h1>login</h1>
+@endsection
