@@ -21,6 +21,7 @@ import fastAuto from '@/assets/images/partner/fast_auto.svg'
 import hatbazar from '@/assets/images/partner/hatbazar.svg'
 import pixelax from '@/assets/images/partner/pixelax.svg'
 import steadfast from '@/assets/images/partner/steadfast.svg'
+import packly from '@/assets/images/partner/packly.svg'
 
 const props = defineProps({
     reverse: {
@@ -31,7 +32,7 @@ const props = defineProps({
 
 const reverse = toRef(props, 'reverse')
 
-const logos = [bangladrop, faspower, fastAuto, hatbazar, pixelax, steadfast]
+const logos = [bangladrop, faspower, fastAuto, hatbazar, pixelax, steadfast, packly]
 
 const marquee = ref(null)
 const content = ref(null)

@@ -3,14 +3,14 @@
         <div class="heo relative w-full  bg-no-repeat bg-center bg-cover mt-[-120px] pb-8"
             :style="{ backgroundImage: `url(${bgImg})` }">
             <div class="container">
-                <div class="pt-30 lg:pt-36 xl:pt-40 flex flex-col items-center gap-3">
-                    <div class="flex flex-col items-center gap-4 justify-center ">
+                <div class="pt-30 lg:pt-36 xl:pt-40 ">
+                    <div class="flex flex-col gap-4 md:mb-2 mb-0 lg:mb-4 ">
                         <h1
-                            class="wow animate__animated animate__fadeInUp text-center text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold text-neutral-900">
+                            class="wow animate__animated animate__fadeInUp text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-bold text-neutral-900">
                             Have a project idea in mind? <br> <span class="text-neutral-500 text-center">Let's get
                                 started.</span>
                         </h1>
-                        <p class="wow animate__animated animate__fadeInUp text-sm md:text-base text-neutral-600">We
+                        <p class="mt-2 wow animate__animated animate__fadeInUp text-sm md:text-base text-neutral-600">We
                             create appealing, user-friendly designs that
                             help our clients delight the audience, increase brand awareness.</p>
 
