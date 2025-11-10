@@ -7,20 +7,32 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     {{-- <link rel="icon" href="@/assets/images/icons/favicon.svg" type="image/svg+xml"> --}}
     <link rel="icon" href="{{ asset('favicon.svg') }}" type="image/svg+xml">
-    {{-- <title>{{ config('app.name') }}</title> --}}
+    <title>{{ config('app.name') }} | @yield('title')</title>
+    <link rel="stylesheet" href="{{ asset('assets/plugins/fontawesome/css/fontawesome.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/plugins/fontawesome/css/all.min.css') }}">
     @vite(['resources/css/app.css', 'resources/js/app.js'])
+
     <link rel="stylesheet" href="{{ asset('assets/css/admin.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/css/animate.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/css/admin-dist.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/css/custom.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/css/flowbite.min.css') }}" />
 
 </head>
 
 <body>
     <div class="main-wrapper">
-        <main class="page-wrapper">
-            <div class="content">
-                @yield('content')
-            </div>
-        </main>
+        <div class="content">
+            @yield('content')
+        </div>
     </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/flowbite@3.1.2/dist/flowbite.min.js"></script>
+    <!-- Feather Icon JS -->
+    <script src="{{ asset('assets/js/feather.min.js') }}"></script>
+    <script src="{{ asset('assets/js/jquery.slimscroll.min.js') }}"></script>
+    <script src="{{ asset('assets/js/script.js') }}"></script>
 </body>
 
 </html>

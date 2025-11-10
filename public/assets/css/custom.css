@@ -1,0 +1,46 @@
+.sidebar {
+    z-index: 5 !important;
+}
+
+.sidebar .sidebar-menu>ul>li>a .menu-arrow {
+    font-size: 14px;
+}
+
+.sidebar .sidebar-menu>ul>li>a.subdrop {
+    border-radius: 5px;
+    background-color: rgb(27 40 80 / var(--tw-bg-opacity, 1)) !important;
+    color: rgb(255 255 255 / var(--tw-text-opacity, 1)) !important;
+}
+
+
+.sidebar .sidebar-menu>ul>li>a.subdrop span,
+.sidebar .sidebar-menu>ul>li>a.subdrop img {
+    color: white;
+    filter: brightness(0) invert(1) !important;
+
+}
+
+.sidebar .sidebar-menu>ul>li>a.subdrop:hover img {
+    filter: brightness(0) invert(1) !important;
+    color: white !important;
+
+}
+
+.customizer-links {
+    display: none !important;
+}
+
+.header .user-img img {
+    margin-top: 0;
+}
+
+
+
+.login-wrapper .login-content {
+    padding: 0;
+    width: 30%;
+}
+
+.login-wrapper .login-userset {
+    padding: 30px;
+}
