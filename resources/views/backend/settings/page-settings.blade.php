@@ -1,6 +1,6 @@
 @extends('backend.layouts.dashboard')
-@section('title', 'Dashboard')
+@section('title', 'Page Settings')
 
 @section('content')
-    <h4>Dashboard</h4>
+    <h4>Page -settings</h4>
 @endsection
