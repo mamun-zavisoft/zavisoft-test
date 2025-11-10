@@ -10,14 +10,12 @@
     <title>{{ config('app.name') }} | @yield('title')</title>
     @vite(['resources/css/app.css', 'resources/js/app.js'])
     <link rel="stylesheet" href="{{ asset('assets/css/admin.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/css/animate.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/css/admin-dist.css') }}">
 
 </head>
 
 <body>
-    <div id="global-loader">
-        <div class="whirly-loader"> </div>
-    </div>
-
     <div class="main-wrapper">
         <div class="header">
             @include('backend.layouts.includes.dashboard.header')
@@ -26,12 +24,16 @@
             @include('backend.layouts.includes.dashboard.sidebar')
         </div>
 
-        <main class="page-wrapper">
+        <main class="page-wrapper h-screen">
             <div class="content">
                 @yield('content')
             </div>
         </main>
     </div>
+
+    <script src="{{ asset('assets/js/script.js') }}"></script>
+    <script src="{{ asset('assets/js/jquery.slimscroll.min.js') }}"></script>
+    <script src="https://cdn.jsdelivr.net/npm/flowbite@3.1.2/dist/flowbite.min.js"></script>
 </body>
 
 </html>
