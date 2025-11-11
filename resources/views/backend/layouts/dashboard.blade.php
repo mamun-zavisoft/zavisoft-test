@@ -10,14 +10,15 @@
     <title>{{ config('app.name') }} | @yield('title')</title>
     <link rel="stylesheet" href="{{ asset('assets/plugins/fontawesome/css/fontawesome.min.css') }}">
     <link rel="stylesheet" href="{{ asset('assets/plugins/fontawesome/css/all.min.css') }}">
-
+    <link rel="stylesheet" href="{{ asset('assets/css/flowbite.min.css') }}" />
 
     <link rel="stylesheet" href="{{ asset('assets/css/admin.css') }}">
     <link rel="stylesheet" href="{{ asset('assets/css/animate.css') }}">
     <link rel="stylesheet" href="{{ asset('assets/css/admin-dist.css') }}">
     <link rel="stylesheet" href="{{ asset('assets/css/custom.css') }}">
-    <link rel="stylesheet" href="{{ asset('assets/css/flowbite.min.css') }}" />
+
     @vite(['resources/css/app.css', 'resources/js/app.js'])
+
 
 </head>
 
