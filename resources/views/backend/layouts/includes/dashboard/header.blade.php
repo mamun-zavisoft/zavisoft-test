@@ -74,7 +74,7 @@
                          <a href="activities.html">
                              <div class="media flex">
                                  <span class="avatar flex-shrink-0">
-                                     <img alt="" src="{{ asset('assets/images/profiles/avatar-06.jpg') }}">
+                                     <img alt="" src="{{ asset('assets/images/profiles/avatar-04.jpg') }}">
                                  </span>
                                  <div class="media-body flex-grow">
                                      <p class="noti-details"><span class="noti-title">Misty Tison</span> added <span
@@ -90,7 +90,7 @@
                          <a href="activities.html">
                              <div class="media flex">
                                  <span class="avatar flex-shrink-0">
-                                     <img alt="" src="{{ asset('assets/images/profiles/avatar-17.jpg') }}">
+                                     <img alt="" src="{{ asset('assets/images/profiles/avatar-05.jpg') }}">
                                  </span>
                                  <div class="media-body flex-grow">
                                      <p class="noti-details"><span class="noti-title">Rolland Webber</span> completed
@@ -104,7 +104,7 @@
                          <a href="activities.html">
                              <div class="media flex">
                                  <span class="avatar flex-shrink-0">
-                                     <img alt="" src="{{ asset('assets/images/profiles/avatar-13.jpg') }}">
+                                     <img alt="" src="{{ asset('assets/images/profiles/avatar-03.jpg') }}">
                                  </span>
                                  <div class="media-body flex-grow">
                                      <p class="noti-details"><span class="noti-title">Bernardo Galaviz</span> added
