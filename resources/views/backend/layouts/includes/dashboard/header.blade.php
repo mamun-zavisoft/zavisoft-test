@@ -1,12 +1,12 @@
  <!-- Logo -->
  <div class="header-left active">
-     <a href="index.html" class="logo logo-normal">
+     <a href={{ route('admin.dashboard') }} class="logo logo-normal">
          <img src="{{ asset('assets/images/logo/logo.svg') }}" alt="">
      </a>
-     <a href="index.html" class="logo logo-white">
+     <a href="{{ route('admin.dashboard') }}" class="logo logo-white">
          <img src="{{ asset('assets/images/logo/logo_white.svg') }}" alt="">
      </a>
-     <a href="index.html" class="logo-small">
+     <a href="{{ route('admin.dashboard') }}" class="logo-small">
          <img src="{{ asset('assets/images/logo/favicon.svg') }}" alt="">
      </a>
      <a id="toggle_btn" href="javascript:void(0);">
