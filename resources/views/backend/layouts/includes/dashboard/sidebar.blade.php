@@ -20,13 +20,13 @@
                             Settings</a></li>
                     <li><a href="{{ route('admin.settings.page-settings') }}">Page Settings</a></li>
                     <li><a href="{{ route('admin.settings.services') }}">Service</a></li>
-                    <li><a href="addproduct.html">Projects</a></li>
-                    <li><a href="categorylist.html">Blogs</a></li>
-                    <li><a href="addcategory.html">Careers</a></li>
-                    <li><a href="subcategorylist.html">Patners</a></li>
-                    <li><a href="subaddcategory.html">Testimonials</a></li>
-                    <li><a href="brandlist.html">Team Members</a></li>
-                    <li><a href="addbrand.html">Social Media</a></li>
+                    <li><a href="{{ route('admin.settings.projects') }}">Projects</a></li>
+                    <li><a href="#">Blogs</a></li>
+                    <li><a href="#">Careers</a></li>
+                    <li><a href="#">Patners</a></li>
+                    <li><a href="#">Testimonials</a></li>
+                    <li><a href="#">Team Members</a></li>
+                    <li><a href="#">Social Media</a></li>
                 </ul>
             </li>
         </ul>
