@@ -1,8 +1,8 @@
 <template>
     <!-- Desktop Grid -->
-    <div class="hidden sm:grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-x-12 gap-y-6">
+    <div class="hidden sm:grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-x-6 gap-y-6">
         <div class="group relative wow animate__zoomIn animate__animated" v-for="team in teamMembers" :key="team.name">
-            <img :src="team.photo" alt="" class="w-[324px]  h-[324px] object-cover" />
+            <img :src="team.photo" alt="" class="w-full  h-[268px] object-cover" />
             <div class="mt-4 flex justify-between">
                 <div>
                     <h3 class="text-base md:text-lg text-neutral-900 font-bold">
@@ -73,15 +73,26 @@ import { Autoplay, Pagination } from 'swiper/modules'
 
 const teamMembers = [
     { name: 'Mosarrof Hossain', title: 'Tech Advisor', photo: new URL('@/assets/images/rubel.png', import.meta.url).href, linkedin: '#' },
-    { name: 'Md Ratul Uddin Ashraf', title: 'Team Lead', photo: new URL('@/assets/images/ratul.jpg', import.meta.url).href, linkedin: '#' },
+    { name: 'Md Ratul Uddin Ashraf', title: 'Team Lead', photo: new URL('@/assets/images/ratul.png', import.meta.url).href, linkedin: '#' },
     { name: 'Badrul Hasan Sajib', title: 'Project & Recruitment Manager', photo: new URL('@/assets/images/sajib.jpg', import.meta.url).href, linkedin: '#' },
-    { name: 'Mizanur Rahman', title: 'Sr. UI/Ux Designer', photo: new URL('@/assets/images/mizan.jpg', import.meta.url).href, linkedin: '#' },
     { name: 'Md. Meraz Hossain', title: 'Scrum Master', photo: new URL('@/assets/images/meraz.JPG', import.meta.url).href, linkedin: 'https://bd.linkedin.com/in/md-meraz-hossain-400424133' },
-    { name: 'SMK Shawon', title: 'Software Quality Assurance Engineer', photo: new URL('@/assets/images/shawon.jpg', import.meta.url).href, linkedin: '#' },
+    { name: 'SMK Shawon', title: 'SQA Engineer', photo: new URL('@/assets/images/smk.jpeg', import.meta.url).href, linkedin: '#' },
     { name: 'Amadul Haque', title: 'Software Developer', photo: new URL('@/assets/images/amad.jpg', import.meta.url).href, linkedin: '#' },
-    { name: 'Mashikur Rahman Mirash', title: 'Software Engineer', photo: new URL('@/assets/images/mashikur.jpg', import.meta.url).href, linkedin: '#' },
+    { name: 'Mashikur Rahman Mirash', title: 'Software Engineer', photo: new URL('@/assets/images/mashikur.png', import.meta.url).href, linkedin: '#' },
     { name: 'Jeishanul Haque Shishir', title: 'Laravel & Vue.js Developer', photo: new URL('@/assets/images/shishir.jpg', import.meta.url).href, linkedin: '#' },
     { name: 'Tamim Hossain', title: 'Frontend Developer', photo: new URL('@/assets/images/tamim.png', import.meta.url).href, linkedin: '#' },
+     { name: 'Samiul Kabir', title: 'Frontend Developer', photo: new URL('@/assets/images/kabir.jpg', import.meta.url).href, linkedin: '#' },
+    { name: 'Md Abdul Mannan', title: 'Frontend Developer', photo: new URL('@/assets/images/mannan.png', import.meta.url).href, linkedin: '#' },
+    { name: 'Shamim Hossain', title: 'Sr. SQA Engineer', photo: new URL('@/assets/images/shamim.png', import.meta.url).href, linkedin: '#' },
+    { name: 'Mizanur Rahman', title: 'Sr. UI/Ux Designer', photo: new URL('@/assets/images/mizan.jpg', import.meta.url).href, linkedin: '#' },
+    { name: 'Akash Basak', title: 'UI/Ux Designer', photo: new URL('@/assets/images/akash.png', import.meta.url).href, linkedin: '#' },
+    { name: 'Tareq Mahmud', title: 'UI/Ux Designer', photo: new URL('@/assets/images/tarek.png', import.meta.url).href, linkedin: '#' },
+    { name: 'Mrinmoyee Dey', title: 'UI/Ux Designer', photo: new URL('@/assets/images/dey.png', import.meta.url).href, linkedin: '#' },
+    { name: 'Md Alhaz Mondal Hredhay', title: 'Software Engineer', photo: new URL('@/assets/images/hredhay.png', import.meta.url).href, linkedin: '#' },
+    { name: 'Mustafa Fahim', title: 'Mobile Software engineer (Flutter)', photo: new URL('@/assets/images/fahim.jpg', import.meta.url).href, linkedin: '#' },
+   
+
+
 ]
 
 const totalSlides = teamMembers.length
