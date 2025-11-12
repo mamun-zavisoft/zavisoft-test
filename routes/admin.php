@@ -18,3 +18,6 @@ Route::get('/page-settings', function () {
 Route::get('/services', function () {
     return view('backend.settings.services');
 })->name('settings.services');
+Route::get('/projects', function () {
+    return view('backend.settings.projects');
+})->name('settings.projects');
