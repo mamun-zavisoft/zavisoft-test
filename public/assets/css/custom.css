@@ -190,3 +190,7 @@
 ::-webkit-scrollbar-thumb:hover {
     background: var(--color-primary-500);
 }
+
+.header .user-img {
+    display: flex;
+}

@@ -126,7 +126,8 @@
      <li class="nav-item dropdown has-arrow main-drop">
          <a href="javascript:void(0);" class="dropdown-toggle focus:bg-[#eeeeee] nav-link userset"
              data-dropdown-toggle="dropdownProfile">
-             <span class="user-img"><img src="{{ asset('assets/images/profiles/avator1.jpg') }}" alt="">
+             <span class="user-img flex items-center justify-center"><img
+                     src="{{ asset('assets/images/profiles/avator1.jpg') }}" alt="">
                  <span class="status online"></span></span>
          </a>
          <div id="dropdownProfile"

@@ -25,13 +25,13 @@
                             id="contacts-tab" data-tabs-target="#contacts" type="button" role="tab"
                             aria-controls="contacts" aria-selected="false">Contacts</button>
                     </li>
-                    <li role="presentation">
+                    <li class="me-2" role="presentation">
                         <button
                             class="tab-btn inline-block p-4 border-b-2 rounded-t-lg hover:text-neutral-600 hover:border-neutral-300 dark:hover:text-neutral-300"
                             id="services-tab" data-tabs-target="#services" type="button" role="tab"
                             aria-controls="services" aria-selected="false">Services</button>
                     </li>
-                    <li role="presentation">
+                    <li class="me-2" role="presentation">
                         <button
                             class="tab-btn inline-block p-4 border-b-2 rounded-t-lg hover:text-neutral-600 hover:border-neutral-300 dark:hover:text-neutral-300"
                             id="projects-tab" data-tabs-target="#projects" type="button" role="tab"

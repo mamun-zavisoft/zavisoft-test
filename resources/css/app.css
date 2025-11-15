@@ -5,9 +5,12 @@
 
 /* Import Flowbite plugin */
 @plugin "flowbite/plugin";
+@plugin "flowbite-typography";
+
 
 /* Add Flowbite Vue directory using @source directive */
 @source "../node_modules/flowbite-vue";
+@source "../node_modules/flowbite-typography";
 
 @source '../../vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php';
 @source '../../storage/framework/views/*.php';
@@ -474,5 +477,3 @@ body {
 .animate__animated.animate__fadeInUpSmall {
     animation-name: fadeInUpSmall;
 }
-
-
