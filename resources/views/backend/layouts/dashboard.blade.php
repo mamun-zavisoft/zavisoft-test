@@ -13,16 +13,12 @@
     <link rel="stylesheet" href="{{ asset('assets/plugins/fontawesome/css/all.min.css') }}">
     <link rel="stylesheet" href="{{ asset('assets/css/flowbite.min.css') }}" />
     <link href="https://cdn.quilljs.com/1.3.6/quill.snow.css" rel="stylesheet">
-
+    <link rel="stylesheet" href="{{ asset('assets/plugins/select2/css/select2.min.css') }}">
 
     <link rel="stylesheet" href="{{ asset('assets/css/admin.css') }}">
     <link rel="stylesheet" href="{{ asset('assets/css/animate.css') }}">
     <link rel="stylesheet" href="{{ asset('assets/css/admin-dist.css') }}">
     <link rel="stylesheet" href="{{ asset('assets/css/custom.css') }}">
-
-
-
-
 </head>
 
 <body>
@@ -49,6 +45,8 @@
     <script src="{{ asset('assets/js/feather.min.js') }}"></script>
     <script src="{{ asset('assets/js/jquery.slimscroll.min.js') }}"></script>
     <script src="{{ asset('assets/js/script.js') }}"></script>
+    <script src="{{ asset('assets/plugins/select2/js/select2.min.js') }}"></script>
+
 
 
 

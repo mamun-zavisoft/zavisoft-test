@@ -194,3 +194,26 @@
 .header .user-img {
     display: flex;
 }
+
+.sidebar .sidebar-menu>ul>li.submenu ul li a {
+    padding-top: 0.3rem;
+    padding-bottom: 0.3rem;
+    padding-left: 2.2rem;
+}
+
+.sidebar .sidebar-menu>ul>li.submenu ul {
+    flex-direction: column;
+    gap: 8px;
+}
+
+.sidebar .sidebar-menu>ul>li.submenu ul li a::after {
+    top: 10px;
+}
+
+.select2-container--focus .select2-selection--single {
+    border-color: var(--color-primary-500);
+}
+
+.select2-container--default .select2-results__option--highlighted[aria-selected] {
+    background-color: var(--color-primary-500);
+}

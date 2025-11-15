@@ -1,4 +1,4 @@
-<div class="">
+<div class="bg-gray-50">
     <input type="hidden" id="description-input" />
     <div id="editor-description" class="">
 
