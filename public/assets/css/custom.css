@@ -93,6 +93,14 @@
     .sidebar {
         margin-left: -650px;
     }
+
+    .login-wrapper .login-content {
+        width: 100%;
+    }
+
+    .login-wrapper .login-userset {
+        padding: 20px;
+    }
 }
 
 .slide-nav .sidebar {
@@ -134,7 +142,125 @@
     }
 }
 
-.submenu ul li.active a {
-    color: red !important;
+.sidebar .sidebar-menu>ul>li.submenu ul li a:hover {
+    color: var(--color-primary-500) !important;
+}
 
+.submenu ul li.active a {
+    color: var(--color-primary-500) !important;
+}
+
+.sidebar .sidebar-menu>ul>li.submenu ul li a:hover:after {
+    border-color: var(--color-primary-500) !important;
+    background-color: var(--color-primary-500) !important;
+}
+
+.submenu ul li.active a:after {
+    border-color: var(--color-primary-500) !important;
+    background-color: var(--color-primary-500) !important;
+}
+
+.btn-submit {
+    background: var(--color-primary-500);
+}
+
+.btn-submit:hover {
+    background: var(--color-primary-600);
+}
+
+
+.form-group input[type=number]:focus,
+.form-group input[type=email]:focus,
+.form-group textarea:focus {
+    border-color: var(--color-primary-500) !important;
+}
+
+.form-group input[type=text]:focus,
+.form-group input[type=textarea]:focus {
+    border-color: var(--color-primary-500) !important;
+
+}
+
+/* Scrollbar Width */
+
+
+/* Track */
+::-webkit-scrollbar-track {
+    background: #f1f1f1;
+}
+
+/* Thumb */
+::-webkit-scrollbar-thumb {
+    background: var(--color-primary-500);
+}
+
+/* Thumb Hover */
+::-webkit-scrollbar-thumb:hover {
+    background: var(--color-primary-500);
+}
+
+.header .user-img {
+    display: flex;
+}
+
+.sidebar .sidebar-menu>ul>li.submenu ul li a {
+    padding-top: 0.3rem;
+    padding-bottom: 0.3rem;
+    padding-left: 2.2rem;
+}
+
+.sidebar .sidebar-menu>ul>li.submenu ul {
+    flex-direction: column;
+    gap: 8px;
+}
+
+.sidebar .sidebar-menu>ul>li.submenu ul li a::after {
+    top: 10px;
+}
+
+.select2-container--focus .select2-selection--single {
+    border-color: var(--color-primary-500);
+}
+
+.select2-container--default .select2-results__option--highlighted[aria-selected] {
+    background-color: var(--color-primary-500);
+}
+
+.ql-editor.ql-blank {
+    min-height: 110px !important;
+}
+
+.ql-toolbarql-snow {
+    border-radius: 4px !important;
+}
+
+
+.login-wrapper .login-content .form-login .btn-login {
+    border-color: var(--color-primary-500);
+    background-color: var(--color-primary-500);
+    color: var(--color-white);
+}
+
+.login-wrapper .login-content .form-login .btn-login:hover {
+    color: var(--color-primary-500);
+}
+
+.login-wrapper .login-content .form-login .alreadyuser h4 a {
+    color: var(--color-primary-500);
+}
+
+.login-wrapper .login-content .form-login .alreadyuser h4 a:hover {
+    color: var(--color-primary-500) !important;
+    border-color: var(--color-primary-500);
+
+}
+
+.login-wrapper .login-content .form-sociallink ul li a:hover {
+    background-color: var(--color-primary-500);
+    color: var(--color-white);
+}
+
+.login-wrapper .login-content .form-login input:focus {
+    border-color: var(--color-primary-500) !important;
+    --tw-ring-color: var(--color-primary-500) !important;
 }

@@ -2,6 +2,6 @@
 @section('title', 'Dashboard')
 
 @section('content')
-    <h4>Dashboard</h4>
+    <h4>demo</h4>
     @include('backend.settings.ckeditor')
 @endsection

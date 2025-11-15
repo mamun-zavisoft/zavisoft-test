@@ -19,6 +19,14 @@ const router = createRouter({
 
 router.beforeEach(async (to, from, next) => {
     const authStore = useAuthStore();
+    const isBrowser = typeof window !== "undefined" && typeof document !== "undefined";
+    const hasSpaRoot = isBrowser && document.getElementById("app");
+    const isBackendRoute = to.path?.startsWith?.("/admin");
+
+    // Skip SPA guard logic when we're on backend views or the app root doesn't exist.
+    if (!hasSpaRoot || isBackendRoute) {
+        return next();
+    }
 
     // Set page title
     document.title = to.meta.title ? `${to.meta.title} | Zavisoft` : "Zavisoft";
