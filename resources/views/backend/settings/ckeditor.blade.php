@@ -1,82 +1,84 @@
-<div class="bg-gray-50">
-    <input type="hidden" id="description-input" />
-    <div id="editor-description" class="">
-
-    </div>
+<div class="bg-white quill-wrapper">
+    <input type="hidden" name="{{ $name }}" class="quill-input" value="{{ $value ?? '' }}"
+        data-placeholder="{{ $placeholder ?? 'Write here...' }}" />
+    <div class="quill-editor"></div>
 </div>
 
+@once
+    @push('scripts')
+        <script>
+            document.addEventListener('DOMContentLoaded', function() {
+                const toolbarOptions = [
+                    [{
+                        'font': []
+                    }, {
+                        'size': ['small', false, 'large', 'huge']
+                    }],
+                    [{
+                        'header': [1, 2, 3, 4, 5, 6, false]
+                    }],
+                    ['bold', 'italic', 'underline', 'strike'],
+                    [{
+                        'color': []
+                    }, {
+                        'background': []
+                    }],
+                    [{
+                        'align': []
+                    }],
+                    [{
+                        'list': 'ordered'
+                    }, {
+                        'list': 'bullet'
+                    }, {
+                        'indent': '-1'
+                    }, {
+                        'indent': '+1'
+                    }],
+                    ['blockquote', 'code-block'],
+                    ['link', 'image', 'video'],
+                    ['clean']
+                ];
 
-<script>
-    document.addEventListener('DOMContentLoaded', function() {
+                // Initialize all editors
+                const wrappers = document.querySelectorAll('.quill-wrapper');
 
+                wrappers.forEach(function(wrapper) {
+                    const editorEl = wrapper.querySelector('.quill-editor');
+                    const hiddenInput = wrapper.querySelector('.quill-input');
 
-        const toolbarOptions = [
-            // Font family + size
-            [{
-                'font': []
-            }, {
-                'size': ['small', false, 'large', 'huge']
-            }],
+                    const quill = new Quill(editorEl, {
+                        theme: 'snow',
+                        placeholder: hiddenInput.getAttribute('data-placeholder') || 'Description...',
+                        modules: {
+                            toolbar: toolbarOptions
+                        }
+                    });
 
-            // Headers
-            [{
-                'header': [1, 2, 3, 4, 5, 6, false]
-            }],
+                    // Set initial value from hidden input (for edit forms)
+                    if (hiddenInput.value) {
+                        quill.root.innerHTML = hiddenInput.value;
+                    }
 
-            // Basic styles
-            ['bold', 'italic', 'underline', 'strike'],
+                    // Store a reference so we can find it later on submit
+                    editorEl._quillInstance = quill;
+                });
 
-            // Text color & background
-            [{
-                'color': []
-            }, {
-                'background': []
-            }],
+                // Attach submit handler to ALL forms on the page
+                document.querySelectorAll('form').forEach(function(form) {
+                    form.addEventListener('submit', function() {
+                        form.querySelectorAll('.quill-wrapper').forEach(function(wrapper) {
+                            const editorEl = wrapper.querySelector('.quill-editor');
+                            const hiddenInput = wrapper.querySelector('.quill-input');
+                            const quill = editorEl._quillInstance;
 
-            // Text alignment
-            [{
-                'align': []
-            }],
-
-            // Lists & indentation
-            [{
-                'list': 'ordered'
-            }, {
-                'list': 'bullet'
-            }, {
-                'indent': '-1'
-            }, {
-                'indent': '+1'
-            }],
-
-            // Block quotes & code blocks
-            ['blockquote', 'code-block'],
-
-            // Links, images, videos
-            ['link', 'image', 'video'],
-
-            // Clear formatting
-            ['clean']
-        ];
-
-
-        // Initialize Quill for Description
-        const quillDescription = new Quill('#editor-description', {
-            theme: 'snow',
-            placeholder: 'Description...',
-            modules: {
-                toolbar: toolbarOptions
-            }
-        });
-
-
-        // Set initial values
-        quillDescription.root.innerHTML = document.getElementById('description-input').value;
-
-        // Sync both on form submit
-        document.querySelector('form').addEventListener('submit', function() {
-            document.getElementById('description-input').value = quillDescription.root.innerHTML;
-        });
-
-    });
-</script>
+                            if (quill) {
+                                hiddenInput.value = quill.root.innerHTML;
+                            }
+                        });
+                    });
+                });
+            });
+        </script>
+    @endpush
+@endonce

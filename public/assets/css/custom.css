@@ -217,3 +217,11 @@
 .select2-container--default .select2-results__option--highlighted[aria-selected] {
     background-color: var(--color-primary-500);
 }
+
+.ql-editor.ql-blank {
+    min-height: 110px !important;
+}
+
+.ql-toolbarql-snow {
+    border-radius: 4px !important;
+}

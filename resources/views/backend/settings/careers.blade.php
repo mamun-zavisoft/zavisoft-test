@@ -46,10 +46,47 @@
             <div class="col-span-1 md:col-span-2">
                 <div class="form-group">
                     <label>Job Description <span class="manitory">*</span></label>
-                    @include('backend.settings.ckeditor')
+                    @include('backend.settings.ckeditor', [
+                        'name' => 'job_description',
+                        'value' => old('job_description', $career->job_description ?? ''),
+                        'placeholder' => 'Write job description...',
+                    ])
                 </div>
-                @include('backend.settings.ckeditor')
             </div>
+
+            <div class="col-span-1 md:col-span-2">
+                <div class="form-group">
+                    <label>Essential Requirement <span class="manitory">*</span></label>
+                    @include('backend.settings.ckeditor', [
+                        'name' => 'essential_requirement',
+                        'value' => old('essential_requirement', $career->essential_requirement ?? ''),
+                        'placeholder' => 'Write essential requirements...',
+                    ])
+                </div>
+            </div>
+
+            <div class="col-span-1 md:col-span-2">
+                <div class="form-group">
+                    <label>Key Responsibilities <span class="manitory">*</span></label>
+                    @include('backend.settings.ckeditor', [
+                        'name' => 'key_responsibilities',
+                        'value' => old('key_responsibilities', $career->key_responsibilities ?? ''),
+                        'placeholder' => 'Write key responsibilities...',
+                    ])
+                </div>
+            </div>
+
+            <div class="col-span-1 md:col-span-2">
+                <div class="form-group">
+                    <label>Why Join Zavisoft <span class="manitory">*</span></label>
+                    @include('backend.settings.ckeditor', [
+                        'name' => 'why_join',
+                        'value' => old('why_join', $career->why_join ?? ''),
+                        'placeholder' => 'Why should someone join Zavisoft?',
+                    ])
+                </div>
+            </div>
+
             <div class="col-span-1 md:col-span-2">
                 <div class="flex justify-end mt-6">
                     <button class="btn btn-submit mr-2">Submit</button>

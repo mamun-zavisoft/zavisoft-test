@@ -40,6 +40,7 @@
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/flowbite@3.1.2/dist/flowbite.min.js"></script>
+    <script src="https://cdn.quilljs.com/1.3.6/quill.min.js"></script>
 
     <!-- Feather Icon JS -->
     <script src="{{ asset('assets/js/feather.min.js') }}"></script>
@@ -49,7 +50,7 @@
 
 
 
-
+    @stack('scripts')
 </body>
 
 </html>
