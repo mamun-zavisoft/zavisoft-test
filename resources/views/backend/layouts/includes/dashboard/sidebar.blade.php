@@ -21,6 +21,7 @@
                     <li><a href="{{ route('admin.settings.page-settings') }}">Page Settings</a></li>
                     <li><a href="{{ route('admin.settings.services') }}">Service</a></li>
                     <li><a href="{{ route('admin.settings.projects') }}">Projects</a></li>
+                    <li><a href="{{ route('admin.settings.industry-focus') }}">industry-focus</a></li>
                     <li><a href="#">Blogs</a></li>
                     <li><a href="#">Careers</a></li>
                     <li><a href="#">Patners</a></li>

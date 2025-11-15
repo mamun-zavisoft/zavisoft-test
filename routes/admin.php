@@ -21,3 +21,7 @@ Route::get('/services', function () {
 Route::get('/projects', function () {
     return view('backend.settings.projects');
 })->name('settings.projects');
+
+Route::get('/industry-focus', function () {
+    return view('backend.settings.industry-focus');
+})->name('settings.industry-focus');
