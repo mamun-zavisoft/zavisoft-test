@@ -1,4 +1,3 @@
-
 import { createApp, nextTick } from "vue";
 import App from "./App.vue";
 import router from "./router";
@@ -10,9 +9,6 @@ import { loaderPlugin } from "./plugins/loader";
 
 import "animate.css";
 import WOW from "wow.js";
-
-const app = createApp(App);
-const pinia = createPinia();
 
 const options = {
     position: "top-right",
@@ -29,33 +25,42 @@ const options = {
     rtl: false,
 };
 
-pinia.use(loaderPlugin);
-
-app.use(Toast, options);
-app.use(i18nVue, {
-    lang: import.meta.env.VITE_APP_LOCALE,
-    resolve: (lang) => import(`../../lang/${lang}.json`),
-});
-app.use(pinia);
-app.use(router);
 let wow;
-app.mixin({
-    mounted() {
-        if (!wow) {
-            wow = new WOW({
-                boxClass: "wow",
-                animateClass: "animate__animated",
-                offset: 0,
-                mobile: true,
-                live: true,
-            });
-            wow.init();
-        }
-    },
-});
+const appElement =
+    typeof document !== "undefined" ? document.getElementById("app") : null;
 
-app.mount("#app");
-router.afterEach(async () => {
-    await nextTick();
-    if (wow && typeof wow.sync === "function") wow.sync();
-});
+if (appElement) {
+    const app = createApp(App);
+    const pinia = createPinia();
+
+    pinia.use(loaderPlugin);
+
+    app.use(Toast, options);
+    app.use(i18nVue, {
+        lang: import.meta.env.VITE_APP_LOCALE,
+        resolve: (lang) => import(`../../lang/${lang}.json`),
+    });
+    app.use(pinia);
+    app.use(router);
+
+    app.mixin({
+        mounted() {
+            if (!wow) {
+                wow = new WOW({
+                    boxClass: "wow",
+                    animateClass: "animate__animated",
+                    offset: 0,
+                    mobile: true,
+                    live: true,
+                });
+                wow.init();
+            }
+        },
+    });
+
+    app.mount(appElement);
+    router.afterEach(async () => {
+        await nextTick();
+        if (wow && typeof wow.sync === "function") wow.sync();
+    });
+}
