@@ -29,7 +29,7 @@
                     </div>
                     <div class="form-login">
                         <div class="alreadyuser">
-                            <h4><a href="forgetpassword.html" class="hover-a">Forgot Password?</a></h4>
+                            <h4><a href="forgetpassword.html">Forgot Password?</a></h4>
                         </div>
                     </div>
                     <div class="form-login">

@@ -93,6 +93,14 @@
     .sidebar {
         margin-left: -650px;
     }
+
+    .login-wrapper .login-content {
+        width: 100%;
+    }
+
+    .login-wrapper .login-userset {
+        padding: 20px;
+    }
 }
 
 .slide-nav .sidebar {
@@ -224,4 +232,35 @@
 
 .ql-toolbarql-snow {
     border-radius: 4px !important;
+}
+
+
+.login-wrapper .login-content .form-login .btn-login {
+    border-color: var(--color-primary-500);
+    background-color: var(--color-primary-500);
+    color: var(--color-white);
+}
+
+.login-wrapper .login-content .form-login .btn-login:hover {
+    color: var(--color-primary-500);
+}
+
+.login-wrapper .login-content .form-login .alreadyuser h4 a {
+    color: var(--color-primary-500);
+}
+
+.login-wrapper .login-content .form-login .alreadyuser h4 a:hover {
+    color: var(--color-primary-500) !important;
+    border-color: var(--color-primary-500);
+
+}
+
+.login-wrapper .login-content .form-sociallink ul li a:hover {
+    background-color: var(--color-primary-500);
+    color: var(--color-white);
+}
+
+.login-wrapper .login-content .form-login input:focus {
+    border-color: var(--color-primary-500) !important;
+    --tw-ring-color: var(--color-primary-500) !important;
 }
