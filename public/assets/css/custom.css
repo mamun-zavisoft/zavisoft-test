@@ -134,7 +134,59 @@
     }
 }
 
-.submenu ul li.active a {
-    color: red !important;
+.sidebar .sidebar-menu>ul>li.submenu ul li a:hover {
+    color: var(--color-primary-500) !important;
+}
 
+.submenu ul li.active a {
+    color: var(--color-primary-500) !important;
+}
+
+.sidebar .sidebar-menu>ul>li.submenu ul li a:hover:after {
+    border-color: var(--color-primary-500) !important;
+    background-color: var(--color-primary-500) !important;
+}
+
+.submenu ul li.active a:after {
+    border-color: var(--color-primary-500) !important;
+    background-color: var(--color-primary-500) !important;
+}
+
+.btn-submit {
+    background: var(--color-primary-500);
+}
+
+.btn-submit:hover {
+    background: var(--color-primary-600);
+}
+
+
+.form-group input[type=number]:focus,
+.form-group input[type=email]:focus,
+.form-group textarea:focus {
+    border-color: var(--color-primary-500) !important;
+}
+
+.form-group input[type=text]:focus,
+.form-group input[type=textarea]:focus {
+    border-color: var(--color-primary-500) !important;
+
+}
+
+/* Scrollbar Width */
+
+
+/* Track */
+::-webkit-scrollbar-track {
+    background: #f1f1f1;
+}
+
+/* Thumb */
+::-webkit-scrollbar-thumb {
+    background: var(--color-primary-500);
+}
+
+/* Thumb Hover */
+::-webkit-scrollbar-thumb:hover {
+    background: var(--color-primary-500);
 }

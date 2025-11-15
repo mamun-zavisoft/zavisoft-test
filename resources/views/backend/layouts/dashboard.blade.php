@@ -8,6 +8,7 @@
     {{-- <link rel="icon" href="@/assets/images/icons/favicon.svg" type="image/svg+xml"> --}}
     <link rel="icon" href="{{ asset('favicon.svg') }}" type="image/svg+xml">
     <title>{{ config('app.name') }} | @yield('title')</title>
+    @vite(['resources/css/app.css', 'resources/js/app.js'])
     <link rel="stylesheet" href="{{ asset('assets/plugins/fontawesome/css/fontawesome.min.css') }}">
     <link rel="stylesheet" href="{{ asset('assets/plugins/fontawesome/css/all.min.css') }}">
     <link rel="stylesheet" href="{{ asset('assets/css/flowbite.min.css') }}" />
@@ -17,7 +18,7 @@
     <link rel="stylesheet" href="{{ asset('assets/css/admin-dist.css') }}">
     <link rel="stylesheet" href="{{ asset('assets/css/custom.css') }}">
 
-    @vite(['resources/css/app.css', 'resources/js/app.js'])
+
 
 
 </head>
@@ -27,7 +28,7 @@
         <div class="header">
             @include('backend.layouts.includes.dashboard.header')
         </div>
-        <div class="sidebar bg-white" id="sidebar">
+        <div class="sidebar mannan" id="sidebar">
             @include('backend.layouts.includes.dashboard.sidebar')
         </div>
 
