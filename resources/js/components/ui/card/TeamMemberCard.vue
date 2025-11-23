@@ -79,9 +79,9 @@ const teamMembers = [
     { name: 'SMK Shawon', title: 'SQA Engineer', photo: new URL('@/assets/images/smk.jpeg', import.meta.url).href, linkedin: '#' },
     { name: 'Amadul Haque', title: 'Software Developer', photo: new URL('@/assets/images/amad.jpg', import.meta.url).href, linkedin: '#' },
     { name: 'Mashikur Rahman Mirash', title: 'Software Engineer', photo: new URL('@/assets/images/mashikur.png', import.meta.url).href, linkedin: '#' },
-    { name: 'Jeishanul Haque Shishir', title: 'Laravel & Vue.js Developer', photo: new URL('@/assets/images/shishir.jpg', import.meta.url).href, linkedin: '#' },
-    { name: 'Tamim Hossain', title: 'Frontend Developer', photo: new URL('@/assets/images/tamim.png', import.meta.url).href, linkedin: '#' },
-     { name: 'Samiul Kabir', title: 'Frontend Developer', photo: new URL('@/assets/images/kabir.jpg', import.meta.url).href, linkedin: '#' },
+    { name: 'Jeishanul Haque Shishir', title: 'Software Engineer', photo: new URL('@/assets/images/shishir.jpg', import.meta.url).href, linkedin: 'https://www.linkedin.com/in/jeishanul' },
+    { name: 'Tamim Hossain', title: 'Frontend Developer', photo: new URL('@/assets/images/tamim.png', import.meta.url).href, linkedin: 'https://www.linkedin.com/in/tamim-hossain-836a46343' },
+    { name: 'Samiul Kabir', title: 'Frontend Developer', photo: new URL('@/assets/images/kabir.jpg', import.meta.url).href, linkedin: '#' },
     { name: 'Md Abdul Mannan', title: 'Frontend Developer', photo: new URL('@/assets/images/mannan.png', import.meta.url).href, linkedin: '#' },
     { name: 'Shamim Hossain', title: 'Sr. SQA Engineer', photo: new URL('@/assets/images/shamim.png', import.meta.url).href, linkedin: '#' },
     { name: 'Mizanur Rahman', title: 'Sr. UI/Ux Designer', photo: new URL('@/assets/images/mizan.jpg', import.meta.url).href, linkedin: '#' },
@@ -90,7 +90,8 @@ const teamMembers = [
     { name: 'Mrinmoyee Dey', title: 'UI/Ux Designer', photo: new URL('@/assets/images/dey.png', import.meta.url).href, linkedin: '#' },
     { name: 'Md Alhaz Mondal Hredhay', title: 'Software Engineer', photo: new URL('@/assets/images/hredhay.png', import.meta.url).href, linkedin: '#' },
     { name: 'Mustafa Fahim', title: 'Mobile Software engineer (Flutter)', photo: new URL('@/assets/images/fahim.jpg', import.meta.url).href, linkedin: '#' },
-   
+    { name: 'Tofayel Ahmed Topu', title: 'Software Engineer', photo: new URL('@/assets/images/topu.jpeg', import.meta.url).href, linkedin: 'https://www.linkedin.com/in/topukhan' },
+
 
 
 ]
