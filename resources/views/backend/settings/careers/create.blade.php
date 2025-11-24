@@ -1,0 +1,129 @@
+@extends('backend.layouts.dashboard')
+@section('title', 'Careers')
+
+@section('content')
+    <h1 class="text-base lg:text-xl font-bold text-primary-600 mb-4">Create Job</h1>
+    <form action="{{ route('admin.settings.careers.store') }}" method="POST" enctype="multipart/form-data">
+        @csrf
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-x-5 gap-y-0">
+            <div>
+                <div class="form-group">
+                    <label>Positions <span class="manitory">*</span></label>
+                    <input type="text" id="name" name="name" value="{{ old('name') }}"
+                        placeholder="Enter Positions" />
+                    @error('name')
+                        <div class="text-danger-500 mt-1">{{ $message }}</div>
+                    @enderror
+                </div>
+            </div>
+            <div>
+                <div class="form-group">
+                    <label>Type <span class="manitory">*</span></label>
+                    <select class="select" id="type" name="type">
+                        <option>Choose</option>
+                        <option>Remote</option>
+                        <option>Full Time</option>
+                        <option>Part Time</option>
+                        <option>Intership</option>
+                    </select>
+                    @error('type')
+                        <div class="text-danger-500 mt-1">{{ $message }}</div>
+                    @enderror
+                </div>
+            </div>
+
+            <div>
+                <div class="form-group">
+                    <label>Experience <span class="manitory">*</span></label>
+                    <input type="number" id="experience" name="experience" value="{{ old('experience') }}"
+                        placeholder="Enter Experience" />
+                    @error('experience')
+                        <div class="text-danger-500 mt-1">{{ $message }}</div>
+                    @enderror
+                </div>
+            </div>
+
+            <div>
+                <div class="form-group">
+                    <label>Salary Range <span class="manitory">*</span></label>
+                    <input type="text" id="salaryrange" name="salaryrange" value="{{ old('salaryrange') }}"
+                        placeholder="Enter Salary Range" />
+                    @error('salaryrange')
+                        <div class="text-danger-500 mt-1">{{ $message }}</div>
+                    @enderror
+                </div>
+            </div>
+            <div class="col-span-1 md:col-span-2">
+                <div class="form-group">
+                    <label>Office Address <span class="manitory">*</span></label>
+                    <textarea type="text" id="address" name="address" placeholder="Enter Address" rows="4">{{ old('address') }}</textarea>
+                    @error('address')
+                        <div class="text-danger">{{ $message }}</div>
+                    @enderror
+                </div>
+            </div>
+            <div class="col-span-1 md:col-span-2">
+                <div class="form-group">
+                    <label>Job Description <span class="manitory">*</span></label>
+                    @include('backend.settings.ckeditor', [
+                        'name' => 'description',
+                        'value' => old('description', $career->description ?? ''),
+                        'placeholder' => 'Write job description...',
+                    ])
+                    @error('description')
+                        <div class="text-danger-500 mt-1">{{ $message }}</div>
+                    @enderror
+                </div>
+            </div>
+
+            <div class="col-span-1 md:col-span-2">
+                <div class="form-group">
+                    <label>Essential Requirement <span class="manitory">*</span></label>
+                    @include('backend.settings.ckeditor', [
+                        'name' => 'requirement',
+                        'value' => old('requirement', $career->requirement ?? ''),
+                        'placeholder' => 'Write essential requirements...',
+                    ])
+                       @error('requirement')
+                        <div class="text-danger-500 mt-1">{{ $message }}</div>
+                    @enderror
+                </div>
+            </div>
+
+            <div class="col-span-1 md:col-span-2">
+                <div class="form-group">
+                    <label>Key Responsibilities <span class="manitory">*</span></label>
+                    @include('backend.settings.ckeditor', [
+                        'name' => 'responsibilities',
+                        'value' => old('responsibilities', $career->responsibilities ?? ''),
+                        'placeholder' => 'Write key responsibilities...',
+                    ])
+                     @error('responsibilities')
+                        <div class="text-danger-500 mt-1">{{ $message }}</div>
+                    @enderror
+                </div>
+            </div>
+
+            <div class="col-span-1 md:col-span-2">
+                <div class="form-group">
+                    <label>Why Join Zavisoft <span class="manitory">*</span></label>
+                    @include('backend.settings.ckeditor', [
+                        'name' => 'aboutcompany',
+                        'value' => old('aboutcompany', $career->aboutcompany ?? ''),
+                        'placeholder' => 'Why should you join Zavisoft?',
+                    ])
+                     @error('aboutcompany')
+                        <div class="text-danger-500 mt-1">{{ $message }}</div>
+                    @enderror
+                </div>
+            </div>
+
+            <div class="col-span-1 md:col-span-2">
+                <div class="flex justify-end mt-6">
+                    <button class="btn btn-submit py-3 px-8 mr-2">Submit</button>
+                </div>
+            </div>
+
+        </div>
+    </form>
+@endsection

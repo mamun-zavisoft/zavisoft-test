@@ -62,8 +62,8 @@
                     <li class="{{ Route::currentRouteName() == 'admin.settings.team-members' ? 'active' : '' }}">
                         <a href="{{ route('admin.settings.team-members') }}">Team Members</a>
                     </li>
-                    <li class="{{ Route::currentRouteName() == 'admin.settings.careers' ? 'active' : '' }}">
-                        <a href="{{ route('admin.settings.careers') }}">Careers</a>
+                    <li class="{{ Route::currentRouteName() == 'admin.settings.careers.index' ? 'active' : '' }}">
+                        <a href="{{ route('admin.settings.careers.index') }}">Careers</a>
                     </li>
                     <li class="{{ Route::currentRouteName() == 'admin.settings.social-media' ? 'active' : '' }}">
                         <a href="{{ route('admin.settings.social-media') }}">Social Media</a>

@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\JobCircularController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/login', function () {
@@ -39,9 +40,14 @@ Route::get('/team-members', function () {
     return view('backend.settings.team-members');
 })->name('settings.team-members');
 
-Route::get('/careers', function () {
-    return view('backend.settings.careers');
-})->name('settings.careers');
+// Route::get('/careers', function () {
+//     return view('backend.settings.careers');
+// })->name('settings.careers');
+Route::name('settings.')->group(function () {
+    Route::resource('careers', JobCircularController::class);
+    // admin.settings.careers
+});
+
 Route::get('/social-media', function () {
     return view('backend.settings.social-media');
 })->name('settings.social-media');
