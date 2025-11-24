@@ -10,11 +10,14 @@ class ApplicationController extends Controller
 {
    public function store(ApplicationRequest $request)
     {
-        // Handle file upload
         $cvPath = null;
-
         if ($request->hasFile('cv')) {
-            $cvPath = $request->file('cv')->store('cv', 'public');
+
+            $file = $request->file('cv');
+            $fileName = time() . '_' . $file->getClientOriginalName(); 
+
+            $file->move(public_path('cv'), $fileName);
+            $cvPath = 'cv/' . $fileName;
         }
 
         // Store in database
