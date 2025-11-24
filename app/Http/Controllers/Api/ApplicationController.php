@@ -29,7 +29,7 @@ class ApplicationController extends Controller
 
         return response()->json([
             'status' => true,
-            'message' => 'Application saved successfully!',
+            'message' => 'Your application has been received. We will contact you shortly regarding the next steps.',
             'data' => $application
         ]);
     }

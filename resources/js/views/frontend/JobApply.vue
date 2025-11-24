@@ -62,7 +62,8 @@
                                     <p class="text-xs text-neutral-500 ">PDF (MAX.
                                         2048kb)</p>
                                 </div>
-                                <input id="dropzone-file" accept="pdf" type="file" @change="handleFile" class="hidden" />
+                                <input id="dropzone-file" accept="pdf" type="file" @change="handleFile"
+                                    class="hidden" />
                             </label>
                         </div>
                         <p v-if="fileName" class="text-xs mt-2">{{ fileName }}</p>
@@ -105,7 +106,7 @@ const errors = ref({})
 
 // Simple email regex
 const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-const urlPattern = /^(https?:\/\/)?([\w\-]+)\.([a-z]{2,6})(\/[\w\-]*)*\/?$/i;
+// const urlPattern = /^(https?:\/\/)?([\w\-]+)\.([a-z]{2,6})(\/[\w\-]*)*\/?$/i;
 
 const validateForm = () => {
     const e = {};
@@ -119,11 +120,11 @@ const validateForm = () => {
     if (!form.value.about.trim()) e.about = ["About yourself is required."];
 
     // Optional URLs
-    if (form.value.github && !urlPattern.test(form.value.github))
-        e.github = ["Invalid GitHub URL."];
+    // if (form.value.github && !urlPattern.test(form.value.github))
+    //     e.github = ["Invalid GitHub URL."];
 
-    if (form.value.linkedin && !urlPattern.test(form.value.linkedin))
-        e.linkedin = ["Invalid LinkedIn URL."];
+    // if (form.value.linkedin && !urlPattern.test(form.value.linkedin))
+    //     e.linkedin = ["Invalid LinkedIn URL."];
 
     // CV file (optional but check type and size if present)
     if (cv.value) {
@@ -157,7 +158,7 @@ const createFormData = () => {
     const formData = new FormData()
 
     Object.keys(form.value).forEach(key => {
-        formData.append(key, form.value[key]) 
+        formData.append(key, form.value[key])
     })
 
     if (cv.value) {
@@ -183,12 +184,12 @@ const submitForm = async () => {
         const res = await fetch(`/api/application`, {
             method: 'POST',
             headers: {
-                'Accept': 'application/json', 
+                'Accept': 'application/json',
             },
-            body: formData, 
+            body: formData,
         })
 
-        
+
         if (res.status === 422) {
             const json = await res.json()
             errors.value = Object.fromEntries(
