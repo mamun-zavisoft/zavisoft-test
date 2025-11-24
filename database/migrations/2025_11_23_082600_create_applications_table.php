@@ -19,7 +19,7 @@ return new class extends Migration
         $table->string('github')->nullable();
         $table->string('linkedin')->nullable();
         $table->text('about');
-        $table->string('cv')->nullable();
+        $table->string('cv');
         $table->timestamps();
     });
     }

@@ -13,10 +13,13 @@ export default defineConfig({
         vue(),
         tailwindcss(),
         i18n(),
-    ],
-
-    server: {
-        host: '192.168.22.34',
-        port: 5173,
-    },
+    ]
 });
+
+
+
+
+//     server: {
+//         host: '192.168.22.34',
+//         port: 5173,
+//     },

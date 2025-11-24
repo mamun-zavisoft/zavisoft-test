@@ -27,7 +27,7 @@ class ApplicationRequest extends FormRequest
             'github' => 'nullable|url',
             'linkedin' => 'nullable|url',
             'about' => 'required|string|max:550',
-            'cv' => 'nullable|file|mimes:pdf|max:2048'
+            'cv' => 'required|file|mimes:pdf|max:2048'
         ];
     }
 

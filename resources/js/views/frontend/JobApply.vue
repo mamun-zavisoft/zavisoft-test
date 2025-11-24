@@ -6,7 +6,7 @@
                 <form @submit.prevent="submitForm" class="space-y-5 bg-neutral-50 rounded-2xl p-6">
                     <div class="grid grid-cols-1">
                         <div class="flex flex-col gap-2">
-                            <label for="name" class="text-sm font-medium text-neutral-600">Your Name</label>
+                            <label for="name" class="text-sm font-medium text-neutral-600">Your Name *</label>
                             <input v-model="form.name" id="name" name="name" type="text" placeholder="Type your name"
                                 class="placeholder:text-[13px] h-10 rounded-full border border-transparent bg-white px-3 text-sm text-neutral-900 outline-none ring-0 focus:border-primary-500" />
                             <p v-if="errors.name" class="text-red-600 text-xs mt-1">{{ errors.name[0] }}</p>
@@ -14,7 +14,7 @@
                     </div>
                     <div class="grid grid-cols-1">
                         <div class="flex flex-col gap-2">
-                            <label for="email" class="text-sm font-medium text-neutral-600">Email</label>
+                            <label for="email" class="text-sm font-medium text-neutral-600">Email *</label>
                             <input v-model="form.email" id="email" name="email" type="email" placeholder="you@gmail.com"
                                 class="placeholder:text-[13px] h-10 rounded-full border border-transparent bg-white px-3 text-sm text-neutral-900 outline-none ring-0 focus:border-primary-500" />
                             <p v-if="errors.email" class="text-red-600 text-xs mt-1">{{ errors.email[0] }}</p>
@@ -46,7 +46,7 @@
                         <p v-if="errors.about" class="text-red-600 text-xs mt-1">{{ errors.about[0] }}</p>
                     </div>
                     <div class="flex flex-col gap-2">
-                        <label for="details" class="text-sm font-medium text-neutral-600">Attach CV</label>
+                        <label for="details" class="text-sm font-medium text-neutral-600">Attach CV/Resume *</label>
                         <div class="flex items-center justify-center w-full">
                             <label for="dropzone-file"
                                 class="flex flex-col items-center justify-center w-full  border-2 border-neutral-300 border-dashed rounded-lg cursor-pointer bg-neutral-50  ">
@@ -99,14 +99,13 @@ const form = ref({
     about: '',
 })
 
-const cv = ref(null)
+const cv = ref()
 const fileName = ref('')
 const loading = ref(false)
 const errors = ref({})
 
 // Simple email regex
 const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-// const urlPattern = /^(https?:\/\/)?([\w\-]+)\.([a-z]{2,6})(\/[\w\-]*)*\/?$/i;
 
 const validateForm = () => {
     const e = {};
@@ -119,23 +118,17 @@ const validateForm = () => {
 
     if (!form.value.about.trim()) e.about = ["About yourself is required."];
 
-    // Optional URLs
-    // if (form.value.github && !urlPattern.test(form.value.github))
-    //     e.github = ["Invalid GitHub URL."];
-
-    // if (form.value.linkedin && !urlPattern.test(form.value.linkedin))
-    //     e.linkedin = ["Invalid LinkedIn URL."];
-
-    // CV file (optional but check type and size if present)
-    if (cv.value) {
+    if (!cv.value) {
+        e.cv = ["CV is required."];
+    } else {
         const allowedTypes = ["application/pdf"];
         const maxSize = 2 * 1024 * 1024; // 2MB
 
-        if (!allowedTypes.includes(cv.value.type))
+        if (!allowedTypes.includes(cv.value.type)) {
             e.cv = ["CV must be a PDF file."];
-
-        if (cv.value.size > maxSize)
+        } else if (cv.value.size > maxSize) {
             e.cv = ["CV must be smaller than 2MB."];
+        }
     }
 
     // Assign errors
@@ -172,7 +165,6 @@ const createFormData = () => {
 // Submit form
 const submitForm = async () => {
     if (!validateForm()) {
-        toast.error("Please correct the highlighted fields.");
         return;
     }
 
@@ -195,7 +187,7 @@ const submitForm = async () => {
             errors.value = Object.fromEntries(
                 Object.entries(json.errors).map(([key, value]) => [key, value])
             )
-            toast.error('Please correct the highlighted fields.')
+            // toast.error(errors.message)
             return
         }
 
