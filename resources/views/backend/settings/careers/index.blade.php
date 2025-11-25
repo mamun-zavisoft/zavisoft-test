@@ -8,7 +8,7 @@
     @endif
     <div class="flex justify-between mb-3">
         <h1 class="text-base lg:text-xl font-bold text-primary-600 mb-4">Careers</h1>
-        <a class="text-white bg-primary-500  border border-transparent hover:bg-primary-500 hover:text-white focus:ring-0  rounded text-base px-4 py-2.5 focus:outline-none "
+        <a class="text-white bg-primary-500  border border-transparent hover:bg-primary-500 hover:text-white focus:ring-0  rounded text-base px-4 py-2 focus:outline-none flex items-center"
             href="{{ route('admin.settings.careers.create') }}">Add
             new</a>
 
@@ -20,7 +20,7 @@
         @if (count($careers) == 0)
             <div class="alert alert-danger flex items-center justify-center text-xl">No careers found</div>
         @else
-            <div class="relative overflow-x-auto  border">
+            <div class="relative overflow-x-auto  border blade-career">
                 <table class="w-full text-sm text-left rtl:text-right text-body">
                     <thead class="bg-neutral-secondary-soft border-b border-default">
                         <tr>
@@ -43,7 +43,7 @@
                     </thead>
                     <tbody>
                         @foreach ($careers as $career)
-                            <tr>
+                            <tr class="border-b last:border-b-0">
                                 <th scope="row" class="px-6 py-4 font-medium text-heading whitespace-nowrap">
                                     {{ $career->name }}
                                 </th>

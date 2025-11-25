@@ -508,3 +508,7 @@ body {
     list-style: none;
 
 } */
+
+.blade-career tbody tr:last-child {
+    border-bottom: none;
+}
