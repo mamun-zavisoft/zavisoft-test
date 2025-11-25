@@ -11,20 +11,31 @@ class JobCircularController extends Controller
     public function index(): JsonResponse
     {
         try {
-            $careers=JobCircular::all();
-            
-            return response()->json([
-                'success' => true,
-                'data' => $careers,
-                'message' => 'Careers retrieved successfully.'
-            ]);
-        } catch (\Exception $e) {
-            return response()->json([
-                'success' => false,
-                'message' => 'Failed to retrieve careers.',
-                'error' => $e->getMessage()
-            ], 500);
-        }
+        $careers = JobCircular::select([
+            'id', 
+            'name',
+            'type',
+            'experience',
+            'salary_range',
+            'address',
+            'description',
+            'responsibilities',
+            'requirement',
+            'about_company'
+        ])->get();
+        
+        return response()->json([
+            'success' => true,
+            'data' => $careers,
+            'message' => 'Careers retrieved successfully.'
+        ]);
+    } catch (\Exception $e) {
+        return response()->json([
+            'success' => false,
+            'message' => 'Failed to retrieve careers.',
+            'error' => $e->getMessage()
+        ], $e->getCode());
+    }
     }
 
     public function show($id): JsonResponse
@@ -49,7 +60,7 @@ class JobCircularController extends Controller
                 'success' => false,
                 'message' => 'Failed to retrieve career.',
                 'error' => $e->getMessage()
-            ], 500);
+            ], $e->getCode());
         }
     }
 

@@ -17,7 +17,7 @@
                 <p> {{ $career->name }}</p>
                 <p> {{ $career->type }}</p>
                 <p> {{ $career->experience }}</p>
-                <p> {{ $career->salaryrange }}</p>
+                <p> {{ $career->salary_range }}</p>
                 <p> {{ $career->address }}</p>
                 <div > 
                    <p> {{!! $career->description !!}}</p>
@@ -30,7 +30,7 @@
                 </div>
                <div >
                     <p>
-                        {!! $career->aboutcompany !!}
+                        {!! $career->about_company !!}
                     </p>
 
                 </div>

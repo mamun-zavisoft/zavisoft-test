@@ -10,11 +10,11 @@ class JobCircular extends Model
         'name',
         'type',
         'experience',
-        'salaryrange',
+        'salary_range',
         'address',
         'description',        
         'responsibilities',
         'requirement',
-        'aboutcompany',
+        'about_company',
     ];
 }

@@ -1,17 +1,16 @@
 <?php
 
+use App\Http\Controllers\Admin\Auth\LoginController;
 use App\Http\Controllers\JobCircularController;
 use Illuminate\Support\Facades\Route;
 
-Route::get('/login', function () {
-    return view('backend.auth.login');
-});
+Route::get('/login', [LoginController::class, 'index'])->name('login');
+Route::post('/login', [LoginController::class, 'request'])->name('login.request');
+
 Route::get('/dashboard', function () {
     return view('backend.dashboard.index');
 })->name('dashboard');
-Route::get('/demo', function () {
-    return view('backend.demo.index');
-})->name('demo');
+
 Route::get('/system-settings', function () {
     return view('backend.settings.system-settings');
 })->name('settings.system-settings');

@@ -25,12 +25,12 @@ class JobCircularRequest extends FormRequest
             'name' => 'required|string|max:250',
             'type' => 'required|string',
             'experience' => 'required|string|max:100',
-            'salaryrange' => 'required|string|max:200',
+            'salary_range' => 'required|string|max:200',
             'address' => 'required|string|max:1000',
             'description' => 'required|string',
             'responsibilities' => 'required|string',
             'requirement' => 'required|string',
-            'aboutcompany' => 'required|string',
+            'about_company' => 'required|string',
         ];
     }
     public function messages(): array
@@ -47,9 +47,9 @@ class JobCircularRequest extends FormRequest
             'experience.string' => 'Experience must be valid text.',
             'experience.max' => 'Experience may not be greater than 100 characters.',
 
-            'salaryrange.required' => 'Salary range is required.',
-            'salaryrange.string' => 'Salary range must be valid text.',
-            'salaryrange.max' => 'Salary range may not be greater than 200 characters.',
+            'salary_range.required' => 'Salary range is required.',
+            'salary_range.string' => 'Salary range must be valid text.',
+            'salary_range.max' => 'Salary range may not be greater than 200 characters.',
 
             'address.required' => 'Address is required.',
             'address.string' => 'Address must be valid text.',
@@ -64,8 +64,8 @@ class JobCircularRequest extends FormRequest
             'requirement.required' => 'Requirement is required.',
             'requirement.string' => 'Requirement must be valid text.',
 
-            'aboutcompany.required' => 'About company is required.',
-            'aboutcompany.string' => 'About company must be valid text.',
+            'about_company.required' => 'About company is required.',
+            'about_company.string' => 'About company must be valid text.',
         ];
     }
 }

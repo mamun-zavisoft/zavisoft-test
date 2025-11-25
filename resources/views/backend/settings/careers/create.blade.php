@@ -46,9 +46,9 @@
             <div>
                 <div class="form-group">
                     <label>Salary Range <span class="manitory">*</span></label>
-                    <input type="text" id="salaryrange" name="salaryrange" value="{{ old('salaryrange') }}"
+                    <input type="text" id="salary_range" name="salary_range" value="{{ old('salary_range') }}"
                         placeholder="Enter Salary Range" />
-                    @error('salaryrange')
+                    @error('salary_range')
                         <div class="text-danger-500 mt-1">{{ $message }}</div>
                     @enderror
                 </div>
@@ -108,11 +108,11 @@
                 <div class="form-group">
                     <label>Why Join Zavisoft <span class="manitory">*</span></label>
                     @include('backend.settings.ckeditor', [
-                        'name' => 'aboutcompany',
-                        'value' => old('aboutcompany', $career->aboutcompany ?? ''),
+                        'name' => 'about_company',
+                        'value' => old('about_company', $career->about_company ?? ''),
                         'placeholder' => 'Why should you join Zavisoft?',
                     ])
-                     @error('aboutcompany')
+                     @error('about_company')
                         <div class="text-danger-500 mt-1">{{ $message }}</div>
                     @enderror
                 </div>

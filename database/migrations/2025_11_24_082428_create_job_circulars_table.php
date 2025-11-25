@@ -16,12 +16,12 @@ return new class extends Migration
         $table->string('name');
         $table->string('type');
         $table->string('experience');
-        $table->string('salaryrange');
+        $table->string('salary_range');
         $table->text('address');
         $table->longText('description');
         $table->longText('responsibilities');
         $table->longText('requirement');
-        $table->text('aboutcompany');
+        $table->text('about_company');
         $table->timestamps();
     });
 }
