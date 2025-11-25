@@ -7,9 +7,15 @@ use Illuminate\Support\Facades\Route;
 Route::get('/login', [LoginController::class, 'index'])->name('login');
 Route::post('/login', [LoginController::class, 'request'])->name('login.request');
 
-Route::get('/dashboard', function () {
-    return view('backend.dashboard.index');
-})->name('dashboard');
+//logout
+Route::post('/logout', [LoginController::class, 'logout'])->name('logout');
+
+
+Route::group(['middleware' => 'auth'], function () {
+    Route::get('/dashboard', function () {
+        return view('backend.dashboard.index');
+    })->name('dashboard');
+});
 
 Route::get('/system-settings', function () {
     return view('backend.settings.system-settings');

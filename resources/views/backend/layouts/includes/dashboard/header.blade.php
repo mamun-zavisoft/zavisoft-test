@@ -148,9 +148,13 @@
                  <a class="dropdown-item" href="generalsettings.html"><i class="mr-2"
                          data-feather="settings"></i>Settings</a>
                  <hr class="!m-0">
-                 <a class="dropdown-item logout !pb-0" href="signin.html"><img
-                         src="{{ asset('assets/images/icons/log-out.svg') }}" class="mr-2"
-                         alt="img">Logout</a>
+                 <a class="dropdown-item logout !pb-0" href="#"
+                     onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                     <img src="{{ asset('assets/images/icons/log-out.svg') }}" class="mr-2" alt="img">Logout
+                 </a>
+                 <form id="logout-form" action="{{ route('admin.logout') }}" method="POST" style="display: none;">
+                     @csrf
+                 </form>
              </div>
          </div>
      </li>
