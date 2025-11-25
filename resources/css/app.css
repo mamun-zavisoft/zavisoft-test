@@ -477,3 +477,34 @@ body {
 .animate__animated.animate__fadeInUpSmall {
     animation-name: fadeInUpSmall;
 }
+
+
+
+.career-lists ul li,
+.career-lists ol li {
+    position: relative;
+    list-style: none;
+    padding-left: 16px;
+
+}
+
+.career-lists ul li::before,
+.career-lists ol li::before {
+    content: '';
+    position: absolute;
+    left: 0px;
+    top: 8px;
+    height: 6px;
+    width: 6px;
+    background: #9ca3af;
+    border-radius: 9999px;
+}
+
+.prose {
+    font-size: 14px;
+}
+
+/* .career-lists ol, ul, menu {
+    list-style: none;
+
+} */
