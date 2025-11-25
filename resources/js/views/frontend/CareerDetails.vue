@@ -68,7 +68,7 @@
     </section>
     <section class="py-8 md:py-10 lg:py-12">
         <div class="container">
-            <div class="max-w-[920px] mr-auto">
+            <div class="max-w-[920px] mr-auto career-lists">
                 <div class="">
                     <h6 class="text-lg lg:text-xl text-neutral-900 font-semibold wow animate__animated animate__pulse">
                         Description</h6>

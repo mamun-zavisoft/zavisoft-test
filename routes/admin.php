@@ -15,9 +15,7 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('/dashboard', function () {
         return view('backend.dashboard.index');
     })->name('dashboard');
-});
-
-Route::get('/system-settings', function () {
+    Route::get('/system-settings', function () {
     return view('backend.settings.system-settings');
 })->name('settings.system-settings');
 
@@ -59,3 +57,5 @@ Route::get('/social-media', function () {
 Route::get('/blogs', function () {
     return view('backend.settings.blogs');
 })->name('settings.blogs');
+});
+
