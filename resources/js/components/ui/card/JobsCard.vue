@@ -1,4 +1,11 @@
 <template>
+    <!-- // show not found if jobListings is empty -->
+    <div v-if="jobListings.length === 0">
+        <div class="bg-red-100 text-red-800 text-sm font-medium  px-8 py-3 rounded flex items-center justify-center">
+            <h1 class="text-xl"> Available jobs not found</h1>
+        </div>
+    </div>
+
     <!-- Desktop Grid -->
     <div class="hidden sm:grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
         <article

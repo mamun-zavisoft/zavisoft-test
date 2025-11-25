@@ -37,16 +37,16 @@
                                 <p>{{ $message }}</p>
                             @enderror
                         </div>
-                        <div class="form-login">
+                        {{-- <div class="form-login">
                             <div class="alreadyuser">
                                 <h4><a href="forgetpassword.html">Forgot Password?</a></h4>
                             </div>
-                        </div>
+                        </div> --}}
                         <div class="form-login">
                             <button type="submit" class="btn btn-login">Sign In</button>
                         </div>
                     </form>
-                    <div class="signinform text-center">
+                    {{-- <div class="signinform text-center">
                         <h4>Don’t have an account? <a href="signup.html" class="hover-a">Sign Up</a></h4>
                     </div>
                     <div class="form-setlogin">
@@ -68,7 +68,7 @@
                                 </a>
                             </li>
                         </ul>
-                    </div>
+                    </div> --}}
                 </div>
             </div>
         </div>
