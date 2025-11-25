@@ -18,23 +18,23 @@
 
                         <div class="form-login">
                             <label for="email">Email</label>
-                            <div class="form-addons">
+                            <div class="form-addons my-2">
                                 <input type="text" name="email" placeholder="Enter your email address" id="email">
                                 <img src="{{ asset('assets/images/icons/mail.svg') }}" alt="img">
                             </div>
                             @error('email')
-                                <p>{{ $message }}</p>
+                                <p class="text-red-500 font-medium text-sm">{{ $message }}</p>
                             @enderror
                         </div>
                         <div class="form-login">
                             <label for="password">Password</label>
-                            <div class="pass-group">
+                            <div class="pass-group my-2">
                                 <input type="password" name="password" class="pass-input" placeholder="Enter your password"
                                     id="password">
                                 <span class="fas toggle-password fa-eye-slash"></span>
                             </div>
                             @error('password')
-                                <p>{{ $message }}</p>
+                                <p class="text-red-500 font-medium text-sm">{{ $message }}</p>
                             @enderror
                         </div>
                         {{-- <div class="form-login">
@@ -73,7 +73,5 @@
             </div>
         </div>
     </div>
-    @if ($errors->any())
-        @dd($errors->all())
-    @endif
+
 @endsection
