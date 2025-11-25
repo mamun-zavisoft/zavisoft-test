@@ -30,13 +30,13 @@ class LoginRequest extends FormRequest
     public function messages(): array
     {
         return [
-            'email.required' => __('Email address is required'),
-            'email.email' => __('Email must be a valid email address'),
-            'email.exists' => __('Email does not exist'),
-            'password.required' => __('Password is required'),
-            'password.string' => __('Password must be a string'),
-            'password.min' => __('Password must be at least 8 characters'),
-            'password.max' => __('Password must not exceed 255 characters'),
+            'email.required' => 'Email address is required',
+            'email.email' =>'Email must be a valid email address',
+            'email.exists' => 'Email does not exist',
+            'password.required' =>'Password is required',
+            'password.string' =>'Password must be a string',
+            'password.min' => 'Password must be at least 8 characters',
+            'password.max' =>'Password must not exceed 255 characters',
         ];
     }
 }

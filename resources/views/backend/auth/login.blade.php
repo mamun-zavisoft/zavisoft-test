@@ -13,28 +13,39 @@
                         <h3>Sign In</h3>
                         <h4>Please login to your account</h4>
                     </div>
-                    <div class="form-login">
-                        <label>Email</label>
-                        <div class="form-addons">
-                            <input type="text" placeholder="Enter your email address">
-                            <img src="{{ asset('assets/images/icons/mail.svg') }}" alt="img">
+                    <form action="{{ route('admin.login.request') }}" method="POST">
+                        @csrf
+
+                        <div class="form-login">
+                            <label for="email">Email</label>
+                            <div class="form-addons">
+                                <input type="text" name="email" placeholder="Enter your email address" id="email">
+                                <img src="{{ asset('assets/images/icons/mail.svg') }}" alt="img">
+                            </div>
+                            @error('email')
+                                <p>{{ $message }}</p>
+                            @enderror
                         </div>
-                    </div>
-                    <div class="form-login">
-                        <label>Password</label>
-                        <div class="pass-group">
-                            <input type="password" class="pass-input" placeholder="Enter your password">
-                            <span class="fas toggle-password fa-eye-slash"></span>
+                        <div class="form-login">
+                            <label for="password">Password</label>
+                            <div class="pass-group">
+                                <input type="password" name="password" class="pass-input" placeholder="Enter your password"
+                                    id="password">
+                                <span class="fas toggle-password fa-eye-slash"></span>
+                            </div>
+                            @error('password')
+                                <p>{{ $message }}</p>
+                            @enderror
                         </div>
-                    </div>
-                    <div class="form-login">
-                        <div class="alreadyuser">
-                            <h4><a href="forgetpassword.html">Forgot Password?</a></h4>
+                        <div class="form-login">
+                            <div class="alreadyuser">
+                                <h4><a href="forgetpassword.html">Forgot Password?</a></h4>
+                            </div>
                         </div>
-                    </div>
-                    <div class="form-login">
-                        <a class="btn btn-login" href="index.html">Sign In</a>
-                    </div>
+                        <div class="form-login">
+                            <button type="submit" class="btn btn-login">Sign In</button>
+                        </div>
+                    </form>
                     <div class="signinform text-center">
                         <h4>Don’t have an account? <a href="signup.html" class="hover-a">Sign Up</a></h4>
                     </div>
@@ -62,4 +73,7 @@
             </div>
         </div>
     </div>
+    @if ($errors->any())
+        @dd($errors->all())
+    @endif
 @endsection
