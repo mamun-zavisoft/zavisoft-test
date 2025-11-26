@@ -74,6 +74,12 @@
 
                 </ul>
             </li>
+             <li class="{{ Route::currentRouteName() == 'admin.applications' ? 'active' : '' }}">
+                <a href="{{ route('admin.applications') }}">
+                    <img src="{{ asset('assets/images/icons/dashboard.svg') }}" alt="img">
+                    <span> Application</span>
+                </a>
+            </li>
         </ul>
     </div>
 </div>

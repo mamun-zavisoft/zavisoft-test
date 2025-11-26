@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class Application extends Model
 {
     protected $fillable = [
+        'job_id',
         'name',
         'email',
         'github',
@@ -14,4 +15,9 @@ class Application extends Model
         'about',
         'cv'
     ];
+
+     public function job()
+    {
+        return $this->belongsTo(JobCircular::class, 'job_id');
+    }
 }

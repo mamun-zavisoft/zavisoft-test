@@ -21,8 +21,7 @@
             <h1 class="mt-4 text-base md:text-lg font-bold  text-neutral-900 group-hover:text-white">
                 {{ job.title }}
             </h1>
-            <p class="mt-2 text-neutral-500 text-xs  lg:text-sm group-hover:text-white">{{ job.experience }} year
-                experience</p>
+            <p class="mt-2 text-neutral-500 text-xs  lg:text-sm group-hover:text-white">{{ formatExperience(job.experience) }}</p>
             <div class="mt-6 md:mt-8 lg:mt-10">
                 <span
                     class="inline-flex items-center rounded-full bg-neutral-100 px-4 py-2 text-neutral-800 text-xs lg:text-sm font-medium">
@@ -60,8 +59,7 @@
                         <h1 class="mt-4 text-base md:text-lg font-bold  text-neutral-900 group-hover:text-white">
                             {{ job.title }}
                         </h1>
-                        <p class="mt-2 text-neutral-500 text-xs  lg:text-sm group-hover:text-white">{{ job.experience }}
-                            year experience</p>
+                        <p class="mt-2 text-neutral-500 text-xs  lg:text-sm group-hover:text-white">{{ formatExperience(job.experience) }}</p>
                         <div class="mt-6 md:mt-8 lg:mt-10">
                             <span
                                 class="inline-flex items-center rounded-full bg-neutral-100 px-4 py-2 text-neutral-800 text-xs lg:text-sm font-medium">
@@ -130,14 +128,17 @@ const loadJobs = async () => {
 
         const json = await res.json()
         const jobs = json.data
-        jobListings.value = jobs.map(job => ({
-            id: job.id,
-            title: job.name,
-            type: job.type,
-            employment: job.employment ?? "Full Time",
-            experience: job.experience,
-            salaryRange: job.salary_range,
-        }))
+
+        jobListings.value = jobs
+            .sort((a, b) => new Date(b.created_at) - new Date(a.created_at))
+            .map(job => ({
+                id: job.id,
+                title: job.name,
+                type: job.location_type ?? "On Site",
+                employment: job.type ?? "Full Time",
+                experience: job.experience,
+                salaryRange: job.salary_range,
+            }))
 
     } catch (e) {
         console.error("Failed to load jobs", e)
@@ -145,6 +146,15 @@ const loadJobs = async () => {
 }
 
 onMounted(loadJobs)
+
+const formatExperience = (exp) => {
+    if (!exp) return ""
+    if (exp.includes('-')) {
+        return `${exp} years experience`
+    }
+    return `${exp} ${exp === "1" || exp === 1 ? "year" : "years"} experience`
+}
+
 
 const totalSlides = jobListings.length
 const loopEnabled = totalSlides > 1

@@ -26,7 +26,7 @@
  <ul class="nav user-menu">
 
      <!-- Notifications -->
-     <li class="nav-item dropdown">
+     {{-- <li class="nav-item dropdown">
          <a href="javascript:void(0);" class="dropdown-toggle focus:bg-[#eeeeee] nav-link"
              data-dropdown-toggle="dropdownNotify">
              <img src="{{ asset('assets/images/icons/notification-bing.svg') }}" alt="img"> <span
@@ -120,33 +120,31 @@
                  <a href="activities.html">View all Notifications</a>
              </div>
          </div>
-     </li>
+     </li> --}}
      <!-- /Notifications -->
 
      <li class="nav-item dropdown has-arrow main-drop">
          <a href="javascript:void(0);" class="dropdown-toggle focus:bg-[#eeeeee] nav-link userset"
              data-dropdown-toggle="dropdownProfile">
-             <span class="user-img flex items-center justify-center"><img
-                     src="{{ asset('assets/images/profiles/avator1.jpg') }}" alt="">
+             <span class="user-img flex items-center justify-center"><img src="{{ asset('assets/images/user.png') }}"
+                     alt="">
                  <span class="status online"></span></span>
          </a>
          <div id="dropdownProfile"
              class="hidden dropdown-menu menu-drop-user !inset-auto !translate-y-0 !right-0 !top-[60px] bg-white">
              <div class="profilename">
                  <div class="profileset">
-                     <span class="user-img"><img src="{{ asset('assets/images/profiles/avator1.jpg') }}"
-                             alt="">
+                     <span class="user-img"><img src="{{ asset('assets/images/user.png') }}" alt="">
                          <span class="status online"></span></span>
                      <div class="profilesets">
-                         <h6>John Doe</h6>
                          <h5>Admin</h5>
                      </div>
                  </div>
-                 <hr class="!m-0">
+                 {{-- <hr class="!m-0">
                  <a class="dropdown-item" href="profile.html"> <i class="mr-2" data-feather="user"></i> My
                      Profile</a>
                  <a class="dropdown-item" href="generalsettings.html"><i class="mr-2"
-                         data-feather="settings"></i>Settings</a>
+                         data-feather="settings"></i>Settings</a> --}}
                  <hr class="!m-0">
                  <a class="dropdown-item logout !pb-0" href="#"
                      onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
@@ -166,9 +164,15 @@
      <a href="javascript:void(0);" class="nav-link dropdown-toggle" data-dropdown-toggle="dropdownMobile"
          aria-expanded="false"><i class="fa fa-ellipsis-v"></i></a>
      <div class="hidden dropdown-menu dropdown-menu-right" id="dropdownMobile">
-         <a class="dropdown-item" href="profile.html">My Profile</a>
-         <a class="dropdown-item" href="generalsettings.html">Settings</a>
-         <a class="dropdown-item" href="signin.html">Logout</a>
+         {{-- <a class="dropdown-item" href="profile.html">My Profile</a>
+         <a class="dropdown-item" href="generalsettings.html">Settings</a> --}}
+         <a class="dropdown-item logout !pb-0" href="#"
+             onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+             <img src="{{ asset('assets/images/icons/log-out.svg') }}" class="mr-2" alt="img">Logout
+         </a>
+         <form id="logout-form" action="{{ route('admin.logout') }}" method="POST" style="display: none;">
+             @csrf
+         </form>
      </div>
  </div>
  <!-- /Mobile Menu -->

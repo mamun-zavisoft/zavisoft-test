@@ -24,6 +24,7 @@ class JobCircularRequest extends FormRequest
        return [
             'name' => 'required|string|max:250',
             'type' => 'required|string',
+            'location_type' => 'required|string',
             'experience' => 'required|string|max:100',
             'salary_range' => 'required|string|max:200',
             'address' => 'required|string|max:1000',

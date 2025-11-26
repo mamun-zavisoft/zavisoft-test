@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Api;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\ApplicationRequest;
 use App\Models\Application;
+use Illuminate\Support\Facades\App;
 
 class ApplicationController extends Controller
 {
@@ -22,6 +23,7 @@ class ApplicationController extends Controller
 
         // Store in database
         $application = Application::create([
+             'job_id' => $request->job_id,
             'name' => $request->name,
             'email' => $request->email,
             'github' => $request->github,
@@ -35,5 +37,33 @@ class ApplicationController extends Controller
             'message' => 'Your application has been received. We will contact you shortly regarding the next steps.',
             'data' => $application
         ]);
+   
     }
+    //  public function getJobApplications($jobId)
+    // {
+    //     try {
+    //         $jobs = Application::where('job_id', $jobId)->get()->map(function ($application) {
+    //             return [
+    //                 'id' => $application->id,
+    //                 'job' => ['id' => $application->job->id, 'name' => $application->job->name],
+    //                 'name' => $application->name,
+    //                 'email' => $application->email,
+    //                 'github' => $application->github,
+    //                 'linkedin' => $application->linkedin,
+    //                 'about' => $application->about,
+    //                 'cv' => $application->cv,
+    //             ];
+    //         });
+    //         return response()->json([
+    //             'status' => true,
+    //             'data' => $jobs
+    //         ]);
+    //     } catch (\Exception $e) {
+    //         return response()->json([
+    //             'status' => false,
+    //             'message' => 'Job not found.',
+    //             'error' => $e->getMessage()
+    //         ], 404);
+    //     }
+    // }
 }

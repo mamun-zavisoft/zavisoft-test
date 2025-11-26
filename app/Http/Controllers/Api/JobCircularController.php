@@ -15,13 +15,15 @@ class JobCircularController extends Controller
             'id', 
             'name',
             'type',
+            'location_type',
             'experience',
             'salary_range',
             'address',
             'description',
             'responsibilities',
             'requirement',
-            'about_company'
+            'about_company',
+            'created_at'
         ])->get();
         
         return response()->json([

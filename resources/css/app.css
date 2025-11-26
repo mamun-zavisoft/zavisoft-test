@@ -512,3 +512,18 @@ body {
 .blade-career tbody tr:last-child {
     border-bottom: none;
 }
+
+
+.application-table .table tbody tr td a.btn-success {
+    color: var(--color-white) !important;
+}
+
+.application-table .table tbody tr td a.btn-success:hover {
+    color: var(--color-white) !important;
+
+}
+
+.table tbody tr td a {
+    color: unset !important;
+
+}
