@@ -48,12 +48,20 @@ const routes = [
         component: () => import("@/views/frontend/Career.vue"),
         meta: { layout: LayoutFrontend, title: "Career" },
     },
+    // {
+    //     path: "/job-apply",
+    //     name: "JobApply",
+    //     component: () => import("@/views/frontend/JobApply.vue"),
+    //     meta: { layout: LayoutFrontend, title: "Job Apply" },
+    // },
+
     {
-        path: "/job-apply",
-        name: "JobApply",
+        path: '/apply/:jobId',
+        name: 'JobApply',
         component: () => import("@/views/frontend/JobApply.vue"),
         meta: { layout: LayoutFrontend, title: "Job Apply" },
     },
+
     {
         path: '/career/:id',
         name: 'CareerDetails',

@@ -87,7 +87,12 @@
 <script setup>
 import { ref } from 'vue'
 import { useToast } from 'vue-toastification'
+import { useRoute } from 'vue-router'
 
+const route = useRoute()
+const jobId = route.params.jobId
+console.log("job id", jobId)
+// form.value.job_id = id
 const toast = useToast()
 
 // Reactive form
@@ -97,7 +102,10 @@ const form = ref({
     github: '',
     linkedin: '',
     about: '',
+    job_id: jobId,
 })
+
+
 
 const cv = ref()
 const fileName = ref('')

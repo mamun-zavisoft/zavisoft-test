@@ -31,11 +31,25 @@
                     @enderror
                 </div>
             </div>
+            <div>
+                <div class="form-group">
+                    <label>Location <span class="manitory">*</span></label>
+                    <select class="select" id="location_type" name="location_type">
+                        <option>Choose</option>
+                        <option>Onsite</option>
+                        <option>Remote</option>
+                        <option>Hybrid</option>
+                    </select>
+                    @error('location_type')
+                        <div class="text-danger-500 mt-1">{{ $message }}</div>
+                    @enderror
+                </div>
+            </div>
 
             <div>
                 <div class="form-group">
                     <label>Experience <span class="manitory">*</span></label>
-                    <input type="number" id="experience" name="experience" value="{{ old('experience') }}"
+                    <input type="text" id="experience" name="experience" value="{{ old('experience') }}"
                         placeholder="Enter Experience" />
                     @error('experience')
                         <div class="text-danger-500 mt-1">{{ $message }}</div>
@@ -84,7 +98,7 @@
                         'value' => old('requirement', $career->requirement ?? ''),
                         'placeholder' => 'Write essential requirements...',
                     ])
-                       @error('requirement')
+                    @error('requirement')
                         <div class="text-danger-500 mt-1">{{ $message }}</div>
                     @enderror
                 </div>
@@ -98,7 +112,7 @@
                         'value' => old('responsibilities', $career->responsibilities ?? ''),
                         'placeholder' => 'Write key responsibilities...',
                     ])
-                     @error('responsibilities')
+                    @error('responsibilities')
                         <div class="text-danger-500 mt-1">{{ $message }}</div>
                     @enderror
                 </div>
@@ -112,7 +126,7 @@
                         'value' => old('about_company', $career->about_company ?? ''),
                         'placeholder' => 'Why should you join Zavisoft?',
                     ])
-                     @error('about_company')
+                    @error('about_company')
                         <div class="text-danger-500 mt-1">{{ $message }}</div>
                     @enderror
                 </div>

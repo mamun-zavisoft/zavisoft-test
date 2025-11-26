@@ -30,6 +30,9 @@
                             <th scope="col" class="px-6 py-3 font-medium">
                                 Type
                             </th>
+                            <th>
+                                Location Type
+                            </th>
                             <th scope="col" class="px-6 py-3 font-medium">
                                 Salary Range
                             </th>
@@ -49,6 +52,9 @@
                                 </th>
                                 <td class="px-6 py-4">
                                     {{ $career->type }}
+                                </td>
+                                 <td class="px-6 py-4">
+                                    {{ $career->location_type }}
                                 </td>
                                 <td class="px-6 py-4">
                                     {{ $career->salary_range }}

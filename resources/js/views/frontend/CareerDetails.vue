@@ -13,7 +13,10 @@
                                 class="wow animate__animated animate__fadeInUp text-sm md:text-base text-neutral-400 my-4">
                                 Location</p>
                             <p class="wow animate__animated animate__fadeInUp text-base md:text-lg text-neutral-900">
-                                Onsite· {{ job.type ?? '' }} | {{ job.experience ?? '' }} year experience</p>
+                                {{ job.location_type }}· {{ job.type ?? '' }} | {{ formatExperience(job.experience) }}
+
+                                <!-- {{ job.experience ?? '' }} year experience -->
+                            </p>
 
                             <span
                                 class="wow animate__animated animate__fadeInUp mt-6 inline-block text-sm font-medium border border-neutral-300 text-neutral-900 bg-white px-3 py-1 rounded-full mb-2">
@@ -27,7 +30,7 @@
                                     you!</p>
 
                                 <div class="mt-6 w-full h-[50px]">
-                                    <router-link :to="{ name: 'JobApply' }" class="block w-full mt-6 px-4 py-3 bg-primary-500 text-white text-center rounded-full 
+                                    <router-link :to="{ name: 'JobApply', params: { jobId: id } }"  class="block w-full mt-6 px-4 py-3 bg-primary-500 text-white text-center rounded-full 
                                         hover:bg-primary-600 focus:outline-none focus:ring-0 
                                         focus:ring-primary-300 transition-colors duration-300">
                                         Apply Now
@@ -161,8 +164,6 @@ import { useRoute } from 'vue-router'
 const route = useRoute()
 const id = route.params.id
 
-console.log("id", id)
-
 const job = ref({})
 const loading = ref(true)
 const error = ref(null)
@@ -184,5 +185,12 @@ const loadJob = async () => {
 
 onMounted(loadJob)
 
-console.log("job", job)
+const formatExperience = (exp) => {
+    if (!exp) return ""
+    if (exp.includes('-')) {
+        return `${exp} years experience`
+    }
+    return `${exp} ${exp === "1" || exp === 1 ? "year" : "years"} experience`
+}
+
 </script>

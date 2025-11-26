@@ -9,6 +9,7 @@ class JobCircular extends Model
      protected $fillable = [
         'name',
         'type',
+        'location_type',
         'experience',
         'salary_range',
         'address',
@@ -17,4 +18,8 @@ class JobCircular extends Model
         'requirement',
         'about_company',
     ];
+    public function applications()
+    {
+        return $this->hasMany(Application::class);
+    }
 }

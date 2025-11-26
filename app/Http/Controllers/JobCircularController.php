@@ -13,7 +13,7 @@ class JobCircularController extends Controller
      public function index(): View
     {
         // $careers=JobCircular::all();
-        $careers=JobCircular::select('id','name','type','experience','salary_range','address','description','responsibilities','requirement','about_company')->get();
+        $careers=JobCircular::select('id','name','type', 'location_type', 'experience','salary_range','address','description','responsibilities','requirement','about_company')->get();
         return view('backend.settings.careers.index',compact('careers'));
     }
 
