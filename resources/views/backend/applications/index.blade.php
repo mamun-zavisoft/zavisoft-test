@@ -6,29 +6,29 @@
 
     <div class="application-table bg-white p-4 rounded mt-3">
         @if ($applications->count() > 0)
-            <div class="table-responsive">
-                <table class="table table-bordered table-striped">
-                    <thead>
+            <div class="relative overflow-x-auto  border blade-career">
+                <table class="w-full text-sm text-left rtl:text-right text-body">
+                    <thead class="bg-neutral-50 border-b border-default font-semibold">
                         <tr>
-                            <th>#</th>
-                            <th>Job Title</th>
-                            <th>Applicant Name</th>
-                            <th>Email</th>
-                            <th>GitHub</th>
-                            <th>LinkedIn</th>
-                            <th>CV</th>
+                            <th class="px-4 py-3">#</th>
+                            <th class="px-4 py-3">Job Title</th>
+                            <th class="px-4 py-3">Applicant Name</th>
+                            <th class="px-4 py-3">Email</th>
+                            <th class="px-4 py-3">GitHub</th>
+                            <th class="px-4 py-3">LinkedIn</th>
+                            <th class="px-4 py-3">CV</th>
                         </tr>
                     </thead>
-                    <tbody>
+                    <tbody class="font-normal text-neutral-500">
                         @foreach ($applications as $application)
-                            <tr>
-                                <td>{{ $loop->iteration }}</td>
-                                <td>
+                            <tr class="border-b last:border-b-0">
+                                <td class="px-4 py-3">{{ $loop->iteration }}</td>
+                                <td class="px-4 py-3">
                                     {{ $application['job']['name'] }}
                                 </td>
-                                <td>{{ $application['name'] }}</td>
-                                <td>{{ $application['email'] }}</td>
-                                <td>
+                                <td class="px-4 py-3">{{ $application['name'] }}</td>
+                                <td class="px-4 py-3">{{ $application['email'] }}</td>
+                                <td class="px-4 py-3">
                                     @if ($application['github'])
                                         <a href="{{ $application['github'] }}" target="_blank" class="text-decoration-none">
                                             <i class="fab fa-github"></i> GitHub
@@ -37,18 +37,19 @@
                                         <span class="text-muted">N/A</span>
                                     @endif
                                 </td>
-                                <td>
+                                <td class="px-4 py-3">
                                     @if ($application['linkedin'])
-                                        <a href="{{ $application['linkedin'] }}" target="_blank" class="text-decoration-none">
+                                        <a href="{{ $application['linkedin'] }}" target="_blank"
+                                            class="text-decoration-none">
                                             <i class="fab fa-linkedin"></i> LinkedIn
                                         </a>
                                     @else
                                         <span class="text-muted">N/A</span>
                                     @endif
                                 </td>
-                                <td>
-                                    <a href="{{ asset($application['cv']) }}" target="_blank"
-                                        class="btn btn-sm btn-success text-white">
+                                
+                                <td class="px-4 py-3">
+                                    <a href="{{ route('admin.download.cv',$application['id']) }}" class="btn btn-sm btn-success text-white">
                                         <i class="fas fa-download"></i> Download CV
                                     </a>
                                 </td>

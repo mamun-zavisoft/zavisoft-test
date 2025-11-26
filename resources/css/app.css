@@ -514,11 +514,16 @@ body {
 }
 
 
-.application-table .table tbody tr td a {
-    color: var(--color-white);
+.application-table .table tbody tr td a.btn-success {
+    color: var(--color-white) !important;
 }
 
-.application-table .table tbody tr td a:hover {
-    color: var(--color-white);
+.application-table .table tbody tr td a.btn-success:hover {
+    color: var(--color-white) !important;
+
+}
+
+.table tbody tr td a {
+    color: unset !important;
 
 }

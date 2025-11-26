@@ -61,6 +61,9 @@ Route::get('/blogs', function () {
 })->name('settings.blogs');
 Route::get('/applications', [ApplicationController::class, 'index'])->name('applications');
 
+
+Route::get('/download-cv/{id}', [ApplicationController::class, 'downloadCV'])->name('download.cv');
+
 });
 
 
