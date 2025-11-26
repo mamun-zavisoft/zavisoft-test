@@ -22,6 +22,14 @@
                     </div>
                     <div class="grid grid-cols-1">
                         <div class="flex flex-col gap-2">
+                            <label for="phone" class="text-sm font-medium text-neutral-600">Phone No *</label>
+                            <input v-model="form.phone" id="phone" name="phone" type="tel" placeholder="Phone No"
+                                class="placeholder:text-[13px] h-10 rounded-full border border-transparent bg-white px-3 text-sm text-neutral-900 outline-none ring-0 focus:border-primary-500" />
+                            <p v-if="errors.phone" class="text-red-600 text-xs mt-1">{{ errors.phone[0] }}</p>
+                        </div>
+                    </div>
+                    <div class="grid grid-cols-1">
+                        <div class="flex flex-col gap-2">
                             <label for="github" class="text-sm font-medium text-neutral-600">Github link</label>
                             <input v-model="form.github" id="github" name="github" type="text" placeholder="Type here"
                                 class="placeholder:text-[13px] h-10 rounded-full border border-transparent bg-white px-3 text-sm text-neutral-900 outline-none ring-0 focus:border-primary-500" />
@@ -77,10 +85,14 @@
                             {{ loading ? 'Submiting...' : 'Submit' }}
                         </button>
                     </div>
+
+
                 </form>
             </div>
         </div>
     </section>
+
+
 </template>
 
 
@@ -91,14 +103,14 @@ import { useRoute } from 'vue-router'
 
 const route = useRoute()
 const jobId = route.params.jobId
-console.log("job id", jobId)
-// form.value.job_id = id
+
 const toast = useToast()
 
 // Reactive form
 const form = ref({
     name: '',
     email: '',
+    phone: '',
     github: '',
     linkedin: '',
     about: '',
@@ -115,6 +127,9 @@ const errors = ref({})
 // Simple email regex
 const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
+//validate phone no
+const phonePattern = /^(?:\+88|88)?01[3-9]\d{8}$/;
+
 const validateForm = () => {
     const e = {};
 
@@ -123,6 +138,19 @@ const validateForm = () => {
 
     if (!form.value.email.trim()) e.email = ["Email is required."];
     else if (!emailPattern.test(form.value.email)) e.email = ["Invalid email address."];
+
+    const phone = String(form.value.phone || '').trim();
+    if (!phone) {
+        e.phone = ["Phone number is required."];
+    } else {
+        // Remove any spaces, dashes, or other characters
+        const cleanPhone = phone.replace(/\s+|-|\(|\)/g, '');
+
+        // Bangladesh phone validation
+        if (!phonePattern.test(cleanPhone)) {
+            e.phone = ["Invalid Bangladesh phone number. Use format: 01712345678 or +8801712345678"];
+        }
+    }
 
     if (!form.value.about.trim()) e.about = ["About yourself is required."];
 

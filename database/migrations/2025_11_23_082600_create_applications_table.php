@@ -17,6 +17,7 @@ return new class extends Migration
          $table->foreignId('job_id')->constrained('job_circulars')->onDelete('cascade');
         $table->string('name');
         $table->string('email');
+        $table->string('phone');
         $table->string('github')->nullable();
         $table->string('linkedin')->nullable();
         $table->text('about');

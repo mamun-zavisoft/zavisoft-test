@@ -26,6 +26,7 @@ class ApplicationController extends Controller
              'job_id' => $request->job_id,
             'name' => $request->name,
             'email' => $request->email,
+            'phone' => $request->phone,
             'github' => $request->github,
             'linkedin' => $request->linkedin,
             'about' => $request->about,
