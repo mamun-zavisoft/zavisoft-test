@@ -13,6 +13,7 @@
                             <th class="px-4 py-3">#</th>
                             <th class="px-4 py-3">Job Title</th>
                             <th class="px-4 py-3">Applicant Name</th>
+                            <th class="px-4 py-3">Phone No</th>
                             <th class="px-4 py-3">Email</th>
                             <th class="px-4 py-3">GitHub</th>
                             <th class="px-4 py-3">LinkedIn</th>
@@ -27,6 +28,7 @@
                                     {{ $application['job']['name'] }}
                                 </td>
                                 <td class="px-4 py-3">{{ $application['name'] }}</td>
+                                <td class="px-4 py-3">{{ $application['phone'] }}</td>
                                 <td class="px-4 py-3">{{ $application['email'] }}</td>
                                 <td class="px-4 py-3">
                                     @if ($application['github'])

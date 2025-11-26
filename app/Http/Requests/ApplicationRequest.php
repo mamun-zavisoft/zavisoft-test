@@ -25,6 +25,7 @@ class ApplicationRequest extends FormRequest
          'job_id' => 'required|exists:job_circulars,id',
             'name' => 'required|string|max:50',
             'email' => 'required|email',
+            'phone' => 'required|numeric',
             'github' => 'nullable|url',
             'linkedin' => 'nullable|url',
             'about' => 'required|string|max:550',
@@ -44,6 +45,10 @@ class ApplicationRequest extends FormRequest
             'email.required' => 'Please provide your email address.',
             'email.email' => 'Please provide a valid email address.',
             'email.max' => 'Email may not be greater than 255 characters.',
+
+            // Phone
+            'phone.required' => 'Please provide your phone number.',
+            'phone.numeric' => 'Phone number must be numeric.',
 
             // About
             'about.required' => 'Please write something about yourself.',

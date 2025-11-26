@@ -9,6 +9,7 @@ class Application extends Model
     protected $fillable = [
         'job_id',
         'name',
+        'phone',
         'email',
         'github',
         'linkedin',

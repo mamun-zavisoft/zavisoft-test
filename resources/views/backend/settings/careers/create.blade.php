@@ -21,7 +21,6 @@
                     <label>Type <span class="manitory">*</span></label>
                     <select class="select" id="type" name="type">
                         <option>Choose</option>
-                        <option>Remote</option>
                         <option>Full Time</option>
                         <option>Part Time</option>
                         <option>Intership</option>

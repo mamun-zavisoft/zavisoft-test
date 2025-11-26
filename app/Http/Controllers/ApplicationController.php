@@ -19,6 +19,7 @@ class ApplicationController extends Controller
                     'name' => $application->job->name
                 ],
                 'name' => $application->name,
+                'phone' => $application->phone,
                 'email' => $application->email,
                 'github' => $application->github,
                 'linkedin' => $application->linkedin,

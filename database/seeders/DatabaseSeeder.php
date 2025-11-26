@@ -16,10 +16,10 @@ class DatabaseSeeder extends Seeder
         // User::factory(10)->create();
 
         User::factory()->create([
-            'name' => 'Admin Demo',
-            'email' => 'admin@example.com',
+            'name' => 'Admin',
+            'email' => 'info@zavisoft.com',
             'role' => 'admin',
-            'password' => bcrypt('password'),
+            'password' => bcrypt('ZaviSoft007@'),
         ]);
     }
 }
