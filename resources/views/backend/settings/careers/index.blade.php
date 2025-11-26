@@ -39,9 +39,9 @@
                             <th scope="col" class="px-4 py-3 ">
                                 Experience
                             </th>
-                            <th scope="col" class="px-4 py-3 ">
+                            {{--<th scope="col" class="px-4 py-3 ">
                                 Action
-                            </th>
+                            </th>--}}
                         </tr>
                     </thead>
                     <tbody class="font-normal text-neutral-500">
@@ -62,9 +62,9 @@
                                 <td class="px-4 py-3">
                                     {{ $career->experience }}
                                 </td>
-                                <td class="px-4 py-3">
+                               {{-- <td class="px-4 py-3">
                                     <a href="#" class=" text-fg-brand hover:underline">Edit</a>
-                                </td>
+                                </td>--}}
                             </tr>
                         @endforeach
                     </tbody>

@@ -12,7 +12,7 @@ class JobCircularController extends Controller
     {
         try {
         $careers = JobCircular::select([
-            'id', 
+            'id',
             'name',
             'type',
             'location_type',
@@ -24,8 +24,8 @@ class JobCircularController extends Controller
             'requirement',
             'about_company',
             'created_at'
-        ])->get();
-        
+        ])->whereStatus(1)->get();
+
         return response()->json([
             'success' => true,
             'data' => $careers,
@@ -44,14 +44,14 @@ class JobCircularController extends Controller
     {
         try {
             $career = JobCircular::find($id);
-            
+
             if (!$career) {
                 return response()->json([
                     'success' => false,
                     'message' => 'Career not found.'
                 ], 404);
             }
-            
+
             return response()->json([
                 'success' => true,
                 'data' => $career,

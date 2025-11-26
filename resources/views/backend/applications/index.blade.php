@@ -49,7 +49,7 @@
                                         <span class="text-muted">N/A</span>
                                     @endif
                                 </td>
-                                
+
                                 <td class="px-4 py-3">
                                     <a href="{{ route('admin.download.cv',$application['id']) }}" class="btn btn-sm btn-success text-white">
                                         <i class="fas fa-download"></i> Download CV

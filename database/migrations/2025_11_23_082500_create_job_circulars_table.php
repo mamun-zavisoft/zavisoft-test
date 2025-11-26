@@ -14,7 +14,6 @@ return new class extends Migration
     Schema::create('job_circulars', function (Blueprint $table) {
         $table->id();
         $table->string('name');
-        // $table->string('slug')->unique();
         $table->string('type');
         $table->string('location_type');
         $table->string('experience');
@@ -24,6 +23,7 @@ return new class extends Migration
         $table->longText('responsibilities');
         $table->longText('requirement');
         $table->text('about_company');
+        $table->tinyInteger('status')->default(1);
         $table->timestamps();
     });
 }

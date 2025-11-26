@@ -37,13 +37,13 @@ class ApplicationController extends Controller
 {
     $application = Application::findOrFail($id);
     $filePath = public_path($application->cv);
-    
+
     if (!file_exists($filePath)) {
         return redirect()->back()->with('error', 'CV file not found.');
     }
-    
+
     $customName = $application->name . '_CV.pdf';
-    
+
     return response()->download($filePath, $customName);
 }
 

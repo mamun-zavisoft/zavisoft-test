@@ -6,13 +6,11 @@ use App\Http\Requests\JobCircularRequest;
 use App\Models\JobCircular;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\View\View;
-use PhpParser\Node\Stmt\TryCatch;
 
 class JobCircularController extends Controller
 {
      public function index(): View
     {
-        // $careers=JobCircular::all();
         $careers=JobCircular::select('id','name','type', 'location_type', 'experience','salary_range','address','description','responsibilities','requirement','about_company')->get();
         return view('backend.settings.careers.index',compact('careers'));
     }
@@ -22,7 +20,7 @@ class JobCircularController extends Controller
         return view('backend.settings.careers.create');
     }
    public function store(JobCircularRequest $request): RedirectResponse
-    {  
+    {
 
         try {
                 $data = $request->validated();
@@ -33,7 +31,7 @@ class JobCircularController extends Controller
             return redirect()->back()->with('error', $th->getMessage());
         }
 
-     
+
     }
 
 }

@@ -14,7 +14,8 @@ class Application extends Model
         'github',
         'linkedin',
         'about',
-        'cv'
+        'cv',
+        'status'
     ];
 
      public function job()
