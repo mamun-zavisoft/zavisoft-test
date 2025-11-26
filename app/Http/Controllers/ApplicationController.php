@@ -2,14 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Controllers\Controller;
 use App\Models\Application;
 
 class ApplicationController extends Controller
 {
-
-
-     public function index()
+    public function index()
     {
         $applications = Application::with('job')->latest()->get()->map(function ($application) {
             return [
@@ -33,18 +30,17 @@ class ApplicationController extends Controller
         ]);
     }
 
-   public function downloadCV($id)
-{
-    $application = Application::findOrFail($id);
-    $filePath = public_path($application->cv);
+    public function downloadCV($id)
+    {
+        $application = Application::findOrFail($id);
+        $filePath = public_path($application->cv);
 
-    if (!file_exists($filePath)) {
-        return redirect()->back()->with('error', 'CV file not found.');
+        if (!file_exists($filePath)) {
+            return redirect()->back()->with('error', 'CV file not found.');
+        }
+
+        $customName = $application->name . '_CV.pdf';
+
+        return response()->download($filePath, $customName);
     }
-
-    $customName = $application->name . '_CV.pdf';
-
-    return response()->download($filePath, $customName);
-}
-
 }

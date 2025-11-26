@@ -21,7 +21,7 @@ class JobCircularRequest extends FormRequest
      */
     public function rules(): array
     {
-       return [
+        return [
             'name' => 'required|string|max:250',
             'type' => 'required|string',
             'location_type' => 'required|string',
@@ -34,11 +34,12 @@ class JobCircularRequest extends FormRequest
             'about_company' => 'required|string',
         ];
     }
+
     public function messages(): array
     {
         return [
             'name.required' => 'Position name is required.',
-              'name.string' => 'Name must be valid text.',
+            'name.string' => 'Name must be valid text.',
             'name.max' => 'Name may not be greater than 250 characters.',
 
             'type.required' => 'Position type is required.',

@@ -9,29 +9,27 @@ use Illuminate\View\View;
 
 class JobCircularController extends Controller
 {
-     public function index(): View
+    public function index(): View
     {
-        $careers=JobCircular::select('id','name','type', 'location_type', 'experience','salary_range','address','description','responsibilities','requirement','about_company')->get();
-        return view('backend.settings.careers.index',compact('careers'));
+        $careers = JobCircular::select('id', 'name', 'type', 'location_type', 'experience', 'salary_range', 'address', 'description', 'responsibilities', 'requirement', 'about_company')->get();
+
+        return view('backend.settings.careers.index', compact('careers'));
     }
 
     public function create(): View
     {
         return view('backend.settings.careers.create');
     }
-   public function store(JobCircularRequest $request): RedirectResponse
+
+    public function store(JobCircularRequest $request): RedirectResponse
     {
-
         try {
-                $data = $request->validated();
+            $data = $request->validated();
 
-                JobCircular::create($data);
-                return redirect()->route('admin.settings.careers.index')->with('success', 'Job posted successfully.');
+            JobCircular::create($data);
+            return redirect()->route('admin.settings.careers.index')->with('success', 'Job posted successfully.');
         } catch (\Throwable $th) {
             return redirect()->back()->with('error', $th->getMessage());
         }
-
-
     }
-
 }

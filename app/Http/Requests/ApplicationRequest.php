@@ -21,8 +21,8 @@ class ApplicationRequest extends FormRequest
      */
     public function rules(): array
     {
-       return [
-         'job_id' => 'required|exists:job_circulars,id',
+        return [
+            'job_id' => 'required|exists:job_circulars,id',
             'name' => 'required|string|max:50',
             'email' => 'required|email',
             'phone' => 'required|numeric',

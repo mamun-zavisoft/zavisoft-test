@@ -31,12 +31,12 @@ class LoginRequest extends FormRequest
     {
         return [
             'email.required' => 'Email address is required',
-            'email.email' =>'Email must be a valid email address',
+            'email.email' => 'Email must be a valid email address',
             'email.exists' => 'Email does not exist',
-            'password.required' =>'Password is required',
-            'password.string' =>'Password must be a string',
+            'password.required' => 'Password is required',
+            'password.string' => 'Password must be a string',
             'password.min' => 'Password must be at least 8 characters',
-            'password.max' =>'Password must not exceed 255 characters',
+            'password.max' => 'Password must not exceed 255 characters',
         ];
     }
 }
