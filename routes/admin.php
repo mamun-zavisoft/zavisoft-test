@@ -57,13 +57,13 @@ Route::group(['middleware' => 'auth'], function () {
     Route::post('careers/update/{id}', [JobCircularController::class, 'update'])->name('careers.update');
     Route::post('/careers/{jobCircular}/toggle-status', [JobCircularController::class, 'toggleStatus'])->name('admin.careers.toggleStatus');
 
-    Route::get('settings/social-media', function () {
+    Route::get('social-media', function () {
         return view('backend.settings.social-media');
-    })->name('settings.social-media');
+    })->name('social-media');
 
     Route::get('/blogs', function () {
         return view('backend.settings.blogs');
-    })->name('settings.blogs');
+    })->name('blogs');
 
     Route::get('/applications', [ApplicationController::class, 'index'])->name('applications');
     Route::get('/messages', [MessageController::class, 'index'])->name('messages');

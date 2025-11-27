@@ -3,7 +3,7 @@
 
 @section('content')
     <h1 class="text-base lg:text-xl font-bold text-primary-600 mb-4">Update Job</h1>
-    <form action="{{ route('admin.settings.careers.update', $data->id) }}" method="POST">
+    <form action="{{ route('admin.careers.update', $data->id) }}" method="POST">
         @csrf
         <div class="grid grid-cols-1 md:grid-cols-2 gap-x-5 gap-y-0">
             <div>

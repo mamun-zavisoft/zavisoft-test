@@ -25,7 +25,8 @@
                             <td class="px-4 py-3">{{ $message->name }}</td>
                             <td class="px-4 py-3">{{ $message->email }}</td>
                             <td class="px-4 py-3">{{ $message->service_name }}</td>
-                            <td class="px-4 py-3">{{ $message->project_details }}</td>
+                            <td class="px-4 py-3">{{ Str::limit($message->project_details, 40, '...') }}
+                            </td>
                             <td class="px-4 py-3">{{ $message->created_at }}</td>
                         </tr>
                     @endforeach
