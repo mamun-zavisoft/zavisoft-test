@@ -3,6 +3,7 @@
 use App\Http\Controllers\Admin\ApplicationController;
 use App\Http\Controllers\Admin\Auth\LoginController;
 use App\Http\Controllers\Admin\JobCircularController;
+use App\Http\Controllers\Admin\MessageController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/login', [LoginController::class, 'index'])->name('login');
@@ -67,5 +68,6 @@ Route::get('/blogs', function () {
 })->name('settings.blogs');
 
 Route::get('/applications', [ApplicationController::class, 'index'])->name('applications');
+Route::get('/messages', [MessageController::class, 'index'])->name('messages');
 Route::get('/download-cv/{id}', [ApplicationController::class, 'downloadCV'])->name('download.cv');
 });

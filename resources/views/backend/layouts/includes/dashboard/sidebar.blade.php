@@ -85,6 +85,13 @@
                     <span> Application</span>
                 </a>
             </li>
+
+            <li class="{{ Route::currentRouteName() == 'admin.messages' ? 'active' : '' }}">
+                <a href="{{ route('admin.messages') }}">
+                    <img src="{{ asset('assets/images/icons/notification-bing.svg') }}" alt="img">
+                    <span> Messages </span>
+                </a>
+            </li>
         </ul>
     </div>
 </div>
