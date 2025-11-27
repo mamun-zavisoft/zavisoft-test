@@ -25,13 +25,36 @@
                             <td class="px-4 py-3">{{ $message->name }}</td>
                             <td class="px-4 py-3">{{ $message->email }}</td>
                             <td class="px-4 py-3">{{ $message->service_name }}</td>
-                            <td class="px-4 py-3">{{ Str::limit($message->project_details, 40, '...') }}
+                            <td class="px-4 py-3">
+                                {{ \Illuminate\Support\Str::limit($message->project_details, 40, '...') }}
+                                <button
+                                    class="text-blue-600 hover:text-blue-800 ml-2"
+                                    onclick="openDetailsModal(`{{ $message->project_details }}`)"
+                                    title="View full details"
+                                >
+                                    <i class="fa fa-eye"></i>
+                                </button>
                             </td>
                             <td class="px-4 py-3">{{ $message->created_at }}</td>
                         </tr>
                     @endforeach
                     </tbody>
                 </table>
+                <!-- Modal -->
+                <div id="detailsModal" class="hidden fixed inset-0 flex items-center justify-center z-50">
+                    <div class="bg-white rounded-lg shadow-lg w-full max-w-md p-6">
+                        <h2 class="text-xl font-semibold mb-4">Project Details</h2>
+                        <p id="modalDetails" class="text-gray-700"></p>
+                        <div class="mt-6 text-right">
+                            <button
+                                onclick="closeDetailsModal()"
+                                class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700"
+                            >
+                                Close
+                            </button>
+                        </div>
+                    </div>
+                </div>
             </div>
         @else
             <div class="alert alert-info text-center">
@@ -41,3 +64,15 @@
         @endif
     </div>
 @endsection
+@push('scripts')
+    <script>
+        function openDetailsModal(details) {
+            document.getElementById('modalDetails').textContent = details;
+            document.getElementById('detailsModal').classList.remove('hidden');
+        }
+
+        function closeDetailsModal() {
+            document.getElementById('detailsModal').classList.add('hidden');
+        }
+    </script>
+@endpush
