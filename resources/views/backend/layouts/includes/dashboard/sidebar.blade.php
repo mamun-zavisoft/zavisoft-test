@@ -26,6 +26,82 @@
                 </a>
             </li>
 
+             <li class="{{ Route::currentRouteName() == 'admin.applications' ? 'active' : '' }}">
+                <a href="{{ route('admin.applications') }}">
+                    <i class="fa fa-file-signature text-gray-600 text-xl"></i>
+                    <span>Job Applications</span>
+                </a>
+            </li>
+
+            <li class="{{ Route::is('admin.settings.careers.*') ? 'active' : '' }}">
+                <a href="{{ route('admin.careers.index') }}">
+                    <i class="fa fa-file-alt text-gray-600 text-xl"></i>
+                    <span>Job Post</span>
+                </a>
+            </li>
+
+            <li class="{{ Route::currentRouteName() == 'admin.messages' ? 'active' : '' }}">
+                <a href="{{ route('admin.messages') }}">
+                    <i class="fa fa-bell text-gray-600 text-xl"></i>
+                    <span> Messages </span>
+                </a>
+            </li>
+            <li class="{{ Route::currentRouteName() == 'admin.settings.services' ? 'active' : '' }}">
+                <a href="{{ route('admin.services') }}">
+                    <i class="fa fa-tools text-gray-600 text-xl"></i>
+                    <span>Services</span>
+                </a>
+            </li>
+
+            <li class="{{ Route::currentRouteName() == 'admin.settings.projects' ? 'active' : '' }}">
+                <a href="{{ route('admin.projects') }}">
+                    <i class="fa fa-diagram-project text-gray-600 text-xl"></i>
+                    <span>Projects</span>
+                </a>
+            </li>
+
+            <li class="{{ Route::currentRouteName() == 'admin.settings.industry-focus' ? 'active' : '' }}">
+                <a href="{{ route('admin.industry-focus') }}">
+                    <i class="fa fa-industry text-gray-600 text-xl"></i>
+                    <span>Industry Focus</span>
+                </a>
+            </li>
+
+            <li class="{{ Route::currentRouteName() == 'admin.settings.partners' ? 'active' : '' }}">
+                <a href="{{ route('admin.partners') }}">
+                    <i class="fa fa-handshake text-gray-600 text-xl"></i>
+                    <span>Partners</span>
+                </a>
+            </li>
+
+            <li class="{{ Route::currentRouteName() == 'admin.settings.testimonials' ? 'active' : '' }}">
+                <a href="{{ route('admin.testimonials') }}">
+                    <i class="fa fa-comment-dots text-gray-600 text-xl"></i>
+                    <span>Testimonials</span>
+                </a>
+            </li>
+
+            <li class="{{ Route::currentRouteName() == 'admin.settings.team-members' ? 'active' : '' }}">
+                <a href="{{ route('admin.team-members') }}">
+                    <i class="fa fa-users text-gray-600 text-xl"></i>
+                    <span>Team Members</span>
+                </a>
+            </li>
+
+            <li class="{{ Route::currentRouteName() == 'admin.settings.social-media' ? 'active' : '' }}">
+                <a href="{{ route('admin.settings.social-media') }}">
+                    <i class="fa fa-share-alt text-gray-600 text-xl"></i>
+                    <span>Social Media</span>
+                </a>
+            </li>
+
+            <li class="{{ Route::currentRouteName() == 'admin.settings.blogs' ? 'active' : '' }}">
+                <a href="{{ route('admin.settings.blogs') }}">
+                    <i class="fa fa-blog text-gray-600 text-xl"></i>
+                    <span>Blogs</span>
+                </a>
+            </li>
+
             <li class="submenu">
                 <a href="javascript:void(0);" class="{{ Route::is('admin.settings.*') ? 'subdrop' : '' }}">
                     <img src="{{ asset('assets/images/icons/settings.svg') }}" alt="img">
@@ -41,56 +117,7 @@
                     <li class="{{ Route::currentRouteName() == 'admin.settings.page-settings' ? 'active' : '' }}">
                         <a href="{{ route('admin.settings.page-settings') }}">Page Settings</a>
                     </li>
-
-                    <li class="{{ Route::currentRouteName() == 'admin.settings.services' ? 'active' : '' }}">
-                        <a href="{{ route('admin.settings.services') }}">Service</a>
-                    </li>
-
-                    <li class="{{ Route::currentRouteName() == 'admin.settings.projects' ? 'active' : '' }}">
-                        <a href="{{ route('admin.settings.projects') }}">Projects</a>
-                    </li>
-
-                    <li class="{{ Route::currentRouteName() == 'admin.settings.industry-focus' ? 'active' : '' }}">
-                        <a href="{{ route('admin.settings.industry-focus') }}">Industry Focus</a>
-                    </li>
-
-                    <li class="{{ Route::currentRouteName() == 'admin.settings.partners' ? 'active' : '' }}">
-                        <a href="{{ route('admin.settings.partners') }}">Partners</a>
-                    </li>
-
-                    <li class="{{ Route::currentRouteName() == 'admin.settings.testimonials' ? 'active' : '' }}">
-                        <a href="{{ route('admin.settings.testimonials') }}">Testimonials</a>
-                    </li>
-
-                    <li class="{{ Route::currentRouteName() == 'admin.settings.team-members' ? 'active' : '' }}">
-                        <a href="{{ route('admin.settings.team-members') }}">Team Members</a>
-                    </li>
-
-                    <li class="{{ Route::is('admin.settings.careers.*') ? 'active' : '' }}">
-                        <a href="{{ route('admin.settings.careers.index') }}">Careers</a>
-                    </li>
-
-                    <li class="{{ Route::currentRouteName() == 'admin.settings.social-media' ? 'active' : '' }}">
-                        <a href="{{ route('admin.settings.social-media') }}">Social Media</a>
-                    </li>
-
-                    <li class="{{ Route::currentRouteName() == 'admin.settings.blogs' ? 'active' : '' }}">
-                        <a href="{{ route('admin.settings.blogs') }}">Blogs</a>
-                    </li>
                 </ul>
-            </li>
-             <li class="{{ Route::currentRouteName() == 'admin.applications' ? 'active' : '' }}">
-                <a href="{{ route('admin.applications') }}">
-                    <img src="{{ asset('assets/images/icons/dashboard.svg') }}" alt="img">
-                    <span> Application</span>
-                </a>
-            </li>
-
-            <li class="{{ Route::currentRouteName() == 'admin.messages' ? 'active' : '' }}">
-                <a href="{{ route('admin.messages') }}">
-                    <img src="{{ asset('assets/images/icons/notification-bing.svg') }}" alt="img">
-                    <span> Messages </span>
-                </a>
             </li>
         </ul>
     </div>

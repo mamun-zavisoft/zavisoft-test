@@ -18,7 +18,7 @@
     <div class="flex justify-between mb-3">
         <h1 class="text-base lg:text-xl font-bold text-primary-600 mb-4">Careers</h1>
         <a class="text-white bg-primary-500  border border-transparent hover:bg-primary-500 hover:text-white focus:ring-0  rounded text-base px-4 py-2 focus:outline-none flex items-center"
-            href="{{ route('admin.settings.careers.create') }}">Add new</a>
+            href="{{ route('admin.careers.create') }}">Add new</a>
     </div>
 
     <div class="bg-white rounded p-4">
@@ -77,7 +77,7 @@
                                        data-id="{{ $career->id }}"></i>
                                 </td>
                                 <td class="px-4 py-3">
-                                    <a href="{{route('admin.settings.careers.edit',$career->id)}}" class=" text-fg-brand hover:underline"><i class="fa fa-edit"></i></a>
+                                    <a href="{{route('admin.careers.edit',$career->id)}}" class=" text-fg-brand hover:underline"><i class="fa fa-edit"></i></a>
                                 </td>
                             </tr>
                         @endforeach
