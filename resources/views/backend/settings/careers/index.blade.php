@@ -18,9 +18,7 @@
     <div class="flex justify-between mb-3">
         <h1 class="text-base lg:text-xl font-bold text-primary-600 mb-4">Careers</h1>
         <a class="text-white bg-primary-500  border border-transparent hover:bg-primary-500 hover:text-white focus:ring-0  rounded text-base px-4 py-2 focus:outline-none flex items-center"
-            href="{{ route('admin.settings.careers.create') }}">Add
-            new</a>
-
+            href="{{ route('admin.settings.careers.create') }}">Add new</a>
     </div>
 
     <div class="bg-white rounded p-4">
@@ -74,15 +72,12 @@
                                 <td class="px-4 py-3">
                                     {{ $career->experience }}
                                 </td>
-                                <td class="px-4 py-3">
-                                    <button class="toggle-status px-3 py-1 rounded
-                               {{ $career->status == 1 ? 'bg-green-500 text-white' : 'bg-red-500 text-white' }}"
-                                        data-id="{{ $career->id }}">
-                                        {{ $career->status === 1 ? 'Active' : 'Inactive' }}
-                                    </button>
+                                <td>
+                                    <i class="fas {{ $career->status === 1 ? 'fa-toggle-on text-green-500' : 'fa-toggle-off text-red-500' }} text-2xl cursor-pointer toggle-icon"
+                                       data-id="{{ $career->id }}"></i>
                                 </td>
                                 <td class="px-4 py-3">
-                                    <a href="{{route('admin.settings.careers.edit',$career->id)}}" class=" text-fg-brand hover:underline">Edit</a>
+                                    <a href="{{route('admin.settings.careers.edit',$career->id)}}" class=" text-fg-brand hover:underline"><i class="fa fa-edit"></i></a>
                                 </td>
                             </tr>
                         @endforeach
@@ -95,33 +90,37 @@
 @endsection
 @push('scripts')
     <script>
-        document.querySelectorAll('.toggle-status').forEach(button => {
-            button.addEventListener('click', function() {
-                let jobId = this.dataset.id;
+        document.addEventListener('DOMContentLoaded', () => {
+            document.querySelectorAll('.toggle-icon').forEach(icon => {
+                icon.addEventListener('click', function () {
+                    const careerId = this.dataset.id;
 
-                fetch(`/admin/careers/${jobId}/toggle-status`, {
-                    method: 'POST',
-                    headers: {
-                        'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]').content,
-                        'Accept': 'application/json',
-                        'Content-Type': 'application/json'
-                    }
-                })
-                    .then(res => res.json())
-                    .then(data => {
-                        if (data.success) {
-                            // Update UI
-                            this.textContent = data.status === 1 ? 'Active' : 'Inactive';
-                            this.classList.toggle('bg-green-500', data.status === 1);
-                            this.classList.toggle('bg-red-500', data.status === 0);
-
-                            // Toast
-                            showToast(`Status updated to ${data.status === 1 ? 'Active' : 'Inactive'}`, 'success');
-                        } else {
-                            showToast('Failed to update status', 'error');
+                    fetch(`/admin/careers/${careerId}/toggle-status`, {
+                        method: 'POST',
+                        headers: {
+                            'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]').content,
+                            'Accept': 'application/json',
+                            'Content-Type': 'application/json'
                         }
                     })
-                    .catch(() => showToast('Request failed', 'error'));
+                        .then(res => res.json())
+                        .then(data => {
+                            if (data.success) {
+                                // Update icon class dynamically
+                                if (data.status === 1) {
+                                    this.classList.remove('fa-toggle-off', 'text-red-500');
+                                    this.classList.add('fa-toggle-on', 'text-green-500');
+                                } else {
+                                    this.classList.remove('fa-toggle-on', 'text-green-500');
+                                    this.classList.add('fa-toggle-off', 'text-red-500');
+                                }
+                                showToast(`Status updated to ${data.status === 1 ? 'Active' : 'Inactive'}`, 'success');
+                            } else {
+                                showToast('Failed to update status', 'error');
+                            }
+                        })
+                        .catch(() => showToast('Request failed', 'error'));
+                });
             });
         });
 
@@ -149,7 +148,5 @@
                 setTimeout(() => toast.classList.add('hidden'), 300);
             }, 3000);
         }
-
-
     </script>
 @endpush
