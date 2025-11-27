@@ -19,6 +19,7 @@
     <link rel="stylesheet" href="{{ asset('assets/css/animate.css') }}">
     <link rel="stylesheet" href="{{ asset('assets/css/admin-dist.css') }}">
     <link rel="stylesheet" href="{{ asset('assets/css/custom.css') }}">
+    <meta name="csrf-token" content="{{ csrf_token() }}">
 </head>
 
 <body>
@@ -47,9 +48,10 @@
     <script src="{{ asset('assets/js/jquery.slimscroll.min.js') }}"></script>
     <script src="{{ asset('assets/js/script.js') }}"></script>
     <script src="{{ asset('assets/plugins/select2/js/select2.min.js') }}"></script>
-
-
-
+    <div id="toast"
+         class="hidden fixed top-20 right-5 z-50 min-w-[220px] max-w-sm rounded-lg shadow-lg px-4 py-3 bg-gray-800 text-white transition-opacity duration-300">
+        <span id="toast-message" class="text-sm"></span>
+    </div>
     @stack('scripts')
 </body>
 

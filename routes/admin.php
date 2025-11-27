@@ -1,8 +1,8 @@
 <?php
 
+use App\Http\Controllers\Admin\ApplicationController;
 use App\Http\Controllers\Admin\Auth\LoginController;
-use App\Http\Controllers\ApplicationController;
-use App\Http\Controllers\JobCircularController;
+use App\Http\Controllers\Admin\JobCircularController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/login', [LoginController::class, 'index'])->name('login');
@@ -50,7 +50,12 @@ Route::get('/team-members', function () {
 })->name('settings.team-members');
 
 Route::name('settings.')->group(function () {
-    Route::resource('careers', JobCircularController::class);
+    Route::get('careers', [JobCircularController::class, 'index'])->name('careers.index');
+    Route::post('careers', [JobCircularController::class, 'store'])->name('careers.store');
+    Route::get('careers/create', [JobCircularController::class, 'create'])->name('careers.create');
+    Route::get('careers/edit/{id}', [JobCircularController::class, 'edit'])->name('careers.edit');
+    Route::post('careers/update/{id}', [JobCircularController::class, 'update'])->name('careers.update');
+    Route::post('/careers/{jobCircular}/toggle-status', [JobCircularController::class, 'toggleStatus'])->name('admin.settings.careers.toggleStatus');
 });
 
 Route::get('/social-media', function () {

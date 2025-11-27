@@ -2,6 +2,7 @@
 
 namespace App\Http\Requests;
 
+use Illuminate\Contracts\Validation\ValidationRule;
 use Illuminate\Foundation\Http\FormRequest;
 
 class JobCircularRequest extends FormRequest
@@ -17,14 +18,14 @@ class JobCircularRequest extends FormRequest
     /**
      * Get the validation rules that apply to the request.
      *
-     * @return array<string, \Illuminate\Contracts\Validation\ValidationRule|array<mixed>|string>
+     * @return array<string, ValidationRule|array|string>
      */
     public function rules(): array
     {
         return [
             'name' => 'required|string|max:250',
-            'type' => 'required|string',
-            'location_type' => 'required|string',
+            'type' => 'required|in:Full Time,Part Time,Internship',
+            'location_type' => 'required|in:Onsite,Remote,Hybrid',
             'experience' => 'required|string|max:100',
             'salary_range' => 'required|string|max:200',
             'address' => 'required|string|max:1000',
