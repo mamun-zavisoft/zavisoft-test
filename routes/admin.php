@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Admin\ApplicationController;
 use App\Http\Controllers\Admin\Auth\LoginController;
+use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\JobCircularController;
 use App\Http\Controllers\Admin\MessageController;
 use Illuminate\Support\Facades\Route;
@@ -14,9 +15,7 @@ Route::post('/logout', [LoginController::class, 'logout'])->name('logout');
 
 
 Route::group(['middleware' => 'auth'], function () {
-    Route::get('/dashboard', function () {
-        return view('backend.dashboard.index');
-    })->name('dashboard');
+    Route::get('/dashboard',[DashboardController::class, 'index'])->name('dashboard');
 
     Route::get('/system-settings', function () {
         return view('backend.settings.system-settings');
