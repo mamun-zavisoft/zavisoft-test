@@ -108,7 +108,7 @@ const projects = [
     },
     {
         id: 5,
-        title: 'Packly - Kaj',
+        title: 'Packly',
         description: 'Our design team helps clients achieve their marketing and business goals.',
         tags: ['Ticket Management', 'Ticket Platform Website'],
         image: new URL('@/assets/images/project_2.png', import.meta.url).href,
