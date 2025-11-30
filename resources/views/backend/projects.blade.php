@@ -1,5 +1,5 @@
 @extends('backend.layouts.dashboard')
-@section('title', 'Project')
+@section('title', 'Projects')
 
 @section('content')
     <form action="">

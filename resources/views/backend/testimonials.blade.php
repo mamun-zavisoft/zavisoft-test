@@ -1,26 +1,33 @@
 @extends('backend.layouts.dashboard')
-@section('title', 'team members')
+@section('title', 'Testimonials')
 
 @section('content')
-    <h1 class="text-base lg:text-xl font-bold text-primary-600 mb-4">Team Members</h1>
+    <h1 class="text-base lg:text-xl font-bold text-primary-600 mb-4">Testimonials</h1>
     <form action="">
         <div class="grid grid-cols-1 md:grid-cols-2 gap-x-5 gap-y-0">
 
             <div>
                 <div class="form-group">
-                    <label>Name <span class="manitory">*</span></label>
-                    <input type="text" name="" placeholder="Enter Name" />
+                    <label>Client Name <span class="manitory">*</span></label>
+                    <input type="text" name="" placeholder="Enter Client Name" />
                 </div>
             </div>
             <div>
                 <div class="form-group">
-                    <label>Designation <span class="manitory">*</span></label>
-                    <input type="text" name="" placeholder="Enter Designation" />
+                    <label>Client Designation <span class="manitory">*</span></label>
+                    <input type="text" name="" placeholder="Enter Client Designation" />
                 </div>
             </div>
-            <div class="col-span-1 md:col-span-2 ">
+            <div>
                 <div class="form-group">
-                    <label class="text-base text-red-800"> Image</label>
+                    <label>Testimonials <span class="manitory">*</span></label>
+                    <textarea type="text" name="" placeholder="Enter Testimonials" id="" cols="30" rows="10"></textarea>
+                </div>
+            </div>
+
+            <div class="">
+                <div class="form-group">
+                    <label class="text-base text-red-800"> Client image</label>
                     <div class="image-upload">
                         <input type="file">
                         <div class="image-uploads flex flex-col items-center justify-center">

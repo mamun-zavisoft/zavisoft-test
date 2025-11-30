@@ -1,5 +1,5 @@
 @extends('backend.layouts.dashboard')
-@section('title', 'Services')
+@section('title', 'Partners')
 
 @section('content')
     <h1 class="text-base lg:text-xl font-bold text-primary-600 mb-4">Partners</h1>
@@ -9,7 +9,7 @@
             <div class="col-span-1">
                 <div class="">
                     <div class="form-group">
-                        <label class="text-base text-red-800"> Patner Logo</label>
+                        <label class="text-base text-red-800"> Partner Logo</label>
                         <div class="image-upload">
                             <input type="file">
                             <div class="image-uploads flex flex-col items-center justify-center">

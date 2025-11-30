@@ -26,27 +26,27 @@ Route::group(['middleware' => 'auth'], function () {
     })->name('settings.page-settings');
 
     Route::get('/services', function () {
-        return view('backend.settings.services');
+        return view('backend.services');
     })->name('services');
 
     Route::get('/projects', function () {
-        return view('backend.settings.projects');
+        return view('backend.projects');
     })->name('projects');
 
     Route::get('/industry-focus', function () {
-        return view('backend.settings.industry-focus');
+        return view('backend.industry-focus');
     })->name('industry-focus');
 
     Route::get('/partners', function () {
-        return view('backend.settings.partners');
+        return view('backend.partners');
     })->name('partners');
 
     Route::get('/testimonials', function () {
-        return view('backend.settings.testimonials');
+        return view('backend.testimonials');
     })->name('testimonials');
 
     Route::get('/team-members', function () {
-        return view('backend.settings.team-members');
+        return view('backend.team-members');
     })->name('team-members');
 
     Route::get('careers', [JobCircularController::class, 'index'])->name('careers.index');
@@ -57,11 +57,11 @@ Route::group(['middleware' => 'auth'], function () {
     Route::post('/careers/{jobCircular}/toggle-status', [JobCircularController::class, 'toggleStatus'])->name('admin.careers.toggleStatus');
 
     Route::get('social-media', function () {
-        return view('backend.settings.social-media');
+        return view('backend.social-media');
     })->name('social-media');
 
     Route::get('/blogs', function () {
-        return view('backend.settings.blogs');
+        return view('backend.blogs');
     })->name('blogs');
 
     Route::get('/applications', [ApplicationController::class, 'index'])->name('applications');

@@ -1,5 +1,5 @@
 @extends('backend.layouts.dashboard')
-@section('title', 'Page Settings')
+@section('title', 'Industry Focus')
 
 @section('content')
     <form action="">

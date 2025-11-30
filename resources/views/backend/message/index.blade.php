@@ -1,5 +1,5 @@
 @extends('backend.layouts.dashboard')
-@section('title', 'Applications')
+@section('title', 'Messages')
 
 @section('content')
     <h4>Messages</h4>
