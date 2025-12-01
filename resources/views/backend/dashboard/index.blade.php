@@ -7,7 +7,7 @@
         <!-- Total Job Post -->
         <div class="bg-white shadow rounded-lg p-4 flex flex-col">
             <div class="flex items-center justify-between mb-3">
-            <span class="flex items-center justify-center w-10 h-10 rounded bg-gray-800 text-white">
+            <span class="flex items-center justify-center w-10 h-10 rounded bg-zavisoft text-white">
                 <i class="fa fa-file-alt text-600 text-xl"></i>
             </span>
             </div>
@@ -22,7 +22,7 @@
         <!-- Total CV -->
         <div class="bg-white shadow rounded-lg p-4 flex flex-col">
             <div class="flex items-center justify-between mb-3">
-            <span class="flex items-center justify-center w-10 h-10 rounded bg-gray-800 text-white">
+            <span class="flex items-center justify-center w-10 h-10 rounded bg-zavisoft text-white">
                 <i class="fa fa-file-signature text-600 text-xl"></i>
             </span>
             </div>
@@ -37,7 +37,7 @@
         <!-- Total Messages -->
         <div class="bg-white shadow rounded-lg p-4 flex flex-col">
             <div class="flex items-center justify-between mb-3">
-            <span class="flex items-center justify-center w-10 h-10 rounded bg-gray-800 text-white">
+            <span class="flex items-center justify-center w-10 h-10 rounded bg-zavisoft text-white">
                 <i class="fa fa-bell text-600 text-xl"></i>
             </span>
             </div>
@@ -52,7 +52,7 @@
         <!-- Example 4th card -->
         <div class="bg-white shadow rounded-lg p-4 flex flex-col">
             <div class="flex items-center justify-between mb-3">
-            <span class="flex items-center justify-center w-10 h-10 rounded bg-gray-800 text-white">
+            <span class="flex items-center justify-center w-10 h-10 rounded bg-zavisoft text-white">
                 <i class="fa fa-diagram-project text-600 text-xl"></i>
             </span>
             </div>

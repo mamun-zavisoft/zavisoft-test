@@ -2513,7 +2513,7 @@
   @apply  .timeline li .timeline-panel {
   @apply    float-right
       width: calc(100% - 90px);
-    } 
+    }
   }*/
     .timeline li.timeline-inverted .timeline-panel {
         @apply float-right
@@ -6604,5 +6604,15 @@
 
     .swal2-cancel {
         @apply bg-btnDanger-bgColor p-2 px-3 rounded text-btnDanger-fontColor border-btnDanger-borderColor hover:bg-btnDanger-hoverbgColor hover:border-btnDanger-hoverborderColor
+    }
+
+    .sidebar .sidebar-menu>ul>li.active a {
+        background-color: #0CB3AF !important;
+    }
+    .sidebar .sidebar-menu>ul>li a:hover {
+        background-color: #0CB3AF !important;
+    }
+    .bg-zavisoft {
+        background-color: #0CB3AF !important;
     }
 }
