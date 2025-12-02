@@ -20,6 +20,7 @@
     <link rel="stylesheet" href="{{ asset('assets/css/admin-dist.css') }}">
     <link rel="stylesheet" href="{{ asset('assets/css/custom.css') }}">
     <meta name="csrf-token" content="{{ csrf_token() }}">
+   {{-- <script src="https://cdn.jsdelivr.net/npm/@hotwired/turbo@8.0.20/dist/turbo.es2017-umd.min.js"></script>--}}
 </head>
 
 <body>
@@ -59,12 +60,11 @@
     });
 </script>
 
-
-<div id="toast"
-     class="hidden fixed top-20 right-5 z-50 min-w-[220px] max-w-sm rounded-lg shadow-lg px-4 py-3 bg-gray-800 text-white transition-opacity duration-300">
+<div id="toast" class="hidden fixed top-20 right-5 z-50 min-w-[220px] max-w-sm rounded-lg shadow-lg px-4 py-3 bg-gray-800 text-white transition-opacity duration-300">
     <span id="toast-message" class="text-sm"></span>
 </div>
 @stack('scripts')
+
 </body>
 
 </html>

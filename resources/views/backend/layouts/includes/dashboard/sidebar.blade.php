@@ -29,8 +29,8 @@
                 </a>
             </li>
 
-            <li class="{{ Route::is('admin.services*') ? 'active' : '' }}">
-                <a href="{{ route('admin.services') }}">
+            <li class="{{ Route::is('admin.service*') ? 'active' : '' }}">
+                <a href="{{ route('admin.service.index') }}">
                     <i class="fa fa-tools text-gray-600 text-xl"></i>
                     <span>Services</span>
                 </a>

@@ -5,6 +5,7 @@ use App\Http\Controllers\Admin\Auth\LoginController;
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\JobCircularController;
 use App\Http\Controllers\Admin\MessageController;
+use App\Http\Controllers\Admin\ServiceController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/login', [LoginController::class, 'index'])->name('login');
@@ -24,10 +25,6 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('/page-settings', function () {
         return view('backend.settings.page-settings');
     })->name('settings.page-settings');
-
-    Route::get('/services', function () {
-        return view('backend.services');
-    })->name('services');
 
     Route::get('/projects', function () {
         return view('backend.projects');
@@ -67,4 +64,9 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('/applications', [ApplicationController::class, 'index'])->name('applications');
     Route::get('/messages', [MessageController::class, 'index'])->name('messages');
     Route::get('/download-cv/{id}', [ApplicationController::class, 'downloadCV'])->name('download.cv');
+    Route::get('/create-service',[ServiceController::class,'create'])->name('service.create');
+    Route::get('/services',[ServiceController::class,'index'])->name('service.index');
+    Route::post('/services', [ServiceController::class, 'store'])->name('service.store');
+    Route::get('/services/edit/{id}', [ServiceController::class, 'edit'])->name('service.edit');
+    Route::patch('/services/update/{id}', [ServiceController::class, 'update'])->name('service.update');
 });
