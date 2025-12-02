@@ -50,7 +50,7 @@
             </div>
         </div>
     </section>
-    <section class=" mt-[-10%] md:mt-[-8%] xl:mt-[-6%] relative z-1">
+<!--    <section class=" mt-[-10%] md:mt-[-8%] xl:mt-[-6%] relative z-1">
         <div class="container">
             <div class="border-b border-neutral-200 pb-8 md:pb-10 lg:pb-12">
                 <h5 class=" text-base font-semibold text-neutral-900 text-center mb-3">Our recent clients & partners
@@ -59,8 +59,8 @@
                 <PartnerMarquee :reverse="true" />
             </div>
         </div>
-    </section>
-    <section class="py-8 md:py-10 lg:py-12 ">
+    </section>-->
+    <section class="pb-8 md:pb-10 lg:pb-12 ">
         <div class="container flex flex-col-reverse md:flex-row items-center justify-between gap-16 ">
             <!-- Left Image -->
             <div class="md:w-1/2 w-full ">

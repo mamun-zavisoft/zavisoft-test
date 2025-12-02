@@ -5,6 +5,7 @@ use App\Http\Controllers\Admin\Auth\LoginController;
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\JobCircularController;
 use App\Http\Controllers\Admin\MessageController;
+use App\Http\Controllers\Admin\ProjectController;
 use App\Http\Controllers\Admin\ServiceController;
 use Illuminate\Support\Facades\Route;
 
@@ -25,10 +26,6 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('/page-settings', function () {
         return view('backend.settings.page-settings');
     })->name('settings.page-settings');
-
-    Route::get('/projects', function () {
-        return view('backend.projects');
-    })->name('projects');
 
     Route::get('/industry-focus', function () {
         return view('backend.industry-focus');
@@ -64,9 +61,18 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('/applications', [ApplicationController::class, 'index'])->name('applications');
     Route::get('/messages', [MessageController::class, 'index'])->name('messages');
     Route::get('/download-cv/{id}', [ApplicationController::class, 'downloadCV'])->name('download.cv');
-    Route::get('/create-service',[ServiceController::class,'create'])->name('service.create');
+
+    // service
     Route::get('/services',[ServiceController::class,'index'])->name('service.index');
+    Route::get('/create-service',[ServiceController::class,'create'])->name('service.create');
     Route::post('/services', [ServiceController::class, 'store'])->name('service.store');
     Route::get('/services/edit/{id}', [ServiceController::class, 'edit'])->name('service.edit');
     Route::patch('/services/update/{id}', [ServiceController::class, 'update'])->name('service.update');
+
+    // projects
+    Route::get('/projects', [ProjectController::class,'index'])->name('project.index');
+    Route::get('/create-project', [ProjectController::class,'create'])->name('project.create');
+    Route::post('/projects', [ProjectController::class,'store'])->name('project.store');
+    Route::get('/projects/edit/{id}', [ProjectController::class, 'edit'])->name('project.edit');
+    Route::patch('/projects/update/{id}', [ProjectController::class, 'update'])->name('project.update');
 });

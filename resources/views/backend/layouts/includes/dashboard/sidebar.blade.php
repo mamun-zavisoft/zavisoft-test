@@ -36,8 +36,8 @@
                 </a>
             </li>
 
-            <li class="{{ Route::is('admin.projects*') ? 'active' : '' }}">
-                <a href="{{ route('admin.projects') }}">
+            <li class="{{ Route::is('admin.project*') ? 'active' : '' }}">
+                <a href="{{ route('admin.project.index') }}">
                     <i class="fa fa-diagram-project text-gray-600 text-xl"></i>
                     <span>Projects</span>
                 </a>

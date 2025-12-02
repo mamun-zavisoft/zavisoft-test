@@ -56,8 +56,7 @@
 
                         <div class="">
                             <div class="form-group">
-                                <label class="text-base text-red-800"> Service Image <span
-                                        class="manitory">*</span></label>
+                                <label class="text-base text-red-800"> Service Image <span class="manitory">*</span></label>
                                 <div class="image-upload">
                                     <input type="file" name="service_image" id="service_image">
 
@@ -73,7 +72,6 @@
                                 <div class="text-danger-500 mt-1">{{ $message }}</div>
                                 @enderror
                                 <span id="file-name" class="mt-2 text-sm text-gray-600"></span>
-
                             </div>
                         </div>
 
