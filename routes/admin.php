@@ -1,6 +1,6 @@
 <?php
 
-use App\Http\Controllers\Admin\ApplicationController;
+use App\Http\Controllers\Admin\JobApplicationController;
 use App\Http\Controllers\Admin\Auth\LoginController;
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\JobCircularController;
@@ -9,10 +9,9 @@ use App\Http\Controllers\Admin\ProjectController;
 use App\Http\Controllers\Admin\ServiceController;
 use Illuminate\Support\Facades\Route;
 
+// authentication
 Route::get('/login', [LoginController::class, 'index'])->name('login');
 Route::post('/login', [LoginController::class, 'request'])->name('login.request');
-
-//logout
 Route::post('/logout', [LoginController::class, 'logout'])->name('logout');
 
 
@@ -43,13 +42,6 @@ Route::group(['middleware' => 'auth'], function () {
         return view('backend.team-members');
     })->name('team-members');
 
-    Route::get('careers', [JobCircularController::class, 'index'])->name('careers.index');
-    Route::post('careers', [JobCircularController::class, 'store'])->name('careers.store');
-    Route::get('careers/create', [JobCircularController::class, 'create'])->name('careers.create');
-    Route::get('careers/edit/{id}', [JobCircularController::class, 'edit'])->name('careers.edit');
-    Route::post('careers/update/{id}', [JobCircularController::class, 'update'])->name('careers.update');
-    Route::post('/careers/{jobCircular}/toggle-status', [JobCircularController::class, 'toggleStatus'])->name('admin.careers.toggleStatus');
-
     Route::get('social-media', function () {
         return view('backend.social-media');
     })->name('social-media');
@@ -58,9 +50,19 @@ Route::group(['middleware' => 'auth'], function () {
         return view('backend.blogs');
     })->name('blogs');
 
-    Route::get('/applications', [ApplicationController::class, 'index'])->name('applications');
+    // career || job post
+    Route::get('careers', [JobCircularController::class, 'index'])->name('careers.index');
+    Route::post('careers', [JobCircularController::class, 'store'])->name('careers.store');
+    Route::get('careers/create', [JobCircularController::class, 'create'])->name('careers.create');
+    Route::get('careers/edit/{id}', [JobCircularController::class, 'edit'])->name('careers.edit');
+    Route::post('careers/update/{id}', [JobCircularController::class, 'update'])->name('careers.update');
+    Route::post('/careers/{jobCircular}/toggle-status', [JobCircularController::class, 'toggleStatus'])->name('admin.careers.toggleStatus');
+
+    // job application
+    Route::get('/job-applications', [JobApplicationController::class, 'index'])->name('job-applications');
     Route::get('/messages', [MessageController::class, 'index'])->name('messages');
-    Route::get('/download-cv/{id}', [ApplicationController::class, 'downloadCV'])->name('download.cv');
+    Route::get('/download-cv/{id}', [JobApplicationController::class, 'downloadCV'])->name('download.cv');
+    Route::put('/job-applications-status-update/{id}', [JobApplicationController::class, 'update'])->name('job-applications.update');
 
     // service
     Route::get('/services',[ServiceController::class,'index'])->name('service.index');

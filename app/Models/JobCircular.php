@@ -13,13 +13,13 @@ class JobCircular extends Model
         'experience',
         'salary_range',
         'address',
-        'description',        
+        'description',
         'responsibilities',
         'requirement',
         'about_company',
     ];
     public function applications()
     {
-        return $this->hasMany(Application::class);
+        return $this->hasMany(JobApplication::class);
     }
 }

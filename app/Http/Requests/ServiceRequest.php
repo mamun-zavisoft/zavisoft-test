@@ -21,12 +21,12 @@ class ServiceRequest extends FormRequest
 
         if ($this->isMethod('post')) {
             // On create: image is required
-            $rules['service_image'] = 'required|mimes:jpg,jpeg,png,webp,svg|max:5120';
+            $rules['service_image'] = 'required|mimes:jpg,jpeg,png,webp,svg|max:2048';
         }
 
         if ($this->isMethod('put') || $this->isMethod('patch')) {
             // On update: image is optional
-            $rules['service_image'] = 'nullable|mimes:jpg,jpeg,png,webp,svg|max:5120';
+            $rules['service_image'] = 'nullable|mimes:jpg,jpeg,png,webp,svg|max:2048';
         }
 
         return $rules;

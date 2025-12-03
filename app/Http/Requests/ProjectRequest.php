@@ -22,8 +22,8 @@ class ProjectRequest extends FormRequest
             'business_result' => 'required|string',
 
             // Required on create, optional on update
-            'banner_image' => ($isCreate ? 'required' : 'nullable') . '|image|mimes:jpg,jpeg,png,svg|max:2048',
-            'gallery_image' => ($isCreate ? 'required' : 'nullable') . '|image|mimes:jpg,jpeg,png,svg|max:2048',
+            'banner_image' => ($isCreate ? 'required' : 'nullable') . '|mimes:jpg,jpeg,png,webp,svg|max:2048',
+            'gallery_image' => ($isCreate ? 'required' : 'nullable') . '|mimes:jpg,jpeg,png,webp,svg|max:2048',
 
             'challenge' => 'required|string',
             'solution' => 'required|string',

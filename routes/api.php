@@ -6,7 +6,7 @@ use App\Http\Controllers\Api\Auth\EmailVerification;
 use App\Http\Controllers\Api\Auth\LoginController;
 use App\Http\Controllers\Api\Auth\RegisterController;
 use App\Http\Controllers\Api\ContactUsController;
-use App\Http\Controllers\Api\ApplicationController;
+use App\Http\Controllers\Api\JobApplicationController;
 use App\Http\Controllers\Api\JobCircularController;
 use Illuminate\Support\Facades\Route;
 
@@ -25,7 +25,7 @@ Route::middleware('auth:sanctum')->group(function (): void {
 });
 
 Route::post('/contact-us', [ContactUsController::class,'store']);
-Route::post('/application', [ApplicationController::class, 'store']);
+Route::post('/job-application', [JobApplicationController::class, 'store']);
 Route::get('/careers', [JobCircularController::class, 'index']);
 Route::get('/careers/{id}', [JobCircularController::class, 'show']);
 Route::get('/service-categories', [ServiceController::class, 'serviceCategories']);
