@@ -7,6 +7,23 @@
         <div class="grid grid-cols-1 gap-x-5 gap-y-0 ">
             <div>
                 <div class="form-group">
+                    <label>Category<span class="manitory">*</span></label>
+                    <select class="select" name="category_id" required>
+                        <option disabled selected>Select Category</option>
+                        @foreach($categories as $category)
+                            <option
+                                value="{{ $category->id }}" {{ old('category_id', $category->category_id ?? '') == $category->id ? 'selected' : '' }}>
+                                {{ $category->name }}
+                            </option>
+                        @endforeach
+                    </select>
+                    @error('category_id')
+                    <div class="text-danger-500 mt-1">{{ $message }}</div>
+                    @enderror
+                </div>
+            </div>
+            <div>
+                <div class="form-group">
                     <label>Title<span class="manitory">*</span></label>
                     <input type="text" name="title" placeholder="Write Project Title" value="{{old('title')}}"/>
                 </div>

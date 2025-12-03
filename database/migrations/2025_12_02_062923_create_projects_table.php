@@ -9,6 +9,7 @@ return new class extends Migration {
     {
         Schema::create('projects', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('category_id')->constrained('project_categories')->onDelete('cascade');
             $table->string('title');
             $table->text('about_project');
             $table->text('business_result')->nullable();

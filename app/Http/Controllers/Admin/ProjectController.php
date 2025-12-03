@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\ProjectRequest;
 use App\Models\Project;
+use App\Models\ProjectCategory;
 use Illuminate\Support\Facades\Storage;
 
 class ProjectController extends Controller
@@ -17,7 +18,8 @@ class ProjectController extends Controller
 
     public function create()
     {
-        return view('backend.projects.create');
+        $categories = ProjectCategory::select('id', 'name')->orderBy('name')->get();
+        return view('backend.projects.create', compact('categories'));
     }
 
     public function store(ProjectRequest $request)
@@ -39,11 +41,13 @@ class ProjectController extends Controller
 
     public function edit($id)
     {
-        $project = Project::select('id', 'title', 'about_project', 'business_result', 'banner_image', 'gallery_image', 'challenge', 'solution', 'final_impact', 'contributors', 'platforms')
+        $project = Project::select('id', 'category_id','title', 'about_project', 'business_result', 'banner_image', 'gallery_image', 'challenge', 'solution', 'final_impact', 'contributors', 'platforms')
             ->where('id', $id)
             ->first();
 
-        return view('backend.projects.edit', compact('project'));
+        $categories = ProjectCategory::select('id', 'name')->orderBy('name')->get();
+
+        return view('backend.projects.edit', compact('project','categories'));
     }
 
     public function update(ProjectRequest $request, $id)

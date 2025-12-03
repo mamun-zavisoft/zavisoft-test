@@ -16,13 +16,14 @@ class ProjectRequest extends FormRequest
         $isCreate = $this->isMethod('post');
 
         return [
+            'category_id' => 'required|exists:project_categories,id',
             'title' => 'required|string|max:255',
             'about_project' => 'required|string',
             'business_result' => 'required|string',
 
             // Required on create, optional on update
-            'banner_image' => ($isCreate ? 'required' : 'nullable') . '|image|mimes:jpg,jpeg,png|max:2048',
-            'gallery_image' => ($isCreate ? 'required' : 'nullable') . '|image|mimes:jpg,jpeg,png|max:2048',
+            'banner_image' => ($isCreate ? 'required' : 'nullable') . '|image|mimes:jpg,jpeg,png,svg|max:2048',
+            'gallery_image' => ($isCreate ? 'required' : 'nullable') . '|image|mimes:jpg,jpeg,png,svg|max:2048',
 
             'challenge' => 'required|string',
             'solution' => 'required|string',
