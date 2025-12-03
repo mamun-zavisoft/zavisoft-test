@@ -100,13 +100,15 @@
                                         @method('PUT')
 
                                         {{-- Status Dropdown --}}
-                                        <select name="status" x-model="status" class="w-full border rounded p-2 text-sm">
-                                            <option value="pending" {{ $application['status'] === 'pending' ? 'selected' : '' }}>Pending</option>
-                                            <option value="shortlisted" {{ $application['status'] === 'shortlisted' ? 'selected' : '' }}>Shortlisted</option>
-                                            <option value="interview_scheduled" {{ $application['status'] === 'interview_scheduled' ? 'selected' : '' }}>Interview Scheduled</option>
-                                            <option value="interviewed" {{ $application['status'] === 'interviewed' ? 'selected' : '' }}>Interviewed</option>
-                                            <option value="hired" {{ $application['status'] === 'hired' ? 'selected' : '' }}>Hired</option>
-                                        </select>
+                                        <div class="form-group">
+                                            <select name="status" x-model="status" class="w-full border rounded p-2 text-sm">
+                                                <option value="pending" {{ $application['status'] === 'pending' ? 'selected' : '' }}>Pending</option>
+                                                <option value="shortlisted" {{ $application['status'] === 'shortlisted' ? 'selected' : '' }}>Shortlisted</option>
+                                                <option value="interview_scheduled" {{ $application['status'] === 'interview_scheduled' ? 'selected' : '' }}>Interview Scheduled</option>
+                                                <option value="interviewed" {{ $application['status'] === 'interviewed' ? 'selected' : '' }}>Interviewed</option>
+                                                <option value="hired" {{ $application['status'] === 'hired' ? 'selected' : '' }}>Hired</option>
+                                            </select>
+                                        </div>
 
                                         {{-- Interview Date (Scheduled, Interviewed, Hired) --}}
                                         <div x-show="status === 'interview_scheduled' || status === 'interviewed' || status === 'hired'" x-cloak>
