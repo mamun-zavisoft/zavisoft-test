@@ -7,36 +7,34 @@
                     <div class="grid grid-cols-1 lg:grid-cols-2">
                         <!-- Left: Content -->
                         <div class="h-full pr-0 lg:pr-10 xl:pr-14 ">
-                            <div class="max-w-[809px] h-full flex flex-col justify-end pb-0 lg:pb-16">
-                                <h1
-                                    class="wow animate__animated animate__fadeInUp text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-bold text-neutral-900">
-                                    A provider of trusted <br><span class="text-neutral-500">UI/UX design
-                                        services</span>
-                                </h1>
+                            <div v-if="filteredServices.length">
+                                <div v-for="service in filteredServices" :key="service.id">
+                                    <div class="max-w-[809px] h-full flex flex-col justify-end pb-0 lg:pb-16">
+                                        <h1
+                                            class="wow animate__animated animate__fadeInUp text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-bold text-neutral-900">
+                                            {{ service?.heading }}
+                                        </h1>
 
-                                <p
-                                    class="wow animate__animated animate__fadeInUp mt-6 text-neutral-600 text-sm sm:text-base leading-relaxed">
-                                    We design visually appealing, user-friendly interfaces that captivate
-                                    audiences, strengthen brand presence, reduce churn, and boost conversions.
-                                </p>
+                                        <p
+                                            class="wow animate__animated animate__fadeInUp mt-6 text-neutral-600 text-sm sm:text-base leading-relaxed">
+                                            {{ service?.short_description }}
+                                        </p>
 
-                                <p
-                                    class="wow animate__animated animate__fadeInUp mt-3 text-neutral-600 text-sm sm:text-base leading-relaxed">
-                                    The user experience heavily relies on the visual aspect—our UI designers
-                                    bring products to life through interactive prototypes and smooth motion design.
-                                </p>
 
-                                <!-- CTAs -->
-                                <div class="mt-6 md:mt-10 flex flex-col sm:flex-row gap-3 sm:gap-4">
 
-                                    <a href="#"
-                                        class="wow animate__animated animate__pulse sm:w-1/2 inline-flex items-center justify-center rounded-full px-4 py-3 bg-primary-500 text-white hover:bg-primary-600 focus:outline-none focus:ring-0 focus:ring-primary-300 transition-colors duration-300">
-                                        Send a Brief
-                                    </a>
-                                    <a href="#"
-                                        class="wow animate__animated animate__pulse sm:w-1/2 inline-flex items-center justify-center rounded-full px-4 py-3 bg-white border border-neutral-300 text-sm font-medium text-neutral-900  focus:outline-none focus:ring-0 focus:ring-transparent transition-colors duration-300">
-                                        See UI/UX Projects
-                                    </a>
+                                        <!-- CTAs -->
+                                        <div class="mt-6 md:mt-10 flex flex-col sm:flex-row gap-3 sm:gap-4">
+
+                                            <a href="#"
+                                                class="wow animate__animated animate__pulse sm:w-1/2 inline-flex items-center justify-center rounded-full px-4 py-3 bg-primary-500 text-white hover:bg-primary-600 focus:outline-none focus:ring-0 focus:ring-primary-300 transition-colors duration-300">
+                                                Send a Brief
+                                            </a>
+                                            <a href="#"
+                                                class="wow animate__animated animate__pulse sm:w-1/2 inline-flex items-center justify-center rounded-full px-4 py-3 bg-white border border-neutral-300 text-sm font-medium text-neutral-900  focus:outline-none focus:ring-0 focus:ring-transparent transition-colors duration-300">
+                                                See UI/UX Projects
+                                            </a>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -135,7 +133,7 @@
                                     <div class="mb-4 pr-4">
                                         <h3 class="text-lg md:text-xl font-bold text-neutral-900 mb-3">{{
                                             project.title
-                                            }}</h3>
+                                        }}</h3>
                                         <p class="text-neutral-600 text-sm line-clamp-3">{{ project.description }}
                                         </p>
                                     </div>
@@ -273,8 +271,10 @@
         <div class="container">
             <div class="mb-6">
                 <SectionHeader text="Other Services" />
-                <h1 class="text-2xl md:text-3xl lg:text-4xl font-bold wow animate__animated animate__fadeInUp">Explore other services</h1>
-                <p class="mt-2 text-sm md:text-base text-neutral-600 wow animate__animated animate__fadeInUp">Pick your self-paced career path and break into a
+                <h1 class="text-2xl md:text-3xl lg:text-4xl font-bold wow animate__animated animate__fadeInUp">Explore
+                    other services</h1>
+                <p class="mt-2 text-sm md:text-base text-neutral-600 wow animate__animated animate__fadeInUp">Pick your
+                    self-paced career path and break into a
                     booming industry</p>
             </div>
             <div class="">
@@ -282,7 +282,6 @@
             </div>
         </div>
     </section>
-
 </template>
 
 <script setup>
@@ -294,9 +293,57 @@ import FAQ from '@/components/section/FAQ.vue';
 import SectionHeader from '@/components/ui/heading/SectionHeader.vue';
 
 
-import { ref, computed } from 'vue'
+import { ref, computed, onMounted, watchEffect } from "vue"
 import { FwbTab, FwbTabs } from 'flowbite-vue'
 import OtherServicce from '@/components/section/OtherServicce.vue';
+import { useRoute } from 'vue-router'
+
+const route = useRoute()
+const id = computed(() => Number(route.params.id))
+
+const services = ref([])
+
+// Fetch services
+const fetchServices = async () => {
+    try {
+        const res = await fetch('/api/services', {
+            headers: { 'Accept': 'application/json' }
+        })
+
+        if (!res.ok) throw new Error("Failed to load services")
+
+        const json = await res.json()
+
+        console.log("Fetched services:", json.data)
+
+        services.value = Array.isArray(json.data) ? json.data : []
+
+    } catch (e) {
+        console.error("Error fetching services:", e)
+    }
+}
+
+// When component loads → fetch data
+onMounted(async () => {
+    await fetchServices()
+})
+
+// Filter by category_id
+const filteredServices = computed(() => {
+    return services.value.filter(
+        s => Number(s.category_id) === Number(id.value)
+    )
+})
+
+console.log("Fetched services:", filteredServices)
+
+
+// Debug (optional)
+// watchEffect(() => {
+//     console.log("Filtered services:", filteredServices.value)
+// })
+
+
 
 
 const activeTab = ref('all')

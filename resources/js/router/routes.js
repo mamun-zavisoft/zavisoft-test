@@ -48,12 +48,6 @@ const routes = [
         component: () => import("@/views/frontend/Career.vue"),
         meta: { layout: LayoutFrontend, title: "Career" },
     },
-    // {
-    //     path: "/job-apply",
-    //     name: "JobApply",
-    //     component: () => import("@/views/frontend/JobApply.vue"),
-    //     meta: { layout: LayoutFrontend, title: "Job Apply" },
-    // },
 
     {
         path: '/apply/:jobId',
@@ -117,43 +111,15 @@ const routes = [
         meta: { layout: LayoutFrontend, title: "Contact" },
     },
 
-    // Service Routes
+    // dynamic service route
+
     {
-        path: "/services/ui-ux-design-audit",
-        name: "UIDesignAudit",
+        path: '/services/:id?',
+        name: "serviceDetails",
         component: () => import("@/views/frontend/services/Service.vue"),
-        meta: { layout: LayoutFrontend, title: "UI/UX Design & Audit" },
+        meta: { layout: LayoutFrontend, title: "Service Details" },
     },
-    {
-        path: "/services/software-development",
-        name: "SoftwareDevelopment",
-        component: () => import("@/views/frontend/services/Service.vue"),
-        meta: { layout: LayoutFrontend, title: "Software Development" },
-    },
-    {
-        path: "/services/web-development",
-        name: "WebDevelopment",
-        component: () => import("@/views/frontend/services/Service.vue"),
-        meta: { layout: LayoutFrontend, title: "Web Development" },
-    },
-    {
-        path: "/services/mobile-app-development",
-        name: "MobileAppDevelopment",
-        component: () => import("@/views/frontend/services/Service.vue"),
-        meta: { layout: LayoutFrontend, title: "Mobile App Development" },
-    },
-    {
-        path: "/services/qa-testing",
-        name: "QATesting",
-        component: () => import("@/views/frontend/services/Service.vue"),
-        meta: { layout: LayoutFrontend, title: "QA Testing" },
-    },
-    {
-        path: "/services/database-management",
-        name: "DatabaseManagement",
-        component: () => import("@/views/frontend/services/Service.vue"),
-        meta: { layout: LayoutFrontend, title: "Database Management" },
-    },
+    
 
     // ✅ Catch-all 404
     {
