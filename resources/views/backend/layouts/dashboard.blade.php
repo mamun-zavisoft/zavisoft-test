@@ -27,10 +27,10 @@
 
 <div class="main-wrapper">
     <div class="header">
-        @include('backend.layouts.includes.dashboard.header')
+        @include('backend.layouts.header')
     </div>
     <div class="sidebar bg-white" id="sidebar">
-        @include('backend.layouts.includes.dashboard.sidebar')
+        @include('backend.layouts.sidebar')
     </div>
 
     <main class="page-wrapper h-screen">

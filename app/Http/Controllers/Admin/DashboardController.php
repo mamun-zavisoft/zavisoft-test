@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\JobApplication;
 use App\Models\ContactUs;
 use App\Models\JobCircular;
+use App\Models\Project;
 
 class DashboardController extends Controller
 {
@@ -15,7 +16,7 @@ class DashboardController extends Controller
             'jobCount'     => JobCircular::count(),
             'cvCount'      => JobApplication::count(),
             'messageCount' => ContactUs::count(),
-            'projectCount' => 30,
+            'projectCount' => Project::count(),
         ]);
     }
 }

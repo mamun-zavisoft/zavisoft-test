@@ -43,7 +43,7 @@
                 </a>
             </li>
 
-            <li class="{{ Route::is('admin.industry-focus*') ? 'active' : '' }}">
+            {{--<li class="{{ Route::is('admin.industry-focus*') ? 'active' : '' }}">
                 <a href="{{ route('admin.industry-focus') }}">
                     <i class="fa fa-industry text-gray-600 text-xl"></i>
                     <span>Industry Focus</span>
@@ -101,7 +101,7 @@
                     <li class="{{ Route::is('admin.settings.page-settings') ? 'active' : '' }}">
                         <a href="{{ route('admin.settings.page-settings') }}">Page Settings</a>
                     </li>
-                </ul>
+                </ul>--}}
             </li>
         </ul>
     </div>
