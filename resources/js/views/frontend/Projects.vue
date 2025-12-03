@@ -15,9 +15,7 @@
     </section>
     <section class="pb-8 md:pb-10 lg:pb-12">
         <div class="container">
-           
-            <Projects />
-
+<Projects />
         </div>
     </section>
     <section class="py-8 md:py-10 lg:py-12">
@@ -25,83 +23,11 @@
     </section>
 </template>
 
+
+
 <script setup>
-import { ref, computed } from 'vue'
-import { FwbTab, FwbTabs } from 'flowbite-vue'
-import StartBuilding from '@/components/section/StartBuilding.vue';
-import Projects from '@/components/ui/card/Projects.vue';
-
-
-const activeTab = ref('all')
-const projects = [
-    {
-        id: 1,
-        title: 'Packly',
-        description: 'Our design team helps clients achieve their marketing and business goals.',
-        tags: ['e-commerce'],
-        image: new URL('@/assets/images/project_3.png', import.meta.url).href,
-
-    },
-    {
-        id: 2,
-        title: 'Packly - Super App',
-        description: 'Our design team helps clients achieve their marketing and business goals.',
-        tags: ['e-commerce'],
-        image: new URL('@/assets/images/project_2.png', import.meta.url).href,
-
-
-    },
-    {
-        id: 3,
-        title: 'Packly - Event',
-        description: 'Our design team helps clients achieve their marketing and business goals.',
-        tags: ['Ticket Management', 'Ticket Platform Website'],
-        image: new URL('@/assets/images/project_1.png', import.meta.url).href,
-
-
-    },
-    {
-        id: 4,
-        title: 'Packly - Shopping',
-        description: 'Our design team helps clients achieve their marketing and business goals.',
-        tags: ['Ticket Management', 'Ticket Platform Website'],
-        image: new URL('@/assets/images/project_3.png', import.meta.url).href,
-        category: 'ecommerce'
-
-
-    },
-    {
-        id: 5,
-        title: 'Packly',
-        description: 'Our design team helps clients achieve their marketing and business goals.',
-        tags: ['Ticket Management', 'Ticket Platform Website'],
-        image: new URL('@/assets/images/project_2.png', import.meta.url).href,
-        category: 'mobile-app'
+import Projects from "@/components/ui/card/Projects.vue"
 
 
 
-    },
-    {
-        id: 6,
-        title: 'Packly - Zavisoft',
-        description: 'Our design team helps clients achieve their marketing and business goals.',
-        tags: ['Ticket Management', 'Ticket Platform Website'],
-        image: new URL('@/assets/images/project_1.png', import.meta.url).href,
-        category: 'ecommerce'
-
-    },
-]
-
-const categories = [
-    { name: 'all', label: 'All' },
-    { name: 'ecommerce', label: 'Ecommerce' },
-    { name: 'mobile-app', label: 'Mobile App' },
-    { name: 'admin-dashboard', label: 'Admin Dashboard' },
-
-]
-
-const filteredProjects = computed(() => {
-    if (activeTab.value === 'all') return projects
-    return projects.filter(p => p.category === activeTab.value)
-})
 </script>
