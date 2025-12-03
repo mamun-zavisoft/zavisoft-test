@@ -2,7 +2,6 @@
 
 namespace Database\Seeders;
 
-use App\Models\User;
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
@@ -12,13 +11,10 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
-        // User::factory(10)->create();
-
-        User::factory()->create([
-            'name' => 'Admin',
-            'email' => 'info@zavisoft.com',
-            'role' => 'admin',
-            'password' => bcrypt('ZaviSoft007@'),
+        $this->call([
+            ProjectCategorySeeder::class,
+            ServiceCategorySeeder::class,
+            UserSeeder::class,
         ]);
     }
 }
