@@ -30,5 +30,7 @@ Route::get('/careers', [JobCircularController::class, 'index']);
 Route::get('/careers/{id}', [JobCircularController::class, 'show']);
 Route::get('/service-categories', [ServiceController::class, 'serviceCategories']);
 Route::get('/services', [ServiceController::class, 'services']);
+Route::get('/category-wise-service/{category_id}', [ServiceController::class, 'categoryWiseServices']);
 Route::get('/projects', [ProjectController::class, 'index']);
 Route::get('/projects-categories', [ProjectController::class, 'projectCategories']);
+Route::get('/category-wise-projects/{category_id}', [ProjectController::class, 'categoryWiseProjects']);
