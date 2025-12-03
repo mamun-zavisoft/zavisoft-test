@@ -29,4 +29,15 @@ class ServiceController extends Controller
             'message' => 'Services retrieved successfully.'
         ]);
     }
+
+    public function categoryWiseServices($id)
+    {
+        $data = Service::select('id', 'category_id','heading', 'short_description', 'service_image')->where('category_id',$id)->first();
+
+        return response()->json([
+            'success' => true,
+            'data' => $data,
+            'message' => 'Services retrieved successfully.'
+        ]);
+    }
 }

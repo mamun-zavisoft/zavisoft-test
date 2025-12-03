@@ -16,7 +16,7 @@ class ServiceRequest extends FormRequest
         $rules = [
             'heading' => 'required|string|max:255',
             'short_description' => 'required|string|max:1000',
-            'category_id' => 'required|exists:service_categories,id',
+            'category_id' => 'required|exists:service_categories,id|unique:services,category_id',
         ];
 
         if ($this->isMethod('post')) {
