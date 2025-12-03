@@ -133,7 +133,7 @@
                                     <div class="mb-4 pr-4">
                                         <h3 class="text-lg md:text-xl font-bold text-neutral-900 mb-3">{{
                                             project.title
-                                        }}</h3>
+                                            }}</h3>
                                         <p class="text-neutral-600 text-sm line-clamp-3">{{ project.description }}
                                         </p>
                                     </div>
@@ -314,7 +314,6 @@ const fetchServices = async () => {
 
         const json = await res.json()
 
-        console.log("Fetched services:", json.data)
 
         services.value = Array.isArray(json.data) ? json.data : []
 
@@ -335,7 +334,6 @@ const filteredServices = computed(() => {
     )
 })
 
-console.log("Fetched services:", filteredServices)
 
 
 // Debug (optional)

@@ -5,19 +5,20 @@
                 <!-- Tab Content -->
                 <div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3 mt-6">
                     <article v-for="project in filteredProjects" :key="project.id"
-                        class="wow animate__zoomIn animate__animated bg-white rounded-lg  p-4 transition group border border-transparent hover:border-primary-500"
+                        class="wow animate__zoomIn animate__animated bg-white rounded-lg p-4 transition group border border-transparent hover:border-primary-500"
                         style="box-shadow: 0px 2px 4px 0px #0F1C330F, 0px 2px 2px 0px #0F1C3312;">
                         <div class="flex justify-between items-start">
                             <div class="mb-4 pr-4">
-                                <h3 class="text-base md:text-lg lg:text-xl font-bold text-neutral-900 mb-3">{{
-                                    project.title
-                                }}</h3>
-                                <p class="text-neutral-600 text-sm line-clamp-3">{{ project.description }}
+                                <h3 class="text-base md:text-lg lg:text-xl font-bold text-neutral-900 mb-3">
+                                    {{ project.title }}
+                                </h3>
+                                <p class="text-neutral-600 text-sm line-clamp-3">
+                                    {{ project.about_project }}
                                 </p>
                             </div>
 
                             <router-link :to="{ name: 'ProjectsDetails', params: { id: project.id } }"
-                                class="p-2 rounded-full border border-neutral-300 bg-white transition group-hover:bg-primary-500 group-hover:border-primary-500 hover:bg-primary-500 hover:border-primary-500 cursorpointer">
+                                class="p-2 rounded-full border border-neutral-300 bg-white transition group-hover:bg-primary-500 group-hover:border-primary-500 hover:bg-primary-500 hover:border-primary-500 cursor-pointer">
                                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
                                     stroke-width="1.5" stroke="currentColor"
                                     class="h-4 w-4 md:w-5 md:h-5 text-neutral-700 transform origin-center transition-transform transition-colors duration-300 group-hover:-rotate-45 group-hover:text-white">
@@ -26,30 +27,40 @@
                                 </svg>
                             </router-link>
                         </div>
-                        <!-- <ul class="flex flex-wrap gap-2">
-                            <li v-for="tech in project.tech" :key="tech"
-                                class="px-3 py-1 bg-neutral-100 text-neutral-700 text-xs rounded-full">
-                                {{ tech }}
-                            </li>
-                        </ul> -->
-                        <img :src="project.image" :alt="project.title" class="w-full rounded-lg object-cover mt-4" />
+
+                        <img :src="`/storage/${project.banner_image}`" :alt="project.title"
+                            class="w-full rounded-lg object-cover mt-4" />
                     </article>
+                </div>
+
+                <!-- Empty state -->
+                <div v-if="filteredProjects.length === 0" class="text-center py-12">
+                    <p class="text-neutral-500">No projects found in this category.</p>
                 </div>
             </fwb-tab>
         </fwb-tabs>
     </div>
-
 </template>
 
 <script setup>
 import { ref, computed, onMounted } from 'vue'
 import { FwbTab, FwbTabs } from 'flowbite-vue'
 
-
+// Active tab state
 const activeTab = ref('all')
 
+// Projects data
 const projects = ref([])
 
+// Categories with IDs matching backend
+const categories = [
+    { id: null, name: 'all', label: 'All' },
+    { id: 1, name: 'ecommerce', label: 'Ecommerce' },
+    { id: 2, name: 'mobile-app', label: 'Mobile App' },
+    { id: 3, name: 'admin-dashboard', label: 'Admin Dashboard' },
+]
+
+// Fetch projects from API
 const fetchProjects = async () => {
     try {
         const res = await fetch('/api/projects', {
@@ -66,120 +77,47 @@ const fetchProjects = async () => {
             title: p.title,
             about_project: p.about_project,
             banner_image: p.banner_image,
-            category_id: p.category_id
+            category_id: p.category_id,
+            category_name: p.category_name
         }))
 
+        console.log("Projects loaded:", projects.value)
     } catch (e) {
         console.error("Error fetching projects:", e)
     }
 }
 
-onMounted(fetchProjects)
-
-// const projects = [
-//     {
-//         id: 1,
-//         title: 'Packly',
-//         description: 'Our design team helps clients achieve their marketing and business goals.',
-//         tags: ['e-commerce'],
-//         image: new URL('@/assets/images/project_3.png', import.meta.url).href,
-
-//     },
-//     {
-//         id: 2,
-//         title: 'Packly - Super App',
-//         description: 'Our design team helps clients achieve their marketing and business goals.',
-//         tags: ['e-commerce'],
-//         image: new URL('@/assets/images/project_2.png', import.meta.url).href,
-
-
-//     },
-//     {
-//         id: 3,
-//         title: 'Packly - Event',
-//         description: 'Our design team helps clients achieve their marketing and business goals.',
-//         tags: ['Ticket Management', 'Ticket Platform Website'],
-//         image: new URL('@/assets/images/project_1.png', import.meta.url).href,
-
-
-//     },
-//     {
-//         id: 4,
-//         title: 'Packly - Shopping',
-//         description: 'Our design team helps clients achieve their marketing and business goals.',
-//         tags: ['Ticket Management', 'Ticket Platform Website'],
-//         image: new URL('@/assets/images/project_3.png', import.meta.url).href,
-//         category: 'ecommerce'
-
-
-//     },
-//     {
-//         id: 5,
-//         title: 'Packly',
-//         description: 'Our design team helps clients achieve their marketing and business goals.',
-//         tags: ['Ticket Management', 'Ticket Platform Website'],
-//         image: new URL('@/assets/images/project_2.png', import.meta.url).href,
-//         category: 'mobile-app'
-
-
-
-//     },
-//     {
-//         id: 6,
-//         title: 'Packly - Zavisoft',
-//         description: 'Our design team helps clients achieve their marketing and business goals.',
-//         tags: ['Ticket Management', 'Ticket Platform Website'],
-//         image: new URL('@/assets/images/project_1.png', import.meta.url).href,
-//         category: 'ecommerce'
-//     },
-// ]
-
-const categories = [
-    { name: 'all', label: 'All' },
-    { name: 'ecommerce', label: 'Ecommerce' },
-    { name: 'mobile-app', label: 'Mobile App' },
-    { name: 'admin-dashboard', label: 'Admin Dashboard' },
-
-]
-
+// Computed filtered projects
 const filteredProjects = computed(() => {
-    if (activeTab.value === 'all') return projects
-    return projects.filter(p => p.category === activeTab.value)
+    // Show all projects for 'all' tab
+    if (activeTab.value === 'all') {
+        return projects.value
+    }
+
+    // Find the selected category by name
+    const selectedCategory = categories.find(c => c.name === activeTab.value)
+
+    if (!selectedCategory) {
+        return projects.value
+    }
+
+    // Filter projects by category_id
+    return projects.value.filter(p => p.category_id === selectedCategory.id)
 })
+
+// Fetch projects on component mount
+onMounted(fetchProjects)
 </script>
 
-<!-- <script setup>
-import { onMounted, ref, watchEffect } from 'vue'
-
-const Projects = ref([])
-
-const fetchProjects = async () => {
-    try {
-        const res = await fetch('/api/projects', {
-            headers: { 'Accept': 'application/json' }
-        })
-
-        if (!res.ok) throw new Error("Failed to load projects")
-
-        const json = await res.json()
-
-        // Map backend fields properly
-        Projects.value = (json.data || []).map((p, index) => ({
-            id: p.id ?? index,
-            title: p.title,
-            about_project: p.about_project,
-            banner_image: p.banner_image,
-            category_id: p.category_id
-        }))
-
-    } catch (e) {
-        console.error("Error fetching projects:", e)
-    }
+<style scoped>
+.cursor-pointer {
+    cursor: pointer;
 }
 
-onMounted(fetchProjects)
-
-watchEffect(() => {
-    console.log("Projects:", Projects.value)
-})
-</script> -->
+.line-clamp-3 {
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+</style>
