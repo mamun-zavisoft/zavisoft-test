@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Api\ProjectController;
 use App\Http\Controllers\Api\ServiceController;
 use App\Http\Controllers\Api\Auth\EmailVerification;
 use App\Http\Controllers\Api\Auth\LoginController;
@@ -29,3 +30,4 @@ Route::get('/careers', [JobCircularController::class, 'index']);
 Route::get('/careers/{id}', [JobCircularController::class, 'show']);
 Route::get('/service-categories', [ServiceController::class, 'serviceCategories']);
 Route::get('/services', [ServiceController::class, 'services']);
+Route::get('/projects', [ProjectController::class, 'index']);

@@ -1,0 +1,20 @@
+<?php
+
+namespace App\Http\Controllers\Api;
+
+use App\Http\Controllers\Controller;
+use App\Models\Project;
+
+class ProjectController extends Controller
+{
+    public function index()
+    {
+        $data = Project::select( 'title', 'about_project', 'business_result', 'banner_image', 'gallery_image', 'challenge', 'solution', 'final_impact', 'contributors', 'platforms')->get();
+
+        return response()->json([
+            'success' => true,
+            'data' => $data,
+            'message' => 'Projects retrieved successfully.'
+        ]);
+    }
+}
