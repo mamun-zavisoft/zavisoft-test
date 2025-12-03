@@ -31,3 +31,4 @@ Route::get('/careers/{id}', [JobCircularController::class, 'show']);
 Route::get('/service-categories', [ServiceController::class, 'serviceCategories']);
 Route::get('/services', [ServiceController::class, 'services']);
 Route::get('/projects', [ProjectController::class, 'index']);
+Route::get('/projects-categories', [ProjectController::class, 'projectCategories']);

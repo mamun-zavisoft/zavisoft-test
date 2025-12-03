@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
 use App\Models\Project;
+use App\Models\ProjectCategory;
 
 class ProjectController extends Controller
 {
@@ -15,6 +16,17 @@ class ProjectController extends Controller
             'success' => true,
             'data' => $data,
             'message' => 'Projects retrieved successfully.'
+        ]);
+    }
+
+    public function projectCategories()
+    {
+        $data = ProjectCategory::select('id', 'name')->get();
+
+        return response()->json([
+            'success' => true,
+            'data' => $data,
+            'message' => 'Project category retrieved successfully.'
         ]);
     }
 }
