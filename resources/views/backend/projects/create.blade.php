@@ -26,18 +26,27 @@
                 <div class="form-group">
                     <label>Title<span class="manitory">*</span></label>
                     <input type="text" name="title" placeholder="Write Project Title" value="{{old('title')}}"/>
+                    @error('title')
+                    <div class="text-danger-500 mt-1">{{ $message }}</div>
+                    @enderror
                 </div>
             </div>
             <div>
                 <div class="form-group">
                     <label>About Project <span class="manitory">*</span></label>
                     <textarea name="about_project" id="" cols="30" rows="10" type="text" placeholder="Write About Project"></textarea>
+                    @error('about_project')
+                    <div class="text-danger-500 mt-1">{{ $message }}</div>
+                    @enderror
                 </div>
             </div>
             <div>
                 <div class="form-group">
                     <label>Business Result <span class="manitory">*</span></label>
                     <textarea name="business_result" id="" cols="30" rows="10" type="text" placeholder="Write Business Result"></textarea>
+                    @error('business_result')
+                    <div class="text-danger-500 mt-1">{{ $message }}</div>
+                    @enderror
                 </div>
             </div>
             <div class="">
@@ -51,6 +60,9 @@
                         </div>
                     </div>
                     <span id="banner-file-name" class="mt-2 text-sm text-gray-600"></span>
+                    @error('banner_image')
+                    <div class="text-danger-500 mt-1">{{ $message }}</div>
+                    @enderror
                 </div>
             </div>
             <div class="">
@@ -64,13 +76,18 @@
                         </div>
                     </div>
                     <span id="gallery-file-name" class="mt-2 text-sm text-gray-600"></span>
+                    @error('gallery_image')
+                    <div class="text-danger-500 mt-1">{{ $message }}</div>
+                    @enderror
                 </div>
             </div>
             <div>
                 <div class="form-group">
                     <label>Challenge<span class="manitory">*</span></label>
                     <textarea name="challenge" id="" cols="30" rows="10" type="text" placeholder="Write Challenge"></textarea>
-
+                    @error('challenge')
+                    <div class="text-danger-500 mt-1">{{ $message }}</div>
+                    @enderror
                 </div>
             </div>
             <div>
@@ -82,25 +99,36 @@
                         'placeholder' => 'Write solution...',
                     ])
                 </div>
+                @error('solution')
+                <div class="text-danger-500 mt-1">{{ $message }}</div>
+                @enderror
             </div>
             <div>
                 <div class="form-group">
                     <label>Final Impact<span class="manitory">*</span></label>
                     <textarea name="final_impact" id="" cols="30" rows="10" type="text" placeholder="Write Final Impact"></textarea>
-
+                    @error('final_impact')
+                    <div class="text-danger-500 mt-1">{{ $message }}</div>
+                    @enderror
                 </div>
             </div>
             <div>
                 <div class="form-group">
                     <label>Project Contributors<span class="manitory">*</span></label>
                     <input type="text" name="contributors" placeholder="Write Project Contributors (comma separated)" />
+                    @error('contributors')
+                    <div class="text-danger-500 mt-1">{{ $message }}</div>
+                    @enderror
                 </div>
             </div>
             <div>
                 <div class="form-group">
                     <label>Project Platforms<span class="manitory">*</span></label>
-                    <input type="text" name="platforms" placeholder="Write Project Platforms" />
+                    <input type="text" name="platforms" placeholder="Write Project Platforms (comma separated)" />
                 </div>
+                @error('platforms')
+                <div class="text-danger-500 mt-1">{{ $message }}</div>
+                @enderror
             </div>
             <div class="">
                 <div class="flex justify-end mt-6">

@@ -1,5 +1,5 @@
 @extends('backend.layouts.dashboard')
-@section('title', 'Careers')
+@section('title', 'Job Post')
 
 @section('content')
 
@@ -25,7 +25,7 @@
 
         {{-- //show not found message --}}
         @if (count($careers) == 0)
-            <div class="alert alert-danger flex items-center justify-center text-xl">No careers found</div>
+            <div class="alert alert-danger flex items-center justify-center text-xl">No job post found</div>
         @else
             <div class="relative overflow-x-auto  border blade-career">
                 <table class="w-full text-sm text-left rtl:text-right text-body">

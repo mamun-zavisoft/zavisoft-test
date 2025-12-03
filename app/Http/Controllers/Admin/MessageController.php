@@ -3,7 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
-use App\Models\Application;
+use App\Models\JobApplication;
 use App\Models\ContactUs;
 
 class MessageController extends Controller

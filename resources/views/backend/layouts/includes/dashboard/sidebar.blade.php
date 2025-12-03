@@ -8,8 +8,8 @@
                 </a>
             </li>
 
-            <li class="{{ Route::is('admin.applications') ? 'active' : '' }}">
-                <a href="{{ route('admin.applications') }}">
+            <li class="{{ Route::is('admin.job-applications') ? 'active' : '' }}">
+                <a href="{{ route('admin.job-applications') }}">
                     <i class="fa fa-file-signature text-gray-600 text-xl"></i>
                     <span>Job Applications</span>
                 </a>

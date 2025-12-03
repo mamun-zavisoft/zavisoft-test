@@ -12,7 +12,7 @@ class ProjectController extends Controller
 {
     public function index()
     {
-        $projects = Project::select('id', 'title')->orderByDesc('id')->get();
+        $projects = Project::with('category')->select('category_id','id', 'title')->orderByDesc('id')->get();
         return view('backend.projects.index', compact('projects'));
     }
 

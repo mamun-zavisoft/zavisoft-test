@@ -27,6 +27,9 @@
                     <thead class="bg-neutral-50 border-b border-default font-semibold">
                     <tr>
                         <th scope="col" class="px-4 py-3 ">
+                            Category
+                        </th>
+                        <th scope="col" class="px-4 py-3 ">
                             Project Title
                         </th>
                         <th scope="col" class="px-4 py-3 ">
@@ -38,9 +41,11 @@
                     @foreach ($projects as $project)
                         <tr class="border-b last:border-b-0">
                             <th scope="row" class="px-4 py-3 f text-heading whitespace-nowrap">
+                                {{ $project->category->name }}
+                            </th>
+                            <th scope="row" class="px-4 py-3 f text-heading whitespace-nowrap">
                                 {{$project->title}}
                             </th>
-
                             <td class="px-4 py-3">
                                 <a href="{{route('admin.project.edit',$project->id)}}" class=" text-fg-brand hover:underline"><i class="fa fa-edit"></i></a>
                             </td>

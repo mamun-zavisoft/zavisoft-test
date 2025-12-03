@@ -11,10 +11,9 @@ return new class extends Migration
      */
     public function up(): void
     {
-       
-        Schema::create('applications', function (Blueprint $table) {
+        Schema::create('job_applications', function (Blueprint $table) {
         $table->id();
-         $table->foreignId('job_id')->constrained('job_circulars')->onDelete('cascade');
+        $table->foreignId('job_id')->constrained('job_circulars')->onDelete('cascade');
         $table->string('name');
         $table->string('email');
         $table->string('phone');
@@ -22,6 +21,9 @@ return new class extends Migration
         $table->string('linkedin')->nullable();
         $table->text('about');
         $table->string('cv');
+        $table->enum('status', ['pending', 'shortlisted', 'interview_scheduled', 'interviewed', 'hired'])->default('pending');
+        $table->date('interview_date')->nullable();
+        $table->float('interview_mark')->nullable();
         $table->timestamps();
     });
     }
@@ -31,6 +33,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('applications');
+        Schema::dropIfExists('job_applications');
     }
 };

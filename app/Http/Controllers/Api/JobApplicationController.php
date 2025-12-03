@@ -4,9 +4,9 @@ namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\ApplicationRequest;
-use App\Models\Application;
+use App\Models\JobApplication;
 
-class ApplicationController extends Controller
+class JobApplicationController extends Controller
 {
     public function store(ApplicationRequest $request)
     {
@@ -21,7 +21,7 @@ class ApplicationController extends Controller
         }
 
         // Store in database
-        $application = Application::create([
+        $application = JobApplication::create([
             'job_id' => $request->job_id,
             'name' => $request->name,
             'email' => $request->email,
@@ -37,6 +37,5 @@ class ApplicationController extends Controller
             'message' => 'Your application has been received. We will contact you shortly regarding the next steps.',
             'data' => $application
         ]);
-
     }
 }

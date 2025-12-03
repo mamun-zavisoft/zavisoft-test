@@ -209,7 +209,7 @@ const submitForm = async () => {
     const formData = createFormData()
 
     try {
-        const res = await fetch(`/api/application`, {
+        const res = await fetch(`/api/job-application`, {
             method: 'POST',
             headers: {
                 'Accept': 'application/json',

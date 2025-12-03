@@ -3,8 +3,9 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
-class Application extends Model
+class JobApplication extends Model
 {
     protected $fillable = [
         'job_id',
@@ -15,10 +16,12 @@ class Application extends Model
         'linkedin',
         'about',
         'cv',
-        'status'
+        'status',
+        'interview_date',
+        'interview_mark'
     ];
 
-     public function job()
+    public function job(): BelongsTo
     {
         return $this->belongsTo(JobCircular::class, 'job_id');
     }
