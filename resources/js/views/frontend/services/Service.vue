@@ -7,47 +7,40 @@
                     <div class="grid grid-cols-1 lg:grid-cols-2">
                         <!-- Left: Content -->
                         <div class="h-full pr-0 lg:pr-10 xl:pr-14 ">
-                            <div v-if="filteredServices.length">
-                                <div v-for="service in filteredServices" :key="service.id">
-                                    <div class="max-w-[809px] h-full flex flex-col justify-end pb-0 lg:pb-16">
-                                        <h1
-                                            class="wow animate__animated animate__fadeInUp text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-bold text-neutral-900">
-                                            {{ service?.heading }}
-                                        </h1>
+                            <div class="max-w-[809px] h-full flex flex-col justify-end pb-0 lg:pb-16">
+                                <h1
+                                    class="wow animate__animated animate__fadeInUp text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-bold text-neutral-900">
+                                    {{ service?.heading }}
+                                </h1>
 
-                                        <p
-                                            class="wow animate__animated animate__fadeInUp mt-6 text-neutral-600 text-sm sm:text-base leading-relaxed">
-                                            {{ service?.short_description }}
-                                        </p>
+                                <p
+                                    class="wow animate__animated animate__fadeInUp mt-6 text-neutral-600 text-sm sm:text-base leading-relaxed">
+                                    {{ service?.short_description }}
+                                </p>
+                                <div class="mt-6 md:mt-10 flex flex-col sm:flex-row gap-3 sm:gap-4">
 
-
-
-                                        <!-- CTAs -->
-                                        <div class="mt-6 md:mt-10 flex flex-col sm:flex-row gap-3 sm:gap-4">
-
-                                            <a href="#"
-                                                class="wow animate__animated animate__pulse sm:w-1/2 inline-flex items-center justify-center rounded-full px-4 py-3 bg-primary-500 text-white hover:bg-primary-600 focus:outline-none focus:ring-0 focus:ring-primary-300 transition-colors duration-300">
-                                                Send a Brief
-                                            </a>
-                                            <a href="#"
-                                                class="wow animate__animated animate__pulse sm:w-1/2 inline-flex items-center justify-center rounded-full px-4 py-3 bg-white border border-neutral-300 text-sm font-medium text-neutral-900  focus:outline-none focus:ring-0 focus:ring-transparent transition-colors duration-300">
-                                                See UI/UX Projects
-                                            </a>
-                                        </div>
-                                    </div>
+                                    <a href="#"
+                                        class="wow animate__animated animate__pulse sm:w-1/2 inline-flex items-center justify-center rounded-full px-4 py-3 bg-primary-500 text-white hover:bg-primary-600 focus:outline-none focus:ring-0 focus:ring-primary-300 transition-colors duration-300">
+                                        Send a Brief
+                                    </a>
+                                    <a href="#"
+                                        class="wow animate__animated animate__pulse sm:w-1/2 inline-flex items-center justify-center rounded-full px-4 py-3 bg-white border border-neutral-300 text-sm font-medium text-neutral-900  focus:outline-none focus:ring-0 focus:ring-transparent transition-colors duration-300">
+                                        See UI/UX Projects
+                                    </a>
                                 </div>
                             </div>
+
                         </div>
 
                         <!-- Right: Visual -->
                         <div class="relative">
-                            <!-- Aspect wrapper to keep image tidy on all sizes -->
                             <div class="h-full w-full">
                                 <div class="ml-0 lg:ml-10 xl:ml-16  lg:h-full flex items-center">
                                     <div class="mx-auto lg:ml-auto ">
-                                        <div class="relative max-w-[632px] wow animate__animated animate__fadeInRight">
-                                            <img src="@/assets/images/service_image.svg" alt="UI/UX sample work preview"
-                                                class="block w-full h-auto object-cover" loading="lazy" />
+                                        <div
+                                            class="relative max-w-[632px] max-h-[540px] wow animate__animated animate__fadeInRight">
+                                            <img :src="`/storage/${service?.service_image}`" :alt="service?.heading"
+                                                class="block w-full h-full object-cover" loading="lazy" />
                                         </div>
                                     </div>
                                 </div>
@@ -121,7 +114,7 @@
                     development outsourcing, delivering high-quality, scalable, and efficient solutions to clients
                     worldwide. </p>
             </div>
-           <Projects />
+            <Projects />
         </div>
     </section>
 
@@ -262,37 +255,34 @@ import { useRoute } from 'vue-router'
 const route = useRoute()
 const id = computed(() => Number(route.params.id))
 
-const services = ref([])
+const service = ref({})
 
-// Fetch services
-const fetchServices = async () => {
+// Fetch service
+const fetchService = async () => {
     try {
-        const res = await fetch('/api/services', {
+        const res = await fetch(`/api/category-wise-service/${id.value}`, {
             headers: { 'Accept': 'application/json' }
         })
 
-        if (!res.ok) throw new Error("Failed to load services")
+        if (!res.ok) throw new Error("Failed to load service")
 
         const json = await res.json()
 
-
-        services.value = Array.isArray(json.data) ? json.data : []
+        // ✅ CHANGE: assign object directly
+        service.value = json.data || {}
+        console.log("service", service.value)
 
     } catch (e) {
-        console.error("Error fetching services:", e)
+        console.error("Error fetching service:", e)
     }
 }
 
 // When component loads → fetch data
 onMounted(async () => {
-    await fetchServices()
+    await fetchService()
 })
 
-// Filter by category_id
-const filteredServices = computed(() => {
-    return services.value.filter(
-        s => Number(s.category_id) === Number(id.value)
-    )
-})
+
+
 
 </script>

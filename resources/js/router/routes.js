@@ -8,19 +8,6 @@ const routes = [
         component: () => import("@/views/frontend/Home.vue"),
         meta: { layout: LayoutFrontend, title: "Home" },
     },
-    // {
-    //     path: "/casestudy",
-    //     name: "CaseStudy",
-    //     component: () => import("@/views/frontend/CaseStudy.vue"),
-    //     meta: { layout: LayoutFrontend, title: "Case Study" },
-    // },
-    // {
-    //     path: '/case-study/:id',
-    //     name: 'CaseStudyDetails',
-    //     component: () => import('@/views/frontend/CaseStudyDetails.vue'),
-    //     props: true,
-    //     meta: { layout: LayoutFrontend, title: "Case Study" },
-    // },
 
     {
         path: "/about",
@@ -35,7 +22,7 @@ const routes = [
         meta: { layout: LayoutFrontend, title: "Our Projects" },
     },
     {
-        path: '/projects/:id',
+        path: '/projects/:slug/:id?',
         name: 'ProjectsDetails',
         component: () => import('@/views/frontend/ProjectsDetails.vue'),
         props: true,
@@ -114,14 +101,14 @@ const routes = [
     // dynamic service route
 
     {
-        path: '/services/:id?',
+        path: '/services/:slug/:id?',
         name: "serviceDetails",
         component: () => import("@/views/frontend/services/Service.vue"),
         meta: { layout: LayoutFrontend, title: "Service Details" },
     },
-    
 
-    // ✅ Catch-all 404
+
+    // Catch-all 404
     {
         path: "/:pathMatch(.*)*",
         name: "NotFound",

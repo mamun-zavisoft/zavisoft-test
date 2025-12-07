@@ -7,7 +7,8 @@
             <router-link v-for="(service, index) in services" :key="index" :to="{
                 name: 'serviceDetails',
                 params: {
-                    id: service.id
+                    id: service.id,
+                    slug: service.slug
                 }
             }" class="group px-3 md:px-4 py-2 md:py-3 rounded flex items-center justify-between hover:bg-neutral-50"
                 role="menuitem">

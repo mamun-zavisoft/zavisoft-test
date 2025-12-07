@@ -3,13 +3,14 @@
         <div class="container">
             <h1
                 class="text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-bold text-neutral-900 wow animate__animated animate__fadeInUp">
-                Packly - Website Design for ecommerce Platform
+
+                {{ project?.title }}
             </h1>
 
             <div class="grid grid-cols-1 md:grid-cols-12 gap-6 lg:gap-8 mt-9">
 
                 <div class="md:col-span-7 lg:col-span-8 max-h-[360px] wow animate__animated animate__fadeInLeft ">
-                    <img src="@/assets/images/case_details.svg" alt=""
+                    <img :src="`/storage/${project?.banner_image}`" alt=""
                         class=" max-h-[360px] block w-full h-auto object-cover rounded" loading="lazy">
                 </div>
                 <div
@@ -27,14 +28,14 @@
                             <div>
                                 <p class="text-sm md:text-base text-neutral-500">Our Contributes:</p>
                                 <h5 class="mt-1 text-base md:text-lg font-semibold">
-                                    UI/UX design, Development, QA testing
+                                    {{ project?.contributors }}
                                 </h5>
                             </div>
 
                             <div>
                                 <p class="text-sm md:text-base text-neutral-500">Platforms:</p>
                                 <h5 class="mt-1 text-base md:text-lg font-semibold">
-                                    Branding, Web & Responsive
+                                    {{ project?.platforms }}
                                 </h5>
                             </div>
                         </div>
@@ -42,9 +43,11 @@
                         <!-- Fit-content only, sits at bottom of sticky column -->
                         <div class="share-link mt-4 shrink-0 flex gap-3 items-center ">
                             <h6> Share link</h6>
-                            <div class="flex items-center  gap-2">
-                                <a href="#"
-                                    class="w-8 h-8 rounded-full bg-neutral-100 flex items-center justify-center ">
+                            <div class="flex items-center gap-2">
+
+                                <!-- Facebook -->
+                                <a :href="facebookShare" target="_blank"
+                                    class="w-8 h-8 rounded-full bg-neutral-100 flex items-center justify-center">
                                     <svg class="w-4 h-4" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
                                         fill="currentColor" viewBox="0 0 8 19">
                                         <path fill-rule="evenodd"
@@ -52,10 +55,13 @@
                                             clip-rule="evenodd" />
                                     </svg>
                                 </a>
-                                <a href="#"
+
+                                <!-- LinkedIn -->
+                                <a :href="linkedinShare" target="_blank"
                                     class="w-8 h-8 rounded-full bg-neutral-100 flex items-center justify-center">
-                                    <img src="@/assets/images/icons/linkEdin.svg" alt="">
+                                    <img src="@/assets/images/icons/linkEdin.svg" alt="" />
                                 </a>
+
                             </div>
                         </div>
                     </div>
@@ -68,140 +74,86 @@
         <div class="container">
             <div class="max-w-[800px] mr-auto">
                 <div class="border-b border-neutral-300 pb-8 lg:pb-12">
-                    <h1 class="text-xl md:text-2xl lg:text-3xl font-semibold wow animate__animated animate__fadeInUp">About the Project</h1>
-                    <p class="text-sm md:text-base text-neutral-500 mt-4 md:mt-6 wow animate__animated animate__fadeInUp">Packly’s slogan captures the essence
-                        of
-                        our mission:
-
-                        To provide a seamless, all-in-one solution for your everyday needs. From shopping to services,
-                        we
-                        bring everything together in one convenient place, ensuring you get exactly what you need, when
-                        you
-                        need it.
-                        Whether it’s essentials, indulgences, or surprises, Packly delivers it all—efficiently,
-                        effortlessly, and reliably. We take the hassle out of your day, packing convenience,choice, and
-                        quality into one platform designed just for you.</p>
+                    <h1 class="text-xl md:text-2xl lg:text-3xl font-semibold wow animate__animated animate__fadeInUp">
+                        About the Project</h1>
+                    <p
+                        class="text-sm md:text-base text-neutral-500 mt-4 md:mt-6 wow animate__animated animate__fadeInUp">
+                        {{ project?.about_project }}</p>
                 </div>
                 <div class="border-b border-neutral-300 pb-8 lg:pb-12 mt-6 lg:mt-8">
-                    <h1 class="text-xl md:text-2xl lg:text-3xl font-semibold wow animate__animated animate__fadeInUp">Business Result</h1>
-                    <p class="text-sm md:text-base text-neutral-500 mt-4 md:mt-6 wow animate__animated animate__fadeInUp">65% Increase in Conversions: With the
-                        redesigned UI/UX and optimized checkout flow, the number of completed custom packaging orders
-                        rose significantly.
-
-                        2x Faster Time-to-Market: Streamlined development and QA testing enabled rapid feature rollout
-                        and reduced time between releases.
-
-                        Improved Customer Satisfaction: Enhanced user interface and robust cross-device compatibility
-                        led to better customer retention and positive user feedback.</p>
+                    <h1 class="text-xl md:text-2xl lg:text-3xl font-semibold wow animate__animated animate__fadeInUp">
+                        Business Result</h1>
+                    <p
+                        class="text-sm md:text-base text-neutral-500 mt-4 md:mt-6 wow animate__animated animate__fadeInUp">
+                        {{ project?.business_result }}</p>
                 </div>
                 <div class="project-images pt-8 lg:pt-12">
                     <div class="grid grid-cols-2 lg:grid-cols-3 gap-4">
                         <div class="max-h-[360px] wow animate__zoomIn animate__animated">
-                            <img class="w-full h-full rounded-lg" src="@/assets/images/project_image_1.png" alt="">
+                            <img class="w-full h-full rounded-lg" :src="`/storage/${project?.gallery_image}`" alt="">
                         </div>
-                        <div class="max-h-[360px] wow animate__zoomIn animate__animated">
-                            <img class="w-full h-full rounded-lg" src="@/assets/images/project_image_2.png" alt="">
 
-                        </div>
-                        <div class="max-h-[360px] wow animate__zoomIn animate__animated">
-                            <img class="w-full h-full rounded-lg" src="@/assets/images/project_image_1.png" alt="">
-
-                        </div>
                     </div>
                 </div>
 
                 <div class=" pt-8">
-                    <h1 class="text-xl md:text-2xl lg:text-3xl font-semibold wow animate__animated animate__fadeInUp">Challenge</h1>
-                    <p class="text-sm md:text-base text-neutral-500 mt-4 md:mt-6 wow animate__animated animate__fadeInUp">Complex Product Customization Flow:
-                        Users needed to configure packaging size, material, print options, and 3D previews — all without
-                        feeling overwhelmed.
-
-                        Outdated UI & Poor Mobile UX: The existing design lacked visual appeal and wasn’t optimized for
-                        responsive behavior, leading to drop-offs on mobile.
-
-                        Performance Bottlenecks: The real-time 3D preview tool and quote generator were slow, especially
-                        under high traffic.
-
-                        Fragmented QA Process: Frequent bugs in production due to lack of standardized quality checks
-                        before deployment.</p>
+                    <h1 class="text-xl md:text-2xl lg:text-3xl font-semibold wow animate__animated animate__fadeInUp">
+                        Challenge</h1>
+                    <p
+                        class="text-sm md:text-base text-neutral-500 mt-4 md:mt-6 wow animate__animated animate__fadeInUp">
+                        {{ project?.challenge }}
+                    </p>
                 </div>
                 <div class="mt-8 p-4 bg-primary-50 rounded-lg ">
-                    <h1 class="text-xl md:text-2xl lg:text-3xl mb-6 font-semibold wow animate__animated animate__fadeInUp">Solution</h1>
+                    <h1
+                        class="text-xl md:text-2xl lg:text-3xl mb-6 font-semibold wow animate__animated animate__fadeInUp">
+                        Solution</h1>
                     <div class="mb-6">
-                        <p class="text-base text-neutral-900">UI/UX Design</p>
+                        <p class="text-base text-neutral-900">{{ project?.title }}</p>
 
-                        <ul class="mt-3 pl-4  text-neutral-500 space-y-2 text-sm wow animate__animated animate__fadeInUp">
-                            <li class="relative list-none pl-4
-             before:content-[''] before:absolute before:-left-2 before:top-2
-             before:h-1.5 before:w-1.5 before:rounded-full before:bg-neutral-400">
-                                Redesigned UI/UX to prioritize simplicity and efficiency
-                            </li>
-                            <li class="relative list-none pl-4
-             before:content-[''] before:absolute before:-left-2 before:top-2
-             before:h-1.5 before:w-1.5 before:rounded-full before:bg-neutral-400">
-                                Streamlined checkout flow for faster transactions
-                            </li>
-                            <li class="relative list-none pl-4
-             before:content-[''] before:absolute before:-left-2 before:top-2
-             before:h-1.5 before:w-1.5 before:rounded-full before:bg-neutral-400">
-                                Implemented responsive design for optimal mobile experience
-                            </li>
-                        </ul>
-                    </div>
-
-                    <div class="mb-6">
-                        <p class="text-base text-neutral-900 wow animate__animated animate__fadeInUp">Development</p>
-
-                        <ul class="mt-3 pl-4  text-neutral-500 space-y-2 text-sm wow animate__animated animate__fadeInUp">
-                            <li class="relative list-none pl-4
-             before:content-[''] before:absolute before:-left-2 before:top-2
-             before:h-1.5 before:w-1.5 before:rounded-full before:bg-neutral-400">
-                                Redesigned UI/UX to prioritize simplicity and efficiency
-                            </li>
-                            <li class="relative list-none pl-4
-             before:content-[''] before:absolute before:-left-2 before:top-2
-             before:h-1.5 before:w-1.5 before:rounded-full before:bg-neutral-400">
-                                Streamlined checkout flow for faster transactions
-                            </li>
-                            <li class="relative list-none pl-4
-             before:content-[''] before:absolute before:-left-2 before:top-2
-             before:h-1.5 before:w-1.5 before:rounded-full before:bg-neutral-400">
-                                Implemented responsive design for optimal mobile experience
-                            </li>
-                        </ul>
-                    </div>
-
-                    <div class="">
-                        <p class="text-base text-neutral-900 wow animate__animated animate__fadeInUp">QA & Testing</p>
-
-                        <ul class="mt-3 pl-4  text-neutral-500 space-y-2 text-sm wow animate__animated animate__fadeInUp">
-                            <li class="relative list-none pl-4
-             before:content-[''] before:absolute before:-left-2 before:top-2
-             before:h-1.5 before:w-1.5 before:rounded-full before:bg-neutral-400">
-                                Redesigned UI/UX to prioritize simplicity and efficiency
-                            </li>
-                            <li class="relative list-none pl-4
-             before:content-[''] before:absolute before:-left-2 before:top-2
-             before:h-1.5 before:w-1.5 before:rounded-full before:bg-neutral-400">
-                                Streamlined checkout flow for faster transactions
-                            </li>
-                            <li class="relative list-none pl-4
-             before:content-[''] before:absolute before:-left-2 before:top-2
-             before:h-1.5 before:w-1.5 before:rounded-full before:bg-neutral-400">
-                                Implemented responsive design for optimal mobile experience
-                            </li>
-                        </ul>
+                        <div v-html="project?.solution" class="prose text-neutral-600 mt-3"></div>
                     </div>
 
 
                 </div>
                 <div class=" pt-8">
-                    <h1 class="text-xl md:text-2xl lg:text-3xl font-semibold wow animate__animated animate__fadeInUp">Final Impact</h1>
-                    <p class="text-sm md:text-base text-neutral-500 mt-4 md:mt-6 wow animate__animated animate__fadeInUp">Packly’s reimagined eCommerce
-                        experience empowered users to create customized packaging effortlessly — leading to higher
-                        engagement, smoother conversions, and stronger brand trust.</p>
+                    <h1 class="text-xl md:text-2xl lg:text-3xl font-semibold wow animate__animated animate__fadeInUp">
+                        Final Impact</h1>
+                    <p
+                        class="text-sm md:text-base text-neutral-500 mt-4 md:mt-6 wow animate__animated animate__fadeInUp">
+
+                        {{ project?.final_impact }}
+                    </p>
                 </div>
             </div>
         </div>
     </section>
 </template>
+
+<script setup>
+import { useFetch } from "@/composables/useFetch.js"
+
+import { useRoute } from "vue-router"
+import { computed } from "vue"
+
+const route = useRoute()
+const id = computed(() => Number(route.params.id))
+
+console.log("param", id.value)
+
+const { data: project } = useFetch(`/api/projects-details/${id.value}`)
+
+
+const currentUrl = computed(() => {
+    return window.location.origin + route.fullPath
+})
+
+const facebookShare = computed(() =>
+    `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(currentUrl.value)}`
+)
+
+const linkedinShare = computed(() =>
+    `https://www.linkedin.com/shareArticle?mini=true&url=${encodeURIComponent(currentUrl.value)}`
+)
+
+</script>

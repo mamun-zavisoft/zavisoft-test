@@ -41,4 +41,38 @@ class ProjectController extends Controller
             'message' => 'Category wise project  retrieved successfully.'
         ]);
     }
+
+    public function ProjectsDetails($id)
+{
+    $project = Project::select(
+        'id',
+        'title',
+        'category_id',
+        'about_project',
+        'business_result',
+        'banner_image',
+        'gallery_image',
+        'challenge',
+        'solution',
+        'final_impact',
+        'contributors',
+        'platforms'
+    )
+    ->where('id', $id)
+    ->first();
+
+    if (!$project) {
+        return response()->json([
+            'success' => false,
+            'message' => 'Project not found.'
+        ], 404);
+    }
+
+    return response()->json([
+        'success' => true,
+        'data' => $project,
+        'message' => 'Project details retrieved successfully.'
+    ]);
+}
+
 }
