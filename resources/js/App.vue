@@ -26,12 +26,12 @@ onMounted(() => {
     nextTick(() => registerTopLoader(topLoader.value))
 
     removeBeforeEach = router.beforeEach((to, from, next) => {
-        loader.start() // [Codex] immediately show loader for any navigation
+        loader.start() 
         next()
     })
 
     removeAfterEach = router.afterEach(() => {
-        loader.done() // [Codex] finish once navigation resolves (min 1s handled in composable)
+        loader.done() 
     })
 
     removeOnError = router.onError(() => {

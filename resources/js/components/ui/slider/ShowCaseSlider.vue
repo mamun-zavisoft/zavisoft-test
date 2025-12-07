@@ -13,13 +13,13 @@
             }" @swiper="onSwiper" @slideChange="onSlideChange">
             <SwiperSlide v-for="(item) in showcaseItems" :key="item.id">
                 <article>
-                    <router-link :to="{ name: 'ProjectsDetails', params: { id: item.id } }">
+                    <router-link :to="{ name: 'ProjectsDetails', params: { id: item.id, slug: item.title } }">
                         <div class="wow animate__zoomIn animate__animated bg-white rounded-lg  p-4 transition group border border-transparent hover:border-primary-500"
                             style="box-shadow: 0px 2px 4px 0px #0F1C330F, 0px 2px 2px 0px #0F1C3312;">
                             <div class="flex justify-between items-start">
                                 <div class="mb-4 pr-4">
                                     <h3 class="text-lg md:text-xl font-bold text-neutral-900 mb-3">{{ item.title }}</h3>
-                                    <p class="text-neutral-600 text-sm line-clamp-3">{{ item.description }}
+                                    <p class="text-neutral-600 text-sm line-clamp-1">{{ item.about_project }}
                                     </p>
                                 </div>
 
@@ -33,12 +33,16 @@
                                     </svg>
                                 </div>
                             </div>
-                            <ul class="flex flex-wrap gap-2">
+                            <!-- <ul class="flex flex-wrap gap-2">
                                 <li class="px-3 py-1 bg-neutral-100 text-neutral-900 text-xs rounded-full">
                                     All
                                 </li>
-                            </ul>
-                            <img :src="item.image" alt={{item.title}} class="w-full rounded-lg object-cover mt-4" />
+                            </ul> -->
+                            <div class="w-full max-h-[290px] overflow-hidden">
+                                <img :src="`/storage/${item.banner_image}`" :alt="item.title"
+                                    class="w-full rounded-lg object-cover mt-4" />
+                            </div>
+                            <!-- <img :src="item.image" alt={{item.title}} class="w-full rounded-lg object-cover mt-4" /> -->
                         </div>
 
                     </router-link>
@@ -46,7 +50,9 @@
             </SwiperSlide>
         </Swiper>
 
-        <div class="mt-4 flex items-center justify-center gap-4">
+        <!-- show  the slider  prev and next button if there are more than four slide -->
+
+        <div v-if="totalSlides > 4" class="mt-4 flex items-center justify-center gap-4">
             <button type="button" @click="swiperPrev"
                 class="flex h-10 w-10 items-center justify-center rounded-full border border-neutral-300 text-neutral-600 transition hover:bg-neutral-100 hover:text-neutral-900 cursor-pointer">
 
@@ -74,66 +80,13 @@
 <script setup>
 import { ref } from 'vue'
 import { Swiper, SwiperSlide } from 'swiper/vue'
+import { useFetch } from '@/composables/useFetch.js'
 import 'swiper/css'
 import 'swiper/css/pagination'
 import { Autoplay, Pagination } from 'swiper/modules'
+const { data: showcaseItems } = useFetch("/api/projects")
 
-const showcaseItems = [
-    {
-        id: 1,
-        title: 'Packly',
-        description: 'Our design team helps clients achieve their marketing and business goals.',
-        tags: ['e-commerce'],
-        image: new URL('@/assets/images/project_3.png', import.meta.url).href,
-
-    },
-    {
-        id: 2,
-        title: 'Packly - Super App',
-        description: 'Our design team helps clients achieve their marketing and business goals.',
-        tags: ['e-commerce'],
-        image: new URL('@/assets/images/project_2.png', import.meta.url).href,
-
-
-    },
-    {
-        id: 3,
-        title: 'Packly - Event',
-        description: 'Our design team helps clients achieve their marketing and business goals.',
-        tags: ['Ticket Management', 'Ticket Platform Website'],
-        image: new URL('@/assets/images/project_1.png', import.meta.url).href,
-
-
-    },
-    {
-        id: 4,
-        title: 'Packly - Shopping',
-        description: 'Our design team helps clients achieve their marketing and business goals.',
-        tags: ['Ticket Management', 'Ticket Platform Website'],
-        image: new URL('@/assets/images/project_3.png', import.meta.url).href,
-
-
-    },
-    {
-        id: 5,
-        title: 'Packly',
-        description: 'Our design team helps clients achieve their marketing and business goals.',
-        tags: ['Ticket Management', 'Ticket Platform Website'],
-        image: new URL('@/assets/images/project_2.png', import.meta.url).href,
-
-
-    },
-    {
-        id: 6,
-        title: 'Packly - Zavisoft',
-        description: 'Our design team helps clients achieve their marketing and business goals.',
-        tags: ['Ticket Management', 'Ticket Platform Website'],
-        image: new URL('@/assets/images/project_1.png', import.meta.url).href,
-
-    },
-]
-
-const totalSlides = showcaseItems.length
+const totalSlides = showcaseItems?.length
 const loopEnabled = totalSlides > 1
 
 const currentSlide = ref(1)

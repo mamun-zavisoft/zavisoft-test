@@ -34,3 +34,4 @@ Route::get('/category-wise-service/{category_id}', [ServiceController::class, 'c
 Route::get('/projects', [ProjectController::class, 'index']);
 Route::get('/projects-categories', [ProjectController::class, 'projectCategories']);
 Route::get('/category-wise-projects/{category_id}', [ProjectController::class, 'categoryWiseProjects']);
+Route::get('/projects-details/{id}', [ProjectController::class, 'ProjectsDetails']);

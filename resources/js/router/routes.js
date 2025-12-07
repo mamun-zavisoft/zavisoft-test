@@ -8,19 +8,6 @@ const routes = [
         component: () => import("@/views/frontend/Home.vue"),
         meta: { layout: LayoutFrontend, title: "Home" },
     },
-    // {
-    //     path: "/casestudy",
-    //     name: "CaseStudy",
-    //     component: () => import("@/views/frontend/CaseStudy.vue"),
-    //     meta: { layout: LayoutFrontend, title: "Case Study" },
-    // },
-    // {
-    //     path: '/case-study/:id',
-    //     name: 'CaseStudyDetails',
-    //     component: () => import('@/views/frontend/CaseStudyDetails.vue'),
-    //     props: true,
-    //     meta: { layout: LayoutFrontend, title: "Case Study" },
-    // },
 
     {
         path: "/about",
@@ -35,7 +22,7 @@ const routes = [
         meta: { layout: LayoutFrontend, title: "Our Projects" },
     },
     {
-        path: '/projects/:id',
+        path: '/projects/:slug/:id?',
         name: 'ProjectsDetails',
         component: () => import('@/views/frontend/ProjectsDetails.vue'),
         props: true,
@@ -48,12 +35,6 @@ const routes = [
         component: () => import("@/views/frontend/Career.vue"),
         meta: { layout: LayoutFrontend, title: "Career" },
     },
-    // {
-    //     path: "/job-apply",
-    //     name: "JobApply",
-    //     component: () => import("@/views/frontend/JobApply.vue"),
-    //     meta: { layout: LayoutFrontend, title: "Job Apply" },
-    // },
 
     {
         path: '/apply/:jobId',
@@ -117,45 +98,17 @@ const routes = [
         meta: { layout: LayoutFrontend, title: "Contact" },
     },
 
-    // Service Routes
+    // dynamic service route
+
     {
-        path: "/services/ui-ux-design-audit",
-        name: "UIDesignAudit",
+        path: '/services/:slug/:id?',
+        name: "serviceDetails",
         component: () => import("@/views/frontend/services/Service.vue"),
-        meta: { layout: LayoutFrontend, title: "UI/UX Design & Audit" },
-    },
-    {
-        path: "/services/software-development",
-        name: "SoftwareDevelopment",
-        component: () => import("@/views/frontend/services/Service.vue"),
-        meta: { layout: LayoutFrontend, title: "Software Development" },
-    },
-    {
-        path: "/services/web-development",
-        name: "WebDevelopment",
-        component: () => import("@/views/frontend/services/Service.vue"),
-        meta: { layout: LayoutFrontend, title: "Web Development" },
-    },
-    {
-        path: "/services/mobile-app-development",
-        name: "MobileAppDevelopment",
-        component: () => import("@/views/frontend/services/Service.vue"),
-        meta: { layout: LayoutFrontend, title: "Mobile App Development" },
-    },
-    {
-        path: "/services/qa-testing",
-        name: "QATesting",
-        component: () => import("@/views/frontend/services/Service.vue"),
-        meta: { layout: LayoutFrontend, title: "QA Testing" },
-    },
-    {
-        path: "/services/database-management",
-        name: "DatabaseManagement",
-        component: () => import("@/views/frontend/services/Service.vue"),
-        meta: { layout: LayoutFrontend, title: "Database Management" },
+        meta: { layout: LayoutFrontend, title: "Service Details" },
     },
 
-    // ✅ Catch-all 404
+
+    // Catch-all 404
     {
         path: "/:pathMatch(.*)*",
         name: "NotFound",
