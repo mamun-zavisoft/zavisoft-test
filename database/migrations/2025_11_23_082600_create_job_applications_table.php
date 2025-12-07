@@ -22,7 +22,7 @@ return new class extends Migration
         $table->text('about');
         $table->string('cv');
         $table->enum('status', ['pending', 'shortlisted', 'interview_scheduled', 'interviewed', 'hired'])->default('pending');
-        $table->date('interview_date')->nullable();
+        $table->dateTime('interview_date')->nullable();
         $table->float('interview_mark')->nullable();
         $table->timestamps();
     });

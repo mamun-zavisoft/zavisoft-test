@@ -112,13 +112,13 @@
 
                                         {{-- Interview Date (Scheduled, Interviewed, Hired) --}}
                                         <div x-show="status === 'interview_scheduled' || status === 'interviewed' || status === 'hired'" x-cloak>
-                                            <input type="date" name="interview_date" class="w-full border rounded p-2 text-sm"
+                                            <input type="datetime-local" name="interview_date" class="w-full border rounded p-2 text-sm"
                                                    value="{{ old('interview_date', $application['interview_date']) }}">
                                         </div>
 
                                         {{-- Interview Mark (Interviewed only) --}}
                                         <div x-show="status === 'interviewed'" x-cloak>
-                                            <input type="number" name="interview_mark" class="w-full border rounded p-2 text-sm"
+                                            <input type="text" name="interview_mark" class="w-full border rounded p-2 text-sm"
                                                    value="{{ old('interview_mark', $application['interview_mark']) }}"
                                                    placeholder="Interview Mark" min="0" max="100">
                                         </div>
