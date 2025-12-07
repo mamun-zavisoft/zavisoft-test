@@ -107,52 +107,91 @@
 
                                 {{-- Status Update Form --}}
                                 <td class="px-4 py-3">
+                                    {{-- <button data-modal-target="applicant{{ $application['id'] }}"
+                                        data-modal-toggle="applicant{{ $application['id'] }}"
+                                        class="bg-blue-600 text-white px-3 py-1 rounded text-sm hover:bg-blue-700">
+                                        Update {{ $application['id'] }}
+                                    </button> --}}
 
-                                    <div x-data="{ status: '{{ old('status', $application['status']) }}' }">
-                                        <form action="{{ route('admin.job-applications.update', $application['id']) }}"
-                                            method="POST" class="space-y-2">
-                                            @csrf
-                                            @method('PUT')
-                                            <div class="form-group">
-                                                <select name="status" x-model="status"
-                                                    class="w-full border rounded p-2 text-sm">
-                                                    <option value="pending"
-                                                        {{ $application['status'] === 'pending' ? 'selected' : '' }}>
-                                                        Pending</option>
-                                                    <option value="shortlisted"
-                                                        {{ $application['status'] === 'shortlisted' ? 'selected' : '' }}>
-                                                        Shortlisted
-                                                    </option>
-                                                    <option value="interview_scheduled"
-                                                        {{ $application['status'] === 'interview_scheduled' ? 'selected' : '' }}>
-                                                        Interview
-                                                        Scheduled</option>
-                                                    <option value="interviewed"
-                                                        {{ $application['status'] === 'interviewed' ? 'selected' : '' }}>
-                                                        Interviewed
-                                                    </option>
-                                                    <option value="hired"
-                                                        {{ $application['status'] === 'hired' ? 'selected' : '' }}>Hired
-                                                    </option>
-                                                </select>
-                                            </div>
-
-                                        {{-- Interview Date (Scheduled, Interviewed, Hired) --}}
-                                        <div x-show="status === 'interview_scheduled' || status === 'interviewed' || status === 'hired'" x-cloak>
-                                            <input type="datetime-local" name="interview_date" class="w-full border rounded p-2 text-sm"
-                                                   value="{{ old('interview_date', $application['interview_date']) }}">
-                                        </div>
-
-                                        {{-- Interview Mark (Interviewed only) --}}
-                                        <div x-show="status === 'interviewed'" x-cloak>
-                                            <input type="text" name="interview_mark" class="w-full border rounded p-2 text-sm"
-                                                   value="{{ old('interview_mark', $application['interview_mark']) }}"
-                                                   placeholder="Interview Mark" min="0" max="100">
-                                        </div>
+                                    <button data-modal-target="applicant-modal-{{ $application['id'] }}"
+                                        data-modal-toggle="applicant-modal-{{ $application['id'] }}"
+                                        class="bg-blue-600 text-white px-3 py-1 rounded text-sm hover:bg-blue-700">
+                                        Update
+                                    </button>
+                                    {{-- Status Update Form in a modal --}}
 
                                 </td>
                             </tr>
+                            <div id="applicant-modal-{{ $application['id'] }}" tabindex="-1" aria-hidden="true"
+                                class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 justify-center items-center w-full md:inset-0 h-[calc(100%-1rem)] max-h-full">
+                                <div class="modal-dialog modal-lg" role="document">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h5 class="modal-title">Update {{ $application['id'] }}</h5>
+                                        </div>
+                                        <div class="modal-body">
+                                            <div x-data="{ status: '{{ $application['status'] }}' }">
+                                                <form
+                                                    action="{{ route('admin.job-applications.update', $application['id']) }}"
+                                                    method="POST" class="space-y-3">
+                                                    @csrf
+                                                    @method('PUT')
+
+                                                    {{-- Status Dropdown --}}
+                                                    <div class="form-group mb-3">
+                                                        <select name="status" x-model="status"
+                                                            class="w-full border rounded p-2 text-sm">
+                                                            <option value="pending"
+                                                                {{ $application['status'] === 'pending' ? 'selected' : '' }}>
+                                                                Pending</option>
+                                                            <option value="shortlisted"
+                                                                {{ $application['status'] === 'shortlisted' ? 'selected' : '' }}>
+                                                                Shortlisted</option>
+                                                            <option value="interview_scheduled"
+                                                                {{ $application['status'] === 'interview_scheduled' ? 'selected' : '' }}>
+                                                                Interview Scheduled</option>
+                                                            <option value="interviewed"
+                                                                {{ $application['status'] === 'interviewed' ? 'selected' : '' }}>
+                                                                Interviewed</option>
+                                                            <option value="hired"
+                                                                {{ $application['status'] === 'hired' ? 'selected' : '' }}>
+                                                                Hired
+                                                            </option>
+                                                        </select>
+                                                    </div>
+
+                                                    <div class="flex flex-col gap-3">
+                                                        {{-- Interview Date (Scheduled, Interviewed, Hired) --}}
+                                                        <div x-show="status === 'interview_scheduled' || status === 'interviewed' || status === 'hired'"
+                                                            x-cloak>
+                                                            <input type="datetime-local" name="interview_date"
+                                                                class="w-full border rounded p-2 text-sm"
+                                                                value="{{ old('interview_date', $application['interview_date']) }}">
+                                                        </div>
+
+                                                        {{-- Interview Mark (Interviewed only) --}}
+                                                        <div x-show="status === 'interviewed'" x-cloak>
+                                                            <input type="text" name="interview_mark"
+                                                                class="w-full border rounded p-2 text-sm"
+                                                                value="{{ old('interview_mark', $application['interview_mark']) }}"
+                                                                placeholder="Interview Mark" min="0" max="100">
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="flex justify-end">
+                                                        <button type="submit"
+                                                            class="bg-blue-600 text-white px-4 py-2.5 mt-6 rounded text-sm hover:bg-blue-700">
+                                                            Update
+                                                        </button>
+                                                    </div>
+                                                </form>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                         @endforeach
+
                     </tbody>
                 </table>
             </div>
@@ -163,4 +202,6 @@
             </div>
         @endif
     </div>
+
+
 @endsection
