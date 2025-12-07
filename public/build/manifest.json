@@ -138,24 +138,6 @@
     "file": "assets/pagination-DGoAdr57.css",
     "src": "_pagination-DGoAdr57.css"
   },
-  "lang/bn.json": {
-    "file": "assets/bn-BaPY7tRb.js",
-    "name": "bn",
-    "src": "lang/bn.json",
-    "isDynamicEntry": true
-  },
-  "lang/en.json": {
-    "file": "assets/en-CLcKfY0D.js",
-    "name": "en",
-    "src": "lang/en.json",
-    "isDynamicEntry": true
-  },
-  "lang/php_en.json": {
-    "file": "assets/php_en-CAu2PkmC.js",
-    "name": "php_en",
-    "src": "lang/php_en.json",
-    "isDynamicEntry": true
-  },
   "resources/css/app.css": {
     "file": "assets/app-Do90sHs-.css",
     "src": "resources/css/app.css",
@@ -187,10 +169,7 @@
       "resources/js/views/frontend/services/Service.vue",
       "resources/js/views/frontend/services/Service.vue",
       "resources/js/views/frontend/services/Service.vue",
-      "resources/js/views/errors/NotFound.vue",
-      "lang/bn.json",
-      "lang/en.json",
-      "lang/php_en.json"
+      "resources/js/views/errors/NotFound.vue"
     ],
     "css": [
       "assets/app-CfGhewzB.css"

@@ -137,29 +137,18 @@
                                                 </select>
                                             </div>
 
-                                            <div class="flex flex-col gap-3 mt-3">
-                                                <div x-show="status === 'interview_scheduled' || status === 'interviewed' || status === 'hired'"
-                                                    x-cloak>
-                                                    <input type="date" name="interview_date"
-                                                        class="w-full border rounded p-2 text-sm"
-                                                        value="{{ old('interview_date', $application['interview_date']) }}">
-                                                </div>
-                                                <div x-show="status === 'interviewed'" x-cloak>
-                                                    <input type="number" name="interview_mark"
-                                                        class="w-full border rounded p-2 text-sm"
-                                                        value="{{ old('interview_mark', $application['interview_mark']) }}"
-                                                        placeholder="Interview Mark" min="0" max="100">
-                                                </div>
-                                            </div>
+                                        {{-- Interview Date (Scheduled, Interviewed, Hired) --}}
+                                        <div x-show="status === 'interview_scheduled' || status === 'interviewed' || status === 'hired'" x-cloak>
+                                            <input type="datetime-local" name="interview_date" class="w-full border rounded p-2 text-sm"
+                                                   value="{{ old('interview_date', $application['interview_date']) }}">
+                                        </div>
 
-                                            <div class="flex justify-end">
-                                                <button type="submit"
-                                                    class="bg-blue-600 mt-6 text-white px-4 py-2.5 rounded text-sm hover:bg-blue-700">
-                                                    Update
-                                                </button>
-                                            </div>
-                                        </form>
-                                    </div>
+                                        {{-- Interview Mark (Interviewed only) --}}
+                                        <div x-show="status === 'interviewed'" x-cloak>
+                                            <input type="text" name="interview_mark" class="w-full border rounded p-2 text-sm"
+                                                   value="{{ old('interview_mark', $application['interview_mark']) }}"
+                                                   placeholder="Interview Mark" min="0" max="100">
+                                        </div>
 
                                 </td>
                             </tr>
