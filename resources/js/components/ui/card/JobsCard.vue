@@ -8,7 +8,7 @@
 
     <!-- Desktop Grid -->
     <div class="hidden sm:grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-        <article
+        <router-link :to="{ name: 'CareerDetails', params: { id: job.id } }"
             class="wow animate__zoomIn animate__animated group bg-white p-3 md:p-4 rounded transition-colors duration-300 hover:bg-primary-500 hover:text-white"
             v-for="job in jobListings" :key="job.id">
 
@@ -29,7 +29,7 @@
                 </span>
             </div>
             <div class="mt-4">
-                <router-link :to="{ name: 'CareerDetails', params: { id: job.id } }"
+                <p 
                     class="group flex items-center gap-2 text-neutral-900 font-semibold text-sm group-hover:text-white">
                     Details
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
@@ -37,9 +37,9 @@
                         <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3" />
                     </svg>
 
-                </router-link>
+                </p>
             </div>
-        </article>
+        </router-link>
     </div>
 
     <!-- Mobile Slider -->

@@ -1,10 +1,10 @@
 <template>
-    <div  class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 lg:gap-6">
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 lg:gap-6">
         <div v-for="service in services" :key="service.id" class="bg-white rounded-lg  p-4 transition group">
             <router-link :to="{
                 name: 'serviceDetails',
                 params: {
-                    id: service.id,
+                    id: service.category_id,
                     slug: service.slug || slugify(service.heading)
                 }
             }">

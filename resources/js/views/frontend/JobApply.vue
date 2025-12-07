@@ -99,7 +99,8 @@
 <script setup>
 import { ref } from 'vue'
 import { useToast } from 'vue-toastification'
-import { useRoute } from 'vue-router'
+import { useRoute, useRouter } from 'vue-router'
+const router = useRouter()
 
 const route = useRoute()
 const jobId = route.params.jobId
@@ -237,6 +238,7 @@ const submitForm = async () => {
         cv.value = null
         fileName.value = ''
         errors.value = {}
+        router.push('/career')
 
     } catch (error) {
         toast.error('Something went wrong. Please try again.')

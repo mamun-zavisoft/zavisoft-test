@@ -253,6 +253,8 @@ import OtherServicce from '@/components/section/OtherServicce.vue';
 import { useRoute } from 'vue-router'
 
 const route = useRoute()
+
+// Get service category ID from route params
 const id = computed(() => Number(route.params.id))
 
 const service = ref({})
