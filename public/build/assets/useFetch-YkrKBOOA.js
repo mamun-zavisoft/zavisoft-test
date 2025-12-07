@@ -1,0 +1,1 @@
+import{r as e}from"./app-fT4hC-Zu.js";function f(s,l={}){const n=e(null),a=e(null),r=e(!0),o=async()=>{r.value=!0,a.value=null;try{const t=await fetch(s,l);if(!t.ok)throw new Error(`Error: ${t.status}`);const u=await t.json();n.value=u.data}catch(t){a.value=t.message}finally{r.value=!1}};return o(),{data:n,error:a,loading:r,refetch:o}}export{f as u};
