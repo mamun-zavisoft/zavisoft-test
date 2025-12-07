@@ -264,3 +264,19 @@
     border-color: var(--color-primary-500) !important;
     --tw-ring-color: var(--color-primary-500) !important;
 }
+
+
+.image-upload {
+    margin-bottom: 10px;
+}
+
+.preview-image {
+    width: 120px;
+    height: 120px;
+    img{
+        width: 100% !important;
+        height: 100% !important;
+        object-fit: cover;
+        border-radius: 5px;
+    }
+}
