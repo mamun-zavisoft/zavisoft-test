@@ -11,7 +11,7 @@
                         <p class="text-base font-medium text-neutral-500 wow animate__zoomIn animate__animated">Give us
                             a call</p>
                         <p class="mt-3 text-neutral-900 text-lg font-medium wow animate__zoomIn animate__animated">
-                            01729–645913</p>
+                            01886660016</p>
                     </div>
 
                     <!-- Email us -->
@@ -19,7 +19,7 @@
                         <p class="text-base font-medium text-neutral-500 wow animate__zoomIn animate__animated">Email us
                         </p>
                         <p class="mt-3 text-neutral-900 text-lg font-medium wow animate__zoomIn animate__animated">
-                            Zavisoft@gmail.com</p>
+                            info@zavisoft.com</p>
                     </div>
                 </div>
 

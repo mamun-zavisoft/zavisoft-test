@@ -1,29 +1,29 @@
 {
-  "_ContactCard-C3d218ZF.js": {
-    "file": "assets/ContactCard-C3d218ZF.js",
+  "_ContactCard-CY-tA7zr.js": {
+    "file": "assets/ContactCard-CY-tA7zr.js",
     "name": "ContactCard",
     "imports": [
       "resources/js/app.js"
     ]
   },
-  "_FAQ-C1e7qPav.js": {
-    "file": "assets/FAQ-C1e7qPav.js",
+  "_FAQ-C75zuuXO.js": {
+    "file": "assets/FAQ-C75zuuXO.js",
     "name": "FAQ",
     "imports": [
       "resources/js/app.js",
-      "_NavigateSecondary-Bl_hQ8Ko.js",
-      "_SectionHeader-Q3BJLGMJ.js"
+      "_NavigateSecondary-CokhQ2tu.js",
+      "_SectionHeader-CPZMCXfi.js"
     ]
   },
-  "_NavigateSecondary-Bl_hQ8Ko.js": {
-    "file": "assets/NavigateSecondary-Bl_hQ8Ko.js",
+  "_NavigateSecondary-CokhQ2tu.js": {
+    "file": "assets/NavigateSecondary-CokhQ2tu.js",
     "name": "NavigateSecondary",
     "imports": [
       "resources/js/app.js"
     ]
   },
-  "_PatnerMarquee-DVQ5wBVE.js": {
-    "file": "assets/PatnerMarquee-DVQ5wBVE.js",
+  "_PatnerMarquee-B8Qz5Nw6.js": {
+    "file": "assets/PatnerMarquee-B8Qz5Nw6.js",
     "name": "PatnerMarquee",
     "imports": [
       "resources/js/app.js"
@@ -38,22 +38,26 @@
       "assets/packly-CtX9rE6K.svg"
     ]
   },
-  "_Projects-C7bTkNdb.js": {
-    "file": "assets/Projects-C7bTkNdb.js",
+  "_Projects-CAaRdVFR.js": {
+    "file": "assets/Projects-CAaRdVFR.js",
     "name": "Projects",
     "imports": [
       "resources/js/app.js"
     ]
   },
-  "_SectionHeader-Q3BJLGMJ.js": {
-    "file": "assets/SectionHeader-Q3BJLGMJ.js",
+  "_SectionHeader-CPZMCXfi.js": {
+    "file": "assets/SectionHeader-CPZMCXfi.js",
     "name": "SectionHeader",
     "imports": [
       "resources/js/app.js"
     ]
   },
-  "_StartBuilding-BHa4q5Gj.js": {
-    "file": "assets/StartBuilding-BHa4q5Gj.js",
+  "_StartBuilding-LIKahRSl.css": {
+    "file": "assets/StartBuilding-LIKahRSl.css",
+    "src": "_StartBuilding-LIKahRSl.css"
+  },
+  "_StartBuilding-h0xkHYUo.js": {
+    "file": "assets/StartBuilding-h0xkHYUo.js",
     "name": "StartBuilding",
     "imports": [
       "resources/js/app.js"
@@ -72,20 +76,16 @@
       "assets/start_building-N5f3vMf8.svg"
     ]
   },
-  "_StartBuilding-LIKahRSl.css": {
-    "file": "assets/StartBuilding-LIKahRSl.css",
-    "src": "_StartBuilding-LIKahRSl.css"
-  },
   "_TeamMemberCard-BkoF4FX8.css": {
     "file": "assets/TeamMemberCard-BkoF4FX8.css",
     "src": "_TeamMemberCard-BkoF4FX8.css"
   },
-  "_TeamMemberCard-v8oTVytD.js": {
-    "file": "assets/TeamMemberCard-v8oTVytD.js",
+  "_TeamMemberCard-CyFBbhAD.js": {
+    "file": "assets/TeamMemberCard-CyFBbhAD.js",
     "name": "TeamMemberCard",
     "imports": [
       "_linkEdin-0gtLXdxO.js",
-      "_pagination-DYybU79d.js",
+      "_pagination-BgI4pQ-j.js",
       "resources/js/app.js"
     ],
     "css": [
@@ -114,11 +114,11 @@
       "assets/kabir-vfzy_LR_.jpg"
     ]
   },
-  "_TestimonialSlider-DTYnTrCD.js": {
-    "file": "assets/TestimonialSlider-DTYnTrCD.js",
+  "_TestimonialSlider-y9kPvwxL.js": {
+    "file": "assets/TestimonialSlider-y9kPvwxL.js",
     "name": "TestimonialSlider",
     "imports": [
-      "_pagination-DYybU79d.js",
+      "_pagination-BgI4pQ-j.js",
       "resources/js/app.js"
     ],
     "assets": [
@@ -176,12 +176,8 @@
       "assets/linkEdin-DCFs2Z7k.svg"
     ]
   },
-  "_pagination-DGoAdr57.css": {
-    "file": "assets/pagination-DGoAdr57.css",
-    "src": "_pagination-DGoAdr57.css"
-  },
-  "_pagination-DYybU79d.js": {
-    "file": "assets/pagination-DYybU79d.js",
+  "_pagination-BgI4pQ-j.js": {
+    "file": "assets/pagination-BgI4pQ-j.js",
     "name": "pagination",
     "imports": [
       "resources/js/app.js"
@@ -190,13 +186,17 @@
       "assets/pagination-DGoAdr57.css"
     ]
   },
+  "_pagination-DGoAdr57.css": {
+    "file": "assets/pagination-DGoAdr57.css",
+    "src": "_pagination-DGoAdr57.css"
+  },
   "resources/css/app.css": {
-    "file": "assets/app-CZcW6qUD.css",
+    "file": "assets/app-PK0PnJpU.css",
     "src": "resources/css/app.css",
     "isEntry": true
   },
   "resources/js/app.js": {
-    "file": "assets/app-BqBNIOVv.js",
+    "file": "assets/app-BGmf3SBn.js",
     "name": "app",
     "src": "resources/js/app.js",
     "isEntry": true,
@@ -725,7 +725,7 @@
     "src": "resources/js/assets/images/zionbhai.svg"
   },
   "resources/js/views/errors/NotFound.vue": {
-    "file": "assets/NotFound-BsvYSSnU.js",
+    "file": "assets/NotFound-D0a99cK5.js",
     "name": "NotFound",
     "src": "resources/js/views/errors/NotFound.vue",
     "isDynamicEntry": true,
@@ -734,20 +734,20 @@
     ]
   },
   "resources/js/views/frontend/About.vue": {
-    "file": "assets/About-DYWcxzPf.js",
+    "file": "assets/About-C49ApTIc.js",
     "name": "About",
     "src": "resources/js/views/frontend/About.vue",
     "isDynamicEntry": true,
     "imports": [
-      "_TeamMemberCard-v8oTVytD.js",
+      "_TeamMemberCard-CyFBbhAD.js",
       "_career_img-Cki-Tjnz.js",
-      "_PatnerMarquee-DVQ5wBVE.js",
+      "_PatnerMarquee-B8Qz5Nw6.js",
       "_about_bg-CjkhxHli.js",
-      "_pagination-DYybU79d.js",
+      "_pagination-BgI4pQ-j.js",
       "resources/js/app.js",
-      "_NavigateSecondary-Bl_hQ8Ko.js",
-      "_StartBuilding-BHa4q5Gj.js",
-      "_SectionHeader-Q3BJLGMJ.js",
+      "_NavigateSecondary-CokhQ2tu.js",
+      "_StartBuilding-h0xkHYUo.js",
+      "_SectionHeader-CPZMCXfi.js",
       "_linkEdin-0gtLXdxO.js"
     ],
     "css": [
@@ -770,14 +770,14 @@
     ]
   },
   "resources/js/views/frontend/Blog.vue": {
-    "file": "assets/Blog-zxK8qrcJ.js",
+    "file": "assets/Blog-BhG4TKh8.js",
     "name": "Blog",
     "src": "resources/js/views/frontend/Blog.vue",
     "isDynamicEntry": true,
     "imports": [
       "_career_bg-DO8_JCEO.js",
-      "_StartBuilding-BHa4q5Gj.js",
-      "_SectionHeader-Q3BJLGMJ.js",
+      "_StartBuilding-h0xkHYUo.js",
+      "_SectionHeader-CPZMCXfi.js",
       "resources/js/app.js"
     ],
     "assets": [
@@ -788,7 +788,7 @@
     ]
   },
   "resources/js/views/frontend/BlogDetails.vue": {
-    "file": "assets/BlogDetails-DIdr1xhT.js",
+    "file": "assets/BlogDetails-Bo3jA9FU.js",
     "name": "BlogDetails",
     "src": "resources/js/views/frontend/BlogDetails.vue",
     "isDynamicEntry": true,
@@ -804,7 +804,7 @@
     ]
   },
   "resources/js/views/frontend/BlogFour.vue": {
-    "file": "assets/BlogFour-Boye-bfe.js",
+    "file": "assets/BlogFour-C0HN_fvB.js",
     "name": "BlogFour",
     "src": "resources/js/views/frontend/BlogFour.vue",
     "isDynamicEntry": true,
@@ -820,7 +820,7 @@
     ]
   },
   "resources/js/views/frontend/BlogOne.vue": {
-    "file": "assets/BlogOne-CsSJjLLZ.js",
+    "file": "assets/BlogOne-DNYfewnO.js",
     "name": "BlogOne",
     "src": "resources/js/views/frontend/BlogOne.vue",
     "isDynamicEntry": true,
@@ -836,7 +836,7 @@
     ]
   },
   "resources/js/views/frontend/BlogThree.vue": {
-    "file": "assets/BlogThree-B6agSIZ6.js",
+    "file": "assets/BlogThree-CO_GyVC6.js",
     "name": "BlogThree",
     "src": "resources/js/views/frontend/BlogThree.vue",
     "isDynamicEntry": true,
@@ -852,7 +852,7 @@
     ]
   },
   "resources/js/views/frontend/BlogTwo.vue": {
-    "file": "assets/BlogTwo-By4L_zAS.js",
+    "file": "assets/BlogTwo-B7ZJ-c4n.js",
     "name": "BlogTwo",
     "src": "resources/js/views/frontend/BlogTwo.vue",
     "isDynamicEntry": true,
@@ -867,18 +867,18 @@
     ]
   },
   "resources/js/views/frontend/Career.vue": {
-    "file": "assets/Career-BJmh9RUv.js",
+    "file": "assets/Career-BnKxDTu0.js",
     "name": "Career",
     "src": "resources/js/views/frontend/Career.vue",
     "isDynamicEntry": true,
     "imports": [
       "_career_bg-DO8_JCEO.js",
-      "_pagination-DYybU79d.js",
+      "_pagination-BgI4pQ-j.js",
       "resources/js/app.js",
-      "_PatnerMarquee-DVQ5wBVE.js",
-      "_FAQ-C1e7qPav.js",
-      "_SectionHeader-Q3BJLGMJ.js",
-      "_NavigateSecondary-Bl_hQ8Ko.js"
+      "_PatnerMarquee-B8Qz5Nw6.js",
+      "_FAQ-C75zuuXO.js",
+      "_SectionHeader-CPZMCXfi.js",
+      "_NavigateSecondary-CokhQ2tu.js"
     ],
     "css": [
       "assets/Career-c3Cfnw5d.css"
@@ -890,7 +890,7 @@
     ]
   },
   "resources/js/views/frontend/CareerDetails.vue": {
-    "file": "assets/CareerDetails-CYripgk1.js",
+    "file": "assets/CareerDetails-DAqUeq2A.js",
     "name": "CareerDetails",
     "src": "resources/js/views/frontend/CareerDetails.vue",
     "isDynamicEntry": true,
@@ -900,33 +900,33 @@
     ]
   },
   "resources/js/views/frontend/Contact.vue": {
-    "file": "assets/Contact-Cl1g4v9o.js",
+    "file": "assets/Contact-D16NGFhN.js",
     "name": "Contact",
     "src": "resources/js/views/frontend/Contact.vue",
     "isDynamicEntry": true,
     "imports": [
       "_career_img-Cki-Tjnz.js",
       "_career_bg-DO8_JCEO.js",
-      "_PatnerMarquee-DVQ5wBVE.js",
-      "_ContactCard-C3d218ZF.js",
-      "_SectionHeader-Q3BJLGMJ.js",
+      "_PatnerMarquee-B8Qz5Nw6.js",
+      "_ContactCard-CY-tA7zr.js",
+      "_SectionHeader-CPZMCXfi.js",
       "resources/js/app.js"
     ]
   },
   "resources/js/views/frontend/Home.vue": {
-    "file": "assets/Home-CRgIIpuN.js",
+    "file": "assets/Home-C4rCqfrZ.js",
     "name": "Home",
     "src": "resources/js/views/frontend/Home.vue",
     "isDynamicEntry": true,
     "imports": [
-      "_StartBuilding-BHa4q5Gj.js",
-      "_TestimonialSlider-DTYnTrCD.js",
-      "_NavigateSecondary-Bl_hQ8Ko.js",
+      "_StartBuilding-h0xkHYUo.js",
+      "_TestimonialSlider-y9kPvwxL.js",
+      "_NavigateSecondary-CokhQ2tu.js",
       "resources/js/app.js",
-      "_pagination-DYybU79d.js",
-      "_FAQ-C1e7qPav.js",
-      "_ContactCard-C3d218ZF.js",
-      "_SectionHeader-Q3BJLGMJ.js"
+      "_pagination-BgI4pQ-j.js",
+      "_FAQ-C75zuuXO.js",
+      "_ContactCard-CY-tA7zr.js",
+      "_SectionHeader-CPZMCXfi.js"
     ],
     "css": [
       "assets/Home-DU3KW6Li.css"
@@ -964,7 +964,7 @@
     ]
   },
   "resources/js/views/frontend/JobApply.vue": {
-    "file": "assets/JobApply-DFeouFR0.js",
+    "file": "assets/JobApply-BOte9ClV.js",
     "name": "JobApply",
     "src": "resources/js/views/frontend/JobApply.vue",
     "isDynamicEntry": true,
@@ -973,17 +973,17 @@
     ]
   },
   "resources/js/views/frontend/Projects.vue": {
-    "file": "assets/Projects-BLA-3o4s.js",
+    "file": "assets/Projects-AeCE8Fy5.js",
     "name": "Projects",
     "src": "resources/js/views/frontend/Projects.vue",
     "isDynamicEntry": true,
     "imports": [
-      "_Projects-C7bTkNdb.js",
+      "_Projects-CAaRdVFR.js",
       "resources/js/app.js"
     ]
   },
   "resources/js/views/frontend/ProjectsDetails.vue": {
-    "file": "assets/ProjectsDetails-DmpYJ1dx.js",
+    "file": "assets/ProjectsDetails-CPJbynBF.js",
     "name": "ProjectsDetails",
     "src": "resources/js/views/frontend/ProjectsDetails.vue",
     "isDynamicEntry": true,
@@ -993,40 +993,40 @@
     ]
   },
   "resources/js/views/frontend/Team.vue": {
-    "file": "assets/Team-CqicyVa7.js",
+    "file": "assets/Team-CJvpkKud.js",
     "name": "Team",
     "src": "resources/js/views/frontend/Team.vue",
     "isDynamicEntry": true,
     "imports": [
       "_linkEdin-0gtLXdxO.js",
-      "_TeamMemberCard-v8oTVytD.js",
-      "_PatnerMarquee-DVQ5wBVE.js",
+      "_TeamMemberCard-CyFBbhAD.js",
+      "_PatnerMarquee-B8Qz5Nw6.js",
       "_about_bg-CjkhxHli.js",
-      "_StartBuilding-BHa4q5Gj.js",
+      "_StartBuilding-h0xkHYUo.js",
       "resources/js/app.js",
-      "_SectionHeader-Q3BJLGMJ.js",
-      "_ContactCard-C3d218ZF.js",
-      "_pagination-DYybU79d.js"
+      "_SectionHeader-CPZMCXfi.js",
+      "_ContactCard-CY-tA7zr.js",
+      "_pagination-BgI4pQ-j.js"
     ],
     "assets": [
       "assets/zionbhai-By9ADd56.svg"
     ]
   },
   "resources/js/views/frontend/services/Service.vue": {
-    "file": "assets/Service-W0em7-x0.js",
+    "file": "assets/Service-BAVt14jD.js",
     "name": "Service",
     "src": "resources/js/views/frontend/services/Service.vue",
     "isDynamicEntry": true,
     "imports": [
-      "_TestimonialSlider-DTYnTrCD.js",
+      "_TestimonialSlider-y9kPvwxL.js",
       "_about_bg-CjkhxHli.js",
-      "_pagination-DYybU79d.js",
+      "_pagination-BgI4pQ-j.js",
       "resources/js/app.js",
-      "_StartBuilding-BHa4q5Gj.js",
-      "_FAQ-C1e7qPav.js",
-      "_SectionHeader-Q3BJLGMJ.js",
-      "_Projects-C7bTkNdb.js",
-      "_NavigateSecondary-Bl_hQ8Ko.js"
+      "_StartBuilding-h0xkHYUo.js",
+      "_FAQ-C75zuuXO.js",
+      "_SectionHeader-CPZMCXfi.js",
+      "_Projects-CAaRdVFR.js",
+      "_NavigateSecondary-CokhQ2tu.js"
     ],
     "css": [
       "assets/Service-98ilSf8I.css"

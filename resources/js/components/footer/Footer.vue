@@ -109,7 +109,7 @@
                             <li><a href="#" class="hover:text-neutral-400">About Cookies</a></li>
                         </ul>
                         <div class="mt-6">
-                            <p class="text-sm text-neutral-400">Copyright &copy; 2023 Zavisoft. All rights reserved.</p>
+                            <p class="text-sm text-neutral-400">Copyright &copy; 2025 Zavisoft. All rights reserved.</p>
                             <p class="text-sm text-neutral-400 mt-3">This product focuses on providing organizations
                                 with
                                 tools
