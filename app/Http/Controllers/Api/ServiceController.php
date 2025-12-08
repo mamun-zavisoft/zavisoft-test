@@ -21,7 +21,7 @@ class ServiceController extends Controller
 
     public function services()
     {
-       $data = Service::select('id', 'slug','category_id','heading','slug', 'short_description', 'service_image')->get();
+        $data = Service::select('id','slug','category_id','heading','short_description','service_image')->with(['Category' => fn($q) => $q->select('id','slug')])->get();
 
         return response()->json([
             'success' => true,
