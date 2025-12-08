@@ -249,23 +249,21 @@ import Projects from '@/components/ui/card/Projects.vue';
 import NavigatePrimaryButton from '@/components/ui/button/NavigatePrimary.vue';
 
 
-import { ref, computed, onMounted, watchEffect } from "vue"
+import { ref, onMounted } from "vue"
 import OtherServicce from '@/components/section/OtherServicce.vue';
 import { useRoute } from 'vue-router'
 
 const route = useRoute()
+const slug = route.params.slug;
 
-// Get service category ID from route params
-const id = computed(() => Number(route.params.id))
-
-console.log("category id",id.value);
+console.log("category id", slug);
 
 const service = ref({})
 
 // Fetch service
 const fetchService = async () => {
     try {
-        const res = await fetch(`/api/category-wise-service/${id.value}`, {
+        const res = await fetch(`/api/category-wise-service/${slug}`, {
             headers: { 'Accept': 'application/json' }
         })
 

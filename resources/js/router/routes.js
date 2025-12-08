@@ -16,6 +16,13 @@ const routes = [
         meta: { layout: LayoutFrontend, title: "About Us" },
     },
     {
+        path: "/team",
+        name: "Team",
+        component: () => import("@/views/frontend/Team.vue"),
+        meta: { layout: LayoutFrontend, title: "Our Team" },
+    },
+
+    {
         path: "/projects",
         name: "Projects",
         component: () => import("@/views/frontend/Projects.vue"),
@@ -100,7 +107,7 @@ const routes = [
     // dynamic service route
 
     {
-        path: '/services/:slug/:id?',
+        path: '/services/:slug',
         name: "serviceDetails",
         component: () => import("@/views/frontend/services/Service.vue"),
         meta: { layout: LayoutFrontend, title: "Service Details" },

@@ -4,10 +4,9 @@
         <h3 class="px-4 md:px-4 pt-3 text-sm font-semibold text-neutral-500 uppercase">Our Services</h3>
         <div
             class="grid grid-cols-1 md:grid-cols-2 gap-y-0 md:gap-x-10 lg:gap-x-16 py-3 text-sm md:text-base text-neutral-900 font-medium">
-            <router-link v-for="(service, index) in finalServices" :key="index" :to="{
+            <router-link  v-for="(service, index) in finalServices" :key="index" :to="{
                 name: 'serviceDetails',
                 params: {
-                    id: service.id,
                     slug: service.slug
                 }
             }" class="group px-3 md:px-4 py-2 md:py-3 rounded flex items-center justify-between hover:bg-neutral-50"

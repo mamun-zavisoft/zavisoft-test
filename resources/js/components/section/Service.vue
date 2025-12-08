@@ -4,8 +4,7 @@
             <router-link :to="{
                 name: 'serviceDetails',
                 params: {
-                    id: service.category_id,
-                    slug: service.slug
+                    slug: service.category.slug
                 }
             }">
 

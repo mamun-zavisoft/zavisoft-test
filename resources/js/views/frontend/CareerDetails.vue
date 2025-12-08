@@ -18,10 +18,17 @@
                                 <!-- {{ job.experience ?? '' }} year experience -->
                             </p>
 
-                            <span
-                                class="wow animate__animated animate__fadeInUp mt-6 inline-block text-sm font-medium border border-neutral-300 text-neutral-900 bg-white px-3 py-1 rounded-full mb-2">
-                                {{ job.salary_range ?? '' }} BDT/month
-                            </span>
+                            <div class="flex flex-col gap-2">
+                                <span
+                                    class="w-fit wow animate__animated animate__fadeInUp mt-6 inline-block text-sm font-medium border border-neutral-300 text-neutral-900 bg-white px-3 py-1 rounded-full mb-2">
+                                    {{ job.salary_range ?? '' }} BDT/month
+                                </span>
+                                <!-- number of vacancies -->
+                                <button class="w-fit px-4 py-1.5 font-medium bg-primary-500 text-white rounded-full">
+                                    No of {{ job.vacancy > 1 ? 'Vacancies' : 'Vacancy' }} :
+                                    {{ job.vacancy ?? '' }}
+                                </button>
+                            </div>
                         </div>
                         <div class="md:col-span-5 lg:col-span-4 mb-0 md:mb-[-62px]">
                             <div class="bg-white p-4 rounded-lg h-full border border-neutral-200 wow animate__animated animate__fadeInUp"

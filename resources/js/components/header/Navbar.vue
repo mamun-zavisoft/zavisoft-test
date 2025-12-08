@@ -53,6 +53,9 @@
                     <router-link to="/about" class="px-2 py-1 text-sm font-medium text-neutral-900 transition-colors">
                         About Us
                     </router-link>
+                    <router-link to="/team" class="px-2 py-1 text-sm font-medium text-neutral-900 transition-colors">
+                        Team
+                    </router-link>
                     <router-link to="/career" class="px-2 py-1text-sm font-medium text-neutral-900 transition-colors">
                         Career
                     </router-link>
@@ -86,6 +89,9 @@
                     </router-link>
                     <router-link to="/about" class="px-2 py-1 text-sm font-medium text-neutral-900 transition-colors">
                         About Us
+                    </router-link>
+                    <router-link to="/team" class="px-2 py-1 text-sm font-medium text-neutral-900 transition-colors">
+                        Team
                     </router-link>
                     <router-link to="/career" class="px-2 py-1text-sm font-medium text-neutral-900 transition-colors">
                         Career
