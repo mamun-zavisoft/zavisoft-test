@@ -248,20 +248,17 @@ import SectionHeader from '@/components/ui/heading/SectionHeader.vue';
 import Projects from '@/components/ui/card/Projects.vue';
 import NavigatePrimaryButton from '@/components/ui/button/NavigatePrimary.vue';
 
-
-import { ref, onMounted } from "vue"
+import { ref, onMounted, watch } from "vue" // Added watch import
 import OtherServicce from '@/components/section/OtherServicce.vue';
 import { useRoute } from 'vue-router'
 
 const route = useRoute()
-const slug = route.params.slug;
-
-console.log("category id", slug);
-
 const service = ref({})
 
 // Fetch service
 const fetchService = async () => {
+    const slug = route.params.slug; // Use current slug each time
+
     try {
         const res = await fetch(`/api/category-wise-service/${slug}`, {
             headers: { 'Accept': 'application/json' }
@@ -284,7 +281,14 @@ onMounted(async () => {
     await fetchService()
 })
 
-
-
-
+// NEW: Watch for route param changes (e.g., navigating to another service on same route)
+watch(
+    () => route.params.slug,
+    async (newSlug) => {
+        if (newSlug) {
+            await fetchService()
+        }
+    },
+    { immediate: true } // Ensures it runs once on mount too (optional, since onMounted handles it)
+)
 </script>
