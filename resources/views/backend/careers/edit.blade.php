@@ -58,6 +58,17 @@
 
             <div>
                 <div class="form-group">
+                    <label>Vacancy</label>
+                    <input type="text" name="vacancy" value="{{ $data->vacancy }}"
+                           placeholder="Enter Vacancy"/>
+                    @error('vacancy')
+                    <div class="text-danger-500 mt-1">{{ $message }}</div>
+                    @enderror
+                </div>
+            </div>
+
+            <div>
+                <div class="form-group">
                     <label>Salary Range <span class="manitory">*</span></label>
                     <input type="text" id="salary_range" name="salary_range" value="{{ $data->salary_range }}"
                         placeholder="Enter Salary Range" />
@@ -66,15 +77,7 @@
                     @enderror
                 </div>
             </div>
-            <div class="col-span-1 md:col-span-2">
-                <div class="form-group">
-                    <label>Office Address <span class="manitory">*</span></label>
-                    <textarea type="text" id="address" name="address" placeholder="Enter Address" rows="4">{{ $data->address }}</textarea>
-                    @error('address')
-                        <div class="text-danger">{{ $message }}</div>
-                    @enderror
-                </div>
-            </div>
+
             <div class="col-span-1 md:col-span-2">
                 <div class="form-group">
                     <label>Job Description <span class="manitory">*</span></label>

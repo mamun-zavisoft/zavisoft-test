@@ -10,7 +10,7 @@ class ServiceController extends Controller
 {
     public function serviceCategories()
     {
-        $data = ServiceCategory::select('id', 'name')->orderBy('name')->get();
+        $data = ServiceCategory::select('id', 'name','slug')->orderBy('name')->get();
 
         return response()->json([
             'success' => true,
@@ -21,7 +21,7 @@ class ServiceController extends Controller
 
     public function services()
     {
-       $data = Service::select('id', 'category_id','heading', 'short_description', 'service_image')->get();
+       $data = Service::select('id', 'slug','category_id','heading','slug', 'short_description', 'service_image')->get();
 
         return response()->json([
             'success' => true,
@@ -30,9 +30,11 @@ class ServiceController extends Controller
         ]);
     }
 
-    public function categoryWiseServices($id)
+    public function categoryWiseServices($slug)
     {
-        $data = Service::select('id', 'category_id','heading', 'short_description', 'service_image')->where('category_id',$id)->first();
+        $categorySlug = ServiceCategory::select( 'id','slug')->where('slug', $slug)->first();
+
+        $data = Service::select('id', 'category_id','heading', 'slug','short_description', 'service_image')->where('category_id',$categorySlug->id)->first();
 
         return response()->json([
             'success' => true,

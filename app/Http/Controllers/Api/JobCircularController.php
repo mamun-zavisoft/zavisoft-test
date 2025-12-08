@@ -14,11 +14,12 @@ class JobCircularController extends Controller
             $careers = JobCircular::select([
                 'id',
                 'name',
+                'slug',
                 'type',
                 'location_type',
                 'experience',
+                'vacancy',
                 'salary_range',
-                'address',
                 'description',
                 'responsibilities',
                 'requirement',
@@ -40,10 +41,10 @@ class JobCircularController extends Controller
         }
     }
 
-    public function show($id): JsonResponse
+    public function show($slug): JsonResponse
     {
         try {
-            $career = JobCircular::find($id);
+            $career = JobCircular::where('slug',$slug)->firstOrFail();
 
             if (!$career) {
                 return response()->json([

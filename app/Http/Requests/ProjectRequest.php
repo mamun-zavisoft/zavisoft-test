@@ -18,6 +18,7 @@ class ProjectRequest extends FormRequest
         return [
             'category_id' => 'required|exists:project_categories,id',
             'title' => 'required|string|max:255',
+            'slug' => 'nullable|string|max:255',
             'about_project' => 'required|string',
             'business_result' => 'required|string',
 

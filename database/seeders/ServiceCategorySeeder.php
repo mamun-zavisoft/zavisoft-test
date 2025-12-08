@@ -4,6 +4,7 @@ namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
 use App\Models\ServiceCategory;
+use Illuminate\Support\Str;
 
 class ServiceCategorySeeder extends Seeder
 {
@@ -19,7 +20,10 @@ class ServiceCategorySeeder extends Seeder
         ];
 
         foreach ($categories as $name) {
-            ServiceCategory::create(['name' => $name]);
+            ServiceCategory::create([
+                'name' => $name,
+                'slug' => Str::slug($name),
+            ]);
         }
     }
 }

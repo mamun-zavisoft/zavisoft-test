@@ -10,7 +10,7 @@ class ProjectController extends Controller
 {
     public function index()
     {
-        $data = Project::select( 'id','category_id','title', 'about_project', 'business_result', 'banner_image', 'gallery_image', 'challenge', 'solution', 'final_impact', 'contributors', 'platforms')->get();
+        $data = Project::select('id', 'category_id', 'title', 'slug', 'about_project', 'business_result', 'banner_image', 'gallery_image', 'challenge', 'solution', 'final_impact', 'contributors', 'platforms')->get();
 
         return response()->json([
             'success' => true,
@@ -21,7 +21,7 @@ class ProjectController extends Controller
 
     public function projectCategories()
     {
-        $data = ProjectCategory::select('id', 'name')->get();
+        $data = ProjectCategory::select('id', 'name', 'slug')->get();
 
         return response()->json([
             'success' => true,
@@ -32,8 +32,8 @@ class ProjectController extends Controller
 
     public function categoryWiseProjects($id)
     {
-        $data = Project::select( 'category_id','title', 'about_project', 'business_result', 'banner_image', 'gallery_image', 'challenge', 'solution', 'final_impact', 'contributors', 'platforms')
-            ->where('category_id', $id)->get();
+        $data = Project::select('category_id', 'title', 'slug', 'about_project', 'business_result', 'banner_image', 'gallery_image', 'challenge', 'solution', 'final_impact', 'contributors', 'platforms')
+            ->where('slug', $id)->get();
 
         return response()->json([
             'success' => true,
@@ -42,37 +42,38 @@ class ProjectController extends Controller
         ]);
     }
 
-    public function ProjectsDetails($id)
-{
-    $project = Project::select(
-        'id',
-        'title',
-        'category_id',
-        'about_project',
-        'business_result',
-        'banner_image',
-        'gallery_image',
-        'challenge',
-        'solution',
-        'final_impact',
-        'contributors',
-        'platforms'
-    )
-    ->where('id', $id)
-    ->first();
+    public function ProjectsDetails($slug)
+    {
+        $project = Project::select(
+            'id',
+            'title',
+            'slug',
+            'category_id',
+            'about_project',
+            'business_result',
+            'banner_image',
+            'gallery_image',
+            'challenge',
+            'solution',
+            'final_impact',
+            'contributors',
+            'platforms'
+        )
+            ->where('slug', $slug)
+            ->first();
 
-    if (!$project) {
+        if (!$project) {
+            return response()->json([
+                'success' => false,
+                'message' => 'Project not found.'
+            ], 404);
+        }
+
         return response()->json([
-            'success' => false,
-            'message' => 'Project not found.'
-        ], 404);
+            'success' => true,
+            'data' => $project,
+            'message' => 'Project details retrieved successfully.'
+        ]);
     }
-
-    return response()->json([
-        'success' => true,
-        'data' => $project,
-        'message' => 'Project details retrieved successfully.'
-    ]);
-}
 
 }

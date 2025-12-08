@@ -6,13 +6,14 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\JobCircularRequest;
 use App\Models\JobCircular;
 use Illuminate\Http\RedirectResponse;
+use Illuminate\Support\Str;
 use Illuminate\View\View;
 
 class JobCircularController extends Controller
 {
     public function index(): View
     {
-        $careers = JobCircular::select('id', 'name', 'type', 'location_type', 'experience', 'salary_range', 'address',
+        $careers = JobCircular::select('id', 'name', 'type', 'location_type', 'experience', 'salary_range',
             'description', 'responsibilities', 'requirement', 'about_company','status')->get();
 
         return view('backend.careers.index', compact('careers'));
@@ -27,6 +28,7 @@ class JobCircularController extends Controller
     {
         try {
             $data = $request->validated();
+            $data['slug'] = Str::slug($data['name']);
 
             JobCircular::create($data);
             return redirect()->route('admin.careers.index')->with('success', 'Job posted successfully.');
@@ -46,6 +48,7 @@ class JobCircularController extends Controller
     {
         try {
             $data = $request->validated();
+            $data['slug'] = Str::slug($data['name']);
 
             // Update the existing record
             $jobCircular = JobCircular::findOrFail($id);

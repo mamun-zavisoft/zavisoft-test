@@ -7,6 +7,7 @@ use App\Models\Service;
 use App\Models\ServiceCategory;
 use Illuminate\Support\Facades\Storage;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Str;
 
 class ServiceController extends Controller
 {
@@ -34,6 +35,8 @@ class ServiceController extends Controller
     {
         $data = $request->validated();
 
+        $data['slug'] = Str::slug($data['heading']);
+
         if ($request->hasFile('service_image')) {
             $folder = 'services';
 
@@ -52,6 +55,7 @@ class ServiceController extends Controller
     public function update(ServiceRequest $request, $id)
     {
         $data = $request->validated();
+        $data['slug'] = Str::slug($data['heading']);
 
         $service = Service::findOrFail($id);
 
