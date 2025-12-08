@@ -22,7 +22,7 @@ const routes = [
         meta: { layout: LayoutFrontend, title: "Our Projects" },
     },
     {
-        path: '/projects/:slug/:id?',
+        path: '/projects/:slug',
         name: 'ProjectsDetails',
         component: () => import('@/views/frontend/ProjectsDetails.vue'),
         props: true,
@@ -44,10 +44,9 @@ const routes = [
     },
 
     {
-        path: '/career/:id',
+        path: '/career/:slug',
         name: 'CareerDetails',
         component: () => import('@/views/frontend/CareerDetails.vue'),
-        props: true,
         meta: { layout: LayoutFrontend, title: "Career Details" },
     },
     {

@@ -258,6 +258,8 @@ const route = useRoute()
 // Get service category ID from route params
 const id = computed(() => Number(route.params.id))
 
+console.log("category id",id.value);
+
 const service = ref({})
 
 // Fetch service

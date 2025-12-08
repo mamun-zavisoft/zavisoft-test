@@ -137,9 +137,9 @@ import { useRoute } from "vue-router"
 import { computed } from "vue"
 
 const route = useRoute()
-const id = computed(() => Number(route.params.id))
+const slug = route.params.slug;
 
-const { data: project } = useFetch(`/api/projects-details/${id.value}`)
+const { data: project } = useFetch(`/api/projects-details/${slug}`)
 
 
 const currentUrl = computed(() => {

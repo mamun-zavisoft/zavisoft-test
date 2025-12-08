@@ -9,7 +9,7 @@
                     <article v-for="project in filteredProjects" :key="project.id"
                         class="wow animate__zoomIn animate__animated bg-white rounded-lg p-4 transition group border border-transparent hover:border-primary-500"
                         style="box-shadow: 0px 2px 4px 0px #0F1C330F, 0px 2px 2px 0px #0F1C3312;">
-                        <router-link :to="{ name: 'ProjectsDetails', params: { id: project.id, slug: project.title } }">
+                        <router-link :to="{ name: 'ProjectsDetails', params: { slug: project.slug } }">
                             <div class="flex justify-between items-start">
                                 <div class="mb-4 pr-4">
                                     <h3 class="text-base md:text-lg lg:text-xl font-bold text-neutral-900 mb-3">

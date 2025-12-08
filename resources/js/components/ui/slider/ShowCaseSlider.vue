@@ -13,7 +13,7 @@
             }" @swiper="onSwiper" @slideChange="onSlideChange">
             <SwiperSlide v-for="(item) in showcaseItems" :key="item.id">
                 <article>
-                    <router-link :to="{ name: 'ProjectsDetails', params: { id: item.id, slug: item.title } }">
+                    <router-link :to="{ name: 'ProjectsDetails', params: { slug: item.slug } }">
                         <div class="wow animate__zoomIn animate__animated bg-white rounded-lg  p-4 transition group border border-transparent hover:border-primary-500"
                             style="box-shadow: 0px 2px 4px 0px #0F1C330F, 0px 2px 2px 0px #0F1C3312;">
                             <div class="flex justify-between items-start">
@@ -80,7 +80,6 @@
 <script setup>
 import { ref } from 'vue'
 import { Swiper, SwiperSlide } from 'swiper/vue'
-import {slugify} from '@/composables/slugify.js'
 import { useFetch } from '@/composables/useFetch.js'
 import 'swiper/css'
 import 'swiper/css/pagination'

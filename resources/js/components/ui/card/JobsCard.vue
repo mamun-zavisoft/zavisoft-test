@@ -8,8 +8,8 @@
 
     <!-- Desktop Grid -->
     <div class="hidden sm:grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-        <article v-for="job in jobListings" :key="job.id">
-            <router-link :to="{ name: 'CareerDetails', params: { id: job.id } }"
+       
+            <router-link :to="{ name: 'CareerDetails', params: { slug: job.slug } }" v-for="job in jobListings" :key="job.id"
                 class="wow animate__zoomIn animate__animated group bg-white p-3 md:p-4 rounded transition-colors duration-300 hover:bg-primary-500 hover:text-white">
 
                 <div
@@ -41,15 +41,17 @@
 
                     </p>
                 </div>
+
+               
             </router-link>
-        </article>
+            
     </div>
 
     <!-- Mobile Slider -->
     <div class="sm:hidden">
         <Swiper class="opertunity-swiper" v-bind="swiperOptions" @swiper="onSwiper" @slideChange="onSlideChange">
             <SwiperSlide v-for="job in jobListings" :key="job.id">
-                <router-link :to="{ name: 'CareerDetails', params: { id: job.id } }">
+                <router-link :to="{ name: 'CareerDetails', params: { slug: job.slug } }">
                     <article
                         class="wow animate__zoomIn animate__animated group bg-white p-3 md:p-4 rounded transition-colors duration-300 hover:bg-primary-500 hover:text-white">
 
@@ -138,6 +140,7 @@ const loadJobs = async () => {
             .map(job => ({
                 id: job.id,
                 title: job.name,
+                slug: job.slug,
                 type: job.location_type ?? "On Site",
                 employment: job.type ?? "Full Time",
                 experience: job.experience,

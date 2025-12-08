@@ -30,7 +30,8 @@
                                     you!</p>
 
                                 <div class="mt-6 w-full h-[50px]">
-                                    <router-link :to="{ name: 'JobApply', params: { jobId: id } }" class="block w-full mt-6 px-4 py-3 bg-primary-500 text-white text-center rounded-full 
+                                    <router-link v-if="job.id" :to="{ name: 'JobApply', params: { jobId: job.id } }"
+                                        class="block w-full mt-6 px-4 py-3 bg-primary-500 text-white text-center rounded-full 
                                         hover:bg-primary-600 focus:outline-none focus:ring-0 
                                         focus:ring-primary-300 transition-colors duration-300">
                                         Apply Now
@@ -159,13 +160,15 @@
 
 <script setup>
 import { ref, onMounted } from 'vue'
-const props = defineProps({
-    id: String
-})
+// const props = defineProps({
+//     slug: String
+// })
 import { useRoute } from 'vue-router'
 
 const route = useRoute()
-const id = route.params.id
+const slug = route.params.slug
+
+console.log("slug:", slug)
 
 const job = ref({})
 const loading = ref(true)
@@ -173,7 +176,7 @@ const error = ref(null)
 
 const loadJob = async () => {
     try {
-        const res = await fetch(`/api/careers/${id}`)
+        const res = await fetch(`/api/careers/${slug}`)
 
         if (!res.ok) throw new Error('Job not found')
 
