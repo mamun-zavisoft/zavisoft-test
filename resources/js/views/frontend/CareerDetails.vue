@@ -175,8 +175,6 @@ import { useRoute } from 'vue-router'
 const route = useRoute()
 const slug = route.params.slug
 
-console.log("slug:", slug)
-
 const job = ref({})
 const loading = ref(true)
 const error = ref(null)

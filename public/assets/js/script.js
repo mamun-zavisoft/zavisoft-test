@@ -400,7 +400,6 @@ $(document).ready(function () {
 			$input = $this.next('input'),
 			$parent = $input.closest('div'),
 			newValue = parseInt($input.val()) - 1;
-		console.log($parent);
 		$parent.find('.inc').addClass('a' + newValue);
 		$input.val(newValue);
 		newValue += newValue;
@@ -673,7 +672,6 @@ $(document).ready(function () {
 	$('ul.tabs li').click(function () {
 		var $this = $(this);
 		var $theTab = $(this).attr('id');
-		console.log($theTab);
 		if ($this.hasClass('active')) {
 			// do nothing
 		} else {
