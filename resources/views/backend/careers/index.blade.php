@@ -92,34 +92,36 @@
     <script>
         document.addEventListener('DOMContentLoaded', () => {
             document.querySelectorAll('.toggle-icon').forEach(icon => {
-                icon.addEventListener('click', function () {
+                icon.addEventListener('click', async function () {
                     const careerId = this.dataset.id;
+                    if (!careerId) return;
 
-                    fetch(`/admin/careers/${careerId}/toggle-status`, {
-                        method: 'POST',
-                        headers: {
-                            'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]').content,
-                            'Accept': 'application/json',
-                            'Content-Type': 'application/json'
-                        }
-                    })
-                        .then(res => res.json())
-                        .then(data => {
-                            if (data.success) {
-                                // Update icon class dynamically
-                                if (data.status === 1) {
-                                    this.classList.remove('fa-toggle-off', 'text-red-500');
-                                    this.classList.add('fa-toggle-on', 'text-green-500');
-                                } else {
-                                    this.classList.remove('fa-toggle-on', 'text-green-500');
-                                    this.classList.add('fa-toggle-off', 'text-red-500');
-                                }
-                                showToast(`Status updated to ${data.status === 1 ? 'Active' : 'Inactive'}`, 'success');
-                            } else {
-                                showToast('Failed to update status', 'error');
+                    try {
+                        const res = await fetch(`/admin/careers/${careerId}/toggle-status`, {
+                            method: 'POST',
+                            headers: {
+                                'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]').content,
+                                'Accept': 'application/json',
+                                'Content-Type': 'application/json'
                             }
-                        })
-                        .catch(() => showToast('Request failed', 'error'));
+                        });
+
+                        const data = await res.json();
+
+                        if (data.success) {
+                            // Toggle classes dynamically
+                            this.classList.toggle('fa-toggle-on', data.status === 1);
+                            this.classList.toggle('text-green-500', data.status === 1);
+                            this.classList.toggle('fa-toggle-off', data.status !== 1);
+                            this.classList.toggle('text-red-500', data.status !== 1);
+
+                            showToast(`Status updated to ${data.status === 1 ? 'Active' : 'Inactive'}`, 'success');
+                        } else {
+                            showToast('Failed to update status', 'error');
+                        }
+                    } catch (error) {
+                        showToast('Request failed', 'error');
+                    }
                 });
             });
         });
