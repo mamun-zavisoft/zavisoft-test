@@ -4,7 +4,6 @@ import router from "./router";
 import { createPinia } from "pinia";
 import Toast from "vue-toastification";
 import "vue-toastification/dist/index.css";
-import { i18nVue } from "laravel-vue-i18n";
 import { loaderPlugin } from "./plugins/loader";
 
 import "animate.css";
@@ -36,10 +35,7 @@ if (appElement) {
     pinia.use(loaderPlugin);
 
     app.use(Toast, options);
-    app.use(i18nVue, {
-        lang: import.meta.env.VITE_APP_LOCALE,
-        resolve: (lang) => import(`../../lang/${lang}.json`),
-    });
+
     app.use(pinia);
     app.use(router);
 

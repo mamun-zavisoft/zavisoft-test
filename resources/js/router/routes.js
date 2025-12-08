@@ -16,13 +16,20 @@ const routes = [
         meta: { layout: LayoutFrontend, title: "About Us" },
     },
     {
+        path: "/team",
+        name: "Team",
+        component: () => import("@/views/frontend/Team.vue"),
+        meta: { layout: LayoutFrontend, title: "Our Team" },
+    },
+
+    {
         path: "/projects",
         name: "Projects",
         component: () => import("@/views/frontend/Projects.vue"),
         meta: { layout: LayoutFrontend, title: "Our Projects" },
     },
     {
-        path: '/projects/:slug/:id?',
+        path: '/projects/:slug',
         name: 'ProjectsDetails',
         component: () => import('@/views/frontend/ProjectsDetails.vue'),
         props: true,
@@ -44,10 +51,9 @@ const routes = [
     },
 
     {
-        path: '/career/:id',
+        path: '/career/:slug',
         name: 'CareerDetails',
         component: () => import('@/views/frontend/CareerDetails.vue'),
-        props: true,
         meta: { layout: LayoutFrontend, title: "Career Details" },
     },
     {
@@ -101,7 +107,7 @@ const routes = [
     // dynamic service route
 
     {
-        path: '/services/:slug/:id?',
+        path: '/services/:slug',
         name: "serviceDetails",
         component: () => import("@/views/frontend/services/Service.vue"),
         meta: { layout: LayoutFrontend, title: "Service Details" },

@@ -4,10 +4,9 @@
         <h3 class="px-4 md:px-4 pt-3 text-sm font-semibold text-neutral-500 uppercase">Our Services</h3>
         <div
             class="grid grid-cols-1 md:grid-cols-2 gap-y-0 md:gap-x-10 lg:gap-x-16 py-3 text-sm md:text-base text-neutral-900 font-medium">
-            <router-link v-for="(service, index) in services" :key="index" :to="{
+            <router-link  v-for="(service, index) in finalServices" :key="index" :to="{
                 name: 'serviceDetails',
                 params: {
-                    id: service.id,
                     slug: service.slug
                 }
             }" class="group px-3 md:px-4 py-2 md:py-3 rounded flex items-center justify-between hover:bg-neutral-50"
@@ -31,88 +30,32 @@
 </template>
 
 <script setup>
-import { ref, onMounted, computed } from 'vue'
+import { useFetch } from "@/composables/useFetch"
+import { computed } from "vue";
+const { data: serviceData, loading, error } = useFetch("/api/service-categories")
 
-const serviceData = ref([])
-const isLoading = ref(true)
-
-const loadServices = async () => {
-    try {
-        const res = await fetch('/api/service-categories')
-        if (!res.ok) throw new Error('Network response failed')
-
-        const json = await res.json()
-        const apiServices = json.data || json
-
-        serviceData.value = apiServices.map(service => ({
-            id: service.id,
-            name: service.name,
-            slug: service.slug || createSlug(service.name),
-            icon: service.icon_url
-        }))
-    } catch (e) {
-        console.error("Failed to load services", e)
-    } finally {
-        isLoading.value = false
-    }
-}
-
-const createSlug = (name) => {
-    return name.toLowerCase().replace(/\s+/g, '-').replace(/[^\w-]+/g, '')
-}
 
 // Predefined icons for specific positions
 const predefinedIcons = [
-    new URL('@/assets/images/icons/ui_ux.svg', import.meta.url).href,
-    new URL('@/assets/images/icons/software.svg', import.meta.url).href,
-    new URL('@/assets/images/icons/web.svg', import.meta.url).href,
+    new URL('@/assets/images/icons/database.svg', import.meta.url).href,
     new URL('@/assets/images/icons/mobile.svg', import.meta.url).href,
     new URL('@/assets/images/icons/testing.svg', import.meta.url).href,
-    new URL('@/assets/images/icons/software.svg', import.meta.url).href // default for 6th
+    new URL('@/assets/images/icons/software.svg', import.meta.url).href,
+    new URL('@/assets/images/icons/ui_ux.svg', import.meta.url).href,
+    new URL('@/assets/images/icons/web.svg', import.meta.url).href // default for 6th
 ]
 
 // Create the final services array (max 6 items)
-const services = computed(() => {
-    const result = []
+const finalServices = computed(() => {
+    if (!serviceData?.value) return []
 
-    // Use actual data from API
-    serviceData.value.forEach((service, index) => {
-        if (index < 6) { // Limit to 6 items
-            result.push({
-                id: service.id,
-                name: service.name,
-                slug: service.slug,
-                icon: service.icon || predefinedIcons[index] || predefinedIcons[5],
-                // link: `/services/${service.slug}`
-            })
-        }
-    })
-
-    // If we have less than 6 items, add fallback ones
-    if (result.length < 6) {
-        const fallbackServices = [
-            { name: 'UI/UX Design', slug: 'ui-ux-design' },
-            { name: 'Software Dev', slug: 'software-development' },
-            { name: 'Web Development', slug: 'web-development' },
-            { name: 'Mobile Apps', slug: 'mobile-apps' },
-            { name: 'QA Testing', slug: 'qa-testing' },
-            { name: 'Consulting', slug: 'consulting' }
-        ]
-
-        for (let i = result.length; i < 6; i++) {
-            const fallback = fallbackServices[i - result.length]
-            result.push({
-                name: fallback.name,
-                slug: fallback.slug,
-                icon: predefinedIcons[i],
-                link: `/services/${fallback.slug}`
-            })
-        }
-    }
-
-    return result
+    return serviceData.value.slice(0, 6).map((service, index) => ({
+        ...service,
+        icon: predefinedIcons[index] || predefinedIcons[predefinedIcons.length - 1]
+    }))
 })
 
-onMounted(loadServices)
+
+
 
 </script>

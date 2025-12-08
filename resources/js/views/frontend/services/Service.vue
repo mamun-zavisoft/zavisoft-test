@@ -144,7 +144,7 @@
                             businesses and industries across the globe. These partnerships have enriched our expertise,
                             sharpened our skills, and enabled us to consistently enhance our services—delivering
                             outstanding results for our clients.</p>
-                        <NagigatePrimaryButton text="Let’s solve your issues" to="/contact"
+                        <NavigatePrimaryButton text="Let’s solve your issues" to="/contact"
                             class="wow animate__animated animate__fadeInUp mt-8 md:mt-12" />
                     </div>
                     <div class="lg:w-1/2 ">
@@ -246,23 +246,24 @@ import StartBuilding from '@/components/section/StartBuilding.vue';
 import FAQ from '@/components/section/FAQ.vue';
 import SectionHeader from '@/components/ui/heading/SectionHeader.vue';
 import Projects from '@/components/ui/card/Projects.vue';
+import NavigatePrimaryButton from '@/components/ui/button/NavigatePrimary.vue';
 
 
-import { ref, computed, onMounted, watchEffect } from "vue"
+import { ref, onMounted } from "vue"
 import OtherServicce from '@/components/section/OtherServicce.vue';
 import { useRoute } from 'vue-router'
 
 const route = useRoute()
+const slug = route.params.slug;
 
-// Get service category ID from route params
-const id = computed(() => Number(route.params.id))
+console.log("category id", slug);
 
 const service = ref({})
 
 // Fetch service
 const fetchService = async () => {
     try {
-        const res = await fetch(`/api/category-wise-service/${id.value}`, {
+        const res = await fetch(`/api/category-wise-service/${slug}`, {
             headers: { 'Accept': 'application/json' }
         })
 
@@ -270,9 +271,8 @@ const fetchService = async () => {
 
         const json = await res.json()
 
-        // ✅ CHANGE: assign object directly
+        // CHANGE: assign object directly
         service.value = json.data || {}
-        console.log("service", service.value)
 
     } catch (e) {
         console.error("Error fetching service:", e)

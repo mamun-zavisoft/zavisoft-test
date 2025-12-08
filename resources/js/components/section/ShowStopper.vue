@@ -73,8 +73,8 @@ const services = [
 
 ]
 
-const onSwiper = (swiper) => console.log(swiper)
-const onSlideChange = () => console.log('slide change')
+const onSwiper = () => { }
+const onSlideChange = () => { }
 </script>
 
 <style scoped>

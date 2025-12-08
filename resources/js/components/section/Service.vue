@@ -4,8 +4,7 @@
             <router-link :to="{
                 name: 'serviceDetails',
                 params: {
-                    id: service.category_id,
-                    slug: service.slug || slugify(service.heading)
+                    slug: service.category.slug
                 }
             }">
 
@@ -15,6 +14,7 @@
                         <p class="text-neutral-600 text-sm line-clamp-2">{{ service?.short_description }}
                         </p>
                     </div>
+
                     <p
                         class="p-2 rounded-full border border-neutral-300 bg-white transition group-hover:bg-primary-500 group-hover:border-primary-500 hover:bg-primary-500 hover:border-primary-500 cursorpointer">
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
@@ -26,9 +26,9 @@
                     </p>
                 </div>
 
-                <div class="w-full max-h-[200px] overflow-hidden">
+                <div class="w-full h-auto lg:h-[200px] rounded-lg overflow-hidden">
                     <img :src="`/storage/${service?.service_image}`" :alt="service?.heading"
-                        class="w-full rounded-lg object-cover mt-4" />
+                        class="w-full h-full rounded-lg object-cover mt-4" />
                 </div>
 
             </router-link>
@@ -39,7 +39,6 @@
 
 <script setup>
 import { useFetch } from "@/composables/useFetch"
-import { slugify } from "@/composables/slugify"
 
 const { data: services, loading, error } = useFetch("/api/services")
 

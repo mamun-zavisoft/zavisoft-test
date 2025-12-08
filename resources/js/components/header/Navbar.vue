@@ -53,6 +53,9 @@
                     <router-link to="/about" class="px-2 py-1 text-sm font-medium text-neutral-900 transition-colors">
                         About Us
                     </router-link>
+                    <router-link to="/team" class="px-2 py-1 text-sm font-medium text-neutral-900 transition-colors">
+                        Team
+                    </router-link>
                     <router-link to="/career" class="px-2 py-1text-sm font-medium text-neutral-900 transition-colors">
                         Career
                     </router-link>
@@ -64,7 +67,7 @@
 
             <!-- Desktop Actions -->
             <div class="hidden lg:flex items-center gap-6">
-                <a href="https://wa.me/8801234567890" target="_blank" rel="noopener noreferrer"
+                <a href="https://wa.me/01886660016" target="_blank" rel="noopener noreferrer"
                     class="flex items-center gap-1.5">
                     <img src="@/assets/images/icons/whatsapp_24.svg" alt="Phone" class="h-6 w-6" />
                     <span class="text-sm font-semibold text-neutral-800">Let’s Talk!</span>
@@ -86,6 +89,9 @@
                     </router-link>
                     <router-link to="/about" class="px-2 py-1 text-sm font-medium text-neutral-900 transition-colors">
                         About Us
+                    </router-link>
+                    <router-link to="/team" class="px-2 py-1 text-sm font-medium text-neutral-900 transition-colors">
+                        Team
                     </router-link>
                     <router-link to="/career" class="px-2 py-1text-sm font-medium text-neutral-900 transition-colors">
                         Career

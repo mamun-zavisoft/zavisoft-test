@@ -9,7 +9,7 @@
                     <article v-for="project in filteredProjects" :key="project.id"
                         class="wow animate__zoomIn animate__animated bg-white rounded-lg p-4 transition group border border-transparent hover:border-primary-500"
                         style="box-shadow: 0px 2px 4px 0px #0F1C330F, 0px 2px 2px 0px #0F1C3312;">
-                        <router-link :to="{ name: 'ProjectsDetails', params: { id: project.id, slug: project.title } }">
+                        <router-link :to="{ name: 'ProjectsDetails', params: { slug: project.slug } }">
                             <div class="flex justify-between items-start">
                                 <div class="mb-4 pr-4">
                                     <h3 class="text-base md:text-lg lg:text-xl font-bold text-neutral-900 mb-3">
@@ -33,9 +33,9 @@
                             </div>
 
                             <!-- Banner image -->
-                            <div class="w-full max-h-[290px] overflow-hidden">
+                            <div class="w-full h-auto lg:h-[290px] rounded-lg overflow-hidden">
                                 <img :src="`/storage/${project.banner_image}`" :alt="project.title"
-                                    class="w-full rounded-lg object-cover mt-4" />
+                                    class="w-full h-full rounded-lg object-cover mt-4" />
                             </div>
                         </router-link>
                     </article>
@@ -66,10 +66,10 @@ const { data: categories } = useFetch("/api/projects-categories")
 const categoriesWithLabels = computed(() => {
     const apiCategories = (categories.value || []).map(c => ({
         ...c,
-        label: c.name  
+        label: c.name
     }))
     return [
-        { id: null, name: "all", label: "All" }, 
+        { id: null, name: "all", label: "All" },
         ...apiCategories
     ]
 })
