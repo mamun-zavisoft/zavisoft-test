@@ -26,9 +26,9 @@
                     </p>
                 </div>
 
-                <div class="w-full max-h-[200px] overflow-hidden">
+                <div class="w-full h-auto lg:h-[200px] rounded-lg overflow-hidden">
                     <img :src="`/storage/${service?.service_image}`" :alt="service?.heading"
-                        class="w-full rounded-lg object-cover mt-4" />
+                        class="w-full h-full rounded-lg object-cover mt-4" />
                 </div>
 
             </router-link>

@@ -138,6 +138,7 @@ const onSlideChange = (instance) => {
 
 const swiperNext = () => swiperInstance.value?.slideNext()
 const swiperPrev = () => swiperInstance.value?.slidePrev()
+
 </script>
 
 <style scoped>

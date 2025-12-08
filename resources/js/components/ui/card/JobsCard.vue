@@ -8,38 +8,41 @@
 
     <!-- Desktop Grid -->
     <div class="hidden sm:grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-        <router-link :to="{ name: 'CareerDetails', params: { id: job.id } }"
-            class="wow animate__zoomIn animate__animated group bg-white p-3 md:p-4 rounded transition-colors duration-300 hover:bg-primary-500 hover:text-white"
-            v-for="job in jobListings" :key="job.id">
+        <article v-for="job in jobListings" :key="job.id">
+            <router-link :to="{ name: 'CareerDetails', params: { id: job.id } }"
+                class="wow animate__zoomIn animate__animated group bg-white p-3 md:p-4 rounded transition-colors duration-300 hover:bg-primary-500 hover:text-white">
 
-            <div
-                class="inline-flex items-center gap-1 rounded-full bg-primary-50 text-primary-500 px-3 py-1 text-sm font-medium">
-                <span>{{ job.type }}</span>
-                <span class="text-primary-500">•</span>
-                <span>{{ job.employment }}</span>
-            </div>
-            <h1 class="mt-4 text-base md:text-lg font-bold  text-neutral-900 group-hover:text-white">
-                {{ job.title }}
-            </h1>
-            <p class="mt-2 text-neutral-500 text-xs  lg:text-sm group-hover:text-white">{{ formatExperience(job.experience) }}</p>
-            <div class="mt-6 md:mt-8 lg:mt-10">
-                <span
-                    class="inline-flex items-center rounded-full bg-neutral-100 px-4 py-2 text-neutral-800 text-xs lg:text-sm font-medium">
-                    {{ job.salaryRange }} BDT/month
-                </span>
-            </div>
-            <div class="mt-4">
-                <p 
-                    class="group flex items-center gap-2 text-neutral-900 font-semibold text-sm group-hover:text-white">
-                    Details
-                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
-                        stroke="currentColor" class="w-4 h-4">
-                        <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3" />
-                    </svg>
+                <div
+                    class="inline-flex items-center gap-1 rounded-full bg-primary-50 text-primary-500 px-3 py-1 text-sm font-medium">
+                    <span>{{ job.type }}</span>
+                    <span class="text-primary-500">•</span>
+                    <span>{{ job.employment }}</span>
+                </div>
+                <h1 class="mt-4 text-base md:text-lg font-bold  text-neutral-900 group-hover:text-white">
+                    {{ job.title }}
+                </h1>
+                <p class="mt-2 text-neutral-500 text-xs  lg:text-sm group-hover:text-white">{{
+                    formatExperience(job.experience) }}</p>
+                <div class="mt-6 md:mt-8 lg:mt-10">
+                    <span
+                        class="inline-flex items-center rounded-full bg-neutral-100 px-4 py-2 text-neutral-800 text-xs lg:text-sm font-medium">
+                        {{ job.salaryRange }} BDT/month
+                    </span>
+                </div>
+                <div class="mt-4">
+                    <p
+                        class="group flex items-center gap-2 text-neutral-900 font-semibold text-sm group-hover:text-white">
+                        Details
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                            stroke="currentColor" class="w-4 h-4">
+                            <path stroke-linecap="round" stroke-linejoin="round"
+                                d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3" />
+                        </svg>
 
-                </p>
-            </div>
-        </router-link>
+                    </p>
+                </div>
+            </router-link>
+        </article>
     </div>
 
     <!-- Mobile Slider -->
@@ -59,7 +62,8 @@
                         <h1 class="mt-4 text-base md:text-lg font-bold  text-neutral-900 group-hover:text-white">
                             {{ job.title }}
                         </h1>
-                        <p class="mt-2 text-neutral-500 text-xs  lg:text-sm group-hover:text-white">{{ formatExperience(job.experience) }}</p>
+                        <p class="mt-2 text-neutral-500 text-xs  lg:text-sm group-hover:text-white">{{
+                            formatExperience(job.experience) }}</p>
                         <div class="mt-6 md:mt-8 lg:mt-10">
                             <span
                                 class="inline-flex items-center rounded-full bg-neutral-100 px-4 py-2 text-neutral-800 text-xs lg:text-sm font-medium">

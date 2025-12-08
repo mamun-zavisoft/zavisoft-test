@@ -84,7 +84,7 @@
 
                         <div class="col-span-12 sm:col-span-5 md:col-span-3 lg:col-span-2">
                             <h3 class="text-base lg:text-[17px] font-bold text-white mb-4">Company</h3>
-                            <ul class="space-y-3 text-[13px] text-white lg:text-sm font-[300]">
+                            <ul class="space-y-3 text-[13px] text-white lg:text-sm font-normal">
                                 <li><router-link to="/about" class="hover:text-white">About Us</router-link></li>
                                 <li><router-link to="/blog" class="hover:text-white">Blog</router-link></li>
                                 <li><router-link to="/career" class="hover:text-white">Careers</router-link></li>
@@ -94,9 +94,9 @@
 
                         <div class="col-span-12 md:col-span-4 lg:col-span-3">
                             <h3 class="text-base lg:text-[17px] font-bold text-white mb-4">Contact us</h3>
-                            <ul class="space-y-3 text-[13px] text-white lg:text-sm font-[300]">
-                                <li><a href="#" class="hover:text-white">Zavisoft@gmail.com</a></li>
-                                <li><a href="#" class="hover:text-white">01729-645913</a></li>
+                            <ul class="space-y-3 text-[13px] text-white lg:text-sm font-normal">
+                                <li><a href="mailto:info@zavisoft.com" class="hover:text-white">info@zavisoft.com</a></li>
+                                <li><a href="tel:01886660016" class="hover:text-white">01886660016</a></li>
                                 <li><a href="#" class="hover:text-white">House #44, Road 02, ASA Center, Zigatola,
                                         Dhanmondi-1209</a></li>
                             </ul>

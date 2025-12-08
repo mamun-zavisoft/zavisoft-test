@@ -64,7 +64,7 @@
 
             <!-- Desktop Actions -->
             <div class="hidden lg:flex items-center gap-6">
-                <a href="https://wa.me/8801234567890" target="_blank" rel="noopener noreferrer"
+                <a href="https://wa.me/01886660016" target="_blank" rel="noopener noreferrer"
                     class="flex items-center gap-1.5">
                     <img src="@/assets/images/icons/whatsapp_24.svg" alt="Phone" class="h-6 w-6" />
                     <span class="text-sm font-semibold text-neutral-800">Let’s Talk!</span>

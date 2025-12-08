@@ -80,6 +80,7 @@
 <script setup>
 import { ref } from 'vue'
 import { Swiper, SwiperSlide } from 'swiper/vue'
+import {slugify} from '@/composables/slugify.js'
 import { useFetch } from '@/composables/useFetch.js'
 import 'swiper/css'
 import 'swiper/css/pagination'

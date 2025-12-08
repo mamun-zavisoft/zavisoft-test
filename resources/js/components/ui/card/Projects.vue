@@ -33,9 +33,9 @@
                             </div>
 
                             <!-- Banner image -->
-                            <div class="w-full max-h-[290px] overflow-hidden">
+                            <div class="w-full h-auto lg:h-[290px] rounded-lg overflow-hidden">
                                 <img :src="`/storage/${project.banner_image}`" :alt="project.title"
-                                    class="w-full rounded-lg object-cover mt-4" />
+                                    class="w-full h-full rounded-lg object-cover mt-4" />
                             </div>
                         </router-link>
                     </article>
@@ -66,10 +66,10 @@ const { data: categories } = useFetch("/api/projects-categories")
 const categoriesWithLabels = computed(() => {
     const apiCategories = (categories.value || []).map(c => ({
         ...c,
-        label: c.name  
+        label: c.name
     }))
     return [
-        { id: null, name: "all", label: "All" }, 
+        { id: null, name: "all", label: "All" },
         ...apiCategories
     ]
 })

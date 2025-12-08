@@ -30,7 +30,7 @@
                                     you!</p>
 
                                 <div class="mt-6 w-full h-[50px]">
-                                    <router-link :to="{ name: 'JobApply', params: { jobId: id } }"  class="block w-full mt-6 px-4 py-3 bg-primary-500 text-white text-center rounded-full 
+                                    <router-link :to="{ name: 'JobApply', params: { jobId: id } }" class="block w-full mt-6 px-4 py-3 bg-primary-500 text-white text-center rounded-full 
                                         hover:bg-primary-600 focus:outline-none focus:ring-0 
                                         focus:ring-primary-300 transition-colors duration-300">
                                         Apply Now
@@ -159,6 +159,9 @@
 
 <script setup>
 import { ref, onMounted } from 'vue'
+const props = defineProps({
+    id: String
+})
 import { useRoute } from 'vue-router'
 
 const route = useRoute()
