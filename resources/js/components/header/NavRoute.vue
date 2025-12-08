@@ -8,7 +8,7 @@
                 name: 'serviceDetails',
                 params: {
                     id: service.id,
-                    slug: service.slug
+                     slug: service.slug || slugify(service.name)
                 }
             }" class="group px-3 md:px-4 py-2 md:py-3 rounded flex items-center justify-between hover:bg-neutral-50"
                 role="menuitem">
@@ -32,6 +32,8 @@
 
 <script setup>
 import { ref, onMounted, computed } from 'vue'
+import { slugify } from "@/composables/slugify"
+
 
 const serviceData = ref([])
 const isLoading = ref(true)
@@ -44,12 +46,11 @@ const loadServices = async () => {
         const json = await res.json()
         const apiServices = json.data || json
 
-        serviceData.value = apiServices.map(service => ({
+        serviceData.value = apiServices.map(service => ({ 
             id: service.id,
             name: service.name,
-            slug: service.slug || createSlug(service.name),
             icon: service.icon_url
-        }))
+        })) 
     } catch (e) {
         console.error("Failed to load services", e)
     } finally {
@@ -81,7 +82,6 @@ const services = computed(() => {
             result.push({
                 id: service.id,
                 name: service.name,
-                slug: service.slug,
                 icon: service.icon || predefinedIcons[index] || predefinedIcons[5],
                 // link: `/services/${service.slug}`
             })
@@ -102,8 +102,7 @@ const services = computed(() => {
         for (let i = result.length; i < 6; i++) {
             const fallback = fallbackServices[i - result.length]
             result.push({
-                name: fallback.name,
-                slug: fallback.slug,
+                name: fallback.name, 
                 icon: predefinedIcons[i],
                 link: `/services/${fallback.slug}`
             })

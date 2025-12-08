@@ -124,6 +124,7 @@
 
 
 <script setup>
+const serverMessage = ref('')
 import { reactive, ref } from 'vue'
 import { useToast } from 'vue-toastification'
 
@@ -181,6 +182,7 @@ const submitForm = async () => {
         if (!res.ok) throw new Error('Network error')
 
         const data = await res.json()
+
         toast.success(data.message || 'Message sent successfully!')
         Object.keys(form).forEach(k => (form[k] = ''))
     } catch (e) {
