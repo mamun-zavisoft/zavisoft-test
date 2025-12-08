@@ -10,6 +10,7 @@ class Service extends Model
     protected $fillable = [
         'category_id',
         'heading',
+        'slug',
         'short_description',
         'service_image',
     ];

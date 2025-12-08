@@ -24,11 +24,12 @@ class JobCircularRequest extends FormRequest
     {
         return [
             'name' => 'required|string|max:250',
+            'slug' => 'nullable|string|max:250',
             'type' => 'required|in:Full Time,Part Time,Internship',
             'location_type' => 'required|in:Onsite,Remote,Hybrid',
             'experience' => 'required|string|max:100',
+            'vacancy' => 'nullable|string|max:50',
             'salary_range' => 'required|string|max:200',
-            'address' => 'required|string|max:1000',
             'description' => 'required|string',
             'responsibilities' => 'required|string',
             'requirement' => 'required|string',
@@ -53,10 +54,6 @@ class JobCircularRequest extends FormRequest
             'salary_range.required' => 'Salary range is required.',
             'salary_range.string' => 'Salary range must be valid text.',
             'salary_range.max' => 'Salary range may not be greater than 200 characters.',
-
-            'address.required' => 'Address is required.',
-            'address.string' => 'Address must be valid text.',
-            'address.max' => 'Address may not be greater than 1000 characters.',
 
             'description.required' => 'Description is required.',
             'description.string' => 'Description must be valid text.',

@@ -4,6 +4,7 @@ namespace Database\Seeders;
 
 use App\Models\ProjectCategory;
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Str;
 
 class ProjectCategorySeeder extends Seeder
 {
@@ -16,7 +17,11 @@ class ProjectCategorySeeder extends Seeder
         ];
 
         foreach ($categories as $name) {
-            ProjectCategory::create(['name' => $name]);
+            ProjectCategory::create([
+                'name' => $name,
+                'slug' => Str::slug($name),
+            ]);
         }
     }
+
 }

@@ -12,17 +12,18 @@ class ServiceRequest extends FormRequest
         return true;
     }
 
-    public function rules()
+    public function rules(): array
     {
-      $rules = [
-    'heading' => 'required|string|max:255',
-    'short_description' => 'required|string|max:1000',
-    'category_id' => [
-        'required',
-        'exists:service_categories,id',
-        Rule::unique('services', 'category_id')->ignore($this->route('id')),
-    ],
-];
+        $rules = [
+            'heading' => 'required|string|max:255',
+            'slug' => 'nullable|string|max:255',
+            'short_description' => 'required|string|max:1000',
+            'category_id' => [
+                'required',
+                'exists:service_categories,id',
+                Rule::unique('services', 'category_id')->ignore($this->route('id')),
+            ],
+        ];
 
         if ($this->isMethod('post')) {
             // On create: image is required
