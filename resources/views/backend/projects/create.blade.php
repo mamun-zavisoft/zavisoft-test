@@ -67,9 +67,9 @@
             </div>
             <div class="">
                 <div class="form-group">
-                    <label class="text-base text-red-800">Gallery Image<span class="manitory">*</span></label>
+                    <label class="text-base text-red-800">Gallery Image<span class="manitory">*</span> (Can be upload multiple images)</label>
                     <div class="image-upload">
-                        <input type="file" name="gallery_image" id="gallery-image">
+                        <input type="file" name="gallery_image[]" id="gallery-image" multiple>
                         <div class="image-uploads flex flex-col items-center justify-center">
                             <img src="{{ asset('assets/images/icons/upload.svg') }}" alt="img">
                             <h4>Drag and drop a file to upload</h4>

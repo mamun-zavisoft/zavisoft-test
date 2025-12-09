@@ -33,7 +33,13 @@ class ProjectController extends Controller
         }
 
         if ($request->hasFile('gallery_image')) {
-            $data['gallery_image'] = $request->file('gallery_image')->store('projects/galleries', 'public');
+            $galleryPaths = [];
+
+            foreach ($request->file('gallery_image') as $image) {
+                $galleryPaths[] = $image->store('projects/galleries', 'public');
+            }
+
+            $data['gallery_image'] = json_encode($galleryPaths);
         }
 
         Project::create($data);
@@ -69,10 +75,26 @@ class ProjectController extends Controller
 
         // Delete and replace gallery image
         if ($request->hasFile('gallery_image')) {
-            if ($project->gallery_image && Storage::disk('public')->exists($project->gallery_image)) {
-                Storage::disk('public')->delete($project->gallery_image);
+            // Delete old gallery images if they exist
+            if ($project->gallery_image) {
+                $oldImages = json_decode($project->gallery_image, true);
+
+                if (is_array($oldImages)) {
+                    foreach ($oldImages as $oldImage) {
+                        if (Storage::disk('public')->exists($oldImage)) {
+                            Storage::disk('public')->delete($oldImage);
+                        }
+                    }
+                }
             }
-            $data['gallery_image'] = $request->file('gallery_image')->store('projects/galleries', 'public');
+
+            // Store new gallery images
+            $galleryPaths = [];
+            foreach ($request->file('gallery_image') as $image) {
+                $galleryPaths[] = $image->store('projects/galleries', 'public');
+            }
+
+            $data['gallery_image'] = json_encode($galleryPaths);
         }
 
         $project->update($data);
