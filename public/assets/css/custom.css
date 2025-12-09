@@ -273,10 +273,19 @@
 .preview-image {
     width: 120px;
     height: 120px;
-    img{
+
+    img {
         width: 100% !important;
         height: 100% !important;
         object-fit: cover;
         border-radius: 5px;
     }
+}
+
+.header {
+    z-index: 10 !important;
+}
+
+.header .header-left {
+    z-index: 10 !important;
 }

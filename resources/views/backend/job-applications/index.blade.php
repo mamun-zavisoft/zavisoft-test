@@ -134,7 +134,8 @@
                                 <div class="modal-dialog modal-lg" role="document">
                                     <div class="modal-content">
                                         <div class="modal-header">
-                                            <h5 class="modal-title">Update {{ $application['id'] }}</h5>
+                                            <h5 class="modal-title">Update
+                                                {{ ucwords(str_replace('_', ' ', $application['status'])) }} Status</h5>
                                             <button type="button"
                                                 class="close p-1.5 w-6 h-6 flex justify-center items-center bg-neutral-50"
                                                 data-modal-hide="applicant-modal-{{ $application['id'] }}"
