@@ -24,6 +24,7 @@
 
     <h4>Job Applications</h4>
 
+
     <div class="application-table bg-white p-4 rounded mt-3">
         @if ($applications->count() > 0)
             <div class="relative overflow-x-auto border blade-career">
@@ -79,6 +80,8 @@
                                     </a>
                                 </td>
 
+
+
                                 {{-- Status Badge --}}
                                 <td class="px-4 py-3">
                                     @switch($application['status'])
@@ -91,34 +94,38 @@
                                         @break
 
                                         @case('interview_scheduled')
-                                            <span class="px-2 py-1 text-xs rounded bg-blue-200 text-blue-800">Interview
-                                                Scheduled</span>
+                                            <div class="flex flex-col gap-1">
+                                                <span class="px-2 py-1 text-xs rounded bg-blue-200 text-blue-800">Interview
+                                                    Scheduled</span>
+                                                <span class="text-xs">({{ $application['interview_date'] }})</span>
+                                            </div>
                                         @break
 
                                         @case('interviewed')
-                                            <span class="px-2 py-1 text-xs rounded bg-purple-200 text-purple-800">Interviewed</span>
+                                            <div class="flex flex-col gap-1">
+                                                <span class="px-2 py-1 text-xs rounded bg-purple-200 text-purple-800">Interviewed
+                                                    ({{ $application['interview_mark'] }})
+                                                </span>
+                                                <span class="text-xs">({{ $application['interview_date'] }})</span>
+                                            </div>
                                         @break
 
                                         @case('hired')
-                                            <span class="px-2 py-1 text-xs rounded bg-primary-200 text-primary-800">Hired</span>
+                                            <div class="flex flex-col gap-1">
+                                                <span class="px-2 py-1 text-xs rounded bg-primary-200 text-primary-800">Hired</span>
+                                                <span class="text-xs">({{ $application['interview_date'] }})</span>
+                                            </div>
                                         @break
                                     @endswitch
                                 </td>
 
                                 {{-- Status Update Form --}}
                                 <td class="px-4 py-3">
-                                    {{-- <button data-modal-target="applicant{{ $application['id'] }}"
-                                        data-modal-toggle="applicant{{ $application['id'] }}"
-                                        class="bg-blue-600 text-white px-3 py-1 rounded text-sm hover:bg-blue-700">
-                                        Update {{ $application['id'] }}
-                                    </button> --}}
-
                                     <button data-modal-target="applicant-modal-{{ $application['id'] }}"
                                         data-modal-toggle="applicant-modal-{{ $application['id'] }}"
                                         class="bg-blue-600 text-white px-3 py-1 rounded text-sm hover:bg-blue-700">
                                         Update
                                     </button>
-                                    {{-- Status Update Form in a modal --}}
 
                                 </td>
                             </tr>
@@ -128,6 +135,12 @@
                                     <div class="modal-content">
                                         <div class="modal-header">
                                             <h5 class="modal-title">Update {{ $application['id'] }}</h5>
+                                            <button type="button"
+                                                class="close p-1.5 w-6 h-6 flex justify-center items-center bg-neutral-50"
+                                                data-modal-hide="applicant-modal-{{ $application['id'] }}"
+                                                aria-label="Close">
+                                                <span class="text-base" aria-hidden="true">X </span>
+                                            </button>
                                         </div>
                                         <div class="modal-body">
                                             <div x-data="{ status: '{{ $application['status'] }}' }">
