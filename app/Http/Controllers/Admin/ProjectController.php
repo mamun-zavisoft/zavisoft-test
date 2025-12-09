@@ -46,8 +46,6 @@ class ProjectController extends Controller
             $data['gallery_image'] = json_encode($galleryPaths);
         }
 
-        dd( $data);
-
         Project::create($data);
 
         return redirect()->route('admin.project.index')->with('success', 'Project created successfully.');
