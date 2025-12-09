@@ -30,11 +30,11 @@
                             us</p>
                         <div class="mt-4 flex items-center gap-3 wow animate__zoomIn animate__animated">
                             <!-- Simple icon buttons -->
-                            <a href="#"
+                            <a href="https://www.facebook.com/zavisoft" target="_blank"
                                 class="inline-flex h-9 w-9 items-center justify-center rounded-full  bg-neutral-100 p-2">
                                 <img src="@/assets/images/icons/facebooks.svg" alt="">
                             </a>
-                            <a href="#"
+                            <a href="https://www.linkedin.com/company/zavisoft/" target="_blank"
                                 class="inline-flex h-9 w-9 items-center justify-center rounded-full  bg-neutral-100 p-2">
                                 <img src="@/assets/images/icons/linkedine.svg" alt="">
 

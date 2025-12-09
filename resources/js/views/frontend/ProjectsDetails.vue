@@ -89,10 +89,10 @@
                 </div>
                 <div class="project-images pt-8 lg:pt-12">
                     <div class="grid grid-cols-2 lg:grid-cols-3 gap-4">
-                        <div class="max-h-[360px] wow animate__zoomIn animate__animated">
-                            <img class="w-full h-full rounded-lg" :src="`/storage/${project?.gallery_image}`" alt="">
+                        <div v-for="(image, index) in galleryImages" :key="index"
+                            class="max-h-[360px] wow animate__zoomIn animate__animated">
+                            <img class="w-full h-full rounded-lg" :src="`/storage/${image}`" alt="">
                         </div>
-
                     </div>
                 </div>
 
@@ -153,5 +153,13 @@ const facebookShare = computed(() =>
 const linkedinShare = computed(() =>
     `https://www.linkedin.com/shareArticle?mini=true&url=${encodeURIComponent(currentUrl.value)}`
 )
+
+const galleryImages = computed(() => {
+    try {
+        return JSON.parse(project.value?.gallery_image ?? "[]")
+    } catch (e) {
+        return []
+    }
+})
 
 </script>

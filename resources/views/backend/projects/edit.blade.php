@@ -81,7 +81,8 @@
             </div>
             <div class="mb-4">
                 <div class="form-group">
-                    <label class="text-base text-red-800">Gallery Image<span class="manitory">*</span> (Can be upload multiple images)</label>
+                    <label class="text-base text-red-800">Gallery Image<span class="manitory">*</span> (Can be upload
+                        multiple images)</label>
                     <div class="image-upload">
                         <input type="file" name="gallery_image[]" id="gallery-image" multiple>
                         <div class="image-uploads flex flex-col items-center justify-center">
@@ -94,11 +95,14 @@
                     @enderror
                     <span id="gallery-file-name" class="mt-2 text-sm text-gray-600"></span>
                 </div>
-                <div class="preview-image">
+                <div class="gallery-preview-image flex gap-3">
                     @if (!empty($project->gallery_image))
-                        <img src="{{ asset('storage/' . $project->gallery_image) }}" alt="img"
-                            class="w-32 h-32 object-cover rounded mb-2">
+                        @foreach (json_decode($project->gallery_image, true) as $image)
+                            <img src="{{ asset('storage/' . $image) }}" alt="img"
+                                class="w-32 h-32 object-cover rounded mb-2">
+                        @endforeach
                     @endif
+
                 </div>
             </div>
             <div>
@@ -164,8 +168,23 @@
 @push('scripts')
     <script>
         document.getElementById('gallery-image').addEventListener('change', function(e) {
-            document.getElementById('gallery-file-name').textContent = e.target.files[0]?.name || '';
+            const fileList = e.target.files;
+            const previewContainer = document.querySelector('.preview-image');
+            previewContainer.innerHTML = ''; // clear old previews
+
+            for (let i = 0; i < fileList.length; i++) {
+                const reader = new FileReader();
+                reader.onload = function(event) {
+                    const img = document.createElement('img');
+                    img.src = event.target.result;
+                    img.className = "w-32 h-32 object-cover rounded mb-2";
+                    previewContainer.appendChild(img);
+                };
+                reader.readAsDataURL(fileList[i]);
+            }
         });
+
+
 
         document.getElementById('banner-image').addEventListener('change', function(e) {
             document.getElementById('banner-file-name').textContent = e.target.files[0]?.name || '';
