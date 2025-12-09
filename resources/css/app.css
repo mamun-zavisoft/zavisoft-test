@@ -527,3 +527,9 @@ body {
     color: unset !important;
 
 }
+
+.megaMenu{
+    .absolute.z-10{
+        background: var(--color-white) !important;
+    }
+}
