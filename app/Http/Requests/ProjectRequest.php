@@ -3,6 +3,7 @@
 namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Validation\Rule;
 
 class ProjectRequest extends FormRequest
 {
@@ -17,7 +18,14 @@ class ProjectRequest extends FormRequest
 
         return [
             'category_id' => 'required|exists:project_categories,id',
-            'title' => 'required|string|max:255',
+            'title' => [
+                'required',
+                'string',
+                'max:255',
+                Rule::unique('projects', 'title')->where(function ($query) {
+                    return $query->where('category_id', $this->input('category_id'));
+                })->ignore($this->route('id')),
+            ],
             'slug' => 'nullable|string|max:255',
             'about_project' => 'required|string',
             'business_result' => 'required|string',
@@ -32,6 +40,13 @@ class ProjectRequest extends FormRequest
             'final_impact' => 'required|string',
             'contributors' => 'required|string',
             'platforms' => 'required|string',
+        ];
+    }
+
+    public function messages(): array
+    {
+        return [
+            'title.unique' => 'A project with this title already exists in the selected category.',
         ];
     }
 

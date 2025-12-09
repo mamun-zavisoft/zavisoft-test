@@ -71,6 +71,7 @@
                 <div class="form-group">
                     <label class="text-base text-red-800">Gallery Image<span class="manitory">*</span> (Can be upload
                         multiple images)</label>
+
                     <div class="image-upload">
                         <input type="file" name="gallery_image[]" id="gallery-image" multiple>
                         <div class="image-uploads flex flex-col items-center justify-center">
@@ -78,12 +79,15 @@
                             <h4>Drag and drop a file to upload</h4>
                         </div>
                     </div>
-                    <span id="gallery-file-name" class="mt-2 text-sm text-gray-600"></span>
+
+                    <div id="filePreview" class="mt-2 flex gap-4"></div>
+
                     @error('gallery_image')
                         <div class="text-danger-500 mt-1">{{ $message }}</div>
                     @enderror
                 </div>
             </div>
+
             <div>
                 <div class="form-group">
                     <label>Challenge<span class="manitory">*</span></label>
@@ -144,14 +148,53 @@
 @endsection
 @push('scripts')
     <script>
+        let selectedFiles = [];
+
         document.getElementById('gallery-image').addEventListener('change', function() {
-            const fileList = this.files;
-            const fileNames = [];
-            for (let i = 0; i < fileList.length; i++) {
-                fileNames.push(fileList[i].name);
+
+            if (selectedFiles.length === 0) {
+                selectedFiles = [...this.files];
+            } else {
+                selectedFiles = [...selectedFiles, ...this.files];
             }
-            document.getElementById('gallery-file-name').textContent = fileNames.join(', ');
+
+            renderFileList();
+            updateRealInput();
         });
+
+        function renderFileList() {
+            const preview = document.getElementById('filePreview');
+            preview.innerHTML = '';
+
+            selectedFiles.forEach((file, index) => {
+                preview.innerHTML += `
+            <div class="flex justify-between items-center bg-gray-100 px-3 py-1 rounded gap-1">
+                <span>${file.name}</span>
+                <button type="button" class="remove-btn w-6 h-6 p-1 text-red-600 font-bold" data-index="${index}">
+                    ✕
+                </button>
+            </div>
+        `;
+            });
+        }
+
+        document.addEventListener('click', function(e) {
+            if (e.target.classList.contains('remove-btn')) {
+                const index = e.target.getAttribute('data-index');
+                selectedFiles.splice(index, 1);
+
+                renderFileList();
+                updateRealInput();
+            }
+        });
+
+        function updateRealInput() {
+            const dt = new DataTransfer();
+            selectedFiles.forEach(file => dt.items.add(file));
+            document.getElementById('gallery-image').files = dt.files;
+        }
+
+
 
         document.getElementById('banner-image').addEventListener('change', function(e) {
             document.getElementById('banner-file-name').textContent = e.target.files[0]?.name || '';
