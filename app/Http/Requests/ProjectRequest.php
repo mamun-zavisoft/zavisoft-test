@@ -24,7 +24,8 @@ class ProjectRequest extends FormRequest
 
             // Required on create, optional on update
             'banner_image' => ($isCreate ? 'required' : 'nullable') . '|mimes:jpg,jpeg,png,webp,svg|max:2048',
-            'gallery_image' => ($isCreate ? 'required' : 'nullable') . '|mimes:jpg,jpeg,png,webp,svg|max:2048',
+            'gallery_image'   => ($isCreate ? 'required' : 'nullable') . '|array',
+            'gallery_image.*' => 'mimes:jpg,jpeg,png,webp,svg|max:2048',
 
             'challenge' => 'required|string',
             'solution' => 'required|string',
