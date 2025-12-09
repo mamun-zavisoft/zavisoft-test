@@ -41,11 +41,11 @@
                                 </p>
                             </div>
                             <div class="flex mt-4 sm:mt-0 gap-3">
-                                <a href="#"
+                                <a href="https://www.facebook.com/zavisoft" target="_blank"
                                     class="inline-flex h-9 w-9 items-center justify-center rounded-full  bg-neutral-100 p-2">
                                     <img src="@/assets/images/icons/facebooks.svg" alt="">
                                 </a>
-                                <a href="#"
+                                <a href="https://www.linkedin.com/company/zavisoft/" target="_blank"
                                     class="inline-flex h-9 w-9 items-center justify-center rounded-full  bg-neutral-100 p-2">
                                     <img src="@/assets/images/icons/linkedine.svg" alt="">
 
@@ -95,7 +95,8 @@
                         <div class="col-span-12 md:col-span-4 lg:col-span-3">
                             <h3 class="text-base lg:text-[17px] font-bold text-white mb-4">Contact us</h3>
                             <ul class="space-y-3 text-[13px] text-white lg:text-sm font-normal">
-                                <li><a href="mailto:info@zavisoft.com" class="hover:text-white">info@zavisoft.com</a></li>
+                                <li><a href="mailto:info@zavisoft.com" class="hover:text-white">info@zavisoft.com</a>
+                                </li>
                                 <li><a href="tel:01886660016" class="hover:text-white">01886660016</a></li>
                                 <li><a href="#" class="hover:text-white">House #44, Road 02, ASA Center, Zigatola,
                                         Dhanmondi-1209</a></li>

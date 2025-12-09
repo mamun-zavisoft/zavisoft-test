@@ -10,42 +10,44 @@
                     <label>Category<span class="manitory">*</span></label>
                     <select class="select" name="category_id" required>
                         <option disabled selected>Select Category</option>
-                        @foreach($categories as $category)
-                            <option
-                                value="{{ $category->id }}" {{ old('category_id', $category->category_id ?? '') == $category->id ? 'selected' : '' }}>
+                        @foreach ($categories as $category)
+                            <option value="{{ $category->id }}"
+                                {{ old('category_id', $category->category_id ?? '') == $category->id ? 'selected' : '' }}>
                                 {{ $category->name }}
                             </option>
                         @endforeach
                     </select>
                     @error('category_id')
-                    <div class="text-danger-500 mt-1">{{ $message }}</div>
+                        <div class="text-danger-500 mt-1">{{ $message }}</div>
                     @enderror
                 </div>
             </div>
             <div>
                 <div class="form-group">
                     <label>Title<span class="manitory">*</span></label>
-                    <input type="text" name="title" placeholder="Write Project Title" value="{{old('title')}}"/>
+                    <input type="text" name="title" placeholder="Write Project Title" value="{{ old('title') }}" />
                     @error('title')
-                    <div class="text-danger-500 mt-1">{{ $message }}</div>
+                        <div class="text-danger-500 mt-1">{{ $message }}</div>
                     @enderror
                 </div>
             </div>
             <div>
                 <div class="form-group">
                     <label>About Project <span class="manitory">*</span></label>
-                    <textarea name="about_project" id="" cols="30" rows="10" type="text" placeholder="Write About Project"></textarea>
+                    <textarea name="about_project" id="" cols="30" rows="10" type="text"
+                        placeholder="Write About Project"></textarea>
                     @error('about_project')
-                    <div class="text-danger-500 mt-1">{{ $message }}</div>
+                        <div class="text-danger-500 mt-1">{{ $message }}</div>
                     @enderror
                 </div>
             </div>
             <div>
                 <div class="form-group">
                     <label>Business Result <span class="manitory">*</span></label>
-                    <textarea name="business_result" id="" cols="30" rows="10" type="text" placeholder="Write Business Result"></textarea>
+                    <textarea name="business_result" id="" cols="30" rows="10" type="text"
+                        placeholder="Write Business Result"></textarea>
                     @error('business_result')
-                    <div class="text-danger-500 mt-1">{{ $message }}</div>
+                        <div class="text-danger-500 mt-1">{{ $message }}</div>
                     @enderror
                 </div>
             </div>
@@ -61,13 +63,14 @@
                     </div>
                     <span id="banner-file-name" class="mt-2 text-sm text-gray-600"></span>
                     @error('banner_image')
-                    <div class="text-danger-500 mt-1">{{ $message }}</div>
+                        <div class="text-danger-500 mt-1">{{ $message }}</div>
                     @enderror
                 </div>
             </div>
             <div class="">
                 <div class="form-group">
-                    <label class="text-base text-red-800">Gallery Image<span class="manitory">*</span> (Can be upload multiple images)</label>
+                    <label class="text-base text-red-800">Gallery Image<span class="manitory">*</span> (Can be upload
+                        multiple images)</label>
                     <div class="image-upload">
                         <input type="file" name="gallery_image[]" id="gallery-image" multiple>
                         <div class="image-uploads flex flex-col items-center justify-center">
@@ -77,7 +80,7 @@
                     </div>
                     <span id="gallery-file-name" class="mt-2 text-sm text-gray-600"></span>
                     @error('gallery_image')
-                    <div class="text-danger-500 mt-1">{{ $message }}</div>
+                        <div class="text-danger-500 mt-1">{{ $message }}</div>
                     @enderror
                 </div>
             </div>
@@ -86,7 +89,7 @@
                     <label>Challenge<span class="manitory">*</span></label>
                     <textarea name="challenge" id="" cols="30" rows="10" type="text" placeholder="Write Challenge"></textarea>
                     @error('challenge')
-                    <div class="text-danger-500 mt-1">{{ $message }}</div>
+                        <div class="text-danger-500 mt-1">{{ $message }}</div>
                     @enderror
                 </div>
             </div>
@@ -100,15 +103,16 @@
                     ])
                 </div>
                 @error('solution')
-                <div class="text-danger-500 mt-1">{{ $message }}</div>
+                    <div class="text-danger-500 mt-1">{{ $message }}</div>
                 @enderror
             </div>
             <div>
                 <div class="form-group">
                     <label>Final Impact<span class="manitory">*</span></label>
-                    <textarea name="final_impact" id="" cols="30" rows="10" type="text" placeholder="Write Final Impact"></textarea>
+                    <textarea name="final_impact" id="" cols="30" rows="10" type="text"
+                        placeholder="Write Final Impact"></textarea>
                     @error('final_impact')
-                    <div class="text-danger-500 mt-1">{{ $message }}</div>
+                        <div class="text-danger-500 mt-1">{{ $message }}</div>
                     @enderror
                 </div>
             </div>
@@ -117,7 +121,7 @@
                     <label>Project Contributors<span class="manitory">*</span></label>
                     <input type="text" name="contributors" placeholder="Write Project Contributors (comma separated)" />
                     @error('contributors')
-                    <div class="text-danger-500 mt-1">{{ $message }}</div>
+                        <div class="text-danger-500 mt-1">{{ $message }}</div>
                     @enderror
                 </div>
             </div>
@@ -127,7 +131,7 @@
                     <input type="text" name="platforms" placeholder="Write Project Platforms (comma separated)" />
                 </div>
                 @error('platforms')
-                <div class="text-danger-500 mt-1">{{ $message }}</div>
+                    <div class="text-danger-500 mt-1">{{ $message }}</div>
                 @enderror
             </div>
             <div class="">
@@ -140,11 +144,16 @@
 @endsection
 @push('scripts')
     <script>
-        document.getElementById('gallery-image').addEventListener('change', function (e) {
-            document.getElementById('gallery-file-name').textContent = e.target.files[0]?.name || '';
+        document.getElementById('gallery-image').addEventListener('change', function() {
+            const fileList = this.files;
+            const fileNames = [];
+            for (let i = 0; i < fileList.length; i++) {
+                fileNames.push(fileList[i].name);
+            }
+            document.getElementById('gallery-file-name').textContent = fileNames.join(', ');
         });
 
-        document.getElementById('banner-image').addEventListener('change', function (e) {
+        document.getElementById('banner-image').addEventListener('change', function(e) {
             document.getElementById('banner-file-name').textContent = e.target.files[0]?.name || '';
         });
     </script>
