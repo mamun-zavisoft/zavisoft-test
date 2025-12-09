@@ -79,7 +79,7 @@
                     @endif
                 </div>
             </div>
-            <div class="mb-4">
+            {{-- <div class="mb-4">
                 <div class="form-group">
                     <label class="text-base text-red-800">Gallery Image<span class="manitory">*</span> (Can be upload
                         multiple images)</label>
@@ -95,16 +95,62 @@
                     @enderror
                     <span id="gallery-file-name" class="mt-2 text-sm text-gray-600"></span>
                 </div>
-                <div class="gallery-preview-image flex gap-3">
+
+                <div class="gallery-preview-image flex gap-4">
                     @if (!empty($project->gallery_image))
                         @foreach (json_decode($project->gallery_image, true) as $image)
-                            <img src="{{ asset('storage/' . $image) }}" alt="img"
-                                class="w-32 h-32 object-cover rounded mb-2">
+                            <div class="relative">
+                                <img src="{{ asset('storage/' . $image) }}" alt="img"
+                                    class="w-16 h-16 object-cover rounded mb-2">
+                                <span class=" w-8 h-8 p-2 rounded bg-neutral-50 absolute -top-1 -right-3 cursor-pointer ">
+                                    <img class="" src="{{ asset('assets/images/icons/close-icon.svg') }}"
+                                        alt="">
+                                </span>
+                            </div>
                         @endforeach
                     @endif
-
+                    <input type="hidden" name="removed_images" id="removedImages">
                 </div>
+            </div> --}}
+
+            <div class="mb-4">
+                <div class="form-group">
+                    <label class="text-base text-red-800">Gallery Image<span class="manitory">*</span></label>
+
+                    <div class="image-upload">
+                        <input type="file" name="new_gallery_images[]" id="gallery-image" multiple>
+                        <div class="image-uploads flex flex-col items-center justify-center">
+                            <img src="{{ asset('assets/images/icons/upload.svg') }}" alt="img">
+                            <h4>Drag and drop a file to upload</h4>
+                        </div>
+                    </div>
+
+                    <span id="gallery-file-name" class="mt-2 text-sm text-gray-600"></span>
+                </div>
+
+                <!-- Preview Area -->
+                <div id="galleryPreview" class="flex gap-4">
+
+                    <!-- Load OLD Images -->
+                    @if (!empty($project->gallery_image))
+                        @foreach (json_decode($project->gallery_image, true) as $image)
+                            <div class="relative old-image-wrapper" data-image="{{ $image }}">
+                                <img src="{{ asset('storage/' . $image) }}" class="w-20 h-20 object-cover rounded">
+
+                                <span
+                                    class="remove-image w-8 h-8 p-2 rounded bg-neutral-50 absolute -top-1 -right-2 cursor-pointer"
+                                    data-type="old" data-image="{{ $image }}">
+                                    <img src="{{ asset('assets/images/icons/close-icon.svg') }}">
+                                </span>
+                            </div>
+                        @endforeach
+                    @endif
+                </div>
+
+                <input type="hidden" name="removed_images" id="removedImages">
             </div>
+
+
             <div>
                 <div class="form-group">
                     <label>Challenge<span class="manitory">*</span></label>
@@ -167,21 +213,47 @@
 @endsection
 @push('scripts')
     <script>
-        document.getElementById('gallery-image').addEventListener('change', function(e) {
-            const fileList = e.target.files;
-            const previewContainer = document.querySelector('.preview-image');
-            previewContainer.innerHTML = ''; // clear old previews
+        let removedImages = [];
+        const previewContainer = document.getElementById('galleryPreview');
 
-            for (let i = 0; i < fileList.length; i++) {
-                const reader = new FileReader();
-                reader.onload = function(event) {
-                    const img = document.createElement('img');
-                    img.src = event.target.result;
-                    img.className = "w-32 h-32 object-cover rounded mb-2";
-                    previewContainer.appendChild(img);
-                };
-                reader.readAsDataURL(fileList[i]);
+        // Remove OLD or NEW images
+        document.addEventListener('click', function(e) {
+            if (e.target.closest('.remove-image')) {
+                let btn = e.target.closest('.remove-image');
+                let type = btn.dataset.type;
+                let imageName = btn.dataset.image;
+
+                // For old images → push to removedImages
+                if (type === "old") {
+                    removedImages.push(imageName);
+                    document.getElementById('removedImages').value = JSON.stringify(removedImages);
+                }
+
+                // Remove UI Preview
+                btn.parentElement.remove();
             }
+        });
+
+        // Add NEW image preview
+        document.getElementById('gallery-image').addEventListener('change', function(e) {
+            [...this.files].forEach(file => {
+                let reader = new FileReader();
+
+                reader.onload = function(event) {
+                    let html = `
+                    <div class="relative new-image-wrapper">
+                        <img src="${event.target.result}" class="w-20 h-20 object-cover rounded">
+
+                        <span class="remove-image w-8 h-8 p-2 rounded bg-neutral-50 absolute -top-1 -right-2 cursor-pointer"
+                            data-type="new">
+                            <img src="{{ asset('assets/images/icons/close-icon.svg') }}">
+                        </span>
+                    </div>
+                `;
+                    previewContainer.insertAdjacentHTML('beforeend', html);
+                };
+                reader.readAsDataURL(file);
+            });
         });
 
 
