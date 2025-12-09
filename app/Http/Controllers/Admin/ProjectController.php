@@ -73,28 +73,29 @@ class ProjectController extends Controller
             $data['banner_image'] = $request->file('banner_image')->store('projects/banners', 'public');
         }
 
-        // Delete and replace gallery image
-        if ($request->hasFile('gallery_image')) {
-            // Delete old gallery images if they exist
-            if ($project->gallery_image) {
-                $oldImages = json_decode($project->gallery_image, true);
+        if ($request->hasFile('gallery_image') || $request->filled('remove_gallery_images')) {
+            // Start with existing images
+            $existingImages = json_decode($project->gallery_image, true) ?? [];
 
-                if (is_array($oldImages)) {
-                    foreach ($oldImages as $oldImage) {
-                        if (Storage::disk('public')->exists($oldImage)) {
-                            Storage::disk('public')->delete($oldImage);
-                        }
+            // Remove selected old images
+            if ($request->filled('remove_gallery_images')) {
+                foreach ($request->input('remove_gallery_images') as $removeImage) {
+                    if (Storage::disk('public')->exists($removeImage)) {
+                        Storage::disk('public')->delete($removeImage);
                     }
+                    $existingImages = array_diff($existingImages, [$removeImage]);
                 }
             }
 
-            // Store new gallery images
-            $galleryPaths = [];
-            foreach ($request->file('gallery_image') as $image) {
-                $galleryPaths[] = $image->store('projects/galleries', 'public');
+            // Add new uploaded images
+            if ($request->hasFile('gallery_image')) {
+                foreach ($request->file('gallery_image') as $image) {
+                    $existingImages[] = $image->store('projects/galleries', 'public');
+                }
             }
 
-            $data['gallery_image'] = json_encode($galleryPaths);
+            // Save merged set
+            $data['gallery_image'] = json_encode(array_values($existingImages));
         }
 
         $project->update($data);
