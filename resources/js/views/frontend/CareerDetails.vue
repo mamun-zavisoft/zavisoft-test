@@ -37,8 +37,11 @@
                                     you!</p>
 
                                 <div class="mt-6 w-full h-[50px]">
-                                    <router-link v-if="job.id" :to="{ name: 'JobApply', params: { jobId: job.id } }"
-                                        class="block w-full mt-6 px-4 py-3 bg-primary-500 text-white text-center rounded-full 
+                             
+                                    <router-link v-if="job.id" :to="{
+                                        name: 'JobApply', params: { slug },
+                                        state: { id: job.id }
+                                    }" class="block w-full mt-6 px-4 py-3 bg-primary-500 text-white text-center rounded-full 
                                         hover:bg-primary-600 focus:outline-none focus:ring-0 
                                         focus:ring-primary-300 transition-colors duration-300">
                                         Apply Now
