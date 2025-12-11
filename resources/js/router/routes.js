@@ -42,9 +42,8 @@ const routes = [
         component: () => import("@/views/frontend/Career.vue"),
         meta: { layout: LayoutFrontend, title: "Career" },
     },
-
     {
-        path: '/apply/:jobId',
+        path: '/apply/:slug',
         name: 'JobApply',
         component: () => import("@/views/frontend/JobApply.vue"),
         meta: { layout: LayoutFrontend, title: "Job Apply" },
@@ -111,6 +110,12 @@ const routes = [
         name: "serviceDetails",
         component: () => import("@/views/frontend/services/Service.vue"),
         meta: { layout: LayoutFrontend, title: "Service Details" },
+    },
+    {
+        path: '/success',
+        name: "success",
+        component: () => import("@/views/frontend/Success.vue"),
+        meta: { layout: LayoutFrontend, title: "Success" },
     },
 
 
