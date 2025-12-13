@@ -11,16 +11,6 @@
                 you shortly regarding the next steps.
             </p>
 
-            <div v-if="slug" class="mt-6">
-                <div
-                    class="inline-flex items-center rounded-full bg-green-50 px-3 py-1 text-sm font-medium text-green-800">
-                    <span class="sr-only">Applied for:</span>
-                    <svg class="mr-2 h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 6v6l4 2" />
-                    </svg>
-
-                </div>
-            </div>
         </div>
     </div>
 </template>
