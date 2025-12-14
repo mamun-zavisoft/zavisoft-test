@@ -125,16 +125,6 @@
                                             class="bg-blue-600 text-white px-3 py-1 rounded text-sm hover:bg-blue-700">
                                             Update
                                         </button>
-
-                                        {{-- <form action="{{ route('admin.job-applications.destroy', $application['id']) }}"
-                                            method="POST">
-                                            @csrf
-                                            @method('DELETE')
-
-                                            <button type="submit" class="btn btn-sm btn-danger" onclick="return confirm('Are you sure you want to delete this application?')">
-                                                <i class="fas fa-trash"></i>
-                                            </button>
-                                        </form> --}}
                                         <button class="btn btn-sm btn-danger delete-btn"
                                             data-modal-target="applicant-delete-modal-{{ $application['id'] }}"
                                             data-modal-toggle="applicant-delete-modal-{{ $application['id'] }}">
