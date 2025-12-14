@@ -10,8 +10,10 @@ class TeamController extends Controller
    public function index()
     {
         try {
-            $teams = Team::select('id', 'name', 'designation', 'image', 'linkedin', 'facebook')
-                        ->get();
+           $teams = Team::select('id', 'name', 'designation', 'image', 'linkedin', 'status', 'sl_no')
+                    ->where('status', 1)
+                    ->orderBy('sl_no', 'asc')
+                    ->get();
             
             // Fix image URL if stored in storage
             $teams->transform(function ($team) {

@@ -38,9 +38,9 @@
                             <th class="px-4 py-3">Email</th>
                             <th class="px-4 py-3">GitHub</th>
                             <th class="px-4 py-3">LinkedIn</th>
-                            <th class="px-4 py-3">CV</th>
+                            <th class="px-4 py-3">Resume/CV</th>
                             <th class="px-4 py-3">Status</th>
-                            <th class="px-4 py-3">Update</th>
+                            <th class="px-4 py-3">Action</th>
                         </tr>
                     </thead>
                     <tbody class="font-normal text-neutral-500">
@@ -74,14 +74,12 @@
                                 </td>
 
                                 <td class="px-4 py-3">
-                                    <a href="{{ route('admin.download.cv', $application['id']) }}"
-                                        class="btn btn-sm btn-success text-white">
-                                        <i class="fas fa-download"></i> Download CV
+                                    <a href="{{ route('admin.view.cv', $application['id']) }}" target="_blank"
+                                        class="btn btn-sm btn-primary">
+                                        View CV
+                                        <i class="fas fa-eye"></i>
                                     </a>
                                 </td>
-
-
-
                                 {{-- Status Badge --}}
                                 <td class="px-4 py-3">
                                     @switch($application['status'])
@@ -121,12 +119,25 @@
 
                                 {{-- Status Update Form --}}
                                 <td class="px-4 py-3">
-                                    <button data-modal-target="applicant-modal-{{ $application['id'] }}"
-                                        data-modal-toggle="applicant-modal-{{ $application['id'] }}"
-                                        class="bg-blue-600 text-white px-3 py-1 rounded text-sm hover:bg-blue-700">
-                                        Update
-                                    </button>
+                                    <div class="flex gap-3">
+                                        <button data-modal-target="applicant-modal-{{ $application['id'] }}"
+                                            data-modal-toggle="applicant-modal-{{ $application['id'] }}"
+                                            class="bg-blue-600 text-white px-3 py-1 rounded text-sm hover:bg-blue-700">
+                                            Update
+                                        </button>
 
+                                        <form action="{{ route('admin.job-applications.destroy', $application['id']) }}"
+                                            method="POST">
+                                            @csrf
+                                            @method('DELETE')
+
+                                            <button type="submit" class="btn btn-sm btn-danger">
+                                                <i class="fas fa-trash"></i>
+                                            </button>
+                                        </form>
+
+
+                                    </div>
                                 </td>
                             </tr>
                             <div id="applicant-modal-{{ $application['id'] }}" tabindex="-1" aria-hidden="true"
@@ -188,7 +199,8 @@
                                                             <input type="text" name="interview_mark"
                                                                 class="w-full border rounded p-2 text-sm"
                                                                 value="{{ old('interview_mark', $application['interview_mark']) }}"
-                                                                placeholder="Interview Mark" min="0" max="100">
+                                                                placeholder="Interview Mark" min="0"
+                                                                max="100">
                                                         </div>
                                                     </div>
 

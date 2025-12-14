@@ -21,12 +21,13 @@ class TeamRequest extends FormRequest
      */
     public function rules(): array
     {
+        $isRequest = $this->method() == 'POST' ? 'required' : 'nullable';
         return [
         'name' => 'required|string|max:255',
         'designation' => 'required|string|max:255',
-        'image' => 'nullable|image|mimes:jpg,jpeg,png,webp|max:2048',
-        'facebook' => 'nullable|url',
+        'image' => $isRequest.'|image|mimes:jpg,jpeg,png,webp|max:2048',
         'linkedin' => 'nullable|url',
+        'sl_no' => 'nullable|integer',
     ];
     }
     public function messages(): array
@@ -41,6 +42,7 @@ class TeamRequest extends FormRequest
             'designation.max' => 'Designation must not exceed 255 characters.',
 
             'image.image' => 'Image must be an image file.',
+            'image.required' => 'Image is required.',
             'image.mimes' => 'Image must be in JPG, JPEG, PNG, or WebP format.',
             'image.max' => 'Image size must not exceed 2MB.',
 

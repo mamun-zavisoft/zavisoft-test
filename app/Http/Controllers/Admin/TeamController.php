@@ -12,7 +12,8 @@ class TeamController extends Controller
 {
     public function index()
     {
-        $teams = Team::latest()->get();
+        // $teams = Team::latest()->get();
+        $teams = Team::select('sl_no', 'name', 'designation', 'image', 'linkedin', 'status','id')->get();
         return view('backend.teams.index', compact('teams'));
     }
 
@@ -42,7 +43,7 @@ class TeamController extends Controller
 
     public function update(TeamRequest $request, $id)
     {
-         $data = $request->validated();
+         $data = $request->all();
         $data['slug'] = Str::slug($data['name']);
 
         $team = Team::findOrFail($id);
@@ -77,5 +78,16 @@ class TeamController extends Controller
 
         $team->delete();
         return redirect()->route('admin.teams.index')->with('success', 'Team deleted successfully.');
+    }
+
+    public function toggleStatus( Team $team): \Illuminate\Http\JsonResponse
+    {
+        $team->status = $team->status == 1 ? 0 : 1;
+        $team->save();
+
+        return response()->json([
+            'success' => true,
+            'status' => $team->status,
+        ]);
     }
 }

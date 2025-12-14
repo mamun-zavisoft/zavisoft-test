@@ -59,8 +59,9 @@ Route::group(['middleware' => 'auth'], function () {
     // job application
     Route::get('/job-applications', [JobApplicationController::class, 'index'])->name('job-applications');
     Route::get('/messages', [MessageController::class, 'index'])->name('messages');
-    Route::get('/download-cv/{id}', [JobApplicationController::class, 'downloadCV'])->name('download.cv');
+    Route::get('/view-cv/{id}', [JobApplicationController::class, 'viewCV'])->name('view.cv');
     Route::put('/job-applications-status-update/{id}', [JobApplicationController::class, 'update'])->name('job-applications.update');
+    Route::delete('/job-applications/{id}',[JobApplicationController::class, 'destroy'])->name('job-applications.destroy');
 
     // service
     Route::get('/services',[ServiceController::class,'index'])->name('service.index');
@@ -82,5 +83,6 @@ Route::group(['middleware' => 'auth'], function () {
     Route::post('/team-members', [TeamController::class, 'store'])->name('teams.store');
     Route::get('/team-members/edit/{id}', [TeamController::class, 'edit'])->name('teams.edit');
     Route::patch('/team-members/update/{id}', [TeamController::class, 'update'])->name('teams.update');
+    Route::post('/teams/{team}/toggle-status', [TeamController::class, 'toggleStatus'])->name('teams.toggleStatus');
     
 });

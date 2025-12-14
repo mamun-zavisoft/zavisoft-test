@@ -20,6 +20,15 @@
                     @enderror
 
                 </div>
+                <div class="">
+                    <div class="form-group">
+                        <label>Sl No<span class="manitory">*</span></label>
+                         <input type="number" name="sl_no" placeholder="Write Sl No" value="{{ $team->sl_no }}" />
+                    </div>
+                    @error('sl_no')
+                        <div class="text-danger-500 mt-1">{{ $message }}</div>
+                    @enderror
+                </div>
                 <div>
                     <div class="form-group">
                         <label>Designation <span class="manitory">*</span></label>
@@ -31,19 +40,10 @@
                     @enderror
                 </div>
 
+               
                 <div>
                     <div class="form-group">
-                        <label>Facebook Link <span class="manitory">*</span></label>
-                        <input type="text" name="facebook" value="{{ $team->facebook }}"
-                            placeholder="Write facebook link" />
-                    </div>
-                    @error('facebook')
-                        <div class="text-danger-500 mt-1">{{ $message }}</div>
-                    @enderror
-                </div>
-                <div>
-                    <div class="form-group">
-                        <label>LinkedIn Link <span class="manitory">*</span></label>
+                        <label>LinkedIn Link <span class="manitory"></span></label>
                         <input type="text" name="linkedin" value="{{ $team->linkedin }}"
                             placeholder="Write linkedin link" />
                     </div>

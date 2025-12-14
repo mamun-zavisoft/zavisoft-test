@@ -7,10 +7,10 @@ use Illuminate\Database\Eloquent\Model;
 class Team extends Model
 {
     protected $fillable = [
+        'sl_no',
         'name',
         'designation',
         'image',
-        'facebook',
         'linkedin'
     ];
 }

@@ -11,44 +11,40 @@
                 <div>
                     <div class="form-group">
                         <label>Name<span class="manitory">*</span></label>
-                        <input type="text" name="name" placeholder="Write Name" />
+                        <input type="text" name="name" placeholder="Write Name" value="{{ old('name') }}" />
                     </div>
                     @error('name')
                         <div class="text-danger-500 mt-1">{{ $message }}</div>
                     @enderror
 
                 </div>
+                <div class="">
+                    <div class="form-group">
+                        <label>Sl No<span class="manitory">*</span></label>
+                         <input type="number" name="sl_no" placeholder="Write Sl No" value="{{ old('sl_no') }}" />
+                    </div>
+                    @error('sl_no')
+                        <div class="text-danger-500 mt-1">{{ $message }}</div>
+                    @enderror
+                </div>
                 <div>
                     <div class="form-group">
                         <label>Designation <span class="manitory">*</span></label>
-                        <input type="text" name="designation" placeholder="Write Designation" />
+                        <input type="text" name="designation" placeholder="Write Designation" value="{{ old('designation') }}" />
                     </div>
                     @error('designation')
                         <div class="text-danger-500 mt-1">{{ $message }}</div>
                     @enderror
                 </div>
-
                 <div>
                     <div class="form-group">
-                        <label>Facebook Link <span class="manitory">*</span></label>
-                        <input type="text" name="facebook" placeholder="Write facebook link" />
-                    </div>
-                    @error('facebook')
-                        <div class="text-danger-500 mt-1">{{ $message }}</div>
-                    @enderror
-                </div>
-                <div>
-                    <div class="form-group">
-                        <label>LinkedIn Link <span class="manitory">*</span></label>
-                        <input type="text" name="linkedin" placeholder="Write linkedin link" />
+                        <label>LinkedIn Link <span class="manitory"></span></label>
+                        <input type="text" name="linkedin" placeholder="Write linkedin link" value="{{ old('linkedin') }}" />
                     </div>
                     @error('linkedin')
                         <div class="text-danger-500 mt-1">{{ $message }}</div>
                     @enderror
                 </div>
-
-
-
                 <div class="col-span-1 md:col-span-2">
                     <div class="form-group">
                         <label class="text-base text-red-800"> Image<span class="manitory">*</span></label>
