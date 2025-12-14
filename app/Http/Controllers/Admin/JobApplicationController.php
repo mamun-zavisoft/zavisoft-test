@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\UpdateJobApplicationRequest;
 use App\Models\JobApplication;
+use Illuminate\Support\Facades\File;
 
 class JobApplicationController extends Controller
 {
@@ -35,19 +36,20 @@ class JobApplicationController extends Controller
         ]);
     }
 
-    public function downloadCV($id)
-    {
-        $application = JobApplication::findOrFail($id);
-        $filePath = public_path($application->cv);
+   public function viewCV($name)
+{
+     $application = JobApplication::where('name', $name)->firstOrFail();
+    $filePath = public_path($application->cv);
 
-        if (!file_exists($filePath)) {
-            return redirect()->back()->with('error', 'CV file not found.');
-        }
-
-        $customName = $application->name . '_CV.pdf';
-
-        return response()->download($filePath, $customName);
+    if (!file_exists($filePath)) {
+        abort(404, 'CV file not found.');
     }
+
+    return response()->file($filePath, [
+        'Content-Type' => mime_content_type($filePath),
+        'Content-Disposition' => 'inline'
+    ]);
+}
 
     public function update(UpdateJobApplicationRequest $request, $id)
     {
@@ -74,4 +76,25 @@ class JobApplicationController extends Controller
 
         return redirect()->route('admin.job-applications')->with('success', 'Application updated successfully.');
     }
+
+    // delete job application logic
+public function destroy($id)
+{
+    $application = JobApplication::findOrFail($id);
+
+    if (!empty($application->cv)) {
+        $fullPath = public_path($application->cv);
+
+        if (File::exists($fullPath)) {
+            File::delete($fullPath);
+        }
+    }
+
+    $application->delete();
+
+    return redirect()
+        ->route('admin.job-applications')
+        ->with('success', 'Application deleted successfully.');
+}
+
 }
