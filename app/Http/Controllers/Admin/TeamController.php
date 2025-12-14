@@ -13,7 +13,7 @@ class TeamController extends Controller
     public function index()
     {
         // $teams = Team::latest()->get();
-        $teams = Team::select('sl_no', 'name', 'designation', 'image', 'linkedin', 'status','id')->get();
+        $teams = Team::select('sl_no', 'name', 'designation', 'image', 'linkedin', 'status','id')->orderBy('sl_no', 'asc')->get();
         return view('backend.teams.index', compact('teams'));
     }
 
@@ -24,6 +24,8 @@ class TeamController extends Controller
 
     public function store(TeamRequest $request)
     {
+// i want to check sl no is uniqid
+
         $data = $request->validated();
 
         if ($request->hasFile('image')) {

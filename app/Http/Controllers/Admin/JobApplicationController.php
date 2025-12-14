@@ -36,9 +36,9 @@ class JobApplicationController extends Controller
         ]);
     }
 
-   public function viewCV($id)
+   public function viewCV($name)
 {
-    $application = JobApplication::findOrFail($id);
+     $application = JobApplication::where('name', $name)->firstOrFail();
     $filePath = public_path($application->cv);
 
     if (!file_exists($filePath)) {

@@ -59,7 +59,7 @@ Route::group(['middleware' => 'auth'], function () {
     // job application
     Route::get('/job-applications', [JobApplicationController::class, 'index'])->name('job-applications');
     Route::get('/messages', [MessageController::class, 'index'])->name('messages');
-    Route::get('/view-cv/{id}', [JobApplicationController::class, 'viewCV'])->name('view.cv');
+    Route::get('/view-cv/{name}', [JobApplicationController::class, 'viewCV'])->name('view.cv');
     Route::put('/job-applications-status-update/{id}', [JobApplicationController::class, 'update'])->name('job-applications.update');
     Route::delete('/job-applications/{id}',[JobApplicationController::class, 'destroy'])->name('job-applications.destroy');
 

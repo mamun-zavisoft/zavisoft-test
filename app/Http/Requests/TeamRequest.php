@@ -27,7 +27,7 @@ class TeamRequest extends FormRequest
         'designation' => 'required|string|max:255',
         'image' => $isRequest.'|image|mimes:jpg,jpeg,png,webp|max:2048',
         'linkedin' => 'nullable|url',
-        'sl_no' => 'nullable|integer',
+        'sl_no' => 'nullable|integer|unique:teams,sl_no,'.$this->id,
     ];
     }
     public function messages(): array
@@ -45,6 +45,10 @@ class TeamRequest extends FormRequest
             'image.required' => 'Image is required.',
             'image.mimes' => 'Image must be in JPG, JPEG, PNG, or WebP format.',
             'image.max' => 'Image size must not exceed 2MB.',
+
+            'sl_no.integer' => 'Sl No must be an integer.',
+            'sl_no.unique' => 'This sl no already exists.',
+
 
         ];
     }

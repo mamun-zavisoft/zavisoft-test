@@ -21,7 +21,9 @@
                 <div class="">
                     <div class="form-group">
                         <label>Sl No<span class="manitory">*</span></label>
-                         <input type="number" name="sl_no" placeholder="Write Sl No" value="{{ old('sl_no') }}" />
+                        <input type="number" name="sl_no" placeholder="Write Sl No" value="{{ old('sl_no') }}"
+                            required />
+                        <span class="text-danger-500 text-xs">sl no must be unique & start from 1</span>
                     </div>
                     @error('sl_no')
                         <div class="text-danger-500 mt-1">{{ $message }}</div>
@@ -30,7 +32,8 @@
                 <div>
                     <div class="form-group">
                         <label>Designation <span class="manitory">*</span></label>
-                        <input type="text" name="designation" placeholder="Write Designation" value="{{ old('designation') }}" />
+                        <input type="text" name="designation" placeholder="Write Designation"
+                            value="{{ old('designation') }}" />
                     </div>
                     @error('designation')
                         <div class="text-danger-500 mt-1">{{ $message }}</div>
@@ -39,7 +42,8 @@
                 <div>
                     <div class="form-group">
                         <label>LinkedIn Link <span class="manitory"></span></label>
-                        <input type="text" name="linkedin" placeholder="Write linkedin link" value="{{ old('linkedin') }}" />
+                        <input type="text" name="linkedin" placeholder="Write linkedin link"
+                            value="{{ old('linkedin') }}" />
                     </div>
                     @error('linkedin')
                         <div class="text-danger-500 mt-1">{{ $message }}</div>

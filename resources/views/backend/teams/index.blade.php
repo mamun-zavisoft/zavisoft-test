@@ -29,6 +29,9 @@
                     <thead class="bg-neutral-50 border-b border-default font-semibold">
                         <tr>
                             <th scope="col" class="px-4 py-3 ">
+                                SL No
+                            </th>
+                            <th scope="col" class="px-4 py-3 ">
                                 Name
                             </th>
                             <th scope="col" class="px-4 py-3 ">
@@ -48,6 +51,10 @@
                     <tbody class="font-normal text-neutral-500">
                         @foreach ($teams as $team)
                             <tr class="border-b last:border-b-0">
+                                <td class="px-4 py-3">
+                                    {{ $team->sl_no }}
+                                </td>
+                                
                                 <td class="px-4 py-3 flex items-center gap-2">
                                     {{ $team->name }}
                                 </td>
