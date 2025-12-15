@@ -22,7 +22,7 @@ class TeamController extends Controller
     public function create()
     {
         $lastSlNo = Team::max('sl_no');
-        $nextSlNo = $lastSlNo ? $lastSlNo + 1 : 1;
+        $nextSlNo = $lastSlNo ? $lastSlNo + 1 : 0;
 
         return view('backend.teams.create',compact('nextSlNo'));
     }
@@ -30,6 +30,8 @@ class TeamController extends Controller
     public function store(TeamRequest $request)
     {
         $data = $request->validated();
+
+      
 
         if ($request->hasFile('image')) {
             $data['image'] = $request->file('image')->store('teams', 'public');

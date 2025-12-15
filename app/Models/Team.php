@@ -11,6 +11,9 @@ class Team extends Model
         'name',
         'designation',
         'image',
-        'linkedin'
+        'linkedin',
+        'status',
+        'title',
+        'short_description',
     ];
 }

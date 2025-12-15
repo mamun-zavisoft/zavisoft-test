@@ -49,6 +49,29 @@
                         <div class="text-danger-500 mt-1">{{ $message }}</div>
                     @enderror
                 </div>
+                @if (request()->type == 'ceo')
+                    <div>
+                        <div class="form-group">
+                            <label>Title<span class="manitory"></span></label>
+                            <input type="text" name="title" placeholder="Write Title" value="{{ old('title') }}" />
+                        </div>
+                        @error('title')
+                            <div class="text-danger-500 mt-1">{{ $message }}</div>
+                        @enderror
+
+                    </div>
+                    <div>
+                        <div class="form-group">
+                            <label>Short Description<span class="manitory"></span></label>
+                            <input type="text" name="short_description" placeholder="Write Sort Description"
+                                value="{{ old('short_description') }}" />
+                        </div>
+                        @error('short_description')
+                            <div class="text-danger-500 mt-1">{{ $message }}</div>
+                        @enderror
+
+                    </div>
+                @endif
                 <div class="col-span-1 md:col-span-2">
                     <div class="form-group">
                         <label class="text-base text-red-800"> Image<span class="manitory">*</span></label>
@@ -80,6 +103,7 @@
             </div>
         </form>
     </div>
+
 @endsection
 @push('scripts')
     <script>
