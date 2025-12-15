@@ -4,22 +4,23 @@
             :style="{ backgroundImage: `url(${bgImg})` }">
             <div class="container">
                 <div class="pt-30 lg:pt-36 xl:pt-40 flex flex-col items-center gap-3">
-                    <div class="flex flex-col sm:flex-row gap-4 md:gap-6 lg:gap-8 xl:gap-12 w-full">
+                    <div v-if="CEO" class="flex flex-col sm:flex-row gap-4 md:gap-6 lg:gap-8 xl:gap-12 w-full">
                         <div class="w-full sm:w-[340px] flex-shrink-0 wow animate__animated animate__fadeInLeft">
-                            <div class="card">
+                            <div class="card" >
                                 <div class="card-image">
-                                    <img src="@/assets/images/zionbhai.svg" alt="About Image" class="w-full">
+                                    <img :src="CEO.image || '@/assets/images/zionbhai.svg'" :alt="CEO.name"
+                                        class="w-full">
                                 </div>
                                 <div class="mt-4 flex justify-between">
                                     <div>
                                         <h3 class="text-base md:text-lg text-neutral-900 font-bold">
-                                            K M. Reidwanul Bari Zion
+                                            {{ CEO.name }}
                                         </h3>
-                                        <p class="mt-1 text-xs md:text-sm text-neutral-500">Founder of Steadfast Courier
+                                        <p class="mt-1 text-xs md:text-sm text-neutral-500">{{ CEO.designation }}
                                         </p>
                                     </div>
 
-                                    <a href="#" class="w-7 h-7 md:w-9 md:h-9 inline-flex items-center justify-center">
+                                    <a v-if="CEO.linkedin" :href="CEO.linkedin" target="_blank" rel="noopener" class="w-7 h-7 md:w-9 md:h-9 inline-flex items-center justify-center">
                                         <img src="@/assets/images/icons/linkEdin.svg" alt="LinkedIn">
                                     </a>
                                 </div>
@@ -27,14 +28,11 @@
                         </div>
                         <div class="w-full sm:flex-1">
                             <h1 class="text-3xl md:text-4xl lg:text-5xl 2xl:text-6xl font-semibold text-neutral-900">Our
-                                Diverse Team Tackles Numerous
-                                Exciting <span class="text-neutral-400">Projects.</span></h1>
-                            <p class="mt-5 lg:mt-6 text-sm md:text-lg text-neutral-500">Blending deep technical mastery
-                                with bold
-                                innovation, we turn
-                                ambitious ideas into
-                                exceptional products. We empower businesses to accelerate growth, enhance efficiency,
-                                and lead with technology.</p>
+                            {{ CEO.title }}   
+                            </h1>
+                            <p class="mt-5 lg:mt-6 text-sm md:text-lg text-neutral-500">
+                                {{ CEO.short_description }}
+                            </p>
 
                             <div class="mt-5">
                                 <NavigatePrimary to="/contact" text="Team Behind Us" />
@@ -197,6 +195,7 @@
 
         </div>
     </section>
+
 </template>
 
 <script setup>
@@ -207,6 +206,10 @@ import TeamMemberCard from '@/components/ui/card/TeamMemberCard.vue'
 import NavigatePrimary from '@/components/ui/button/NavigatePrimary.vue';
 import SectionHeader from '@/components/ui/heading/SectionHeader.vue';
 import ContactCard from '@/components/ui/card/ContactCard.vue';
+import { useFetch } from "@/composables/useFetch.js"
+
+const { data: CEO } = useFetch("/api/ceoinfo")
+
 
 
 </script>

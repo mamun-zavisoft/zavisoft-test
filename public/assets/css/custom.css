@@ -289,3 +289,19 @@
 .header .header-left {
     z-index: 10 !important;
 }
+
+/* global-loader.css */
+/* .loader {
+    position: fixed;
+    inset: 0;
+    background: var(--color-black);
+    opacity: 90%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 9999;
+} */
+
+.hidden {
+    display: none;
+}

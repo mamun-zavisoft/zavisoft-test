@@ -7,6 +7,7 @@ use App\Http\Controllers\Admin\JobCircularController;
 use App\Http\Controllers\Admin\MessageController;
 use App\Http\Controllers\Admin\ProjectController;
 use App\Http\Controllers\Admin\ServiceController;
+use App\Http\Controllers\Admin\TeamController;
 use Illuminate\Support\Facades\Route;
 
 // authentication
@@ -37,10 +38,7 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('/testimonials', function () {
         return view('backend.testimonials');
     })->name('testimonials');
-
-    Route::get('/team-members', function () {
-        return view('backend.team-members');
-    })->name('team-members');
+ 
 
     Route::get('social-media', function () {
         return view('backend.social-media');
@@ -61,8 +59,9 @@ Route::group(['middleware' => 'auth'], function () {
     // job application
     Route::get('/job-applications', [JobApplicationController::class, 'index'])->name('job-applications');
     Route::get('/messages', [MessageController::class, 'index'])->name('messages');
-    Route::get('/download-cv/{id}', [JobApplicationController::class, 'downloadCV'])->name('download.cv');
+    Route::get('/view-cv/{name}', [JobApplicationController::class, 'viewCV'])->name('view.cv');
     Route::put('/job-applications-status-update/{id}', [JobApplicationController::class, 'update'])->name('job-applications.update');
+    Route::delete('/job-applications/{id}',[JobApplicationController::class, 'destroy'])->name('job-applications.destroy');
 
     // service
     Route::get('/services',[ServiceController::class,'index'])->name('service.index');
@@ -77,4 +76,14 @@ Route::group(['middleware' => 'auth'], function () {
     Route::post('/projects', [ProjectController::class,'store'])->name('project.store');
     Route::get('/projects/edit/{id}', [ProjectController::class, 'edit'])->name('project.edit');
     Route::patch('/projects/update/{id}', [ProjectController::class, 'update'])->name('project.update');
+
+    // team members
+    Route::get('/team-members', [TeamController::class, 'index'])->name('teams.index');
+    Route::get('/create-team-member', [TeamController::class, 'create'])->name('teams.create');
+    Route::post('/team-members', [TeamController::class, 'store'])->name('teams.store');
+    Route::get('/team-members/edit/{id}', [TeamController::class, 'edit'])->name('teams.edit');
+    Route::patch('/team-members/update/{id}', [TeamController::class, 'update'])->name('teams.update');
+    Route::post('/teams/{team}/toggle-status', [TeamController::class, 'toggleStatus'])->name('teams.toggleStatus');
+
+    
 });

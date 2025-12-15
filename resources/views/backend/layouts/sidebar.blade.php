@@ -42,6 +42,12 @@
                     <span>Projects</span>
                 </a>
             </li>
+             <li class="{{ Route::is('admin.teams*') ? 'active' : '' }}">
+                <a href="{{ route('admin.teams.index') }}">
+                    <i class="fa fa-users text-gray-600 text-xl"></i>
+                    <span>Team Members</span>
+                </a>
+            </li>
 
             {{--<li class="{{ Route::is('admin.industry-focus*') ? 'active' : '' }}">
                 <a href="{{ route('admin.industry-focus') }}">

@@ -8,6 +8,7 @@ use App\Http\Controllers\Api\Auth\RegisterController;
 use App\Http\Controllers\Api\ContactUsController;
 use App\Http\Controllers\Api\JobApplicationController;
 use App\Http\Controllers\Api\JobCircularController;
+use App\Http\Controllers\Api\TeamController;
 use Illuminate\Support\Facades\Route;
 
 Route::post('/login', [LoginController::class, 'login']);
@@ -35,3 +36,5 @@ Route::get('/projects', [ProjectController::class, 'index']);
 Route::get('/projects-categories', [ProjectController::class, 'projectCategories']);
 Route::get('/category-wise-projects/{category_id}', [ProjectController::class, 'categoryWiseProjects']);
 Route::get('/projects-details/{slug}', [ProjectController::class, 'ProjectsDetails']);
+Route::get('/team-members', [TeamController::class, 'index']);
+Route::get('/ceoinfo', [TeamController::class, 'ceoInfo']);
