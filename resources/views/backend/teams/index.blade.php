@@ -54,7 +54,7 @@
                                 <td class="px-4 py-3">
                                     {{ $team->sl_no }}
                                 </td>
-                                
+
                                 <td class="px-4 py-3 flex items-center gap-2">
                                     {{ $team->name }}
                                 </td>
@@ -71,9 +71,19 @@
                                         data-id="{{ $team->id }}"></i>
                                 </td>
                                 <td class="px-4 py-3 ">
-                                    <div class="">
+                                    <div class="flex gap-4 items-center">
                                         <a href="{{ route('admin.teams.edit', $team->id) }}"
                                             class=" text-fg-brand hover:underline"><i class="fa fa-edit"></i></a>
+
+                                        <form action="{{ route('admin.teams.destroy', $team->id) }}" method="POST"
+                                            >
+                                            @csrf
+                                            @method('DELETE')
+                                            <button type="submit"
+                                                class="text-white bg-danger box-border border border-transparent hover:bg-danger-strong focus:ring-0 focus:ring-danger-medium  font-medium leading-5 rounded text-sm px-3 py-1.5 focus:outline-none">
+                                                <i class="fas fa-trash"></i>
+                                            </button>
+                                        </form>
 
                                     </div>
                                 </td>

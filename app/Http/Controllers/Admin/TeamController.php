@@ -24,8 +24,6 @@ class TeamController extends Controller
 
     public function store(TeamRequest $request)
     {
-// i want to check sl no is uniqid
-
         $data = $request->validated();
 
         if ($request->hasFile('image')) {
@@ -72,11 +70,9 @@ class TeamController extends Controller
         return redirect()->route('admin.teams.index')->with('success', 'Team updated successfully.');
     }
 
-    public function destroy(Team $team)
+    public function destroy($id)
     {
-        if ($team->image) {
-            Storage::disk('public')->delete($team->image);
-        }
+        $team = Team::findOrFail($id);
 
         $team->delete();
         return redirect()->route('admin.teams.index')->with('success', 'Team deleted successfully.');
