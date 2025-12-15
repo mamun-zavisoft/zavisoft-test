@@ -16,6 +16,17 @@ class TeamSeeder extends Seeder
     {
        
         $teams = [
+            [
+                'name' => 'K M. Reidwanul Bari Zion',
+                'designation' => 'Founder of Steadfast Courier',
+                'image' => 'reidwanul.webp', 
+                'linkedin' => '',
+                'status' => 1,
+                'sl_no' => 0,
+                'title' => 'Our Our Diverse Team Tackles Numerous Exciting Our Projects.',
+                'short_description' => 'Blending deep technical mastery with bold innovation, we turn ambitious ideas into exceptional products. We empower businesses to accelerate growth, enhance efficiency, and lead with technology.',
+            ],
+
                 [
                 'name' => 'Mosarrof Hossain',
                 'designation' => 'Tech Advisor',
@@ -170,15 +181,19 @@ class TeamSeeder extends Seeder
             ],
         ];
 
+       Storage::disk('public')->makeDirectory('teams');
+
         foreach ($teams as $team) {
 
             $sourcePath = database_path('seeders/assets/teams/' . $team['image']);
             $destinationPath = 'teams/' . $team['image'];
 
-            // Ensure teams directory exists
-            Storage::disk('public')->makeDirectory('teams');
+          
+            if (!file_exists($sourcePath)) {
+                $this->command->error("Missing image: {$team['image']}");
+                continue;
+            }
 
-            // Copy image only if not exists
             if (!Storage::disk('public')->exists($destinationPath)) {
                 Storage::disk('public')->put(
                     $destinationPath,
@@ -188,17 +203,26 @@ class TeamSeeder extends Seeder
 
             Team::updateOrCreate(
                 ['sl_no' => $team['sl_no']],
+
                 [
                     'name' => $team['name'],
                     'designation' => $team['designation'],
                     'image' => $destinationPath,
                     'linkedin' => $team['linkedin'],
                     'status' => $team['status'],
+
+                    'title' => $team['sl_no'] === 0
+                        ? $team['title']
+                        : null,
+
+                    'short_description' => $team['sl_no'] === 0
+                        ? $team['short_description']
+                        : null,
                 ]
             );
         }
 
-         $this->command->info('Team members seeded successfully!');
+        $this->command->info('Team members seeded successfully!');
         $this->command->info('Total teams created: ' . count($teams));
     
     }
