@@ -16,8 +16,12 @@
     @endif
     <div class="flex justify-between mb-3">
         <h1 class="text-base lg:text-xl font-bold text-primary-600 mb-4">Team Lists</h1>
-        <a class="text-white bg-primary-500  border border-transparent hover:bg-primary-500 hover:text-white focus:ring-0  rounded text-base px-4 py-2 focus:outline-none flex items-center"
-            href="{{ route('admin.teams.create') }}">Add new</a>
+        <div class="flex items-center gap-4">
+            <a class="text-white bg-primary-500  border border-transparent hover:bg-primary-500 hover:text-white focus:ring-0  rounded text-base px-4 py-2 focus:outline-none flex items-center"
+                href="{{ route('admin.teams.create') }}">Add new team</a>
+            <a class="text-white bg-primary-500  border border-transparent hover:bg-primary-500 hover:text-white focus:ring-0  rounded text-base px-4 py-2 focus:outline-none flex items-center"
+                href="{{ route('admin.teams.create', ['type' => 'ceo']) }}">Add CEO</a>
+        </div>
     </div>
 
     <div class="bg-white rounded p-4">
@@ -73,18 +77,8 @@
                                 <td class="px-4 py-3 ">
                                     <div class="flex gap-4 items-center">
                                         <a href="{{ route('admin.teams.edit', $team->id) }}"
-                                            class=" text-fg-brand hover:underline"><i class="fa fa-edit"></i></a>
-
-                                        <form action="{{ route('admin.teams.destroy', $team->id) }}" method="POST"
-                                            >
-                                            @csrf
-                                            @method('DELETE')
-                                            <button type="submit"
-                                                class="text-white bg-danger box-border border border-transparent hover:bg-danger-strong focus:ring-0 focus:ring-danger-medium  font-medium leading-5 rounded text-sm px-3 py-1.5 focus:outline-none">
-                                                <i class="fas fa-trash"></i>
-                                            </button>
-                                        </form>
-
+                                            class=" text-fg-brand hover:underline"><i class="fa fa-edit"></i>
+                                        </a>
                                     </div>
                                 </td>
                             </tr>
@@ -104,7 +98,6 @@
         document.addEventListener('DOMContentLoaded', () => {
             // Debug: Check if icons are found
             const icons = document.querySelectorAll('.toggle-icon');
-            console.log('Found toggle icons:', icons.length);
 
             icons.forEach(icon => {
                 icon.addEventListener('click', async function() {
@@ -141,7 +134,6 @@
                             }) // Optional, but good practice
                         });
 
-                        console.log('Response status:', res.status);
 
                         // Check if response is OK
                         if (!res.ok) {

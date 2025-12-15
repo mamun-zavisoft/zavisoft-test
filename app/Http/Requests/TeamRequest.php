@@ -28,6 +28,8 @@ class TeamRequest extends FormRequest
         'image' => $isRequest.'|image|mimes:jpg,jpeg,png,webp|max:2048',
         'linkedin' => 'nullable|url',
         'sl_no' => 'nullable|integer|unique:teams,sl_no,'.$this->id,
+        'title' => 'nullable|string|max:255',
+        'short_description' => 'nullable|string|max:255',
     ];
     }
     public function messages(): array
@@ -48,6 +50,10 @@ class TeamRequest extends FormRequest
 
             'sl_no.integer' => 'Sl No must be an integer.',
             'sl_no.unique' => 'This sl no already exists.',
+            'title.string' => 'Title must be a string.',
+            'title.max' => 'Title must not exceed 255 characters.',
+            'short_description.string' => 'Short Description must be a string.',
+            'short_description.max' => 'Short Description must not exceed 255 characters.',
 
 
         ];

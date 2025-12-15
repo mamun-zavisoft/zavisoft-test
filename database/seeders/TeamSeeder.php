@@ -106,7 +106,7 @@ class TeamSeeder extends Seeder
             ],
             [
                 'name' => 'Mizanur Rahman',
-                'designation' => 'Sr. UI/Ux Designer',
+                'designation' => 'Sr. UI/UX Designer',
                 'image' => 'mizan.webp', 
                 'linkedin' => '',
                 'status' => 1,
@@ -114,7 +114,7 @@ class TeamSeeder extends Seeder
             ],
             [
                 'name' => 'Akash Basak',
-                'designation' => 'UI/Ux Designer',
+                'designation' => 'UI/UX Designer',
                 'image' => 'akash.webp', 
                 'linkedin' => '',
                 'status' => 1,
@@ -122,7 +122,7 @@ class TeamSeeder extends Seeder
             ],
             [
                 'name' => 'Tareq Mahmud',
-                'designation' => 'UI/Ux Designer',
+                'designation' => 'UI/UX Designer',
                 'image' => 'tarek.webp', 
                 'linkedin' => '',
                 'status' => 1,
@@ -130,7 +130,7 @@ class TeamSeeder extends Seeder
             ],
              [
                 'name' => 'Mrinmoyee Dey',
-                'designation' => 'UI/Ux Designer',
+                'designation' => 'UI/UX Designer',
                 'image' => 'dey.webp', 
                 'linkedin' => '',
                 'status' => 1,

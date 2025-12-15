@@ -84,7 +84,6 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('/team-members/edit/{id}', [TeamController::class, 'edit'])->name('teams.edit');
     Route::patch('/team-members/update/{id}', [TeamController::class, 'update'])->name('teams.update');
     Route::post('/teams/{team}/toggle-status', [TeamController::class, 'toggleStatus'])->name('teams.toggleStatus');
-    Route::delete('/teams/{id}',[TeamController::class, 'destroy'])->name('teams.destroy');
 
     
 });

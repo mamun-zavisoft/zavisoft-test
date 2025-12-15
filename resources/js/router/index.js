@@ -1,5 +1,7 @@
 import { createRouter, createWebHistory } from "vue-router";
 import { useAuthStore } from "@/stores/auth";
+import { setMetaTag, setPropertyTag } from "@/utils/seo";
+
 import routes from "./routes";
 
 const router = createRouter({
@@ -30,6 +32,23 @@ router.beforeEach(async (to, from, next) => {
 
     // Set page title
     document.title = to.meta.title ? `${to.meta.title} | Zavisoft` : "Zavisoft";
+
+    // SEO META
+    if (to.meta) {
+        if (to.meta.description) {
+            setMetaTag("description", to.meta.description);
+        }
+
+        if (to.meta.keywords) {
+            setMetaTag("keywords", to.meta.keywords);
+        }
+
+        // Open Graph
+        setPropertyTag("og:title", to.meta.title || "Zavisoft");
+        setPropertyTag("og:description", to.meta.description || "");
+        setPropertyTag("og:url", window.location.href);
+    }
+
 
     // Check authentication status
     const isAuthenticated = authStore.isAuthenticated;
