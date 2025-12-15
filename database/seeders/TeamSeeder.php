@@ -5,7 +5,8 @@ namespace Database\Seeders;
 use App\Models\Team;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
-
+use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Str;
 class TeamSeeder extends Seeder
 {
     /**
@@ -13,11 +14,12 @@ class TeamSeeder extends Seeder
      */
     public function run(): void
     {
+       
         $teams = [
-            [
+                [
                 'name' => 'Mosarrof Hossain',
                 'designation' => 'Tech Advisor',
-                'image' => 'teams/rubel.webp', 
+                'image' => 'rubel.webp', 
                 'linkedin' => '',
                 'status' => 1,
                 'sl_no' => 1,
@@ -25,7 +27,7 @@ class TeamSeeder extends Seeder
            [
                 'name' => 'Md Ratul Uddin Ashraf',
                 'designation' => 'Team Lead',
-                'image' => 'teams/ratul.webp', 
+                'image' => 'ratul.webp', 
                 'linkedin' => '',
                 'status' => 1,
                 'sl_no' => 2,
@@ -33,7 +35,7 @@ class TeamSeeder extends Seeder
             [
                 'name' => 'Badrul Hasan Sajib',
                 'designation' => 'Project & Recruitment Manager',
-                'image' => 'teams/sajib.webp', 
+                'image' => 'sajib.webp', 
                 'linkedin' => '',
                 'status' => 1,
                 'sl_no' => 3,
@@ -41,7 +43,7 @@ class TeamSeeder extends Seeder
             [
                 'name' => 'Md. Meraz Hossain',
                 'designation' => 'Scrum Master',
-                'image' => 'teams/meraz.webp', 
+                'image' => 'meraz.webp', 
                 'linkedin' => '',
                 'status' => 1,
                 'sl_no' => 4,
@@ -49,7 +51,7 @@ class TeamSeeder extends Seeder
             [
                 'name' => 'Tamim Hossain',
                 'designation' => 'Frontend Developer',
-                'image' => 'teams/tamim.webp', 
+                'image' => 'tamim.webp', 
                 'linkedin' => '',
                 'status' => 1,
                 'sl_no' => 5,
@@ -57,7 +59,7 @@ class TeamSeeder extends Seeder
             [
                 'name' => 'Md Abdul Mannan',
                 'designation' => 'Frontend Developer',
-                'image' => 'teams/mannan.webp', 
+                'image' => 'mannan.webp', 
                 'linkedin' => '',
                 'status' => 1,
                 'sl_no' => 6,
@@ -65,7 +67,7 @@ class TeamSeeder extends Seeder
             [
                 'name' => 'Shamim Hossain',
                 'designation' => 'Sr. SQA Engineer',
-                'image' => 'teams/shamim.webp', 
+                'image' => 'shamim.webp', 
                 'linkedin' => '',
                 'status' => 1,
                 'sl_no' => 7,
@@ -73,7 +75,7 @@ class TeamSeeder extends Seeder
              [
                 'name' => 'SMK Shawon',
                 'designation' => 'SQA Engineer',
-                'image' => 'teams/smk.webp', 
+                'image' => 'smk.webp', 
                 'linkedin' => '',
                 'status' => 1,
                 'sl_no' => 8,
@@ -81,7 +83,7 @@ class TeamSeeder extends Seeder
             [
                 'name' => 'Amadul Haque',
                 'designation' => 'Software Developer',
-                'image' => 'teams/amad.webp', 
+                'image' => 'amad.webp', 
                 'linkedin' => '',
                 'status' => 1,
                 'sl_no' => 9,
@@ -89,7 +91,7 @@ class TeamSeeder extends Seeder
             [
                 'name' => 'Mashikur Rahman Mirash',
                 'designation' => 'Software Engineer',
-                'image' => 'teams/mashikur.webp', 
+                'image' => 'mashikur.webp', 
                 'linkedin' => '',
                 'status' => 1,
                 'sl_no' => 10,
@@ -97,7 +99,7 @@ class TeamSeeder extends Seeder
             [
                 'name' => 'Jeishanul Haque Shishir',
                 'designation' => 'Software Engineer',
-                'image' => 'teams/shishir.webp', 
+                'image' => 'shishir.webp', 
                 'linkedin' => '',
                 'status' => 1,
                 'sl_no' => 11,
@@ -105,7 +107,7 @@ class TeamSeeder extends Seeder
             [
                 'name' => 'Mizanur Rahman',
                 'designation' => 'Sr. UI/Ux Designer',
-                'image' => 'teams/mizan.webp', 
+                'image' => 'mizan.webp', 
                 'linkedin' => '',
                 'status' => 1,
                 'sl_no' => 12,
@@ -113,7 +115,7 @@ class TeamSeeder extends Seeder
             [
                 'name' => 'Akash Basak',
                 'designation' => 'UI/Ux Designer',
-                'image' => 'teams/akash.webp', 
+                'image' => 'akash.webp', 
                 'linkedin' => '',
                 'status' => 1,
                 'sl_no' => 13,
@@ -121,7 +123,7 @@ class TeamSeeder extends Seeder
             [
                 'name' => 'Tareq Mahmud',
                 'designation' => 'UI/Ux Designer',
-                'image' => 'teams/tarek.webp', 
+                'image' => 'tarek.webp', 
                 'linkedin' => '',
                 'status' => 1,
                 'sl_no' => 14,
@@ -129,7 +131,7 @@ class TeamSeeder extends Seeder
              [
                 'name' => 'Mrinmoyee Dey',
                 'designation' => 'UI/Ux Designer',
-                'image' => 'teams/dey.webp', 
+                'image' => 'dey.webp', 
                 'linkedin' => '',
                 'status' => 1,
                 'sl_no' => 15,
@@ -137,7 +139,7 @@ class TeamSeeder extends Seeder
             [
                 'name' => 'Md Alhaz Mondal Hredhay',
                 'designation' => 'Software Engineer',
-                'image' => 'teams/hredhay.webp', 
+                'image' => 'hredhay.webp', 
                 'linkedin' => '',
                 'status' => 1,
                 'sl_no' => 16,
@@ -145,7 +147,7 @@ class TeamSeeder extends Seeder
             [
                 'name' => 'Mustafa Fahim',
                 'designation' => 'Mobile Software engineer (Flutter)',
-                'image' => 'teams/fahim.webp', 
+                'image' => 'fahim.webp', 
                 'linkedin' => '',
                 'status' => 1,
                 'sl_no' => 17,
@@ -153,7 +155,7 @@ class TeamSeeder extends Seeder
             [
                 'name' => 'Tofayel Ahmed Topu',
                 'designation' => 'Software Engineer',
-                'image' => 'teams/topu.webp', 
+                'image' => 'topu.webp', 
                 'linkedin' => '',
                 'status' => 1,
                 'sl_no' => 18,
@@ -161,19 +163,42 @@ class TeamSeeder extends Seeder
             [
                 'name' => 'Samiul Kabir',
                 'designation' => 'Frontend Developer',
-                'image' => 'teams/kabir.webp', 
+                'image' => 'kabir.webp', 
                 'linkedin' => '',
                 'status' => 1,
                 'sl_no' => 19,
             ],
-        ];        
+        ];
 
-        // Create teams
         foreach ($teams as $team) {
-            Team::create($team);
+
+            $sourcePath = database_path('seeders/assets/teams/' . $team['image']);
+            $destinationPath = 'teams/' . $team['image'];
+
+            // Ensure teams directory exists
+            Storage::disk('public')->makeDirectory('teams');
+
+            // Copy image only if not exists
+            if (!Storage::disk('public')->exists($destinationPath)) {
+                Storage::disk('public')->put(
+                    $destinationPath,
+                    file_get_contents($sourcePath)
+                );
+            }
+
+            Team::updateOrCreate(
+                ['sl_no' => $team['sl_no']],
+                [
+                    'name' => $team['name'],
+                    'designation' => $team['designation'],
+                    'image' => $destinationPath,
+                    'linkedin' => $team['linkedin'],
+                    'status' => $team['status'],
+                ]
+            );
         }
 
-        $this->command->info('Team members seeded successfully!');
+         $this->command->info('Team members seeded successfully!');
         $this->command->info('Total teams created: ' . count($teams));
     
     }
