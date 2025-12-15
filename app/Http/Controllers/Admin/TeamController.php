@@ -12,14 +12,19 @@ class TeamController extends Controller
 {
     public function index()
     {
-        // $teams = Team::latest()->get();
-        $teams = Team::select('sl_no', 'name', 'designation', 'image', 'linkedin', 'status','id')->orderBy('sl_no', 'asc')->get();
+       $teams = Team::select('id', 'sl_no', 'name', 'designation', 'image', 'linkedin', 'status')
+        ->orderBy('status', 'desc') // 1 first, 0 last
+        ->orderBy('sl_no', 'asc')
+        ->get();
         return view('backend.teams.index', compact('teams'));
     }
 
     public function create()
     {
-        return view('backend.teams.create');
+        $lastSlNo = Team::max('sl_no');
+        $nextSlNo = $lastSlNo ? $lastSlNo + 1 : 1;
+
+        return view('backend.teams.create',compact('nextSlNo'));
     }
 
     public function store(TeamRequest $request)
@@ -70,13 +75,7 @@ class TeamController extends Controller
         return redirect()->route('admin.teams.index')->with('success', 'Team updated successfully.');
     }
 
-    public function destroy($id)
-    {
-        $team = Team::findOrFail($id);
 
-        $team->delete();
-        return redirect()->route('admin.teams.index')->with('success', 'Team deleted successfully.');
-    }
 
     public function toggleStatus( Team $team): \Illuminate\Http\JsonResponse
     {

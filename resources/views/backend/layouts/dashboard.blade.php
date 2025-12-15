@@ -11,7 +11,7 @@
     @vite(['resources/css/app.css', 'resources/js/app.js'])
     <link rel="stylesheet" href="{{ asset('assets/plugins/fontawesome/css/fontawesome.min.css') }}">
     <link rel="stylesheet" href="{{ asset('assets/plugins/fontawesome/css/all.min.css') }}">
-    <link rel="stylesheet" href="{{ asset('assets/css/flowbite.min.css') }}"/>
+    <link rel="stylesheet" href="{{ asset('assets/css/flowbite.min.css') }}" />
     <link href="https://cdn.quilljs.com/1.3.6/quill.snow.css" rel="stylesheet">
     <link rel="stylesheet" href="{{ asset('assets/plugins/select2/css/select2.min.css') }}">
 
@@ -20,50 +20,51 @@
     <link rel="stylesheet" href="{{ asset('assets/css/admin-dist.css') }}">
     <link rel="stylesheet" href="{{ asset('assets/css/custom.css') }}">
     <meta name="csrf-token" content="{{ csrf_token() }}">
-   {{-- <script src="https://cdn.jsdelivr.net/npm/@hotwired/turbo@8.0.20/dist/turbo.es2017-umd.min.js"></script>--}}
+    {{-- <script src="https://cdn.jsdelivr.net/npm/@hotwired/turbo@8.0.20/dist/turbo.es2017-umd.min.js"></script> --}}
 </head>
 
 <body>
 
-<div class="main-wrapper">
-    <div class="header">
-        @include('backend.layouts.header')
-    </div>
-    <div class="sidebar bg-white" id="sidebar">
-        @include('backend.layouts.sidebar')
-    </div>
-
-    <main class="page-wrapper h-screen">
-        <div class="content">
-            @yield('content')
-            <!-- Loader -->
-            <div id="loader" class="fixed inset-0 flex items-center justify-center bg-white bg-opacity-50 z-50">
-                <div class="animate-spin rounded-full h-16 w-16 border-t-4 border-b-4 border-green-300"></div>
-            </div>
+    <div class="main-wrapper">
+        <div class="header">
+            @include('backend.layouts.header')
         </div>
-    </main>
-</div>
+        <div class="sidebar bg-white" id="sidebar">
+            @include('backend.layouts.sidebar')
+        </div>
+
+        <main class="page-wrapper h-screen">
+            <div class="content">
+
+                <div id="global-loader"
+                    class="loader fixed inset-0 flex items-center justify-center bg-white bg-opacity-80 z-50">
+                    <div class="animate-spin rounded-full h-16 w-16 border-t-4 border-b-4 border-green-500"></div>
+                </div>
+
+                @yield('content')
+
+            </div>
+        </main>
+    </div>
 
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/flowbite@3.1.2/dist/flowbite.min.js"></script>
-<script src="https://cdn.quilljs.com/1.3.6/quill.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/flowbite@3.1.2/dist/flowbite.min.js"></script>
+    <script src="https://cdn.quilljs.com/1.3.6/quill.min.js"></script>
 
-<!-- Feather Icon JS -->
-<script src="{{ asset('assets/js/feather.min.js') }}"></script>
-<script src="{{ asset('assets/js/jquery.slimscroll.min.js') }}"></script>
-<script src="{{ asset('assets/js/script.js') }}"></script>
-<script src="{{ asset('assets/plugins/select2/js/select2.min.js') }}"></script>
-<script>
-    window.addEventListener("load", () => {
-        document.getElementById("loader").style.display = "none";
-    });
-</script>
+    <!-- Feather Icon JS -->
+    <script src="{{ asset('assets/js/feather.min.js') }}"></script>
+    <script src="{{ asset('assets/js/jquery.slimscroll.min.js') }}"></script>
+    <script src="{{ asset('assets/js/script.js') }}"></script>
+    <script src="{{ asset('assets/plugins/select2/js/select2.min.js') }}"></script>
+    <script src="{{ asset('assets/js/global-loader.js') }}"></script>
 
-<div id="toast" class="hidden fixed top-20 right-5 z-50 min-w-[220px] max-w-sm rounded-lg shadow-lg px-4 py-3 bg-gray-800 text-white transition-opacity duration-300">
-    <span id="toast-message" class="text-sm"></span>
-</div>
-@stack('scripts')
+
+    <div id="toast"
+        class="hidden fixed top-20 right-5 z-50 min-w-[220px] max-w-sm rounded-lg shadow-lg px-4 py-3 bg-gray-800 text-white transition-opacity duration-300">
+        <span id="toast-message" class="text-sm"></span>
+    </div>
+    @stack('scripts')
 
 </body>
 

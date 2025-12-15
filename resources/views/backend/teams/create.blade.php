@@ -21,9 +21,9 @@
                 <div class="">
                     <div class="form-group">
                         <label>Sl No<span class="manitory">*</span></label>
-                        <input type="number" name="sl_no" placeholder="Write Sl No" value="{{ old('sl_no') }}"
+                        <input type="number" name="sl_no" placeholder="Write Sl No" value="{{ old('sl_no', $nextSlNo) }}"
                             required />
-                        <span class="text-danger-500 text-xs">sl no must be unique & start from 1</span>
+                        {{-- <span class="text-danger-500 text-xs">sl no must be unique & start from 1</span> --}}
                     </div>
                     @error('sl_no')
                         <div class="text-danger-500 mt-1">{{ $message }}</div>
