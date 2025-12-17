@@ -6,9 +6,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     {{-- <link rel="icon" href="@/assets/images/icons/favicon.svg" type="image/svg+xml"> --}}
-    <link rel="icon" href="{{ asset('favicon.svg') }}" type="image/svg+xml">
+    <link rel="icon" href="{{ asset('favicon.webp') }}" type="image/svg+xml">
     <title>@yield('title', 'Zavisoft') | Zavisoft</title>
-    @vite(['resources/css/app.css', 'resources/js/app.js'])
+    @vite(['resources/css/app.css'])
     <link rel="stylesheet" href="{{ asset('assets/plugins/fontawesome/css/fontawesome.min.css') }}">
     <link rel="stylesheet" href="{{ asset('assets/plugins/fontawesome/css/all.min.css') }}">
     <link rel="stylesheet" href="{{ asset('assets/css/flowbite.min.css') }}" />
@@ -36,11 +36,6 @@
         <main class="page-wrapper h-screen">
             <div class="content">
 
-                <div id="global-loader"
-                    class="loader fixed inset-0 flex items-center justify-center bg-white bg-opacity-80 z-50">
-                    <div class="animate-spin rounded-full h-16 w-16 border-t-4 border-b-4 border-green-500"></div>
-                </div>
-
                 @yield('content')
 
             </div>
@@ -48,16 +43,16 @@
     </div>
 
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/flowbite@3.1.2/dist/flowbite.min.js"></script>
-    <script src="https://cdn.quilljs.com/1.3.6/quill.min.js"></script>
+    <script defer src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/flowbite@3.1.2/dist/flowbite.min.js"></script>
+    <script defer src="https://cdn.quilljs.com/1.3.6/quill.min.js"></script>
 
     <!-- Feather Icon JS -->
-    <script src="{{ asset('assets/js/feather.min.js') }}"></script>
-    <script src="{{ asset('assets/js/jquery.slimscroll.min.js') }}"></script>
-    <script src="{{ asset('assets/js/script.js') }}"></script>
-    <script src="{{ asset('assets/plugins/select2/js/select2.min.js') }}"></script>
-    <script src="{{ asset('assets/js/global-loader.js') }}"></script>
+    <script defer src="{{ asset('assets/js/feather.min.js') }}"></script>
+    <script defer src="{{ asset('assets/js/jquery.slimscroll.min.js') }}"></script>
+    <script defer src="{{ asset('assets/js/script.js') }}"></script>
+    <script defer src="{{ asset('assets/plugins/select2/js/select2.min.js') }}"></script>
+    {{-- <script src="{{ asset('assets/js/global-loader.js') }}"></script> --}}
 
 
     <div id="toast"

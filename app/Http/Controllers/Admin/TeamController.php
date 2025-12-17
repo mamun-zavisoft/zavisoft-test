@@ -13,7 +13,7 @@ class TeamController extends Controller
     public function index()
     {
        $teams = Team::select('id', 'sl_no', 'name', 'designation', 'image', 'linkedin', 'status')
-        ->orderBy('status', 'desc') // 1 first, 0 last
+        ->orderBy('status', 'desc') 
         ->orderBy('sl_no', 'asc')
         ->get();
         return view('backend.teams.index', compact('teams'));
