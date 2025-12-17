@@ -53,6 +53,7 @@
                         </tr>
                     </thead>
                     <tbody class="font-normal text-neutral-500">
+
                         @foreach ($teams as $team)
                             <tr class="border-b last:border-b-0">
                                 <td class="px-4 py-3">
@@ -69,11 +70,26 @@
                                     <img src="{{ Storage::url($team->image) }}" alt="{{ $team->name }}"
                                         class="w-12 h-12 object-cover rounded">
                                 </td>
-                                <td class="px-4 py-3">
 
-                                    <i class="fas {{ $team->status === 1 ? 'fa-toggle-on text-green-500' : 'fa-toggle-off text-red-500' }} text-2xl cursor-pointer toggle-icon"
-                                        data-id="{{ $team->id }}"></i>
+                                <td class="px-4 py-3">
+                                    <label for="profile{{ $team->id }}" class="inline-flex items-center cursor-pointer">
+
+                                        <input type="checkbox" class="sr-only peer team-status-toggle"
+                                            id="profile{{ $team->id }}" data-id="{{ $team->id }}"
+                                            data-status="{{ $team->status }}" @checked($team->status == 1)>
+                                        <div
+                                            class="relative w-9 h-5 bg-neutral-300 peer-focus:outline-none
+                                             peer-focus:ring-0 peer-focus:ring-brand-soft  rounded-full peer 
+                                             peer-checked:after:translate-x-full rtl:peer-checked:after:-translate-x-full
+                                              peer-checked:after:border-buffer after:content-[''] after:absolute after:top-0.5
+                                               after:start-0.5 after:bg-white after:rounded-full 
+                                               after:h-4 after:w-4 after:transition-all peer-checked:bg-primary-500">
+                                        </div>
+
+                                    </label>
+
                                 </td>
+
                                 <td class="px-4 py-3 ">
                                     <div class="flex gap-4 items-center">
                                         <a href="{{ route('admin.teams.edit', $team->id) }}"
@@ -96,32 +112,31 @@
 @push('scripts')
     <script>
         document.addEventListener('DOMContentLoaded', () => {
-            // Debug: Check if icons are found
-            const icons = document.querySelectorAll('.toggle-icon');
 
-            icons.forEach(icon => {
-                icon.addEventListener('click', async function() {
+            const csrfMeta = document.querySelector('meta[name="csrf-token"]');
+
+            if (!csrfMeta) {
+                console.error('CSRF token missing');
+                return;
+            }
+
+            document.querySelectorAll('.team-status-toggle').forEach(toggle => {
+                const status = Number(toggle.dataset.status);
+                toggle.checked = status === 1;
+
+
+                toggle.addEventListener('change', async function() {
+
                     const teamId = this.dataset.id;
-                    console.log('Clicked icon with team ID:', teamId);
+                    const newStatus = this.checked ? 1 : 0;
 
                     if (!teamId) {
-                        console.error('No team ID found');
-                        showToast('No team ID specified', 'error');
-                        return;
-                    }
-
-                    // Get CSRF token
-                    const csrfMeta = document.querySelector('meta[name="csrf-token"]');
-                    if (!csrfMeta) {
-                        console.error('CSRF token meta tag not found');
-                        showToast('Security token missing', 'error');
+                        showToast('Invalid team ID', 'error');
+                        this.checked = !this.checked;
                         return;
                     }
 
                     try {
-                        console.log('Sending request to:',
-                            `/admin/teams/${teamId}/toggle-status`);
-
                         const res = await fetch(`/admin/teams/${teamId}/toggle-status`, {
                             method: 'POST',
                             headers: {
@@ -130,45 +145,41 @@
                                 'Content-Type': 'application/json'
                             },
                             body: JSON.stringify({
-                                _method: 'POST'
-                            }) // Optional, but good practice
+                                status: newStatus
+                            })
                         });
 
-
-                        // Check if response is OK
                         if (!res.ok) {
-                            const errorText = await res.text();
-                            console.error('Server error:', errorText);
-                            showToast(`Server error: ${res.status}`, 'error');
-                            return;
+                            throw new Error(`Server error (${res.status})`);
                         }
 
                         const data = await res.json();
-                        console.log('Response data:', data);
 
                         if (data.success) {
-                            // Update icon appearance
-                            if (data.status === 1) {
-                                this.classList.remove('fa-toggle-off', 'text-red-500');
-                                this.classList.add('fa-toggle-on', 'text-green-500');
-                            } else {
-                                this.classList.remove('fa-toggle-on', 'text-green-500');
-                                this.classList.add('fa-toggle-off', 'text-red-500');
-                            }
-
                             showToast(
-                                `Status updated to ${data.status === 1 ? 'Active' : 'Inactive'}`,
-                                'success');
+                                `Status changed to ${newStatus === 1 ? 'Active' : 'Inactive'}`,
+                                'success'
+                            );
+
+
+                            this.dataset.status = newStatus;
                         } else {
-                            showToast('Failed to update status', 'error');
+                            throw new Error('Update failed');
                         }
+
                     } catch (error) {
-                        console.error('Fetch error:', error);
-                        showToast('Request failed: ' + error.message, 'error');
+                        console.error(error);
+
+
+                        this.checked = !this.checked;
+
+                        showToast('Failed to update status', 'error');
                     }
                 });
             });
         });
+
+        /* ================= TOAST FUNCTION ================= */
 
         function showToast(message, type = 'success') {
             const toast = document.getElementById('toast');
@@ -176,8 +187,13 @@
 
             if (!toast || !msg) return;
 
-            // Color variants
-            toast.classList.remove('bg-gray-800', 'bg-green-600', 'bg-red-600', 'bg-blue-600');
+            toast.classList.remove(
+                'bg-gray-800',
+                'bg-green-600',
+                'bg-red-600',
+                'bg-blue-600'
+            );
+
             if (type === 'success') toast.classList.add('bg-green-600');
             else if (type === 'error') toast.classList.add('bg-red-600');
             else if (type === 'info') toast.classList.add('bg-blue-600');

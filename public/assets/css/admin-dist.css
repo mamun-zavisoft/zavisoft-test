@@ -17438,57 +17438,7 @@ body[data-theme=dark] .form-group input[type=textarea]:focus {
   forced-color-adjust: none;
 }
 
-@font-face {
-  font-family: 'Nunito';
 
-  src: url('../assets/fonts/Nunito-Regular.woff2') format('woff2'),
-    url('../assets/fonts/Nunito-Regular.woff') format('woff');
-
-  font-weight: normal;
-
-  font-style: normal;
-
-  font-display: swap;
-}
-
-@font-face {
-  font-family: 'Nunito';
-
-  src: url('../assets/fonts/Nunito-Bold.woff2') format('woff2'),
-    url('../assets/fonts/Nunito-Bold.woff') format('woff');
-
-  font-weight: bold;
-
-  font-style: normal;
-
-  font-display: swap;
-}
-
-@font-face {
-  font-family: 'Nunito';
-
-  src: url('../assets/fonts/Nunito-Medium.woff2') format('woff2'),
-    url('../assets/fonts/Nunito-Medium.woff') format('woff');
-
-  font-weight: 500;
-
-  font-style: normal;
-
-  font-display: swap;
-}
-
-@font-face {
-  font-family: 'Nunito';
-
-  src: url('../assets/fonts/Nunito-SemiBold.woff2') format('woff2'),
-    url('../assets/fonts/Nunito-SemiBold.woff') format('woff');
-
-  font-weight: 600;
-
-  font-style: normal;
-
-  font-display: swap;
-}
 
 @media (min-width: 640px) {
   .sm\:container {
