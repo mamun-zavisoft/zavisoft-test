@@ -2,48 +2,48 @@
     <div id="sidebar-menu" class="sidebar-menu">
         <ul>
             <li class="{{ Route::is('admin.dashboard') ? 'active' : '' }}">
-                <a href="{{ route('admin.dashboard') }}">
+                <a href="{{ route('admin.dashboard') }}" data-tooltip="Dashboard">
                     <img src="{{ asset('assets/images/icons/dashboard.svg') }}" alt="img">
                     <span> Dashboard</span>
                 </a>
             </li>
 
             <li class="{{ Route::is('admin.job-applications') ? 'active' : '' }}">
-                <a href="{{ route('admin.job-applications') }}">
+                <a href="{{ route('admin.job-applications') }}" data-tooltip="Job Applications">
                     <i class="fa fa-file-signature text-gray-600 text-xl"></i>
                     <span>Job Applications</span>
                 </a>
             </li>
 
             <li class="{{ Route::is('admin.careers*') ? 'active' : '' }}">
-                <a href="{{ route('admin.careers.index') }}">
+                <a href="{{ route('admin.careers.index') }}" data-tooltip="Job Post">
                     <i class="fa fa-file-alt text-gray-600 text-xl"></i>
                     <span>Job Post</span>
                 </a>
             </li>
 
             <li class="{{ Route::is('admin.messages') ? 'active' : '' }}">
-                <a href="{{ route('admin.messages') }}">
+                <a href="{{ route('admin.messages') }}" data-tooltip="Messages">
                     <i class="fa fa-bell text-gray-600 text-xl"></i>
                     <span> Messages </span>
                 </a>
             </li>
 
             <li class="{{ Route::is('admin.service*') ? 'active' : '' }}">
-                <a href="{{ route('admin.service.index') }}">
+                <a href="{{ route('admin.service.index') }}" data-tooltip="Services">
                     <i class="fa fa-tools text-gray-600 text-xl"></i>
                     <span>Services</span>
                 </a>
             </li>
 
             <li class="{{ Route::is('admin.project*') ? 'active' : '' }}">
-                <a href="{{ route('admin.project.index') }}">
+                <a href="{{ route('admin.project.index') }}" data-tooltip="Projects">
                     <i class="fa fa-diagram-project text-gray-600 text-xl"></i>
                     <span>Projects</span>
                 </a>
             </li>
              <li class="{{ Route::is('admin.teams*') ? 'active' : '' }}">
-                <a href="{{ route('admin.teams.index') }}">
+                <a href="{{ route('admin.teams.index') }}" data-tooltip="Team Members">
                     <i class="fa fa-users text-gray-600 text-xl"></i>
                     <span>Team Members</span>
                 </a>

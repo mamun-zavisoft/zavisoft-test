@@ -1,18 +1,21 @@
  <!-- Logo -->
  <div class="header-left active">
      <a href={{ route('admin.dashboard') }} class="logo logo-normal">
-         <img src="{{ asset('assets/images/logo/logo.svg') }}" alt="">
+         <img src="{{ asset('assets/images/logo/logo.webp') }}" alt="">
      </a>
      <a href="{{ route('admin.dashboard') }}" class="logo logo-white">
-         <img src="{{ asset('assets/images/logo/logo_white.svg') }}" alt="">
+         <img src="{{ asset('assets/images/logo/logo_white.webp') }}" alt="">
      </a>
      <a href="{{ route('admin.dashboard') }}" class="logo-small">
-         <img src="{{ asset('assets/images/logo/favicon.svg') }}" alt="">
+         <img src="{{ asset('assets/images/logo/favicon.webp') }}" alt="">
      </a>
-     <a id="toggle_btn" href="javascript:void(0);">
-     </a>
+     {{-- <a id="toggle_btn" href="javascript:void(0);">
+     </a> --}}
  </div>
  <!-- /Logo -->
+
+ <a id="toggle_btn" href="javascript:void(0);">
+ </a>
 
  <a id="mobile_btn" class="mobile_btn" href="#sidebar">
      <span class="bar-icon">

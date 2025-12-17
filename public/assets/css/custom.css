@@ -305,3 +305,96 @@
 .hidden {
     display: none;
 }
+
+.sidebar .sidebar-menu>ul>li a:hover {
+    background: var(--color-primary-500);
+
+    i.fa {
+        color: var(--color-white);
+    }
+}
+
+.sidebar .sidebar-menu>ul>li.active a {
+    background: var(--color-primary-500);
+
+    i.fa {
+        color: var(--color-white);
+    }
+}
+
+.header #toggle_btn {
+    height: 100%;
+    position: relative;
+}
+
+
+
+/* hide text when mini sidebar */
+/* body.mini-sidebar .sidebar-menu span {
+    display: none;
+} */
+
+/* tooltip base */
+/* body.mini-sidebar .sidebar-menu a {
+    position: relative;
+} */
+
+/* tooltip box */
+body.mini-sidebar .sidebar-menu a::after {
+    content: attr(data-tooltip);
+    position: absolute;
+    left: 48px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: #111;
+    color: #fff;
+    padding: 6px 10px;
+    border-radius: 4px;
+    font-size: 13px;
+    white-space: nowrap;
+    opacity: 0;
+    visibility: hidden;
+    transition: 0.2s ease;
+    pointer-events: none;
+    z-index: 9999;
+}
+
+/* show tooltip on hover */
+body.mini-sidebar .sidebar-menu a:hover::after {
+    opacity: 1;
+    visibility: visible;
+}
+
+.slimScrollDiv {
+    overflow: visible !important;
+
+}
+
+body.mini-sidebar .sidebar-inner {
+    overflow: visible !important;
+}
+
+.peer:checked~.peer-checked\:after\:translate-x-full::after {
+    --tw-translate-x: 50%;
+
+}
+
+.header #toggle_btn:after {
+    position: absolute;
+    /* top: 0px; */
+    left: 6px;
+    height: 6px;
+    width: 6px;
+    border-radius: 20px;
+    border-width: 2px;
+    --tw-border-opacity: 1;
+    border-color: rgb(9 44 76 / var(--tw-border-opacity, 1));
+    --tw-bg-opacity: 1;
+    background-color: rgb(255 255 255 / var(--tw-bg-opacity, 1));
+    --tw-content: "";
+    content: var(--tw-content);
+}
+
+body.mini-sidebar #toggle_btn:after {
+    display: none;
+}
