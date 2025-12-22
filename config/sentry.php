@@ -8,7 +8,7 @@
 return [
 
     // @see https://docs.sentry.io/product/sentry-basics/dsn-explainer/
-    // 'dsn' => 'https://9c5fd34eb5a5b0c0ac49b86ca92cda8b@o4510514286034944.ingest.de.sentry.io/4510514287804496',
+    'dsn' => 'https://9c5fd34eb5a5b0c0ac49b86ca92cda8b@o4510514286034944.ingest.de.sentry.io/4510514287804496',
 
     // @see https://spotlightjs.com/
     // 'spotlight' => env('SENTRY_SPOTLIGHT', false),
