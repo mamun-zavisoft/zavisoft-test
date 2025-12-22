@@ -398,3 +398,38 @@ body.mini-sidebar .sidebar-inner {
 body.mini-sidebar #toggle_btn:after {
     display: none;
 }
+
+
+.benefits-form {
+    .image-upload .image-uploads {
+        padding-top: 0;
+        padding-bottom: 0;
+
+    }
+
+    .image-upload input[type=file] {
+        height: 40px;
+    }
+
+    .image-upload {
+        width: 120px;
+        height: 40px;
+    }
+}
+
+.benefit-btns {
+    padding: 2px 10px !important;
+    min-width: fit-content !important;
+}
+
+.benefit-delete-btn {
+    padding: 2px 10px !important;
+    min-width: fit-content !important;
+    background: var(--color-danger-500);
+
+}
+
+.benefit-delete-btn:hover {
+    background: var(--color-danger-500);
+
+}

@@ -1,8 +1,9 @@
 <?php
 
-use App\Http\Controllers\Admin\JobApplicationController;
 use App\Http\Controllers\Admin\Auth\LoginController;
+use App\Http\Controllers\Admin\BenefitController;
 use App\Http\Controllers\Admin\DashboardController;
+use App\Http\Controllers\Admin\JobApplicationController;
 use App\Http\Controllers\Admin\JobCircularController;
 use App\Http\Controllers\Admin\MessageController;
 use App\Http\Controllers\Admin\ProjectController;
@@ -15,9 +16,8 @@ Route::get('/login', [LoginController::class, 'index'])->name('login');
 Route::post('/login', [LoginController::class, 'request'])->name('login.request');
 Route::post('/logout', [LoginController::class, 'logout'])->name('logout');
 
-
 Route::group(['middleware' => 'auth'], function () {
-    Route::get('/dashboard',[DashboardController::class, 'index'])->name('dashboard');
+    Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
 
     Route::get('/system-settings', function () {
         return view('backend.settings.system-settings');
@@ -38,7 +38,6 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('/testimonials', function () {
         return view('backend.testimonials');
     })->name('testimonials');
- 
 
     Route::get('social-media', function () {
         return view('backend.social-media');
@@ -61,19 +60,19 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('/messages', [MessageController::class, 'index'])->name('messages');
     Route::get('/view-cv/{name}', [JobApplicationController::class, 'viewCV'])->name('view.cv');
     Route::put('/job-applications-status-update/{id}', [JobApplicationController::class, 'update'])->name('job-applications.update');
-    Route::delete('/job-applications/{id}',[JobApplicationController::class, 'destroy'])->name('job-applications.destroy');
+    Route::delete('/job-applications/{id}', [JobApplicationController::class, 'destroy'])->name('job-applications.destroy');
 
     // service
-    Route::get('/services',[ServiceController::class,'index'])->name('service.index');
-    Route::get('/create-service',[ServiceController::class,'create'])->name('service.create');
+    Route::get('/services', [ServiceController::class, 'index'])->name('service.index');
+    Route::get('/create-service', [ServiceController::class, 'create'])->name('service.create');
     Route::post('/services', [ServiceController::class, 'store'])->name('service.store');
     Route::get('/services/edit/{id}', [ServiceController::class, 'edit'])->name('service.edit');
     Route::patch('/services/update/{id}', [ServiceController::class, 'update'])->name('service.update');
 
     // projects
-    Route::get('/projects', [ProjectController::class,'index'])->name('project.index');
-    Route::get('/create-project', [ProjectController::class,'create'])->name('project.create');
-    Route::post('/projects', [ProjectController::class,'store'])->name('project.store');
+    Route::get('/projects', [ProjectController::class, 'index'])->name('project.index');
+    Route::get('/create-project', [ProjectController::class, 'create'])->name('project.create');
+    Route::post('/projects', [ProjectController::class, 'store'])->name('project.store');
     Route::get('/projects/edit/{id}', [ProjectController::class, 'edit'])->name('project.edit');
     Route::patch('/projects/update/{id}', [ProjectController::class, 'update'])->name('project.update');
 
@@ -85,5 +84,16 @@ Route::group(['middleware' => 'auth'], function () {
     Route::patch('/team-members/update/{id}', [TeamController::class, 'update'])->name('teams.update');
     Route::post('/teams/{team}/toggle-status', [TeamController::class, 'toggleStatus'])->name('teams.toggleStatus');
 
-    
+    // Basic Benefits
+    Route::get('/basics-benefits', function () {
+        return view('backend.basics-benefits.index');
+    })->name('basics-benefits');
+
+    Route::get('/basics-benefits', [BenefitController::class, 'index'])->name('basics-benefits.index');
+    Route::get('/basics-benefits/create', [BenefitController::class, 'create'])->name('basics-benefits.create');
+    Route::post('/basics-benefits', [BenefitController::class, 'store'])->name('basics-benefits.store');
+      Route::get('/basics-benefits/edit/{id}', [BenefitController::class, 'edit'])->name('basics-benefits.edit');
+    Route::patch('/basics-benefits/update/{id}', [BenefitController::class, 'update'])->name('basics-benefits.update');
+    Route::delete('/basics-benefits/{id}', [BenefitController::class, 'destroy'])->name('basics-benefits.destroy');
+
 });
