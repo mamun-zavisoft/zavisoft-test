@@ -398,3 +398,21 @@ body.mini-sidebar .sidebar-inner {
 body.mini-sidebar #toggle_btn:after {
     display: none;
 }
+
+
+.benefits-form {
+    .image-upload .image-uploads {
+        padding-top: 0;
+        padding-bottom: 0;
+
+    }
+
+    .image-upload input[type=file] {
+        height: 40px;
+    }
+
+    .image-upload {
+        width: 120px;
+        height: 40px;
+    }
+}
