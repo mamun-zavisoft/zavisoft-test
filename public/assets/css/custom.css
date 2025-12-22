@@ -416,3 +416,20 @@ body.mini-sidebar #toggle_btn:after {
         height: 40px;
     }
 }
+
+.benefit-btns {
+    padding: 2px 10px !important;
+    min-width: fit-content !important;
+}
+
+.benefit-delete-btn {
+    padding: 2px 10px !important;
+    min-width: fit-content !important;
+    background: var(--color-danger-500);
+
+}
+
+.benefit-delete-btn:hover {
+    background: var(--color-danger-500);
+
+}

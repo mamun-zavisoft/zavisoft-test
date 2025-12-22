@@ -37,7 +37,7 @@
                                     you!</p>
 
                                 <div class="mt-6 w-full h-[50px]">
-                             
+
                                     <router-link v-if="job.id" :to="{
                                         name: 'JobApply', params: { slug },
                                         state: { id: job.id }
@@ -82,22 +82,48 @@
     </section>
     <section class="py-8 md:py-10 lg:py-12">
         <div class="container">
-            <div class="max-w-[920px] mr-auto career-lists">
-                <div class="">
-                    <h6 class="text-lg lg:text-xl text-neutral-900 font-semibold wow animate__animated animate__pulse">
-                        Description</h6>
-                    <div v-html="job.description" class="prose text-neutral-600 mt-3"></div>
 
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-8">
+                <!-- Basic Benefits Section - 40% on large screen (approx 5/12 columns) -->
+                <div class="lg:col-span-5 order-2 lg:order-1">
+                    <div class="basic-benefit bg-white">
+                        <h1 class="text-lg lg:text-xl text-neutral-900 font-semibold mb-6">
+                            Basics & Benefits
+                        </h1>
+                        <ul class="space-y-4 lg:pr-10 md:pr-5 pr-0">
+                            <li v-for="benefit in basic_benefits" :key="benefit.id" class="flex gap-4">
+                                <div class="icon w-4 h-4 flex-shrink-0 overflow-hidden mt-1.5">
+                                    <img :src="benefit.icon_url" :alt="benefit.short_description"
+                                        class="w-full h-full object-cover" @error="handleImageError($event)" />
+                                </div>
+                                <p class="text-neutral-700 text-base">
+                                    {{ benefit.short_description }}
+                                </p>
+                            </li>
+                        </ul>
+                    </div>
                 </div>
 
-                <div class="mt-6">
-                    <p class="text-lg lg:text-xl text-neutral-900 font-semibold wow animate__animated animate__pulse">
-                        Essential Requirement</p>
+                <!-- Career Lists Section - 60% on large screen -->
+                <div class="lg:col-span-7 order-1 lg:order-2">
+                    <div class=" career-lists ">
+                        <div class="">
+                            <h6
+                                class="text-lg lg:text-xl text-neutral-900 font-semibold wow animate__animated animate__pulse">
+                                Description</h6>
+                            <div v-html="job.description" class="prose text-neutral-600 mt-3"></div>
 
-                    <!-- <p>{{ job.requirement ?? '' }}</p> -->
-                    <div v-html="job.requirement" class="prose text-neutral-600 mt-3"></div>
+                        </div>
 
-                    <!-- <ul class="mt-3 pl-4  text-neutral-400 space-y-2 text-sm wow animate__animated animate__fadeInUp">
+                        <div class="mt-6">
+                            <p
+                                class="text-lg lg:text-xl text-neutral-900 font-semibold wow animate__animated animate__pulse">
+                                Essential Requirement</p>
+
+                            <!-- <p>{{ job.requirement ?? '' }}</p> -->
+                            <div v-html="job.requirement" class="prose text-neutral-600 mt-3"></div>
+
+                            <!-- <ul class="mt-3 pl-4  text-neutral-400 space-y-2 text-sm wow animate__animated animate__fadeInUp">
                         <li class="relative list-none pl-4
                             before:content-[''] before:absolute before:-left-2 before:top-2
                             before:h-1.5 before:w-1.5 before:rounded-full before:bg-neutral-400">
@@ -114,12 +140,13 @@
                             Implemented responsive design for optimal mobile experience
                         </li>
                     </ul> -->
-                </div>
-                <div class="mt-6">
-                    <p class="text-lg lg:text-xl text-neutral-900 font-semibold wow animate__animated animate__pulse">
-                        Your Key Responsibilities</p>
+                        </div>
+                        <div class="mt-6">
+                            <p
+                                class="text-lg lg:text-xl text-neutral-900 font-semibold wow animate__animated animate__pulse">
+                                Your Key Responsibilities</p>
 
-                    <!-- <ul class="mt-3 pl-4  text-neutral-400 space-y-2 text-sm wow animate__animated animate__fadeInUp">
+                            <!-- <ul class="mt-3 pl-4  text-neutral-400 space-y-2 text-sm wow animate__animated animate__fadeInUp">
                         <li class="relative list-none pl-4
                             before:content-[''] before:absolute before:-left-2 before:top-2
                             before:h-1.5 before:w-1.5 before:rounded-full before:bg-neutral-400">
@@ -137,15 +164,16 @@
                         </li>
                     </ul> -->
 
-                    <div v-html="job.responsibilities" class="prose text-neutral-600 mt-3"></div>
-                </div>
-                <div class="mt-6">
-                    <p class="text-lg lg:text-xl text-neutral-900 font-semibold wow animate__animated animate__pulse">
-                        Why Join Zavisoft</p>
+                            <div v-html="job.responsibilities" class="prose text-neutral-600 mt-3"></div>
+                        </div>
+                        <div class="mt-6">
+                            <p
+                                class="text-lg lg:text-xl text-neutral-900 font-semibold wow animate__animated animate__pulse">
+                                Why Join Zavisoft</p>
 
-                    <div v-html="job.about_company" class="prose text-neutral-600 mt-3"></div>
+                            <div v-html="job.about_company" class="prose text-neutral-600 mt-3"></div>
 
-                    <!-- <ul class="mt-3 pl-4  text-neutral-400 space-y-2 text-sm wow animate__animated animate__fadeInUp">
+                            <!-- <ul class="mt-3 pl-4  text-neutral-400 space-y-2 text-sm wow animate__animated animate__fadeInUp">
                         <li class="relative list-none pl-4
                             before:content-[''] before:absolute before:-left-2 before:top-2
                             before:h-1.5 before:w-1.5 before:rounded-full before:bg-neutral-400">
@@ -162,17 +190,20 @@
                             Implemented responsive design for optimal mobile experience
                         </li>
                     </ul> -->
+                        </div>
+                    </div>
                 </div>
             </div>
+
         </div>
     </section>
 </template>
 
 <script setup>
 import { ref, onMounted } from 'vue'
-// const props = defineProps({
-//     slug: String
-// })
+import { useFetch } from "@/composables/useFetch.js"
+// Fetch team members from API
+const { data: basic_benefits } = useFetch("/api/benefits")
 import { useRoute } from 'vue-router'
 
 const route = useRoute()

@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Admin\Auth\LoginController;
+use App\Http\Controllers\Admin\BenefitController;
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\JobApplicationController;
 use App\Http\Controllers\Admin\JobCircularController;
@@ -87,5 +88,12 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('/basics-benefits', function () {
         return view('backend.basics-benefits.index');
     })->name('basics-benefits');
+
+    Route::get('/basics-benefits', [BenefitController::class, 'index'])->name('basics-benefits.index');
+    Route::get('/basics-benefits/create', [BenefitController::class, 'create'])->name('basics-benefits.create');
+    Route::post('/basics-benefits', [BenefitController::class, 'store'])->name('basics-benefits.store');
+      Route::get('/basics-benefits/edit/{id}', [BenefitController::class, 'edit'])->name('basics-benefits.edit');
+    Route::patch('/basics-benefits/update/{id}', [BenefitController::class, 'update'])->name('basics-benefits.update');
+    Route::delete('/basics-benefits/{id}', [BenefitController::class, 'destroy'])->name('basics-benefits.destroy');
 
 });

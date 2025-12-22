@@ -49,7 +49,7 @@
                 </a>
             </li>
             <li class="{{ Route::is('admin.basics-benefits*') ? 'active' : '' }}">
-                <a href="{{ route('admin.basics-benefits') }}">
+                <a href="{{ route('admin.basics-benefits.index') }}">
                     <i class="fa-solid fa-gift text-gray-600 text-xl"></i>
                     <span>Basics & Benefits</span>
                 </a>
