@@ -84,28 +84,7 @@
         <div class="container">
 
             <div class="grid grid-cols-1 lg:grid-cols-12 gap-8">
-                <!-- Basic Benefits Section - 40% on large screen (approx 5/12 columns) -->
-                <div class="lg:col-span-5 order-2 lg:order-1">
-                    <div class="basic-benefit bg-white">
-                        <h1 class="text-lg lg:text-xl text-neutral-900 font-semibold mb-6">
-                            Basics & Benefits
-                        </h1>
-                        <ul class="space-y-4 lg:pr-10 md:pr-5 pr-0">
-                            <li v-for="benefit in basic_benefits" :key="benefit.id" class="flex gap-4">
-                                <div class="icon w-4 h-4 flex-shrink-0 overflow-hidden mt-1.5">
-                                    <img :src="benefit.icon_url" :alt="benefit.short_description"
-                                        class="w-full h-full object-cover" @error="handleImageError($event)" />
-                                </div>
-                                <p class="text-neutral-700 text-base">
-                                    {{ benefit.short_description }}
-                                </p>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-
-                <!-- Career Lists Section - 60% on large screen -->
-                <div class="lg:col-span-7 order-1 lg:order-2">
+                <div class="lg:col-span-7 order-1 lg:order-1">
                     <div class=" career-lists ">
                         <div class="">
                             <h6
@@ -193,6 +172,30 @@
                         </div>
                     </div>
                 </div>
+                <div class="lg:col-span-5 order-2 lg:order-2">
+
+                    <div v-if="basic_benefits?.length > 0"
+                        class="basic-benefit bg-white lg:pl-10 md:pl-5 pl-0 md:mt-5 lg:mt-10">
+                        <h1 class="text-lg lg:text-xl text-neutral-900 font-semibold mb-6">
+                            Basics & Benefits
+                            <CheckIcon />
+                        </h1>
+                        <ul class="space-y-4 ">
+                            <li v-for="benefit in basic_benefits" :key="benefit.id" class="flex gap-4">
+                                <div class="icon w-4 h-4 flex-shrink-0 overflow-hidden mt-1.5">
+                                    <img v-if="benefit.icon_url" :src="benefit.icon_url"
+                                        :alt="benefit.short_description" class="w-full h-full object-cover"
+                                        @error="handleImageError($event)" />
+                                    <CheckCircleIcon v-else class="w-full h-full text-neutral-700 text-base" />
+                                </div>
+                                <p class="text-neutral-700 text-base">
+                                    {{ benefit.short_description }}
+                                </p>
+                            </li>
+                        </ul>
+                    </div>
+
+                </div>
             </div>
 
         </div>
@@ -202,6 +205,8 @@
 <script setup>
 import { ref, onMounted } from 'vue'
 import { useFetch } from "@/composables/useFetch.js"
+import { CheckCircleIcon } from "@heroicons/vue/24/outline"
+
 // Fetch team members from API
 const { data: basic_benefits } = useFetch("/api/benefits")
 import { useRoute } from 'vue-router'
