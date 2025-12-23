@@ -37,13 +37,17 @@
                         <tbody class="font-normal text-neutral-500">
                             @foreach ($benefits as $benefit)
                                 <tr class="border-b last:border-b-0">
-                                    <th scope="row" class="px-4 py-3 text-heading whitespace-nowrap">
-                                        <img src="{{ asset('storage/' . $benefit->icon) }}" alt="Icon"
-                                            class="w-6 h-6 object-cover rounded">
-                                    </th>
-                                    <th scope="row" class="px-4 py-3 text-heading whitespace-nowrap">
+                                    <td scope="row" class="px-4 py-3 ">
+                                        @if ($benefit->icon)
+                                            <img src="{{ asset('storage/' . $benefit->icon) }}" alt="Icon"
+                                                class="w-6 h-6 object-cover rounded">
+                                        @else
+                                            <i class="fa-regular fa-circle-check w-6 h-6 "></i>
+                                        @endif
+                                    </td>
+                                    <td scope="row" class="px-4 py-3 text-heading whitespace-nowrap">
                                         {{ $benefit->short_description }}
-                                    </th>
+                                    </td>
                                     <td class="px-4 py-3" style="width: 120px">
                                         <div class="flex gap-4">
                                             <button data-modal-target="benefit-modal-{{ $benefit->id }}"
