@@ -79,39 +79,7 @@
                     @endif
                 </div>
             </div>
-            {{-- <div class="mb-4">
-                <div class="form-group">
-                    <label class="text-base text-red-800">Gallery Image<span class="manitory">*</span> (Can be upload
-                        multiple images)</label>
-                    <div class="image-upload">
-                        <input type="file" name="gallery_image[]" id="gallery-image" multiple>
-                        <div class="image-uploads flex flex-col items-center justify-center">
-                            <img src="{{ asset('assets/images/icons/upload.svg') }}" alt="img">
-                            <h4>Drag and drop a file to upload</h4>
-                        </div>
-                    </div>
-                    @error('gallery_image')
-                        <div class="text-danger-500 mt-1">{{ $message }}</div>
-                    @enderror
-                    <span id="gallery-file-name" class="mt-2 text-sm text-gray-600"></span>
-                </div>
-
-                <div class="gallery-preview-image flex gap-4">
-                    @if (!empty($project->gallery_image))
-                        @foreach (json_decode($project->gallery_image, true) as $image)
-                            <div class="relative">
-                                <img src="{{ asset('storage/' . $image) }}" alt="img"
-                                    class="w-16 h-16 object-cover rounded mb-2">
-                                <span class=" w-8 h-8 p-2 rounded bg-neutral-50 absolute -top-1 -right-3 cursor-pointer ">
-                                    <img class="" src="{{ asset('assets/images/icons/close-icon.svg') }}"
-                                        alt="">
-                                </span>
-                            </div>
-                        @endforeach
-                    @endif
-                    <input type="hidden" name="removed_images" id="removedImages">
-                </div>
-            </div> --}}
+            
 
             <div class="mb-4">
                 <div class="form-group">

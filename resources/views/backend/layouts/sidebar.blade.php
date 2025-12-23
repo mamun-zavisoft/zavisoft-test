@@ -42,14 +42,20 @@
                     <span>Projects</span>
                 </a>
             </li>
-             <li class="{{ Route::is('admin.teams*') ? 'active' : '' }}">
+            <li class="{{ Route::is('admin.teams*') ? 'active' : '' }}">
                 <a href="{{ route('admin.teams.index') }}" data-tooltip="Team Members">
                     <i class="fa fa-users text-gray-600 text-xl"></i>
                     <span>Team Members</span>
                 </a>
             </li>
+            <li class="{{ Route::is('admin.basics-benefits*') ? 'active' : '' }}">
+                <a href="{{ route('admin.basics-benefits.index') }}">
+                    <i class="fa-solid fa-gift text-gray-600 text-xl"></i>
+                    <span>Basics & Benefits</span>
+                </a>
+            </li>
 
-            {{--<li class="{{ Route::is('admin.industry-focus*') ? 'active' : '' }}">
+            {{-- <li class="{{ Route::is('admin.industry-focus*') ? 'active' : '' }}">
                 <a href="{{ route('admin.industry-focus') }}">
                     <i class="fa fa-industry text-gray-600 text-xl"></i>
                     <span>Industry Focus</span>
@@ -107,7 +113,7 @@
                     <li class="{{ Route::is('admin.settings.page-settings') ? 'active' : '' }}">
                         <a href="{{ route('admin.settings.page-settings') }}">Page Settings</a>
                     </li>
-                </ul>--}}
+                </ul> --}}
             </li>
         </ul>
     </div>
