@@ -4,12 +4,11 @@
 @section('content')
 
     @if (session('success'))
-        <div id="successAlert"
-             class="flex items-center justify-between p-4 mb-4 text-sm text-green-700 bg-green-100 rounded-lg"
-             role="alert">
+        <div id="successAlert" class="flex items-center justify-between p-4 mb-4 text-sm text-green-700 bg-green-100 rounded-lg"
+            role="alert">
             <span>{{ session('success') }}</span>
             <button onclick="document.getElementById('successAlert').remove()"
-                    class="text-green-700 hover:text-green-900 font-bold">
+                class="text-green-700 hover:text-green-900 font-bold">
                 ✕
             </button>
         </div>
@@ -74,10 +73,11 @@
                                 </td>
                                 <td>
                                     <i class="fas {{ $career->status === 1 ? 'fa-toggle-on text-green-500' : 'fa-toggle-off text-red-500' }} text-2xl cursor-pointer toggle-icon"
-                                       data-id="{{ $career->id }}"></i>
+                                        data-id="{{ $career->id }}"></i>
                                 </td>
                                 <td class="px-4 py-3">
-                                    <a href="{{route('admin.careers.edit',$career->id)}}" class=" text-fg-brand hover:underline"><i class="fa fa-edit"></i></a>
+                                    <a href="{{route('admin.careers.edit', $career->id)}}" class=" text-fg-brand hover:underline"><i
+                                            class="fa fa-edit"></i></a>
                                 </td>
                             </tr>
                         @endforeach
@@ -133,7 +133,7 @@
             if (!toast || !msg) return;
 
             // Color variants
-            toast.classList.remove('bg-gray-800','bg-green-600','bg-red-600','bg-blue-600');
+            toast.classList.remove('bg-gray-800', 'bg-green-600', 'bg-red-600', 'bg-blue-600');
             if (type === 'success') toast.classList.add('bg-green-600');
             else if (type === 'error') toast.classList.add('bg-red-600');
             else if (type === 'info') toast.classList.add('bg-blue-600');

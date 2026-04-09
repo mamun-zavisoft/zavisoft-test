@@ -39,7 +39,7 @@ Route::group(['middleware' => 'auth'], function () {
         return view('backend.testimonials');
     })->name('testimonials');
 
-    Route::get('social-media', function () {
+    Route::get('/social-media', function () {
         return view('backend.social-media');
     })->name('social-media');
 
@@ -92,7 +92,7 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('/basics-benefits', [BenefitController::class, 'index'])->name('basics-benefits.index');
     Route::get('/basics-benefits/create', [BenefitController::class, 'create'])->name('basics-benefits.create');
     Route::post('/basics-benefits', [BenefitController::class, 'store'])->name('basics-benefits.store');
-      Route::get('/basics-benefits/edit/{id}', [BenefitController::class, 'edit'])->name('basics-benefits.edit');
+    Route::get('/basics-benefits/edit/{id}', [BenefitController::class, 'edit'])->name('basics-benefits.edit');
     Route::patch('/basics-benefits/update/{id}', [BenefitController::class, 'update'])->name('basics-benefits.update');
     Route::delete('/basics-benefits/{id}', [BenefitController::class, 'destroy'])->name('basics-benefits.destroy');
 
