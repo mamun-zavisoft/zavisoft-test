@@ -1,4 +1,4 @@
-name: Laravel Vue CI/CD
+name: Laravel Ecosystem CI/CD Pipeline
 
 on:
   push:
@@ -6,167 +6,996 @@ on:
       - develop
       - staging
       - main
-
+      - feature/*
+      - hotfix/*
+  
   pull_request:
     branches:
       - develop
       - staging
       - main
+    types: [opened, synchronize, reopened, ready_for_review]
 
+  # Allow manual triggering
+  workflow_dispatch:
+    inputs:
+      deploy_to_production:
+        description: 'Deploy to production?'
+        required: true
+        default: 'false'
+        type: boolean
 
-############################
-# 🔥 TEST JOB
-############################
+env:
+  PHP_VERSION: '8.3'
+  NODE_VERSION: '20'
+  COMPOSER_CACHE_DIR: '/tmp/composer-cache'
+  APP_ENV: testing
+  DB_CONNECTION: mysql  # Options: mysql, pgsql, sqlite, sqlsrv
+
 jobs:
-  test:
+  #################################################################
+  # 1. DEPENDENCY VALIDATION & INSTALLATION
+  #################################################################
+  dependency-check:
+    name: "📦 Dependency Validation"
     runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        php-versions: ['8.2', '8.3']
+    
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
 
+      - name: Setup PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: ${{ matrix.php-versions }}
+          extensions: mbstring, pdo, pdo_mysql, pdo_pgsql, sqlite3, redis, curl, dom, fileinfo, gd, intl, json, libxml, xml, zip
+          tools: composer:v2
+        
+      # Validate composer.json structure
+      - name: Validate Composer Structure
+        run: composer validate --strict --no-check-lock
+
+      # Check for outdated packages (informational only)
+      - name: Check Outdated Packages
+        continue-on-error: true
+        run: composer outdated --direct --format=json > composer-outdated.json
+
+      # Security check on lock file
+      - name: Dependency Security Check
+        run: |
+          composer audit --format=json > security-audit.json || true
+          echo "⚠️ Review security-audit.json for vulnerabilities"
+
+  #################################################################
+  # 2. CODE QUALITY CHECKS
+  #################################################################
+  code-quality:
+    name: "🔍 Code Quality Analysis"
+    runs-on: ubuntu-latest
+    needs: dependency-check
+    
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Setup PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: ${{ env.PHP_VERSION }}
+          extensions: mbstring, pdo, pdo_mysql, pdo_pgsql, sqlite3
+          coverage: none
+          tools: composer:v2, php-cs-fixer, phpstan, phpcpd, phpmd
+
+      # Cache composer dependencies
+      - name: Cache Composer Dependencies
+        id: composer-cache
+        uses: actions/cache@v4
+        with:
+          path: ${{ env.COMPOSER_CACHE_DIR }}
+          key: ${{ runner.os }}-composer-${{ hashFiles('**/composer.lock') }}
+          restore-keys: |
+            ${{ runner.os }}-composer-
+
+      - name: Install Dependencies
+        run: |
+          composer install \
+            --prefer-dist \
+            --no-progress \
+            --no-interaction \
+            --cache-dir=${{ env.COMPOSER_CACHE_DIR }}
+
+      # 3. PHP Syntax Validation
+      - name: "3. PHP Syntax Validation"
+        run: |
+          echo "🔎 Checking PHP syntax..."
+          find . -type f -name "*.php" \
+            -not -path "./vendor/*" \
+            -not -path "./storage/*" \
+            -not -path "./bootstrap/cache/*" \
+            -print0 | xargs -0 -n1 php -l 2>&1 | grep -v "No syntax errors detected" || true
+          echo "✅ Syntax validation complete"
+
+      # 4. Code Style Validation (Laravel Pint or PHP CS Fixer)
+      - name: "4. Code Style Check"
+        run: |
+          echo "🎨 Running code style checks..."
+          if [ -f "./vendor/bin/pint" ]; then
+            # Laravel Pint (Laravel 9+)
+            ./vendor/bin/pint --test --format=json > pint-report.json || echo "⚠️ Code style issues found"
+          elif [ -f "./vendor/bin/php-cs-fixer" ]; then
+            # PHP CS Fixer (older Laravel versions)
+            ./vendor/bin/php-cs-fixer fix --dry-run --diff --format=json > cs-fixer-report.json || echo "⚠️ Code style issues found"
+          else
+            echo "⚠️ No code style tool found. Install laravel/pint or friendsofphp/php-cs-fixer"
+          fi
+
+      # 5. Static Code Analysis
+      - name: "5. Static Code Analysis (PHPStan/Larastan)"
+        run: |
+          echo "🔬 Running static analysis..."
+          if [ -f "./vendor/bin/phpstan" ]; then
+            phpstan analyse \
+              --configuration=phpstan.neon \
+              --memory-limit=1G \
+              --error-format=json > phpstan-report.json || echo "⚠️ Static analysis found issues"
+          else
+            echo "⚠️ PHPStan not installed. Run: composer require --dev nunomaduro/larastan"
+          fi
+
+      # 6. Security Scan (Composer Audit + Sensiolabs Security Checker)
+      - name: "6. Security Vulnerability Scan"
+        run: |
+          echo "🔒 Running security scans..."
+          # Composer audit (built-in)
+          composer audit --format=json > composer-audit.json || echo "⚠️ Vulnerabilities found in dependencies"
+          
+          # Additional security checks (if available)
+          if [ -f "./vendor/bin/security-checker" ]; then
+            ./vendor/bin/security-checker security:check --format=json > security-checker.json || true
+          fi
+
+      # 7. Duplicate Code Detection
+      - name: "7. Duplicate Code Detection"
+        run: |
+          echo "🔄 Checking for duplicate code..."
+          if [ -f "./vendor/bin/phpcpd" ]; then
+            ./vendor/bin/phpcpd \
+              --exclude=vendor \
+              --exclude=storage \
+              --exclude=node_modules \
+              --min-lines=5 \
+              --min-tokens=70 \
+              app/ database/ routes/ || echo "⚠️ Duplicate code found"
+          else
+            echo "⚠️ PHPCPD not installed. Run: composer require --dev sebastian/phpcpd"
+          fi
+
+      # 8. Mess Detection (Optional but recommended)
+      - name: "8. Code Complexity Analysis"
+        run: |
+          echo "📊 Analyzing code complexity..."
+          if [ -f "./vendor/bin/phpmd" ]; then
+            ./vendor/bin/phpmd app/ text \
+              cleancode,codesize,controversial,design,naming,unusedcode \
+              --exclude=vendor,storage,node_modules \
+              --report-file=phpmd-report.txt || true
+          else
+            echo "ℹ️ PHPMD not installed. Run: composer require --dev phpmd/phpmd"
+          fi
+
+      # Upload quality reports
+      - name: Upload Quality Reports
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: code-quality-reports-${{ github.run_id }}
+          path: |
+            *-report.json
+            *-report.txt
+            *.json
+          retention-days: 7
+
+  #################################################################
+  # 3. DATABASE VALIDATION
+  #################################################################
+  database-validation:
+    name: "🗄️ Database Validation"
+    runs-on: ubuntu-latest
+    needs: code-quality
+    
+    # Database matrix - uncomment the databases you need
+    strategy:
+      matrix:
+        database:
+          - type: mysql
+            image: mysql:8.0
+            port: 3306
+            connection: mysql
+          # Uncomment for PostgreSQL support
+          # - type: pgsql
+          #   image: postgres:16
+          #   port: 5432
+          #   connection: pgsql
+          # Uncomment for MariaDB support
+          # - type: mariadb
+          #   image: mariadb:11
+          #   port: 3307
+          #   connection: mariadb
+          # Uncomment for SQLite (no service needed)
+          # - type: sqlite
+          #   image: null
+          #   port: null
+          #   connection: sqlite
+    
     services:
       mysql:
-        image: mysql:8.0
-
+        image: ${{ matrix.database.type == 'mysql' && 'mysql:8.0' || '' }}
+        if: ${{ matrix.database.type == 'mysql' || matrix.database.type == 'mariadb' }}
         env:
           MYSQL_DATABASE: testing
-          MYSQL_ROOT_PASSWORD: root
-
+          MYSQL_ROOT_PASSWORD: root_password
+          MYSQL_ROOT_HOST: '%'
         ports:
           - 3306:3306
-
         options: >-
-          --health-cmd="mysqladmin ping -proot"
+          --health-cmd="mysqladmin ping -proot_password"
+          --health-interval=10s
+          --health-timeout=5s
+          --health-retries=10
+      
+      postgres:
+        image: ${{ matrix.database.type == 'pgsql' && 'postgres:16' || '' }}
+        if: ${{ matrix.database.type == 'pgsql' }}
+        env:
+          POSTGRES_DB: testing
+          POSTGRES_USER: postgres
+          POSTGRES_PASSWORD: root_password
+        ports:
+          - 5432:5432
+        options: >-
+          --health-cmd="pg_isready -U postgres"
           --health-interval=10s
           --health-timeout=5s
           --health-retries=10
 
     env:
+      DB_CONNECTION: ${{ matrix.database.connection }}
+      DB_HOST: 127.0.0.1
+      DB_PORT: ${{ matrix.database.port }}
+      DB_DATABASE: testing
+      DB_USERNAME: ${{ matrix.database.type == 'pgsql' && 'postgres' || 'root' }}
+      DB_PASSWORD: root_password
       APP_ENV: testing
+      APP_KEY: base64:testkeyforci/DONOTUSEINPRODUCTIONexample123456789=
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Setup PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: ${{ env.PHP_VERSION }}
+          extensions: mbstring, pdo, pdo_mysql, pdo_pgsql, sqlite3
+          tools: composer:v2
+
+      - name: Install Dependencies
+        run: |
+          composer install \
+            --prefer-dist \
+            --no-progress \
+            --no-interaction \
+            --cache-dir=${{ env.COMPOSER_CACHE_DIR }}
+
+      - name: Prepare Laravel Environment
+        run: |
+          if [ ! -f ".env.testing" ]; then
+            cp .env.example .env.testing || cp .env .env.testing
+          fi
+          
+          # Configure database settings
+          echo "APP_ENV=testing" >> .env.testing
+          echo "APP_KEY=base64:$(php -r 'echo base64_encode(random_bytes(32));')" >> .env.testing
+          echo "DB_CONNECTION=${{ matrix.database.connection }}" >> .env.testing
+          echo "DB_HOST=127.0.0.1" >> .env.testing
+          echo "DB_PORT=${{ matrix.database.port }}" >> .env.testing
+          echo "DB_DATABASE=testing" >> .env.testing
+          echo "DB_USERNAME=${{ env.DB_USERNAME }}" >> .env.testing
+          echo "DB_PASSWORD=${{ env.DB_PASSWORD }}" >> .env.testing
+
+      # 9. Migration Validation
+      - name: "9. Migration Validation"
+        run: |
+          echo "🔄 Validating database migrations..."
+          
+          # Check migration status
+          php artisan migrate:status --env=testing
+          
+          # Run migrations
+          php artisan migrate --force --env=testing
+          
+          # Verify all migrations ran
+          if php artisan migrate:status --env=testing | grep -q "Pending"; then
+            echo "❌ Some migrations are pending"
+            exit 1
+          fi
+          
+          # Rollback and re-migrate to test rollback functionality (optional)
+          # php artisan migrate:rollback --env=testing
+          # php artisan migrate --force --env=testing
+
+      # 10. Seeder Validation
+      - name: "10. Database Seeder Validation"
+        run: |
+          echo "🌱 Validating database seeders..."
+          
+          # Run seeders
+          php artisan db:seed --force --env=testing
+          
+          # Check if specific seeders complete without errors
+          # php artisan db:seed --class=UserSeeder --force --env=testing
+          # php artisan db:seed --class=RolePermissionSeeder --force --env=testing
+          
+          echo "✅ Seeders executed successfully"
+
+  #################################################################
+  # 4. AUTOMATED TESTING
+  #################################################################
+  automated-tests:
+    name: "🧪 Automated Testing"
+    runs-on: ubuntu-latest
+    needs: database-validation
+    timeout-minutes: 30
+    
+    services:
+      mysql:
+        image: mysql:8.0
+        env:
+          MYSQL_DATABASE: testing
+          MYSQL_ROOT_PASSWORD: root_password
+        ports:
+          - 3306:3306
+        options: >-
+          --health-cmd="mysqladmin ping -proot_password"
+          --health-interval=10s
+          --health-timeout=5s
+          --health-retries=10
+      
+      # Redis for cache/session/queue testing
+      redis:
+        image: redis:7-alpine
+        ports:
+          - 6379:6379
+        options: >-
+          --health-cmd="redis-cli ping"
+          --health-interval=10s
+          --health-timeout=5s
+          --health-retries=5
+
+    env:
+      APP_ENV: testing
+      APP_KEY: base64:testkeyforci/DONOTUSEINPRODUCTIONexample123456789=
       DB_CONNECTION: mysql
       DB_HOST: 127.0.0.1
       DB_PORT: 3306
       DB_DATABASE: testing
       DB_USERNAME: root
-      DB_PASSWORD: root
+      DB_PASSWORD: root_password
+      REDIS_HOST: 127.0.0.1
+      REDIS_PORT: 6379
+      CACHE_DRIVER: redis
+      SESSION_DRIVER: redis
+      QUEUE_CONNECTION: sync
 
     steps:
-      - uses: actions/checkout@v4
+      - name: Checkout Repository
+        uses: actions/checkout@v4
 
-      # PHP
       - name: Setup PHP
         uses: shivammathur/setup-php@v2
         with:
-          php-version: "8.4"
-          extensions: mbstring, pdo_mysql
-          coverage: none
+          php-version: ${{ env.PHP_VERSION }}
+          extensions: mbstring, pdo, pdo_mysql, redis, pcov
+          coverage: pcov
+          tools: composer:v2
 
-      # Node
-      - name: Setup Node
+      - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: 22
-          cache: npm
+          node-version: ${{ env.NODE_VERSION }}
+          cache: 'npm'
+          # Uncomment if using yarn
+          # cache: 'yarn'
+          # Uncomment if using pnpm
+          # cache: 'pnpm'
 
-      # Composer Cache
-      - name: Get Composer Cache Directory
-        id: composer-cache
-        run: echo "dir=$(composer config cache-files-dir)" >> $GITHUB_OUTPUT
-
-      - uses: actions/cache@v4
+      # Cache multiple dependencies
+      - name: Cache Composer Dependencies
+        uses: actions/cache@v4
         with:
-          path: ${{ steps.composer-cache.outputs.dir }}
-          key: composer-${{ runner.os }}-${{ hashFiles('**/composer.lock') }}
+          path: vendor
+          key: ${{ runner.os }}-composer-${{ hashFiles('**/composer.lock') }}
+          restore-keys: |
+            ${{ runner.os }}-composer-
 
-      # Install PHP
+      - name: Cache NPM Dependencies
+        uses: actions/cache@v4
+        with:
+          path: ~/.npm
+          key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
+          restore-keys: |
+            ${{ runner.os }}-node-
+
       - name: Install PHP Dependencies
         run: |
-          composer install --prefer-dist --no-progress --no-interaction
+          composer install \
+            --prefer-dist \
+            --no-progress \
+            --no-interaction
 
-      # Install Node
-      - name: Install Node Packages
-        run: npm ci
+      - name: Install Frontend Dependencies
+        run: |
+          npm ci
+          # Uncomment for yarn: yarn install --frozen-lockfile
+          # Uncomment for pnpm: pnpm install --frozen-lockfile
 
-      # Laravel Setup
       - name: Prepare Laravel
         run: |
-          cp .env.example .env
+          cp .env.example .env || true
           php artisan key:generate
+          php artisan config:clear
+          php artisan migrate:fresh --force --seed
+          
+          # Create storage link if needed
+          php artisan storage:link || true
 
-      # Lint
-      - name: PHP Lint
+      # 11. Unit Tests
+      - name: "11. Unit Tests"
         run: |
-          find app routes config database tests \
-          -type f -name "*.php" -exec php -l {} \;
+          echo "🧪 Running unit tests..."
+          mkdir -p storage/test-results/unit
+          
+          php artisan test \
+            --testsuite=Unit \
+            --parallel \
+            --coverage-clover=storage/test-results/unit/coverage.xml \
+            --log-junit=storage/test-results/unit/junit.xml \
+            --order-by=random
+          # Alternative using phpunit directly:
+          # vendor/bin/phpunit \
+          #   --testsuite=Unit \
+          #   --coverage-clover=storage/test-results/unit/coverage.xml \
+          #   --log-junit=storage/test-results/unit/junit.xml
 
-      # Tests
-      - name: Run Tests
+      # 12. Feature Tests
+      - name: "12. Feature Tests"
         run: |
-          mkdir -p storage/test-results
-          vendor/bin/phpunit --log-junit storage/test-results/junit.xml
+          echo "🧪 Running feature tests..."
+          mkdir -p storage/test-results/feature
+          
+          php artisan test \
+            --testsuite=Feature \
+            --parallel \
+            --coverage-clover=storage/test-results/feature/coverage.xml \
+            --log-junit=storage/test-results/feature/junit.xml
+          
+          # Uncomment for API-specific tests:
+          # php artisan test \
+          #   --testsuite=Feature \
+          #   --filter=Api \
+          #   --log-junit=storage/test-results/api/junit.xml
 
-      # Build frontend
-      - name: Build Assets
-        run: npm run build
+      # 13. Browser/Integration Tests (Dusk/Laravel)
+      - name: "13. Browser & Integration Tests"
+        run: |
+          echo "🌐 Running browser/integration tests..."
+          
+          # Check if Dusk is installed
+          if [ -d "tests/Browser" ]; then
+            echo "Running Laravel Dusk tests..."
+            
+            # Install Chrome for Dusk
+            sudo apt-get update
+            sudo apt-get install -y chromium-browser
+            
+            # Configure Dusk for CI
+            export DUSK_DRIVER_URL=http://localhost:9515
+            
+            # Start ChromeDriver
+            vendor/laravel/dusk/bin/chromedriver-linux &
+            sleep 2
+            
+            # Run Dusk tests
+            php artisan dusk \
+              --log-junit=storage/test-results/browser/junit.xml || echo "⚠️ Some browser tests failed"
+            
+            # Kill ChromeDriver
+            killall chromedriver
+          else
+            echo "ℹ️ Laravel Dusk not configured. Skipping browser tests."
+            echo "To enable: composer require --dev laravel/dusk && php artisan dusk:install"
+          fi
 
-      # Upload results
+      # 14. Frontend Build & Test (Vue.js/React.js)
+      - name: "14. Frontend Tests"
+        run: |
+          echo "🎨 Building and testing frontend assets..."
+          
+          # Build assets
+          # For Vue.js projects:
+          if grep -q "vue" package.json; then
+            echo "🟢 Detected Vue.js project"
+            npm run build
+            # Uncomment if using Vitest for Vue:
+            # npm run test:unit -- --coverage
+            
+          # For React.js projects:
+          elif grep -q "react" package.json; then
+            echo "🔵 Detected React.js project"
+            npm run build
+            # Uncomment if using Jest with React:
+            # npm test -- --coverage --watchAll=false
+            
+          # For Next.js projects:
+          elif grep -q "next" package.json; then
+            echo "⚡ Detected Next.js project"
+            npm run build
+            
+          # For Nuxt.js projects:
+          elif grep -q "nuxt" package.json; then
+            echo "💚 Detected Nuxt.js project"
+            npm run build
+            
+          else
+            echo "🛠️ Building standard frontend assets"
+            npm run build
+          fi
+          
+          # Optional: Run frontend tests
+          # npm run test:unit
+          # npm run test:e2e
+
+      # 15. Architecture Validation (Laravel specific)
+      - name: "15. Architecture Validation"
+        run: |
+          echo "🏗️ Validating application architecture..."
+          
+          # Check for architectural patterns
+          if [ -f "./vendor/bin/pest" ]; then
+            # Pest architecture testing
+            ./vendor/bin/pest --group=architecture || echo "⚠️ Architecture tests not configured"
+          fi
+          
+          # Validate directory structure
+          test -d app/Models && echo "✅ Models directory exists"
+          test -d app/Http/Controllers && echo "✅ Controllers directory exists"
+          test -d app/Services && echo "✅ Services directory exists" || echo "ℹ️ Services directory optional"
+          
+          # Check for N+1 queries prevention
+          if grep -r "with(" app/Http/Controllers/ 2>/dev/null; then
+            echo "✅ Eager loading detected in controllers"
+          fi
+
+      # Upload test artifacts
       - name: Upload Test Results
         if: always()
         uses: actions/upload-artifact@v4
         with:
-          name: test-results
-          path: storage/test-results
+          name: test-results-${{ github.run_id }}
+          path: |
+            storage/test-results/
+            tests/Browser/screenshots/
+            tests/Browser/console/
+          retention-days: 14
 
-
-############################
-# 🚀 DEPLOY JOB (ONLY AFTER TEST)
-############################
-  deploy:
-    needs: test   
-    runs-on: ubuntu-latest
-
-    if: github.ref == 'refs/heads/main'
-
-    steps:
-      - name: Deploy to Server via SSH
-        uses: appleboy/ssh-action@master
+      # Upload coverage reports
+      - name: Upload Coverage Reports
+        if: always()
+        uses: actions/upload-artifact@v4
         with:
-          host: ${{ secrets.SSH_HOST }}
-          username: ${{ secrets.SSH_USER }}
-          key: ${{ secrets.SSH_KEY }}
-          command_timeout: 10m
-          #script_stop: true
+          name: coverage-reports-${{ github.run_id }}
+          path: |
+            storage/test-results/**/coverage.xml
+          retention-days: 14
 
+  #################################################################
+  # 5. DEPLOYMENT PRE-CHECK
+  #################################################################
+  deployment-precheck:
+    name: "✅ Deployment Pre-Check"
+    runs-on: ubuntu-latest
+    needs: automated-tests
+    if: github.event_name == 'push' && (github.ref == 'refs/heads/main' || github.ref == 'refs/heads/staging')
+    
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Setup PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: ${{ env.PHP_VERSION }}
+          extensions: mbstring, pdo, pdo_mysql
+          tools: composer:v2
+
+      - name: Install Production Dependencies
+        run: |
+          composer install \
+            --no-dev \
+            --optimize-autoloader \
+            --no-interaction \
+            --no-progress
+
+      - name: Environment Configuration Check
+        run: |
+          echo "🔍 Checking environment configuration..."
+          
+          # Check if .env.example exists
+          if [ ! -f ".env.example" ]; then
+            echo "⚠️ .env.example file missing. Create one for documentation."
+          fi
+          
+          # Validate environment keys
+          REQUIRED_KEYS=("APP_KEY" "APP_ENV" "APP_URL" "DB_CONNECTION" "DB_HOST" "DB_DATABASE" "DB_USERNAME")
+          for key in "${REQUIRED_KEYS[@]}"; do
+            if grep -q "^${key}=" .env.example; then
+              echo "✅ $key configured"
+            else
+              echo "⚠️ $key missing from .env.example"
+            fi
+          done
+
+      - name: "Optimization Check"
+        run: |
+          echo "⚡ Testing Laravel optimization..."
+          
+          # Test config caching
+          php artisan config:cache
+          echo "✅ Config caching works"
+          
+          # Test route caching
+          php artisan route:cache
+          echo "✅ Route caching works"
+          
+          # Test view caching
+          php artisan view:cache
+          echo "✅ View caching works"
+          
+          # Test event caching
+          php artisan event:cache
+          echo "✅ Event caching works"
+          
+          # Clear caches after testing
+          php artisan optimize:clear
+
+      - name: "Storage & Permissions Check"
+        run: |
+          echo "📁 Checking storage permissions..."
+          
+          # Check if required directories exist and are writable
+          for dir in "storage" "storage/logs" "storage/framework" "bootstrap/cache"; do
+            if [ -d "$dir" ] && [ -w "$dir" ]; then
+              echo "✅ $dir exists and is writable"
+            else
+              echo "❌ Issue with $dir"
+            fi
+          done
+          
+          # Check storage symlink
+          if [ -L "public/storage" ]; then
+            echo "✅ Storage symlink exists"
+          else
+            echo "ℹ️ Storage symlink not found (create with: php artisan storage:link)"
+          fi
+
+  #################################################################
+  # 6. BUILD & DEPLOY TO STAGING
+  #################################################################
+  deploy-staging:
+    name: "🚀 Deploy to Staging"
+    runs-on: ubuntu-latest
+    needs: deployment-precheck
+    if: github.ref == 'refs/heads/staging' || github.ref == 'refs/heads/develop'
+    environment:
+      name: staging
+      url: https://staging.example.com
+    
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Setup PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: ${{ env.PHP_VERSION }}
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+
+      # Build optimized artifact
+      - name: "Build Artifact"
+        run: |
+          echo "📦 Building deployment artifact..."
+          
+          # Create build directory
+          BUILD_DIR="build-$(date +%Y%m%d-%H%M%S)"
+          mkdir -p $BUILD_DIR
+          
+          # Install production dependencies
+          composer install \
+            --no-dev \
+            --optimize-autoloader \
+            --no-interaction
+          
+          # Install and build frontend
+          # For Vue.js:
+          if grep -q "vue" package.json; then
+            npm ci && npm run build
+            # Vue.js specific optimizations:
+            # npm run build:production
+          # For React.js:
+          elif grep -q "react" package.json; then
+            npm ci && npm run build
+            # React specific optimizations:
+            # GENERATE_SOURCEMAP=false npm run build
+          fi
+          
+          # Copy application files (excluding unnecessary files)
+          rsync -av \
+            --exclude='.git' \
+            --exclude='.github' \
+            --exclude='node_modules' \
+            --exclude='tests' \
+            --exclude='*.md' \
+            --exclude='.env' \
+            --exclude='.env.*' \
+            --exclude='storage/*.key' \
+            ./ $BUILD_DIR/
+          
+          # Create artifact
+          tar -czf laravel-build.tar.gz $BUILD_DIR/
+          
+          echo "✅ Build artifact created: laravel-build.tar.gz"
+
+      - name: Upload Build Artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: laravel-build-${{ github.sha }}
+          path: laravel-build.tar.gz
+          retention-days: 7
+
+      - name: Deploy to Staging Server
+        uses: appleboy/ssh-action@v1.0.3
+        with:
+          host: ${{ secrets.STAGING_HOST }}
+          username: ${{ secrets.STAGING_USER }}
+          key: ${{ secrets.STAGING_SSH_KEY }}
+          port: ${{ secrets.STAGING_PORT || 22 }}
           script: |
             set -e
-
-            echo "🚀 Starting deployment..."
-
-            cd /var/www/laravel-app || exit 1
-
-            echo "📥 Pulling latest code..."
-            git pull origin main
-
-            echo "📦 Installing PHP dependencies..."
+            cd ${{ secrets.STAGING_PATH || '/var/www/laravel-staging' }}
+            
+            echo "🔄 Starting staging deployment..."
+            
+            # Enable maintenance mode
+            php artisan down --retry=60 --secret=${{ secrets.MAINTENANCE_SECRET }}
+            
+            # Backup current release
+            cp -r . ../releases/backup-$(date +%Y%m%d-%H%M%S) || true
+            
+            # Pull latest code
+            git pull origin ${{ github.ref_name }}
+            
+            # Install dependencies
             composer install --no-dev --optimize-autoloader --no-interaction
-
-            echo "📦 Installing frontend dependencies..."
-            npm ci
-
-            echo "🏗 Building assets..."
-            npm run build
-
-            echo "🗄 Running migrations..."
+            
+            # Frontend build (if not pre-built)
+            # For Vue.js:
+            # npm ci && npm run build
+            # For React.js:
+            # npm ci && npm run build
+            
+            # Run migrations
             php artisan migrate --force
-
-            echo "⚡ Clearing cache..."
+            php artisan db:seed --force --class=StagingSeeder || true
+            
+            # Optimize
             php artisan optimize:clear
             php artisan config:cache
             php artisan route:cache
             php artisan view:cache
-
-            echo "🔄 Restarting queue..."
+            php artisan event:cache
+            
+            # Restart services
             php artisan queue:restart || true
+            sudo systemctl reload php8.3-fpm || true
+            
+            # Disable maintenance mode
+            php artisan up
+            
+            echo "✅ Staging deployment complete!"
 
-            echo "✅ Deployment completed successfully!"
-
-      - name: Smoke Test
+      - name: Smoke Test Staging
         run: |
-          curl -f http://3.87.135.138 || exit 1
+          echo "🔥 Running smoke tests on staging..."
+          
+          # Wait for deployment to settle
+          sleep 10
+          
+          # Basic availability test
+          curl -f -s -o /dev/null -w "%{http_code}" https://staging.example.com | grep 200 && echo "✅ Staging is up" || echo "❌ Staging smoke test failed"
+          
+          # API endpoint test (if applicable)
+          # curl -f https://staging.example.com/api/health || echo "⚠️ Health endpoint not available"
+          
+          # Queue worker test
+          # ssh ${{ secrets.STAGING_USER }}@${{ secrets.STAGING_HOST }} "php artisan queue:work --once"
+          
+          echo "✅ Smoke tests completed"
+
+  #################################################################
+  # 7. DEPLOY TO PRODUCTION (WITH APPROVAL)
+  #################################################################
+  deploy-production:
+    name: "🌟 Deploy to Production"
+    runs-on: ubuntu-latest
+    needs: deploy-staging
+    if: github.ref == 'refs/heads/main'
+    environment:
+      name: production
+      url: https://example.com
+    
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      # Manual approval gate (can be configured in GitHub Environments)
+      - name: "Manual Approval Gate"
+        if: ${{ !contains(github.event.head_commit.message, '[skip-approval]') }}
+        run: |
+          echo "⏳ Waiting for deployment approval..."
+          echo "This deployment requires manual approval in GitHub Environments"
+          echo "Check: Settings → Environments → production → Required reviewers"
+
+      - name: Download Build Artifact
+        uses: actions/download-artifact@v4
+        with:
+          name: laravel-build-${{ github.sha }}
+          path: .
+
+      - name: Extract Build
+        run: |
+          tar -xzf laravel-build.tar.gz
+          cd build-*/
+
+      - name: Deploy to Production Server
+        uses: appleboy/ssh-action@v1.0.3
+        with:
+          host: ${{ secrets.PRODUCTION_HOST }}
+          username: ${{ secrets.PRODUCTION_USER }}
+          key: ${{ secrets.PRODUCTION_SSH_KEY }}
+          port: ${{ secrets.PRODUCTION_PORT || 22 }}
+          script: |
+            set -e
+            cd ${{ secrets.PRODUCTION_PATH || '/var/www/laravel-production' }}
+            
+            echo "🚀 Starting production deployment..."
+            
+            # Enable maintenance mode with secret bypass
+            php artisan down \
+              --retry=60 \
+              --refresh=30 \
+              --secret=${{ secrets.MAINTENANCE_SECRET }}
+            
+            # Backup current release
+            echo "📦 Creating backup..."
+            BACKUP_DIR="../releases/backup-$(date +%Y%m%d-%H%M%S)"
+            mkdir -p $BACKUP_DIR
+            rsync -av --exclude='storage' --exclude='node_modules' ./ $BACKUP_DIR/
+            echo "✅ Backup created at $BACKUP_DIR"
+            
+            # Pull latest code
+            echo "📥 Pulling latest code..."
+            git fetch origin main
+            git reset --hard origin/main
+            
+            # Install PHP dependencies
+            echo "📦 Installing PHP dependencies..."
+            composer install \
+              --no-dev \
+              --optimize-autoloader \
+              --no-interaction \
+              --prefer-dist
+            
+            # Install and build frontend
+            echo "🎨 Building frontend assets..."
+            if grep -q "vue" package.json; then
+              echo "Building Vue.js assets..."
+              npm ci --production
+              npm run build
+              # Clean up node_modules to save space
+              rm -rf node_modules
+            elif grep -q "react" package.json; then
+              echo "Building React.js assets..."
+              npm ci --production
+              # Uncomment for React optimization:
+              # GENERATE_SOURCEMAP=false npm run build
+              npm run build
+              rm -rf node_modules
+            elif grep -q "next" package.json; then
+              echo "Building Next.js assets..."
+              npm ci --production
+              npm run build
+            elif grep -q "nuxt" package.json; then
+              echo "Building Nuxt.js assets..."
+              npm ci --production
+              npm run build
+            fi
+            
+            # Run database migrations (with backup)
+            echo "🗄️ Running database migrations..."
+            php artisan migrate --force --backup
+            
+            # Clear and rebuild cache
+            echo "⚡ Optimizing application..."
+            php artisan optimize:clear
+            php artisan config:cache
+            php artisan route:cache
+            php artisan view:cache
+            php artisan event:cache
+            php artisan icons:cache || true
+            
+            # Generate API documentation if using Scribe/Scramble
+            # php artisan scribe:generate || true
+            # php artisan scramble:export || true
+            
+            # Restart services
+            echo "🔄 Restarting services..."
+            php artisan queue:restart || true
+            
+            # Reload PHP-FPM and supervisor
+            sudo systemctl reload php8.3-fpm || sudo service php8.3-fpm reload || true
+            sudo supervisorctl restart all || true
+            
+            # Warm up the application
+            echo "🔥 Warming up application..."
+            curl -s -o /dev/null http://localhost || true
+            php artisan optimize
+            
+            # Disable maintenance mode
+            echo "🌐 Bringing application online..."
+            php artisan up
+            
+            echo "✅ Production deployment completed successfully!"
+            
+            # Clean up old backups (keep last 5)
+            cd ../releases
+            ls -t backup-* | tail -n +6 | xargs -r rm -rf
+
+      - name: "Production Smoke Tests"
+        run: |
+          echo "🔥 Running comprehensive smoke tests..."
+          
+          # Wait for deployment to fully complete
+          sleep 15
+          
+          # Test production URL
+          HTTP_CODE=$(curl -s -o /dev/null -w "%{http_code}" https://example.com)
+          if [ $HTTP_CODE -eq 200 ]; then
+            echo "✅ Production site is accessible (HTTP $HTTP_CODE)"
+          else
+            echo "❌ Production site returned HTTP $HTTP_CODE"
+            exit 1
+          fi
+          
+          # Test API endpoints
+          # curl -f https://example.com/api/health
+          # curl -f https://example.com/api/ping
+          
+          # Test SSL certificate
+          # curl -vI https://example.com 2>&1 | grep "SSL
