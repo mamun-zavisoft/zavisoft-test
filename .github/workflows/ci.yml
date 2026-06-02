@@ -79,7 +79,10 @@ jobs:
 
       # Install PHP Dependencies
       - name: Install Dependencies
-        run: composer install --prefer-dist --no-progress --no-interaction
+        run: |
+            composer clear-cache
+            rm -rf vendor
+            composer install --prefer-dist --no-progress --no-interaction
 
       # Install Frontend Dependencies
       - name: Install Node Packages
@@ -133,8 +136,8 @@ jobs:
         run: |
           mkdir -p storage/test-results
 
-          php artisan test \
-            --log-junit storage/test-results/junit.xml
+        
+          vendor/bin/phpunit --log-junit storage/test-results/junit.xml
 
       # Deployment Validation
       - name: Laravel Optimization Check
