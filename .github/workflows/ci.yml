@@ -1,0 +1,153 @@
+name: Laravel Vue CI
+
+on:
+  push:
+    branches:
+      - develop
+      - staging
+      - main
+
+  pull_request:
+    branches:
+      - develop
+      - staging
+      - main
+
+jobs:
+  test:
+
+    runs-on: ubuntu-latest
+
+    services:
+      mysql:
+        image: mysql:8.0
+
+        env:
+          MYSQL_DATABASE: testing
+          MYSQL_ROOT_PASSWORD: root
+
+        ports:
+          - 3306:3306
+
+        options: >-
+          --health-cmd="mysqladmin ping -proot"
+          --health-interval=10s
+          --health-timeout=5s
+          --health-retries=10
+
+    env:
+      APP_ENV: testing
+      DB_CONNECTION: mysql
+      DB_HOST: 127.0.0.1
+      DB_PORT: 3306
+      DB_DATABASE: testing
+      DB_USERNAME: root
+      DB_PASSWORD: root
+
+    steps:
+
+      - uses: actions/checkout@v4
+
+      # PHP
+      - name: Setup PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: "8.3"
+          extensions: mbstring, pdo_mysql
+          coverage: none
+
+      # Node
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+
+      # Composer Cache
+      - name: Get Composer Cache Directory
+        id: composer-cache
+        run: echo "dir=$(composer config cache-files-dir)" >> $GITHUB_OUTPUT
+
+      - uses: actions/cache@v4
+        with:
+          path: ${{ steps.composer-cache.outputs.dir }}
+          key: composer-${{ runner.os }}-${{ hashFiles('**/composer.lock') }}
+
+      # Composer Validation
+      - name: Validate Composer
+        run: composer validate --strict
+
+      # Install PHP Dependencies
+      - name: Install Dependencies
+        run: composer install --prefer-dist --no-progress --no-interaction
+
+      # Install Frontend Dependencies
+      - name: Install Node Packages
+        run: npm ci
+
+      # Environment
+      - name: Prepare Laravel
+        run: |
+          cp .env.example .env
+          php artisan key:generate
+
+      # PHP Syntax
+      - name: PHP Lint
+        run: |
+          find app routes config database tests \
+          -type f -name "*.php" \
+          -exec php -l {} \;
+
+      # Code Style
+      - name: PHP CS Fixer
+        run: |
+          if [ -f vendor/bin/php-cs-fixer ]; then
+            vendor/bin/php-cs-fixer fix --dry-run --diff
+          fi
+
+      # Static Analysis
+      - name: PHPStan
+        run: |
+          if [ -f vendor/bin/phpstan ]; then
+            vendor/bin/phpstan analyse
+          fi
+
+      # Security Audit
+      - name: Composer Audit
+        run: composer audit
+
+      # Frontend Build
+      - name: Build Vue Application
+        run: npm run build
+
+      # Migrations
+      - name: Run Migrations
+        run: php artisan migrate --force
+
+      # Seeders
+      - name: Run Seeders
+        run: php artisan db:seed --force
+
+      # Tests
+      - name: Run Tests
+        run: |
+          mkdir -p storage/test-results
+
+          php artisan test \
+            --log-junit storage/test-results/junit.xml
+
+      # Deployment Validation
+      - name: Laravel Optimization Check
+        run: |
+          php artisan config:cache
+          php artisan route:cache
+          php artisan event:cache
+          php artisan optimize
+
+      # Upload Reports
+      - name: Upload Test Results
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: test-results
+          path: storage/test-results
