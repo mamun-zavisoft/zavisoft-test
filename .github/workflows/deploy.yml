@@ -1,928 +1,351 @@
-# ============================================================================
-# LARAVEL VUE ECHO SYSTEM - SELF-HOSTED RUNNER CI/CD PIPELINE
-# ============================================================================
-# Version: 1.0
-# Runner: Self-Hosted (Linux)
-# Requirements:
-#   - PHP 8.2+
-#   - Node.js 20+
-#   - MySQL 8.0+
-#   - Redis 7+
-#   - Composer 2+
-#   - NPM/Yarn
-#   - Supervisor
-#   - Nginx/Apache
-# ============================================================================
+name: Laravel + Vue.js CI/CD Pipeline
 
-name: 🟢 Laravel Vue Echo - Self-Hosted
-
-# ----------------------------------------------------------------------------
-# TRIGGER CONFIGURATION
-# ----------------------------------------------------------------------------
 on:
   push:
-    branches:
-      - develop
-      - staging
-      - main
-      - feature/*
-      - hotfix/*
-    paths-ignore:
-      - '*.md'
-      - 'docs/**'
-      - 'LICENSE'
-      
+    branches: [main, develop]
   pull_request:
-    branches:
-      - develop
-      - staging
-      - main
-    types: [opened, synchronize, reopened, ready_for_review]
-    paths-ignore:
-      - '*.md'
-      - 'docs/**'
+    branches: [main, develop]
 
-  workflow_dispatch:
-    inputs:
-      deploy_environment:
-        description: 'Target deployment environment'
-        required: true
-        type: choice
-        default: 'staging'
-        options:
-          - staging
-          - production
-      run_migrations:
-        description: 'Run database migrations?'
-        required: true
-        type: boolean
-        default: true
-      run_seeders:
-        description: 'Run database seeders?'
-        required: true
-        type: boolean
-        default: false
-      skip_tests:
-        description: 'Skip tests (Emergency only)'
-        required: false
-        type: boolean
-        default: false
-      maintenance_mode:
-        description: 'Enable maintenance mode during deployment?'
-        required: true
-        type: boolean
-        default: true
-
-# ----------------------------------------------------------------------------
-# ENVIRONMENT VARIABLES
-# ----------------------------------------------------------------------------
 env:
-  # Application
-  APP_NAME: "Laravel Vue Echo"
-  APP_ENV: local
-  APP_DEBUG: true
-  
-  # PHP
-  PHP_VERSION: "8.3"
-  PHP_MEMORY_LIMIT: "512M"
-  
-  # Node
+  PHP_VERSION: "8.2"
   NODE_VERSION: "20"
-  
-  # Database
+  APP_ENV: testing
   DB_CONNECTION: mysql
-  DB_HOST: "127.0.0.1"
-  DB_PORT: "3306"
-  DB_DATABASE: laravel_vue_echo
+  DB_HOST: 127.0.0.1
+  DB_PORT: 3306
+  DB_DATABASE: laravel_test
   DB_USERNAME: root
-  DB_PASSWORD: ""
-  
-  # Redis (Required for Echo)
-  REDIS_HOST: "127.0.0.1"
-  REDIS_PORT: "6379"
-  REDIS_PASSWORD: null
-  
-  # Broadcasting (Echo)
-  BROADCAST_DRIVER: redis
-  QUEUE_CONNECTION: redis
-  
-  # Cache & Session
-  CACHE_DRIVER: redis
-  SESSION_DRIVER: redis
-  
-  # Paths
-  PROJECT_PATH: "/var/www/laravel-vue-echo"
-  BACKUP_PATH: "/var/www/backups"
-  RELEASES_PATH: "/var/www/releases"
-  
-  # Deployment
-  DEPLOY_BRANCH: main
-  STAGING_BRANCH: staging
-  KEEP_RELEASES: 5
+  DB_PASSWORD: secret
 
-# ----------------------------------------------------------------------------
-# JOBS
-# ----------------------------------------------------------------------------
-
-# ============================================================================
-# JOB 1: SYSTEM PREREQUISITES CHECK
-# ============================================================================
-  system-check:
-    name: "🔍 System Prerequisites Check"
+jobs:
+  # ─────────────────────────────────────────────
+  # STAGE 1 – INSTALL DEPENDENCIES
+  # ─────────────────────────────────────────────
+  install:
+    name: "1 · Dependency Installation"
     runs-on: self-hosted
-    timeout-minutes: 10
-    
     steps:
-      - name: "📋 Check Required Software Versions"
-        run: |
-          echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
-          echo "🔍 CHECKING SYSTEM PREREQUISITES"
-          echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
-          
-          # Check PHP
-          if command -v php &> /dev/null; then
-            PHP_VERSION=$(php -v | head -n 1 | cut -d " " -f 2 | cut -d "." -f 1,2)
-            echo "✅ PHP Version: $(php -v | head -n 1)"
-            if [ "$(echo "$PHP_VERSION < 8.2" | bc)" -eq 1 ]; then
-              echo "❌ PHP 8.2+ required. Current: $PHP_VERSION"
-              exit 1
-            fi
-          else
-            echo "❌ PHP not found"
-            exit 1
-          fi
-          
-          # Check PHP Extensions
-          REQUIRED_EXTENSIONS=("mbstring" "pdo" "pdo_mysql" "redis" "json" "xml" "curl" "gd" "fileinfo" "tokenizer")
-          echo ""
-          echo "Checking PHP extensions..."
-          for ext in "${REQUIRED_EXTENSIONS[@]}"; do
-            if php -m | grep -q "^$ext$"; then
-              echo "  ✅ $ext"
-            else
-              echo "  ❌ $ext - Missing"
-              MISSING=true
-            fi
-          done
-          
-          if [ "$MISSING" = true ]; then
-            echo "❌ Install missing PHP extensions: sudo apt install php8.3-{extension}"
-            exit 1
-          fi
-          
-          # Check Composer
-          echo ""
-          if command -v composer &> /dev/null; then
-            COMPOSER_VERSION=$(composer --version 2>&1 | cut -d " " -f 3)
-            echo "✅ Composer Version: $COMPOSER_VERSION"
-          else
-            echo "❌ Composer not found"
-            exit 1
-          fi
-          
-          # Check Node.js
-          echo ""
-          if command -v node &> /dev/null; then
-            NODE_VERSION=$(node -v | cut -d "v" -f 2 | cut -d "." -f 1)
-            echo "✅ Node.js Version: $(node -v)"
-            if [ "$NODE_VERSION" -lt 18 ]; then
-              echo "❌ Node.js 18+ required. Current: $(node -v)"
-              exit 1
-            fi
-          else
-            echo "❌ Node.js not found"
-            exit 1
-          fi
-          
-          # Check NPM
-          echo ""
-          if command -v npm &> /dev/null; then
-            echo "✅ NPM Version: $(npm -v)"
-          else
-            echo "❌ NPM not found"
-            exit 1
-          fi
-          
-          # Check MySQL
-          echo ""
-          if command -v mysql &> /dev/null; then
-            echo "✅ MySQL Client: $(mysql --version)"
-          else
-            echo "⚠️ MySQL client not found"
-          fi
-          
-          # Check Redis
-          echo ""
-          if command -v redis-cli &> /dev/null; then
-            REDIS_OUTPUT=$(redis-cli ping 2>&1)
-            if [ "$REDIS_OUTPUT" = "PONG" ]; then
-              echo "✅ Redis: Connected"
-            else
-              echo "⚠️ Redis: Not responding"
-            fi
-          else
-            echo "⚠️ Redis CLI not found"
-          fi
-          
-          # Check Git
-          echo ""
-          if command -v git &> /dev/null; then
-            echo "✅ Git Version: $(git --version)"
-          else
-            echo "❌ Git not found"
-            exit 1
-          fi
-          
-          # Check disk space
-          echo ""
-          AVAILABLE_SPACE=$(df -h . | tail -1 | awk '{print $4}')
-          echo "✅ Available disk space: $AVAILABLE_SPACE"
-          
-          # Check memory
-          echo ""
-          TOTAL_MEM=$(free -h | grep Mem | awk '{print $2}')
-          AVAILABLE_MEM=$(free -h | grep Mem | awk '{print $7}')
-          echo "✅ Memory: $AVAILABLE_MEM available of $TOTAL_MEM total"
-          
-          echo ""
-          echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
-          echo "✅ ALL PREREQUISITES MET"
-          echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+      - uses: actions/checkout@v4
 
-      - name: "📁 Check Directory Structure"
-        run: |
-          echo ""
-          echo "Checking project directories..."
-          
-          # Check/create project directory
-          if [ ! -d "${{ env.PROJECT_PATH }}" ]; then
-            echo "Creating project directory: ${{ env.PROJECT_PATH }}"
-            sudo mkdir -p ${{ env.PROJECT_PATH }}
-            sudo chown -R $USER:$USER ${{ env.PROJECT_PATH }}
-          fi
-          echo "✅ Project directory: ${{ env.PROJECT_PATH }}"
-          
-          # Check/create backup directory
-          if [ ! -d "${{ env.BACKUP_PATH }}" ]; then
-            echo "Creating backup directory: ${{ env.BACKUP_PATH }}"
-            sudo mkdir -p ${{ env.BACKUP_PATH }}
-            sudo chown -R $USER:$USER ${{ env.BACKUP_PATH }}
-          fi
-          echo "✅ Backup directory: ${{ env.BACKUP_PATH }}"
-          
-          # Check/create releases directory
-          if [ ! -d "${{ env.RELEASES_PATH }}" ]; then
-            echo "Creating releases directory: ${{ env.RELEASES_PATH }}"
-            sudo mkdir -p ${{ env.RELEASES_PATH }}
-            sudo chown -R $USER:$USER ${{ env.RELEASES_PATH }}
-          fi
-          echo "✅ Releases directory: ${{ env.RELEASES_PATH }}"
-          
-          # Check storage permissions
-          if [ -d "${{ env.PROJECT_PATH }}/storage" ]; then
-            STORAGE_PERMS=$(stat -c "%a" ${{ env.PROJECT_PATH }}/storage)
-            if [ "$STORAGE_PERMS" != "775" ] && [ "$STORAGE_PERMS" != "777" ]; then
-              echo "Setting storage permissions..."
-              sudo chmod -R 775 ${{ env.PROJECT_PATH }}/storage
-              sudo chmod -R 775 ${{ env.PROJECT_PATH }}/bootstrap/cache
-            fi
-          fi
-          echo "✅ Directory structure verified"
-
-      - name: "🔧 Check Supervisor Configuration"
-        run: |
-          echo ""
-          echo "Checking Supervisor configuration..."
-          
-          if command -v supervisorctl &> /dev/null; then
-            echo "✅ Supervisor is installed"
-            
-            # Check if supervisor is running
-            if sudo supervisorctl status &> /dev/null; then
-              echo "✅ Supervisor is running"
-            else
-              echo "⚠️ Supervisor is not running. Start with: sudo supervisorctl reload"
-            fi
-          else
-            echo "⚠️ Supervisor not installed"
-            echo "   Install: sudo apt install supervisor"
-          fi
-
-# ============================================================================
-# JOB 2: CODE QUALITY & SYNTAX CHECK
-# ============================================================================
-  code-quality:
-    name: "🎨 Code Quality Check"
-    runs-on: self-hosted
-    needs: system-check
-    timeout-minutes: 15
-    
-    steps:
-      - name: "📥 Checkout Code"
-        uses: actions/checkout@v4
-        with:
-          clean: true
-          fetch-depth: 0
-
-      - name: "🔧 Set PHP Memory Limit"
-        run: |
-          echo "memory_limit = ${{ env.PHP_MEMORY_LIMIT }}" | sudo tee /etc/php/${{ env.PHP_VERSION }}/cli/conf.d/99-ci-memory.ini
-
-      - name: "📦 Cache Composer Dependencies"
-        id: composer-cache
+      - name: Cache Composer
         uses: actions/cache@v4
         with:
           path: vendor
-          key: ${{ runner.os }}-${{ runner.arch }}-composer-${{ hashFiles('**/composer.lock') }}
-          restore-keys: |
-            ${{ runner.os }}-${{ runner.arch }}-composer-
+          key: composer-${{ hashFiles('composer.lock') }}
 
-      - name: "📦 Install PHP Dependencies"
-        run: |
-          echo "Installing PHP dependencies..."
-          composer install \
-            --prefer-dist \
-            --no-progress \
-            --no-interaction \
-            --no-scripts \
-            --optimize-autoloader
+      - name: Cache Node Modules
+        uses: actions/cache@v4
+        with:
+          path: node_modules
+          key: npm-${{ hashFiles('package-lock.json') }}
 
-      # STEP 1: PHP Syntax Validation
-      - name: "✅ STEP 1: PHP Syntax Validation"
-        run: |
-          echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
-          echo "STEP 1: Validating PHP Syntax"
-          echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
-          
-          FAILED=0
-          TOTAL=0
-          
-          for file in $(find . -type f -name "*.php" \
-            -not -path "./vendor/*" \
-            -not -path "./storage/*" \
-            -not -path "./bootstrap/cache/*" \
-            -not -path "./node_modules/*"); do
-            
-            TOTAL=$((TOTAL + 1))
-            if ! php -l "$file" > /dev/null 2>&1; then
-              echo "❌ Syntax error in: $file"
-              php -l "$file"
-              FAILED=$((FAILED + 1))
-            fi
-          done
-          
-          echo ""
-          echo "Total files: $TOTAL"
-          echo "Failed: $FAILED"
-          
-          if [ $FAILED -gt 0 ]; then
-            echo "❌ PHP syntax validation failed"
-            exit 1
-          fi
-          
-          echo "✅ All PHP files pass syntax validation"
+      - name: Install PHP deps
+        run: composer install --no-interaction --prefer-dist --optimize-autoloader
 
-      # STEP 2: Code Style Check
-      - name: "🎨 STEP 2: Code Style Check (Laravel Pint)"
-        run: |
-          echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
-          echo "STEP 2: Code Style Validation"
-          echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
-          
-          if [ -f "./vendor/bin/pint" ]; then
-            echo "Running Laravel Pint..."
-            ./vendor/bin/pint --test --format=txt
-            PINT_EXIT=$?
-            
-            if [ $PINT_EXIT -ne 0 ]; then
-              echo "⚠️ Code style issues found"
-              echo "Run './vendor/bin/pint' to fix automatically"
-              # Don't fail the build, just warn
-            else
-              echo "✅ Code style is perfect"
-            fi
-          else
-            echo "ℹ️ Laravel Pint not installed"
-            echo "Install with: composer require --dev laravel/pint"
-          fi
+      - name: Install Node deps
+        run: npm ci
 
-      # STEP 3: Static Analysis
-      - name: "🔬 STEP 3: Static Code Analysis (PHPStan)"
-        run: |
-          echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
-          echo "STEP 3: Static Analysis"
-          echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
-          
-          if [ -f "./vendor/bin/phpstan" ]; then
-            echo "Running PHPStan analysis..."
-            ./vendor/bin/phpstan analyse \
-              --memory-limit=512M \
-              --error-format=table \
-              --no-progress \
-              app/ database/ routes/ || {
-                echo "⚠️ Static analysis found issues"
-                # Don't fail, just warn
-              }
-          else
-            echo "ℹ️ PHPStan not installed"
-            echo "Install with: composer require --dev nunomaduro/larastan"
-          fi
-
-      # STEP 4: Security Audit
-      - name: "🔒 STEP 4: Security Vulnerability Scan"
-        run: |
-          echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
-          echo "STEP 4: Security Scan"
-          echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
-          
-          echo "Checking for known vulnerabilities..."
-          composer audit --format=table || {
-            echo "⚠️ Security vulnerabilities found!"
-            echo "Review and update affected packages"
-          }
-          
-          # Check outdated packages
-          echo ""
-          echo "Checking outdated packages..."
-          composer outdated --direct --format=table || true
-
-# ============================================================================
-# JOB 3: DATABASE & ECHO VALIDATION
-# ============================================================================
-  database-echo-check:
-    name: "🗄️ Database & Echo Validation"
+  # ─────────────────────────────────────────────
+  # STAGE 2 – STATIC ANALYSIS & VALIDATION
+  # ─────────────────────────────────────────────
+  static-analysis:
+    name: "2-6 · Lint / Style / Security / Architecture"
     runs-on: self-hosted
-    needs: code-quality
-    timeout-minutes: 15
-    
+    needs: install
     steps:
-      - name: "📥 Checkout Code"
-        uses: actions/checkout@v4
-
-      - name: "📦 Restore Composer Cache"
+      - uses: actions/checkout@v4
+      - name: Restore caches
         uses: actions/cache@v4
-        with:
-          path: vendor
-          key: ${{ runner.os }}-${{ runner.arch }}-composer-${{ hashFiles('**/composer.lock') }}
-          fail-on-cache-miss: true
+        with: { path: vendor, key: "composer-${{ hashFiles('composer.lock') }}" }
 
-      # STEP 5: Database Connection Check
-      - name: "🗄️ STEP 5: Database Connection Check"
-        run: |
-          echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
-          echo "STEP 5: Database Connection Validation"
-          echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
-          
-          # Check MySQL connection
-          echo "Testing MySQL connection..."
-          if mysql -h${{ env.DB_HOST }} -P${{ env.DB_PORT }} -u${{ env.DB_USERNAME }} -e "SELECT 1;" &> /dev/null; then
-            echo "✅ MySQL connection successful"
-          else
-            echo "❌ MySQL connection failed"
-            echo "   Host: ${{ env.DB_HOST }}"
-            echo "   Port: ${{ env.DB_PORT }}"
-            echo "   User: ${{ env.DB_USERNAME }}"
-            exit 1
-          fi
-          
-          # Check if database exists
-          echo ""
-          echo "Checking database..."
-          if mysql -h${{ env.DB_HOST }} -u${{ env.DB_USERNAME }} -e "USE ${{ env.DB_DATABASE }};" &> /dev/null; then
-            echo "✅ Database '${{ env.DB_DATABASE }}' exists"
-          else
-            echo "Creating database '${{ env.DB_DATABASE }}'..."
-            mysql -h${{ env.DB_HOST }} -u${{ env.DB_USERNAME }} -e "CREATE DATABASE IF NOT EXISTS ${{ env.DB_DATABASE }};"
-            echo "✅ Database created"
-          fi
+      # PHP Syntax Validation
+      - name: PHP Syntax Check
+        run: find app bootstrap config database routes -name "*.php" | xargs php -l
 
-      # STEP 6: Redis Connection Check (Required for Echo)
-      - name: "🔴 STEP 6: Redis Connection Check"
-        run: |
-          echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
-          echo "STEP 6: Redis Connection Validation"
-          echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
-          
-          # Check Redis connection
-          echo "Testing Redis connection..."
-          REDIS_RESPONSE=$(redis-cli -h ${{ env.REDIS_HOST }} -p ${{ env.REDIS_PORT }} ping 2>&1)
-          
-          if [ "$REDIS_RESPONSE" = "PONG" ]; then
-            echo "✅ Redis connection successful"
-            
-            # Check Redis memory
-            REDIS_MEMORY=$(redis-cli info memory | grep used_memory_human | cut -d: -f2)
-            echo "   Redis memory usage: $REDIS_MEMORY"
-            
-            # Check Redis keyspace
-            REDIS_KEYS=$(redis-cli dbsize)
-            echo "   Redis keys: $REDIS_KEYS"
-          else
-            echo "❌ Redis connection failed"
-            echo "   Error: $REDIS_RESPONSE"
-            echo "   Make sure Redis is running: sudo systemctl start redis"
-            exit 1
-          fi
+      # Code Style
+      - name: Laravel Pint (CS)
+        run: ./vendor/bin/pint --test
 
-      # STEP 7: Environment Setup
-      - name: "⚙️ STEP 7: Environment Configuration"
-        run: |
-          echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
-          echo "STEP 7: Configuring Environment"
-          echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
-          
-          # Create .env file if it doesn't exist
-          if [ ! -f ".env" ]; then
-            if [ -f ".env.example" ]; then
-              echo "Creating .env from .env.example..."
-              cp .env.example .env
-            else
-              echo "❌ .env.example not found"
-              exit 1
-            fi
-          fi
-          
-          # Update .env with CI values
-          echo "Updating .env configuration..."
-          sed -i "s/^APP_ENV=.*/APP_ENV=testing/" .env
-          sed -i "s/^APP_DEBUG=.*/APP_DEBUG=true/" .env
-          sed -i "s/^DB_HOST=.*/DB_HOST=${{ env.DB_HOST }}/" .env
-          sed -i "s/^DB_PORT=.*/DB_PORT=${{ env.DB_PORT }}/" .env
-          sed -i "s/^DB_DATABASE=.*/DB_DATABASE=${{ env.DB_DATABASE }}/" .env
-          sed -i "s/^DB_USERNAME=.*/DB_USERNAME=${{ env.DB_USERNAME }}/" .env
-          sed -i "s/^REDIS_HOST=.*/REDIS_HOST=${{ env.REDIS_HOST }}/" .env
-          sed -i "s/^REDIS_PORT=.*/REDIS_PORT=${{ env.REDIS_PORT }}/" .env
-          sed -i "s/^BROADCAST_DRIVER=.*/BROADCAST_DRIVER=${{ env.BROADCAST_DRIVER }}/" .env
-          sed -i "s/^QUEUE_CONNECTION=.*/QUEUE_CONNECTION=${{ env.QUEUE_CONNECTION }}/" .env
-          sed -i "s/^CACHE_DRIVER=.*/CACHE_DRIVER=${{ env.CACHE_DRIVER }}/" .env
-          sed -i "s/^SESSION_DRIVER=.*/SESSION_DRIVER=${{ env.SESSION_DRIVER }}/" .env
-          
-          # Generate application key
-          php artisan key:generate --force
-          
-          echo "✅ Environment configured"
+      # Static Analysis
+      - name: PHPStan / Larastan
+        run: ./vendor/bin/phpstan analyse --memory-limit=512M
 
-      # STEP 8: Database Migration Validation
-      - name: "🗄️ STEP 8: Migration Validation"
-        run: |
-          echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
-          echo "STEP 8: Database Migration Validation"
-          echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
-          
-          # Clear cache before migration
-          php artisan config:clear
-          
-          # Check migration status
-          echo "Checking migration status..."
-          php artisan migrate:status
-          
-          # Run migrations
-          echo ""
-          echo "Running migrations..."
-          php artisan migrate --force
-          
-          # Verify migrations
-          echo ""
-          PENDING=$(php artisan migrate:status | grep -c "Pending" || true)
-          if [ "$PENDING" -gt 0 ]; then
-            echo "❌ $PENDING pending migrations"
-            exit 1
-          fi
-          
-          echo "✅ All migrations executed successfully"
+      # Security Scan
+      - name: Composer Audit
+        run: composer audit --no-interaction
 
-      # STEP 9: Echo Server Configuration
-      - name: "🔊 STEP 9: Echo Server Configuration"
-        run: |
-          echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
-          echo "STEP 9: Echo Server Validation"
-          echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
-          
-          # Check broadcasting configuration
-          echo "Checking broadcasting configuration..."
-          php artisan tinker --execute="
-            \$driver = config('broadcasting.default');
-            echo 'Broadcasting Driver: ' . \$driver . PHP_EOL;
-            
-            if (\$driver === 'redis') {
-                echo 'Redis Connection: ' . (Redis::connection()->ping() ? '✅ Connected' : '❌ Failed') . PHP_EOL;
-            }
-          "
-          
-          # Check if broadcasting service provider is registered
-          echo ""
-          echo "Checking service providers..."
-          if grep -q "BroadcastServiceProvider" config/app.php; then
-            echo "✅ BroadcastServiceProvider registered"
-          else
-            echo "⚠️ BroadcastServiceProvider not found in config/app.php"
-          fi
-          
-          # Check channels route file
-          echo ""
-          if [ -f "routes/channels.php" ]; then
-            echo "✅ Channel routes exist"
-            echo "   Channel count: $(grep -c "Broadcast::channel" routes/channels.php)"
-          else
-            echo "⚠️ routes/channels.php not found"
-          fi
-          
-          # Check events directory
-          echo ""
-          if [ -d "app/Events" ]; then
-            EVENT_COUNT=$(find app/Events -name "*.php" | wc -l)
-            echo "✅ Events directory exists ($EVENT_COUNT events)"
-            
-            # List broadcasting events
-            echo "   Broadcasting events:"
-            grep -l "ShouldBroadcast" app/Events/*.php 2>/dev/null | while read event; do
-              echo "   📡 $(basename $event)"
-            done
-          else
-            echo "ℹ️ No events directory found"
-          fi
-          
-          # Check Laravel Reverb (optional)
-          echo ""
-          if [ -f "config/reverb.php" ]; then
-            echo "✅ Laravel Reverb configured"
-          else
-            echo "ℹ️ Laravel Reverb not configured (using Redis broadcasting)"
-          fi
-          
-          echo ""
-          echo "✅ Echo configuration validated"
+      - name: npm Audit
+        run: npm audit --audit-level=high
 
-# ============================================================================
-# JOB 4: AUTOMATED TESTING
-# ============================================================================
-  automated-tests:
-    name: "🧪 Automated Testing"
+      # Architecture Validation
+      - name: Deptrac (Architecture)
+        run: ./vendor/bin/deptrac analyse --config-file=deptrac.yaml
+
+      # Duplicate Code Detection
+      - name: PHPCPD (Duplicate Code)
+        run: ./vendor/bin/phpcpd app --min-lines=5 --min-tokens=70 || true
+
+  # ─────────────────────────────────────────────
+  # STAGE 3 – DATABASE VALIDATION
+  # ─────────────────────────────────────────────
+  database:
+    name: "7-8 · Migration & Seeder Validation"
     runs-on: self-hosted
-    needs: database-echo-check
-    timeout-minutes: 30
-    
+    needs: install
+    services:
+      mysql:
+        image: mysql:8.0
+        env:
+          MYSQL_ROOT_PASSWORD: secret
+          MYSQL_DATABASE: laravel_test
+        ports: ["3306:3306"]
+        options: --health-cmd="mysqladmin ping" --health-interval=10s --health-retries=5
+      redis:
+        image: redis:7
+        ports: ["6379:6379"]
     steps:
-      - name: "📥 Checkout Code"
-        uses: actions/checkout@v4
-
-      - name: "📦 Restore Composer Cache"
+      - uses: actions/checkout@v4
+      - name: Restore caches
         uses: actions/cache@v4
-        with:
-          path: vendor
-          key: ${{ runner.os }}-${{ runner.arch }}-composer-${{ hashFiles('**/composer.lock') }}
-          fail-on-cache-miss: true
+        with: { path: vendor, key: "composer-${{ hashFiles('composer.lock') }}" }
 
-      - name: "📦 Cache NPM Dependencies"
-        id: npm-cache
+      - name: Setup .env
+        run: |
+          cp .env.example .env.testing
+          php artisan key:generate --env=testing
+
+      - name: Validate Migrations
+        run: php artisan migrate --env=testing --force --no-interaction
+
+      - name: Validate Seeders
+        run: php artisan db:seed --env=testing --force --no-interaction
+
+  # ─────────────────────────────────────────────
+  # STAGE 4 – TESTS
+  # ─────────────────────────────────────────────
+  tests:
+    name: "9-11 · Unit / Feature / Browser Tests"
+    runs-on: self-hosted
+    needs: [static-analysis, database]
+    services:
+      mysql:
+        image: mysql:8.0
+        env:
+          MYSQL_ROOT_PASSWORD: secret
+          MYSQL_DATABASE: laravel_test
+        ports: ["3306:3306"]
+        options: --health-cmd="mysqladmin ping" --health-interval=10s --health-retries=5
+      redis:
+        image: redis:7
+        ports: ["6379:6379"]
+    steps:
+      - uses: actions/checkout@v4
+      - name: Restore caches
         uses: actions/cache@v4
-        with:
-          path: ~/.npm
-          key: ${{ runner.os }}-${{ runner.arch }}-npm-${{ hashFiles('**/package-lock.json') }}
-          restore-keys: |
-            ${{ runner.os }}-${{ runner.arch }}-npm-
+        with: { path: vendor, key: "composer-${{ hashFiles('composer.lock') }}" }
+      - uses: actions/cache@v4
+        with: { path: node_modules, key: "npm-${{ hashFiles('package-lock.json') }}" }
 
-      - name: "📦 Install Node.js Dependencies"
+      - name: Setup .env
         run: |
-          echo "Installing Vue.js dependencies..."
-          npm ci --prefer-offline --no-audit --no-fund
-          
-          # Verify Vue.js packages
-          echo ""
-          echo "Verifying Vue.js packages..."
-          npm list vue@3 vue-router@4 pinia laravel-echo 2>/dev/null || echo "⚠️ Some packages may be missing"
+          cp .env.example .env.testing
+          php artisan key:generate --env=testing
+          php artisan migrate --env=testing --force
 
-      - name: "⚙️ Prepare Laravel Application"
+      # Unit Tests
+      - name: PHPUnit Unit
+        run: php artisan test --testsuite=Unit --parallel
+
+      # Feature Tests (includes Laravel Echo / Broadcasting)
+      - name: PHPUnit Feature
+        run: php artisan test --testsuite=Feature --parallel
+
+      # Browser / Integration Tests (Dusk + Vue)
+      - name: Laravel Dusk + Vite Preview
         run: |
-          echo "Preparing application for testing..."
-          
-          # Clear all caches
-          php artisan optimize:clear
-          
-          # Create storage link
-          php artisan storage:link --force || true
-          
-          # Ensure storage permissions
-          chmod -R 775 storage bootstrap/cache
-          
-          # Refresh database with seeders
-          php artisan migrate:fresh --force --seed
-          
-          echo "✅ Application prepared"
+          npm run build
+          php artisan serve --env=testing &
+          sleep 3
+          php artisan dusk --env=testing
 
-      # STEP 10: Unit Tests
-      - name: "🧪 STEP 10: Unit Tests"
-        run: |
-          echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
-          echo "STEP 10: Running Unit Tests"
-          echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
-          
-          # Create test results directory
-          mkdir -p storage/test-results/unit
-          
-          # Run unit tests
-          php artisan test \
-            --testsuite=Unit \
-            --stop-on-failure \
-            --log-junit=storage/test-results/unit/junit.xml \
-            --env=testing
-          
-          UNIT_EXIT=$?
-          
-          if [ $UNIT_EXIT -eq 0 ]; then
-            echo "✅ Unit tests passed"
-          else
-            echo "❌ Unit tests failed"
-            exit 1
-          fi
+      - name: Vue Unit Tests (Vitest)
+        run: npm run test:unit -- --reporter=verbose
 
-      # STEP 11: Feature Tests
-      - name: "🧪 STEP 11: Feature Tests"
-        run: |
-          echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
-          echo "STEP 11: Running Feature Tests"
-          echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
-          
-          mkdir -p storage/test-results/feature
-          
-          # Run feature tests
-          php artisan test \
-            --testsuite=Feature \
-            --stop-on-failure \
-            --log-junit=storage/test-results/feature/junit.xml \
-            --env=testing
-          
-          FEATURE_EXIT=$?
-          
-          if [ $FEATURE_EXIT -eq 0 ]; then
-            echo "✅ Feature tests passed"
-          else
-            echo "❌ Feature tests failed"
-            exit 1
-          fi
-
-      # STEP 12: Echo/Broadcasting Tests
-      - name: "🔊 STEP 12: Broadcasting Tests"
-        run: |
-          echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
-          echo "STEP 12: Broadcasting Tests"
-          echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
-          
-          # Check if broadcasting tests exist
-          if grep -r "EventFake\|broadcast\|ShouldBroadcast" tests/ &> /dev/null; then
-            echo "Running broadcasting tests..."
-            php artisan test --filter=Broadcast --env=testing || echo "⚠️ Some broadcast tests failed"
-          else
-            echo "ℹ️ No specific broadcasting tests found"
-            echo "💡 Create broadcasting tests to verify real-time features"
-          fi
-          
-          # Test broadcasting configuration programmatically
-          php artisan tinker --execute="
-            try {
-                // Test if broadcasting is configured
-                \$driver = config('broadcasting.default');
-                echo '✅ Broadcasting Driver: ' . \$driver . PHP_EOL;
-                
-                // Test queue connection
-                \$queueDriver = config('queue.default');
-                echo '✅ Queue Driver: ' . \$queueDriver . PHP_EOL;
-                
-                // Test Redis connection for broadcasting
-                \$redis = Redis::connection();
-                \$redis->ping();
-                echo '✅ Redis for Broadcasting: Connected' . PHP_EOL;
-                
-                // Test event broadcasting (mock)
-                echo '✅ Broadcasting system configured correctly' . PHP_EOL;
-                
-            } catch (\Exception \$e) {
-                echo '❌ Error: ' . \$e->getMessage() . PHP_EOL;
-                exit(1);
-            }
-          "
-
-      # STEP 13: Vue.js Frontend Build
-      - name: "🎨 STEP 13: Vue.js Frontend Build"
-        run: |
-          echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
-          echo "STEP 13: Building Vue.js Frontend"
-          echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
-          
-          # Check package.json scripts
-          echo "Available build scripts:"
-          npm run | grep -E "build|prod|dev"
-          
-          # Build Vue.js production assets
-          echo ""
-          echo "Building production assets..."
-          NODE_ENV=production npm run build
-          
-          BUILD_EXIT=$?
-          
-          if [ $BUILD_EXIT -eq 0 ]; then
-            echo "✅ Vue.js build successful"
-            
-            # Check build output
-            if [ -d "public/build" ]; then
-              BUILD_SIZE=$(du -sh public/build/ | cut -f1)
-              echo "   Build size: $BUILD_SIZE"
-              
-              # List build files
-              echo "   Build files:"
-              ls -lh public/build/ | head -10
-            else
-              echo "❌ Build directory not found"
-              exit 1
-            fi
-          else
-            echo "❌ Vue.js build failed"
-            exit 1
-          fi
-          
-          # Run Vue.js tests if configured
-          if grep -q "\"test:unit\"" package.json; then
-            echo ""
-            echo "Running Vue.js unit tests..."
-            npm run test:unit || echo "⚠️ Vue unit tests failed"
-          fi
-
-      # Upload test results
-      - name: "📊 Upload Test Results"
+      - name: Upload Coverage
         if: always()
         uses: actions/upload-artifact@v4
         with:
-          name: test-results-self-hosted
-          path: |
-            storage/test-results/
-            storage/logs/
+          name: coverage
+          path: coverage/
+
+  # ─────────────────────────────────────────────
+  # STAGE 5 – ARTIFACT BUILD
+  # ─────────────────────────────────────────────
+  build:
+    name: "15 · Artifact Build"
+    runs-on: self-hosted
+    needs: tests
+    if: github.ref == 'refs/heads/main' || github.ref == 'refs/heads/develop'
+    steps:
+      - uses: actions/checkout@v4
+      - name: Restore caches
+        uses: actions/cache@v4
+        with: { path: vendor, key: "composer-${{ hashFiles('composer.lock') }}" }
+      - uses: actions/cache@v4
+        with: { path: node_modules, key: "npm-${{ hashFiles('package-lock.json') }}" }
+
+      - name: Build Vue assets (Vite)
+        run: npm run build
+
+      - name: Optimize Laravel
+        run: |
+          php artisan config:cache
+          php artisan route:cache
+          php artisan view:cache
+          php artisan event:cache
+
+      - name: Create release tarball
+        run: |
+          tar -czf artifact.tar.gz \
+            --exclude='.git' \
+            --exclude='node_modules' \
+            --exclude='tests' \
+            --exclude='.env*' \
+            .
+
+      - name: Upload artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: release-${{ github.sha }}
+          path: artifact.tar.gz
           retention-days: 7
 
-# ============================================================================
-# JOB 5: DEPLOYMENT
-# ============================================================================
-  deploy:
-    name: "🚀 Deploy Application"
+  # ─────────────────────────────────────────────
+  # STAGE 6 – DEPLOY TO STAGING
+  # ─────────────────────────────────────────────
+  deploy-staging:
+    name: "CD · Deploy → Staging"
     runs-on: self-hosted
-    needs: automated-tests
-    if: |
-      github.ref == 'refs/heads/main' || 
-      github.ref == 'refs/heads/staging' ||
-      github.event.inputs.deploy_environment != ''
-    timeout-minutes: 30
-    
+    needs: build
+    environment: staging
     steps:
-      - name: "📋 Determine Deployment Environment"
-        id: deploy-env
-        run: |
-          if [ "${{ github.event.inputs.deploy_environment }}" != "" ]; then
-            ENVIRONMENT="${{ github.event.inputs.deploy_environment }}"
-          elif [ "${{ github.ref }}" = "refs/heads/main" ]; then
-            ENVIRONMENT="production"
-          elif [ "${{ github.ref }}" = "refs/heads/staging" ]; then
-            ENVIRONMENT="staging"
-          else
-            ENVIRONMENT="development"
-          fi
-          
-          echo "environment=$ENVIRONMENT" >> $GITHUB_OUTPUT
-          echo "Deploying to: $ENVIRONMENT"
+      - name: Download artifact
+        uses: actions/download-artifact@v4
+        with:
+          name: release-${{ github.sha }}
 
-      # STEP 14: Pre-Deployment Backup
-      - name: "💾 STEP 14: Create Backup"
-        if: steps.deploy-env.outputs.environment == 'production'
+      - name: Deploy to Staging
+        env:
+          STAGING_HOST: ${{ secrets.STAGING_HOST }}
+          STAGING_USER: ${{ secrets.STAGING_USER }}
+          STAGING_PATH: ${{ secrets.STAGING_PATH }}
+          SSH_KEY: ${{ secrets.STAGING_SSH_KEY }}
         run: |
-          echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
-          echo "STEP 14: Creating Backup"
-          echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
-          
-          TIMESTAMP=$(date +%Y%m%d_%H%M%S)
-          BACKUP_DIR="${{ env.BACKUP_PATH }}/backup_${TIMESTAMP}"
-          
-          echo "Creating backup at: $BACKUP_DIR"
-          mkdir -p $BACKUP_DIR
-          
-          # Backup database
-          echo "Backing up database..."
-          mysqldump -h${{ env.DB_HOST }} -u${{ env.DB_USERNAME }} \
-            ${{ env.DB_DATABASE }} > $BACKUP_DIR/database.sql
-          
-          # Backup application files
-          echo "Backing up application files..."
-          rsync -av \
-            --exclude='vendor' \
-            --exclude='node_modules' \
-            --exclude='storage/logs' \
-            --exclude='.git' \
-            ${{ env.PROJECT_PATH }}/ $BACKUP_DIR/app/
-          
-          # Backup Redis data
-          echo "Backing up Redis data..."
-          redis-cli -h ${{ env.REDIS_HOST }} SAVE
-          
-          echo "✅ Backup completed: $BACKUP_DIR"
+          echo "$SSH_KEY" > /tmp/deploy_key && chmod 600 /tmp/deploy_key
+          scp -i /tmp/deploy_key artifact.tar.gz $STAGING_USER@$STAGING_HOST:/tmp/
+          ssh -i /tmp/deploy_key $STAGING_USER@$STAGING_HOST bash << 'EOF'
+            set -e
+            DEPLOY_PATH="${STAGING_PATH}"
+            mkdir -p $DEPLOY_PATH/releases/$GITHUB_SHA
+            tar -xzf /tmp/artifact.tar.gz -C $DEPLOY_PATH/releases/$GITHUB_SHA
+            cp $DEPLOY_PATH/shared/.env $DEPLOY_PATH/releases/$GITHUB_SHA/.env
+            ln -sfn $DEPLOY_PATH/releases/$GITHUB_SHA $DEPLOY_PATH/current
+            cd $DEPLOY_PATH/current
+            php artisan migrate --force --no-interaction
+            php artisan queue:restart
+            sudo systemctl reload php8.2-fpm
+          EOF
+          rm -f /tmp/deploy_key
 
-      # STEP 15: Deployment
-      - name: "🚀 STEP 15: Deploy Application"
+  # ─────────────────────────────────────────────
+  # STAGE 7 – SMOKE TEST (STAGING)
+  # ─────────────────────────────────────────────
+  smoke-test:
+    name: "CD · Smoke Test (Staging)"
+    runs-on: self-hosted
+    needs: deploy-staging
+    steps:
+      - name: Health Check
         run: |
-          echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+          curl -sf ${{ secrets.STAGING_URL }}/health || exit 1
+
+      - name: Echo WebSocket Smoke Test
+        run: |
+          node -e "
+            const io = require('socket.io-client');
+            const socket = io('${{ secrets.STAGING_ECHO_URL }}', { timeout: 5000 });
+            socket.on('connect', () => { console.log('Echo OK'); process.exit(0); });
+            socket.on('connect_error', (e) => { console.error('Echo FAIL', e); process.exit(1); });
+          "
+
+      - name: API Smoke Tests
+        run: |
+          STATUS=$(curl -o /dev/null -s -w "%{http_code}" ${{ secrets.STAGING_URL }}/api/ping)
+          [ "$STATUS" = "200" ] || (echo "API returned $STATUS" && exit 1)
+
+  # ─────────────────────────────────────────────
+  # STAGE 8 – MANUAL APPROVAL
+  # ─────────────────────────────────────────────
+  approve-production:
+    name: "16 · Deployment Approval"
+    runs-on: self-hosted
+    needs: smoke-test
+    environment:
+      name: production          # ← requires manual reviewer in GitHub Environments
+    steps:
+      - name: Approved
+        run: echo "Production deployment approved by ${{ github.actor }}"
+
+  # ─────────────────────────────────────────────
+  # STAGE 9 – PRODUCTION DEPLOYMENT
+  # ─────────────────────────────────────────────
+  deploy-production:
+    name: "17 · Production Deployment"
+    runs-on: self-hosted
+    needs: approve-production
+    environment: production
+    steps:
+      - name: Download artifact
+        uses: actions/download-artifact@v4
+        with:
+          name: release-${{ github.sha }}
+
+      - name: Deploy to Production
+        env:
+          PROD_HOST: ${{ secrets.PROD_HOST }}
+          PROD_USER: ${{ secrets.PROD_USER }}
+          PROD_PATH: ${{ secrets.PROD_PATH }}
+          SSH_KEY: ${{ secrets.PROD_SSH_KEY }}
+        run: |
+          echo "$SSH_KEY" > /tmp/deploy_key && chmod 600 /tmp/deploy_key
+          scp -i /tmp/deploy_key artifact.tar.gz $PROD_USER@$PROD_HOST:/tmp/
+          ssh -i /tmp/deploy_key $PROD_USER@$PROD_HOST bash << 'EOF'
+            set -e
+            DEPLOY_PATH="${PROD_PATH}"
+            RELEASE=$DEPLOY_PATH/releases/$GITHUB_SHA
+            mkdir -p $RELEASE
+            tar -xzf /tmp/artifact.tar.gz -C $RELEASE
+            cp $DEPLOY_PATH/shared/.env $RELEASE/.env
+            ln -sfn $RELEASE $DEPLOY_PATH/current
+            cd $DEPLOY_PATH/current
+            php artisan down --secret="${MAINTENANCE_KEY}"
+            php artisan migrate --force --no-interaction
+            php artisan queue:restart
+            sudo systemctl reload php8.2-fpm
+            php artisan up
+            # Keep last 5 releases only
+            ls -dt $DEPLOY_PATH/releases/*/ | tail -n +6 | xargs rm -rf
+          EOF
+          rm -f /tmp/deploy_key
+
+      - name: Production Health Check
+        run: |
+          sleep 5
+          curl -sf ${{ secrets.PROD_URL }}/health || exit 1
+
+      - name: Notify Deployment
+        if: always()
+        run: |
+          curl -X POST ${{ secrets.SLACK_WEBHOOK }} \
+            -H 'Content-type: application/json' \
+            -d '{"text":"🚀 Production deployed: ${{ github.sha }} by ${{ github.actor }} — ${{ job.status }}"}'
