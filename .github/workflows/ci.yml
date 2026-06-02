@@ -154,3 +154,54 @@ jobs:
         with:
           name: test-results
           path: storage/test-results
+
+          
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Deploy to Server via SSH
+        uses: appleboy/ssh-action@master
+        with:
+          host: ${{ secrets.SSH_HOST }}
+          username: ${{ secrets.SSH_USER }}
+          key: ${{ secrets.SSH_KEY }}
+          script_stop: true # Stops execution immediately if any command inside the EOF fails
+          script: |
+            echo "🚀 Starting deployment..."
+            
+            cd /var/www/laravel-app
+            
+            echo "📥 Pulling latest code..."
+            git pull origin main
+            
+            echo "📦 Installing PHP dependencies..."
+            composer install --no-dev --optimize-autoloader --no-interaction
+            
+            echo "📦 Installing frontend dependencies..."
+            npm ci
+            
+            echo "🏗 Building assets..."
+            npm run build
+            
+            echo "🗄 Running migrations..."
+            php artisan migrate --force
+            
+            echo "⚡ Clearing & caching config..."
+            php artisan optimize:clear
+            php artisan config:cache
+            php artisan route:cache
+            php artisan view:cache
+            
+            echo "🔄 Restarting queue..."
+            php artisan queue:restart || true
+            
+            echo "✅ Deployment completed successfully!"
+
+      - name: Smoke Test
+        run: |
+          # Replace 'your-domain.com' with your actual website domain or IP address
+          curl -f 3.87.135.138 || exit 1
