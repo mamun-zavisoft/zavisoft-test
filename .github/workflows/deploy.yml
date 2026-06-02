@@ -194,19 +194,19 @@ env:
             if [ ! -f "phpstan.neon" ]; then
               echo "Creating default PHPStan configuration..."
               cat > phpstan.neon << 'EOF'
-parameters:
-    level: 5
-    paths:
-        - app/
-        - database/
-        - routes/
-    excludePaths:
-        - vendor/
-        - storage/
-        - tests/
-    checkMissingIterableValueType: false
-EOF
-            fi
+              parameters:
+                  level: 5
+                  paths:
+                      - app/
+                      - database/
+                      - routes/
+                  excludePaths:
+                      - vendor/
+                      - storage/
+                      - tests/
+                  checkMissingIterableValueType: false
+      EOF
+      fi
             
             ./vendor/bin/phpstan analyse \
               --configuration=phpstan.neon \
@@ -220,7 +220,7 @@ EOF
             echo "📦 Installing Larastan..."
             composer require --dev nunomaduro/larastan:^2.0 --no-interaction
             echo "ℹ️ Larastan installed. Run analysis on next commit."
-          fi
+fi
 
       # STEP 4: Composer Security Audit
       - name: "🔒 Security Vulnerability Scan"
