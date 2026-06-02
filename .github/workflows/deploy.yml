@@ -1,57 +1,171 @@
-name: Laravel Deploy
+name: Laravel Vue CI/CD
 
 on:
   push:
     branches:
+      - develop
+      - staging
       - main
 
+  pull_request:
+    branches:
+      - develop
+      - staging
+      - main
+
+
+############################
+# 🔥 TEST JOB
+############################
 jobs:
-  deploy:
+  test:
     runs-on: ubuntu-latest
 
-    steps:
-      - name: Checkout code
-        uses: actions/checkout@v4
+    services:
+      mysql:
+        image: mysql:8.0
 
-      - name: Deploy to Server via SSH
+        env:
+          MYSQL_DATABASE: testing
+          MYSQL_ROOT_PASSWORD: root
+
+        ports:
+          - 3306:3306
+
+        options: >-
+          --health-cmd="mysqladmin ping -proot"
+          --health-interval=10s
+          --health-timeout=5s
+          --health-retries=10
+
+    env:
+      APP_ENV: testing
+      DB_CONNECTION: mysql
+      DB_HOST: 127.0.0.1
+      DB_PORT: 3306
+      DB_DATABASE: testing
+      DB_USERNAME: root
+      DB_PASSWORD: root
+
+    steps:
+      - uses: actions/checkout@v4
+
+      # PHP
+      - name: Setup PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: "8.4"
+          extensions: mbstring, pdo_mysql
+          coverage: none
+
+      # Node
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+
+      # Composer Cache
+      - name: Get Composer Cache Directory
+        id: composer-cache
+        run: echo "dir=$(composer config cache-files-dir)" >> $GITHUB_OUTPUT
+
+      - uses: actions/cache@v4
+        with:
+          path: ${{ steps.composer-cache.outputs.dir }}
+          key: composer-${{ runner.os }}-${{ hashFiles('**/composer.lock') }}
+
+      # Install PHP
+      - name: Install PHP Dependencies
+        run: |
+          composer install --prefer-dist --no-progress --no-interaction
+
+      # Install Node
+      - name: Install Node Packages
+        run: npm ci
+
+      # Laravel Setup
+      - name: Prepare Laravel
+        run: |
+          cp .env.example .env
+          php artisan key:generate
+
+      # Lint
+      - name: PHP Lint
+        run: |
+          find app routes config database tests \
+          -type f -name "*.php" -exec php -l {} \;
+
+      # Tests
+      - name: Run Tests
+        run: |
+          mkdir -p storage/test-results
+          vendor/bin/phpunit --log-junit storage/test-results/junit.xml
+
+      # Build frontend
+      - name: Build Assets
+        run: npm run build
+
+      # Upload results
+      - name: Upload Test Results
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: test-results
+          path: storage/test-results
+
+
+############################
+# 🚀 DEPLOY JOB (ONLY AFTER TEST)
+############################
+  deploy:
+    needs: test   # ⭐ IMPORTANT: THIS FIXES YOUR PROBLEM
+    runs-on: ubuntu-latest
+
+    if: github.ref == 'refs/heads/main'
+
+    steps:
+      - name: Deploy to Server
         uses: appleboy/ssh-action@master
         with:
           host: ${{ secrets.SSH_HOST }}
           username: ${{ secrets.SSH_USER }}
           key: ${{ secrets.SSH_KEY }}
-          script_stop: true # Stops execution immediately if any command inside the EOF fails
+          script_stop: true
+
           script: |
+            set -e
+
             echo "🚀 Starting deployment..."
-            
+
             cd /var/www/laravel-app
-            
+
             echo "📥 Pulling latest code..."
             git pull origin main
-            
+
             echo "📦 Installing PHP dependencies..."
             composer install --no-dev --optimize-autoloader --no-interaction
-            
+
             echo "📦 Installing frontend dependencies..."
             npm ci
-            
+
             echo "🏗 Building assets..."
             npm run build
-            
+
             echo "🗄 Running migrations..."
             php artisan migrate --force
-            
-            echo "⚡ Clearing & caching config..."
+
+            echo "⚡ Clearing cache..."
             php artisan optimize:clear
             php artisan config:cache
             php artisan route:cache
             php artisan view:cache
-            
+
             echo "🔄 Restarting queue..."
             php artisan queue:restart || true
-            
+
             echo "✅ Deployment completed successfully!"
 
       - name: Smoke Test
         run: |
-          # Replace 'your-domain.com' with your actual website domain or IP address
-          curl -f https://your-domain.com || exit 1
+          curl -f http://3.87.135.138 || exit 1
