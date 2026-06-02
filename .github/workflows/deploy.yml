@@ -119,26 +119,27 @@ jobs:
 # 🚀 DEPLOY JOB (ONLY AFTER TEST)
 ############################
   deploy:
-    needs: test   # ⭐ IMPORTANT: THIS FIXES YOUR PROBLEM
+    needs: test   
     runs-on: ubuntu-latest
 
     if: github.ref == 'refs/heads/main'
 
     steps:
-      - name: Deploy to Server
+      - name: Deploy to Server via SSH
         uses: appleboy/ssh-action@master
         with:
           host: ${{ secrets.SSH_HOST }}
           username: ${{ secrets.SSH_USER }}
           key: ${{ secrets.SSH_KEY }}
-          script_stop: true
+          command_timeout: 10m
+          #script_stop: true
 
           script: |
             set -e
 
             echo "🚀 Starting deployment..."
 
-            cd /var/www/laravel-app
+            cd /var/www/laravel-app || exit 1
 
             echo "📥 Pulling latest code..."
             git pull origin main
