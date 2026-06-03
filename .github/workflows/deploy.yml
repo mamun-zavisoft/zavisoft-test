@@ -30,7 +30,7 @@ jobs:
       - uses: actions/cache@v4
         with:
           path: vendor
-          key: composer-${{ runner.os }}-${{ hashFiles('**/composer.lock') }}
+          key: composer-${{ runner.os }}-${{ hashFiles('composer.lock') }}
           restore-keys: |
             composer-${{ runner.os }}-
 
@@ -38,7 +38,7 @@ jobs:
         uses: actions/cache@v4
         with:
           path: node_modules
-          key: npm-${{ runner.os }}-${{ hashFiles('**/package-lock.json') }}
+          key: npm-${{ runner.os }}-${{ hashFiles('package-lock.json') }}
           restore-keys: |
             npm-${{ runner.os }}-
 
