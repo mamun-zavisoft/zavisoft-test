@@ -30,7 +30,7 @@ jobs:
       - uses: actions/cache@v4
         with:
           path: vendor
-          key: composer-${{ hashFiles('**/composer.lock') }}
+          key: composer-${{ hashFiles(composer.lock') }}
 
       - name: Cache Node Modules
         uses: actions/cache@v4
